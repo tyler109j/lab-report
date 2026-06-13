@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab — Multi-Strategy FX Research</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; background: #0b1220; color: #e6e9ef; }
+  header { background: linear-gradient(180deg, #131a2a 0%, #0b1220 100%); border-bottom: 1px solid #1e293b; padding: 28px 32px; }
+  h1 { margin: 0 0 4px; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  h1 span { color: #6ee7b7; }
+  .sub { color: #94a3b8; font-size: 13px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 24px 32px 80px; }
+  .hero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .stat { background: #131a2a; border: 1px solid #1e293b; border-radius: 8px; padding: 18px 20px; }
+  .stat .label { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .stat .value { font-size: 28px; font-weight: 600; color: #e6e9ef; font-feature-settings: "tnum"; }
+  .stat .value.green { color: #6ee7b7; }
+  .stat .value.amber { color: #fbbf24; }
+  h2 { font-size: 16px; font-weight: 600; color: #c0c6d0; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  h3 { font-size: 13px; font-weight: 500; color: #94a3b8; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .card { background: #131a2a; border: 1px solid #1e293b; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { padding: 6px 9px; text-align: left; border-bottom: 1px solid #1e293b; font-feature-settings: "tnum"; }
+  th { color: #94a3b8; font-weight: 500; text-transform: uppercase; font-size: 10.5px; letter-spacing: 0.06em; }
+  td { color: #c0c6d0; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11.5px; }
+  td.pos { color: #6ee7b7; }
+  td.neg { color: #fca5a5; }
+  td strong { color: #e6e9ef; font-weight: 600; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11.5px; color: #c0c6d0; background: transparent; }
+  .footer { color: #475569; font-size: 11px; margin-top: 60px; padding-top: 16px; border-top: 1px solid #1e293b; }
+  .matrix td { text-align: center; }
+  .matrix td:first-child { text-align: left; }
+  .matrix .n { color: #475569; font-size: 10.5px; }
+  details { margin-bottom: 12px; }
+  details summary { cursor: pointer; color: #94a3b8; padding: 8px 0; user-select: none; }
+  details summary:hover { color: #c0c6d0; }
+  details[open] summary { color: #6ee7b7; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>◐</span> Lab — Multi-Strategy FX Research</h1>
+  <div class="sub">9 OANDA majors · 4 strategy families · 15m primary + 1h trend filter · 50x leverage, 1% risk · backtest only · last run 2026-06-13T22:11:04Z · rendered 2026-06-13T22:12:00Z</div>
+</header>
+<main>
+
+<div class="hero">
+  <div class="stat">
+    <div class="label">Total runs</div>
+    <div class="value">23</div>
+  </div>
+  <div class="stat">
+    <div class="label">Passes</div>
+    <div class="value green">1</div>
+  </div>
+  <div class="stat">
+    <div class="label">Pareto frontier</div>
+    <div class="value amber">20</div>
+  </div>
+  <div class="stat">
+    <div class="label">Strategies / pairs</div>
+    <div class="value">4 / 9</div>
+  </div>
+</div>
+
+<h2>Strategy × Pair coverage (M15)</h2>
+<div class="card">
+<table class="matrix">
+  <thead>
+    <tr>
+      <th></th>
+<th>AUD_USD</th><th>EUR_GBP</th><th>EUR_JPY</th><th>EUR_USD</th><th>GBP_USD</th><th>NZD_USD</th><th>USD_CAD</th><th>USD_CHF</th><th>USD_JPY</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td><strong>breakout</strong></td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td class=""><span class="n">1</span> · +0.00</td><td class=""><span class="n">2</span> · +0.00</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td></tr><tr><td><strong>confluence</strong></td><td style="color:#475569">—</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td class=""><span class="n">2</span> · +0.00</td><td style="color:#475569">—</td><td class="pos"><span class="n">1</span> · +1.16</td><td class="pos"><span class="n">2</span> · +0.98</td><td style="color:#475569">—</td></tr><tr><td><strong>divergence_at_sr</strong></td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td class="pos"><span class="n">1</span> · +2.57</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td class=""><span class="n">2</span> · +0.00</td><td style="color:#475569">—</td></tr><tr><td><strong>mean_reversion</strong></td><td class="pos"><span class="n">2</span> · +1.14</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td style="color:#475569">—</td><td style="color:#475569">—</td><td class=""><span class="n">1</span> · +0.00</td><td class=""><span class="n">1</span> · +0.23</td><td style="color:#475569">—</td><td style="color:#475569">—</td></tr>
+  </tbody>
+</table>
+<div class="sub" style="margin-top:8px">Each cell shows the number of runs (small grey) and the best Sharpe (green/grey/red). Star in tables = on Pareto frontier.</div>
+</div>
+
+<h2>Pareto frontier (20 runs)</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>Strategy</th><th>Pair</th><th>TF</th><th>Workflow</th>
+      <th>n</th><th>Sharpe</th><th>Return</th><th>MaxDD</th><th>WR</th><th>PF</th><th>Params (truncated)</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>229</td>
+          <td class="pos">-1.23</td>
+          <td class="neg">-20.63%</td>
+          <td class="neg">26.79%</td>
+          <td>36%</td>
+          <td>0.84</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=40 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>342</td>
+          <td class="pos">-1.63</td>
+          <td class="neg">-36.76%</td>
+          <td class="neg">42.74%</td>
+          <td>27%</td>
+          <td>0.81</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=15 · adx_period=14 · atr_period=14 · don_period=80 · max_hold_bars=32</code></td>
+        </tr>
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>EUR_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>338</td>
+          <td class="pos">-2.32</td>
+          <td class="neg">-55.40%</td>
+          <td class="neg">57.59%</td>
+          <td>22%</td>
+          <td>0.74</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>276</td>
+          <td class="pos">-0.77</td>
+          <td class="neg">-14.45%</td>
+          <td class="neg">33.29%</td>
+          <td>37%</td>
+          <td>0.90</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=40 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>300</td>
+          <td class="pos">-1.67</td>
+          <td class="neg">-33.48%</td>
+          <td class="neg">41.09%</td>
+          <td>33%</td>
+          <td>0.82</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td><strong>breakout</strong></td>
+          <td>USD_JPY</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>283</td>
+          <td class="pos">-1.83</td>
+          <td class="neg">-36.09%</td>
+          <td class="neg">42.03%</td>
+          <td>31%</td>
+          <td>0.79</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td><strong>confluence</strong></td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>115</td>
+          <td class="pos">-1.68</td>
+          <td class="neg">-17.00%</td>
+          <td class="neg">23.48%</td>
+          <td>40%</td>
+          <td>0.73</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=10 · max_hold_bars=48 · require_trend=False · rsi_overbought=65 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td><strong>confluence</strong></td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>5</td>
+          <td class="pos">-1.84</td>
+          <td class="neg">-3.26%</td>
+          <td class="neg">3.26%</td>
+          <td>20%</td>
+          <td>0.22</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=20 · max_hold_bars=32 · require_trend=False · rsi_overbought=65 · rsi_oversold=40</code></td>
+        </tr>
+        <tr>
+          <td><strong>confluence</strong></td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>29</td>
+          <td class="pos">+1.16</td>
+          <td class="pos">+8.29%</td>
+          <td class="neg">4.88%</td>
+          <td>59%</td>
+          <td>1.54</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=30 · max_hold_bars=64 · require_trend=True · rsi_overbought=60 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td><strong>confluence</strong></td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>10</td>
+          <td class="pos">+0.98</td>
+          <td class="pos">+2.92%</td>
+          <td class="neg">3.26%</td>
+          <td>70%</td>
+          <td>1.85</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=20 · max_hold_bars=96 · require_trend=False · rsi_overbought=70 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td><strong>divergence_at_sr</strong></td>
+          <td>EUR_GBP</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td>0.000</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=8 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=5</code></td>
+        </tr>
+        <tr>
+          <td><strong>divergence_at_sr</strong></td>
+          <td>EUR_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>15</td>
+          <td class="pos">+2.57</td>
+          <td class="pos">+23.82%</td>
+          <td class="neg">3.36%</td>
+          <td>60%</td>
+          <td>3.98</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=21 · max_hold_bars=96 · pivot_div_lookback=3</code></td>
+        </tr>
+        <tr>
+          <td><strong>divergence_at_sr</strong></td>
+          <td>NZD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>54</td>
+          <td class="pos">-0.17</td>
+          <td class="neg">-1.79%</td>
+          <td class="neg">9.30%</td>
+          <td>37%</td>
+          <td>0.95</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=26 · max_hold_bars=96 · pivot_div_lookback=10</code></td>
+        </tr>
+        <tr>
+          <td><strong>divergence_at_sr</strong></td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td>0.000</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=3</code></td>
+        </tr>
+        <tr>
+          <td><strong>divergence_at_sr</strong></td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td>0.000</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=8 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=5</code></td>
+        </tr>
+        <tr>
+          <td><strong>mean_reversion</strong></td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>49</td>
+          <td class="pos">-0.13</td>
+          <td class="neg">-0.93%</td>
+          <td class="neg">6.64%</td>
+          <td>57%</td>
+          <td>0.96</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.0 · max_hold_bars=16 · require_trend=False · rsi_overbought=80</code></td>
+        </tr>
+        <tr>
+          <td><strong>mean_reversion</strong></td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>181</td>
+          <td class="pos">+1.14</td>
+          <td class="pos">+27.12%</td>
+          <td class="neg">11.74%</td>
+          <td>44%</td>
+          <td>1.19</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=20 · bb_std=1.5 · max_hold_bars=64 · require_trend=False · rsi_overbought=75</code></td>
+        </tr>
+        <tr>
+          <td><strong>mean_reversion</strong></td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>55</td>
+          <td class="pos">-1.34</td>
+          <td class="neg">-9.96%</td>
+          <td class="neg">14.57%</td>
+          <td>45%</td>
+          <td>0.70</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.0 · max_hold_bars=16 · require_trend=False · rsi_overbought=80</code></td>
+        </tr>
+        <tr>
+          <td><strong>mean_reversion</strong></td>
+          <td>NZD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>379</td>
+          <td class="pos">-1.81</td>
+          <td class="neg">-46.06%</td>
+          <td class="neg">51.21%</td>
+          <td>36%</td>
+          <td>0.83</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.5 · max_hold_bars=64 · require_trend=False · rsi_overbought=65</code></td>
+        </tr>
+        <tr>
+          <td><strong>mean_reversion</strong></td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>9</td>
+          <td class="pos">+0.23</td>
+          <td class="pos">+0.57%</td>
+          <td class="neg">2.03%</td>
+          <td>67%</td>
+          <td>1.17</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=1.5 · max_hold_bars=24 · require_trend=True · rsi_overbought=70</code></td>
+        </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Recent runs (latest 25)</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>✓/✗</th><th>Strategy</th><th>Pair</th><th>TF</th><th>Workflow</th>
+      <th>n</th><th>Sharpe</th><th>Return</th><th>MaxDD</th><th>WR</th><th>Params (truncated)</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>342</td>
+          <td class="pos">-1.63</td>
+          <td class="neg">-36.76%</td>
+          <td class="neg">42.74%</td>
+          <td>27%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=15 · adx_period=14 · atr_period=14 · don_period=80 · max_hold_bars=32</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong></td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>618</td>
+          <td class="pos">-2.79</td>
+          <td class="neg">-64.14%</td>
+          <td class="neg">67.78%</td>
+          <td>26%</td>
+          <td><code style="font-size:10px">adx_filter=False · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=96</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong> ★</td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>29</td>
+          <td class="pos">+1.16</td>
+          <td class="pos">+8.29%</td>
+          <td class="neg">4.88%</td>
+          <td>59%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=30 · max_hold_bars=64 · require_trend=True · rsi_overbought=60 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>USD_JPY</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>283</td>
+          <td class="pos">-1.83</td>
+          <td class="neg">-36.09%</td>
+          <td class="neg">42.03%</td>
+          <td>31%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>mean_reversion</strong> ★</td>
+          <td>NZD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>379</td>
+          <td class="pos">-1.81</td>
+          <td class="neg">-46.06%</td>
+          <td class="neg">51.21%</td>
+          <td>36%</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.5 · max_hold_bars=64 · require_trend=False · rsi_overbought=65</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>divergence_at_sr</strong> ★</td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=8 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=5</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>mean_reversion</strong> ★</td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>55</td>
+          <td class="pos">-1.34</td>
+          <td class="neg">-9.96%</td>
+          <td class="neg">14.57%</td>
+          <td>45%</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.0 · max_hold_bars=16 · require_trend=False · rsi_overbought=80</code></td>
+        </tr>
+        <tr>
+          <td>✓</td>
+          <td><strong>mean_reversion</strong> ★</td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>181</td>
+          <td class="pos">+1.14</td>
+          <td class="pos">+27.12%</td>
+          <td class="neg">11.74%</td>
+          <td>44%</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=20 · bb_std=1.5 · max_hold_bars=64 · require_trend=False · rsi_overbought=75</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>mean_reversion</strong> ★</td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>9</td>
+          <td class="pos">+0.23</td>
+          <td class="pos">+0.57%</td>
+          <td class="neg">2.03%</td>
+          <td>67%</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=1.5 · max_hold_bars=24 · require_trend=True · rsi_overbought=70</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>mean_reversion</strong> ★</td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>49</td>
+          <td class="pos">-0.13</td>
+          <td class="neg">-0.93%</td>
+          <td class="neg">6.64%</td>
+          <td>57%</td>
+          <td><code style="font-size:10px">atr_period=14 · bb_period=15 · bb_std=2.0 · max_hold_bars=16 · require_trend=False · rsi_overbought=80</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>EUR_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>338</td>
+          <td class="pos">-2.32</td>
+          <td class="neg">-55.40%</td>
+          <td class="neg">57.59%</td>
+          <td>22%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong></td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>140</td>
+          <td class="pos">-1.30</td>
+          <td class="neg">-15.56%</td>
+          <td class="neg">19.13%</td>
+          <td>45%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=10 · max_hold_bars=48 · require_trend=False · rsi_overbought=65 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>divergence_at_sr</strong> ★</td>
+          <td>NZD_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>54</td>
+          <td class="pos">-0.17</td>
+          <td class="neg">-1.79%</td>
+          <td class="neg">9.30%</td>
+          <td>37%</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=26 · max_hold_bars=96 · pivot_div_lookback=10</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>AUD_USD</td>
+          <td>M15</td>
+          <td>robust</td>
+          <td>229</td>
+          <td class="pos">-1.23</td>
+          <td class="neg">-20.63%</td>
+          <td class="neg">26.79%</td>
+          <td>36%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=40 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>divergence_at_sr</strong> ★</td>
+          <td>EUR_GBP</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=8 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=5</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong></td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>30</td>
+          <td class="pos">-0.67</td>
+          <td class="neg">-4.75%</td>
+          <td class="neg">5.54%</td>
+          <td>33%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=30 · max_hold_bars=48 · require_trend=False · rsi_overbought=70 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>divergence_at_sr</strong> ★</td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>0</td>
+          <td class="pos">+0.00</td>
+          <td class="neg">0.00%</td>
+          <td class="neg">0.00%</td>
+          <td>0%</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=21 · max_hold_bars=128 · pivot_div_lookback=3</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong> ★</td>
+          <td>USD_CHF</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>10</td>
+          <td class="pos">+0.98</td>
+          <td class="pos">+2.92%</td>
+          <td class="neg">3.26%</td>
+          <td>70%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=20 · max_hold_bars=96 · require_trend=False · rsi_overbought=70 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>USD_CAD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>300</td>
+          <td class="pos">-1.67</td>
+          <td class="neg">-33.48%</td>
+          <td class="neg">41.09%</td>
+          <td>33%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=20 · max_hold_bars=64</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong> ★</td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>5</td>
+          <td class="pos">-1.84</td>
+          <td class="neg">-3.26%</td>
+          <td class="neg">3.26%</td>
+          <td>20%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=20 · max_hold_bars=32 · require_trend=False · rsi_overbought=65 · rsi_oversold=40</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>divergence_at_sr</strong> ★</td>
+          <td>EUR_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>15</td>
+          <td class="pos">+2.57</td>
+          <td class="pos">+23.82%</td>
+          <td class="neg">3.36%</td>
+          <td>60%</td>
+          <td><code style="font-size:10px">atr_period=14 · macd_fast=12 · macd_signal=9 · macd_slow=21 · max_hold_bars=96 · pivot_div_lookback=3</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>confluence</strong> ★</td>
+          <td>EUR_JPY</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>115</td>
+          <td class="pos">-1.68</td>
+          <td class="neg">-17.00%</td>
+          <td class="neg">23.48%</td>
+          <td>40%</td>
+          <td><code style="font-size:10px">atr_period=14 · fast_ma=10 · max_hold_bars=48 · require_trend=False · rsi_overbought=65 · rsi_oversold=35</code></td>
+        </tr>
+        <tr>
+          <td>✗</td>
+          <td><strong>breakout</strong> ★</td>
+          <td>GBP_USD</td>
+          <td>M15</td>
+          <td>new</td>
+          <td>276</td>
+          <td class="pos">-0.77</td>
+          <td class="neg">-14.45%</td>
+          <td class="neg">33.29%</td>
+          <td>37%</td>
+          <td><code style="font-size:10px">adx_filter=True · adx_min=25 · adx_period=14 · atr_period=14 · don_period=40 · max_hold_bars=64</code></td>
+        </tr>
+  </tbody>
+</table>
+</div>
+
+<details>
+  <summary>What this is</summary>
+  <div class="card" style="margin-top:12px">
+    <p><strong>Lab</strong> is the consolidated research project that replaced the three earlier lanes
+    (<code>quant_lab_fx</code>, <code>oanda-autoresearch</code>, <code>div_sweep</code>) on 2026-06-13. The earlier
+    projects hit the same wall: not enough trades on D/4h timeframes.</p>
+    <p><strong>This project:</strong> 4 strategy families (divergence-at-S/R, mean reversion, breakout, confluence)
+    on 9 OANDA majors at 15m primary + 1h trend filter. 15-min cron-driven research cycle.</p>
+    <p><strong>Pass criteria:</strong> n≥30, Sharpe&gt;0.5, WR&gt;25%, max-DD≤30%.</p>
+    <p><strong>Pareto-kept</strong> means: no other run for the same (strategy, pair, tf) has higher return at lower or equal DD.</p>
+    <p><strong>Source code:</strong> github.com/tyler109j/lab (private). <strong>Public report:</strong> this page.</p>
+  </div>
+</details>
+
+<div class="footer">
+  Generated by lab.dashboard · Lab project · consolidated 2026-06-13 · supersedes quant-lab-fx-report, oanda-autoresearch-report, divergence-sweep-report
+</div>
+
+</main>
+</body>
+</html>
