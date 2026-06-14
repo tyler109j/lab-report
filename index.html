@@ -256,7 +256,7 @@ footer {
       <h1><span class="accent">◐</span> Lab <span style="color:var(--muted);font-weight:400">— FX Research Report</span></h1>
       <div class="subtitle">9 OANDA majors &middot; 4 strategy families &middot; 15m primary + 1h trend filter &middot; 50x leverage &middot; backtest only</div>
     </div>
-    <div class="timestamp">2026-06-14 20:16:02 UTC</div>
+    <div class="timestamp">2026-06-14 20:25:44 UTC</div>
   </header>
 
   
@@ -720,6 +720,41 @@ footer {
     <span><span class="dot" style="background:#bc8cff"></span>confluence <span class="muted">(4)</span></span><span><span class="dot" style="background:#58a6ff"></span>divergence_at_sr <span class="muted">(3)</span></span><span><span class="dot" style="background:#3fb950"></span>mean_reversion <span class="muted">(3)</span></span>
     <span style="margin-left:auto;font-family:ui-monospace,monospace">dashed = 0% baseline</span>
   </div>
+</div>
+  
+<div class="panel">
+  <h2 style="margin-top:0"><span class="icon">↗</span> Forward-tested (OOS) — in-sample Sharpe ≥ 3.0, validated on last 20% of data</h2>
+  <p class="muted" style="font-size:12px;margin:-6px 0 10px">
+    Out-of-sample test re-runs each high-Sharpe strategy on the last 20% of cached price data (the period the in-sample backtest never saw).
+    A run "passes" forward test if OOS Sharpe ≥ 1.0, OOS n ≥ 5, and OOS DD ≤ 30%.
+    <strong>1 of 1 forward-tested runs passed.</strong>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Run</th><th>Strategy</th><th>Pair</th><th>TF</th>
+        <th class="num">In-Sample Sharpe</th><th class="num">OOS Sharpe</th>
+        <th class="num">Decay (OOS/In)</th>
+        <th class="num">OOS n</th><th class="num">OOS Return</th>
+        <th class="num">OOS DD</th><th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr>
+  <td class="num muted">329</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">+3.47</td>
+  <td class="num pos">+3.30</td>
+  <td class="num muted">+0.95</td>
+  <td class="num">29</td>
+  <td class="num pos">+14.05%</td>
+  <td class="num neg">2.13%</td>
+  <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
+    </tbody>
+  </table>
 </div>
   
 <div class="panel">
