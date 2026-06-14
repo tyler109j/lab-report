@@ -256,21 +256,21 @@ footer {
       <h1><span class="accent">◐</span> Lab <span style="color:var(--muted);font-weight:400">— FX Research Report</span></h1>
       <div class="subtitle">9 OANDA majors &middot; 4 strategy families &middot; 15m primary + 1h trend filter &middot; 50x leverage &middot; backtest only</div>
     </div>
-    <div class="timestamp">2026-06-14 01:37:29 UTC</div>
+    <div class="timestamp">2026-06-14 01:45:59 UTC</div>
   </header>
 
   
 <div class="grid">
   <div class="card">
-    <div class="stat-value">92</div>
+    <div class="stat-value">95</div>
     <div class="stat-label">Total runs</div>
   </div>
   <div class="card">
-    <div class="stat-value green">6</div>
+    <div class="stat-value green">7</div>
     <div class="stat-label">Passes (n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%)</div>
   </div>
   <div class="card">
-    <div class="stat-value orange">46</div>
+    <div class="stat-value orange">48</div>
     <div class="stat-label">Pareto-kept</div>
   </div>
   <div class="card">
@@ -421,6 +421,9 @@ footer {
 <circle cx="663.4" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
 <circle cx="542.4" cy="215.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.94% dd=30.41%</title></circle>
 <circle cx="664.4" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.15% dd=1.11%</title></circle>
+<circle cx="653.4" cy="299.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.56% dd=4.26%</title></circle>
+<circle cx="663.4" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="698.8" cy="288.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.55% dd=7.81%</title></circle>
 <polyline fill="none" stroke="#3fb950" stroke-width="2" points="663.4,313.4 686.9,313.4 723.4,306.4 815.6,302.6 836.6,275.7"/>
 <circle cx="663.4" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+0.00% dd=0.00%</title></circle>
 <circle cx="686.9" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+3.67% dd=0.00%</title></circle>
@@ -430,9 +433,9 @@ footer {
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#475569"></span>All runs (92)</span>
+    <span><span class="dot" style="background:#475569"></span>All runs (95)</span>
     <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (5)</span>
-    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-14T01:30:59Z</span>
+    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-14T01:45:59Z</span>
   </div>
 </div>
   
@@ -534,6 +537,20 @@ footer {
 </tr>
 <tr>
   <td class="num muted">7</td>
+  <td><strong>divergence_at_sr</strong></td>
+  <td>EUR_GBP</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">54</td>
+  <td class="num">1.4</td>
+  <td class="num pos">+0.51</td>
+  <td class="num pos">+5.55%</td>
+  <td class="num neg">7.81%</td>
+  <td class="num">46%</td>
+  <td><span class="badge b-new">new</span> <span class="badge b-pareto">★ pareto</span></td>
+  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">21</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">5</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">5</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.001</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
+</tr>
+<tr>
+  <td class="num muted">8</td>
   <td><strong>confluence</strong></td>
   <td>USD_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -547,7 +564,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">60</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">30</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">slow_ma</span>=<span class="v">50</span> &middot; <span class="k">swing_n</span>=<span class="v">5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">8</td>
+  <td class="num muted">9</td>
   <td><strong>confluence</strong></td>
   <td>USD_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -561,7 +578,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">60</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">21</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">100</span> &middot; <span class="k">swing_n</span>=<span class="v">7</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.5</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">9</td>
+  <td class="num muted">10</td>
   <td><strong>mean_reversion</strong></td>
   <td>AUD_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -573,20 +590,6 @@ footer {
   <td class="num">57%</td>
   <td><span class="badge b-new">new</span> <span class="badge b-pareto">★ pareto</span></td>
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">bb_period</span>=<span class="v">15</span> &middot; <span class="k">bb_std</span>=<span class="v">2.0</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">16</span> &middot; <span class="k">require_trend</span>=<span class="v">False</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">80</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">20</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
-</tr>
-<tr>
-  <td class="num muted">10</td>
-  <td><strong>divergence_at_sr</strong></td>
-  <td>NZD_USD</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td class="num">54</td>
-  <td class="num">1.4</td>
-  <td class="num neg">-0.17</td>
-  <td class="num neg">-1.79%</td>
-  <td class="num neg">9.30%</td>
-  <td class="num">37%</td>
-  <td><span class="badge b-new">new</span> </td>
-  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">96</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">10</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
     </tbody>
   </table>
