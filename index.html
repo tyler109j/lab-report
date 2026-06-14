@@ -256,21 +256,21 @@ footer {
       <h1><span class="accent">◐</span> Lab <span style="color:var(--muted);font-weight:400">— FX Research Report</span></h1>
       <div class="subtitle">9 OANDA majors &middot; 4 strategy families &middot; 15m primary + 1h trend filter &middot; 50x leverage &middot; backtest only</div>
     </div>
-    <div class="timestamp">2026-06-14 21:33:12 UTC</div>
+    <div class="timestamp">2026-06-14 21:47:19 UTC</div>
   </header>
 
   
 <div class="grid">
   <div class="card">
-    <div class="stat-value">362</div>
+    <div class="stat-value">365</div>
     <div class="stat-label">Total runs</div>
   </div>
   <div class="card">
-    <div class="stat-value green">34</div>
+    <div class="stat-value green">35</div>
     <div class="stat-label">Passes (n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%)</div>
   </div>
   <div class="card">
-    <div class="stat-value orange">100</div>
+    <div class="stat-value orange">102</div>
     <div class="stat-label">Pareto-kept</div>
   </div>
   <div class="card">
@@ -691,6 +691,9 @@ footer {
 <circle cx="577.5" cy="281.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.32% dd=9.93%</title></circle>
 <circle cx="368.8" cy="154.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.20% dd=49.33%</title></circle>
 <circle cx="610.7" cy="306.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.62% dd=2.22%</title></circle>
+<circle cx="317.3" cy="120.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.06% dd=60.15%</title></circle>
+<circle cx="636.6" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.85% dd=1.11%</title></circle>
+<circle cx="674.4" cy="297.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.35% dd=4.88%</title></circle>
 <polyline fill="none" stroke="#3fb950" stroke-width="2" points="614.2,313.4 635.6,313.4 639.0,313.4 737.0,309.6 836.6,305.6"/>
 <circle cx="614.2" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+0.00% dd=0.00%</title></circle>
 <circle cx="635.6" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+3.67% dd=0.00%</title></circle>
@@ -700,9 +703,9 @@ footer {
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#475569"></span>All runs (362)</span>
+    <span><span class="dot" style="background:#475569"></span>All runs (365)</span>
     <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (5)</span>
-    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-14T21:33:12Z</span>
+    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-14T21:47:19Z</span>
   </div>
 </div>
   
@@ -756,11 +759,11 @@ footer {
 </div>
   
 <div class="panel">
-  <h2 style="margin-top:0"><span class="icon">↗</span> Forward-tested (OOS) — in-sample Sharpe ≥ 3.0, validated on last 20% of data</h2>
+  <h2 style="margin-top:0"><span class="icon">↗</span> Forward-tested (OOS) — in-sample Sharpe ≥ 2.0, validated on last 20% of data</h2>
   <p class="muted" style="font-size:12px;margin:-6px 0 10px">
     Out-of-sample test re-runs each high-Sharpe strategy on the last 20% of cached price data (the period the in-sample backtest never saw).
     A run "passes" forward test if OOS Sharpe ≥ 1.0, OOS n ≥ 5, and OOS DD ≤ 30%.
-    <strong>1 of 1 forward-tested runs passed.</strong>
+    <strong>3 of 3 forward-tested runs passed.</strong>
   </p>
   <table>
     <thead>
@@ -784,6 +787,32 @@ footer {
   <td class="num">29</td>
   <td class="num pos">+14.05%</td>
   <td class="num neg">2.13%</td>
+  <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
+<tr>
+  <td class="num muted">190</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">+2.53</td>
+  <td class="num pos">+2.36</td>
+  <td class="num muted">+0.93</td>
+  <td class="num">34</td>
+  <td class="num pos">+14.52%</td>
+  <td class="num neg">2.23%</td>
+  <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
+<tr>
+  <td class="num muted">284</td>
+  <td><strong>divergence_at_sr</strong></td>
+  <td>USD_CAD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">+2.41</td>
+  <td class="num pos">+1.55</td>
+  <td class="num muted">+0.64</td>
+  <td class="num">50</td>
+  <td class="num pos">+17.38%</td>
+  <td class="num neg">8.58%</td>
   <td><span class="badge b-pass">✓ pass</span></td>
 </tr>
     </tbody>
