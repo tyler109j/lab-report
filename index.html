@@ -238,6 +238,40 @@ td.muted { color: var(--muted); }
 .tf-m15 { background: rgba(88,166,255,0.18);  color: var(--accent); border: 1px solid rgba(88,166,255,0.35); }
 .tf-h1  { background: rgba(188,140,255,0.18); color: var(--purple); border: 1px solid rgba(188,140,255,0.35); }
 
+/* Coverage matrix — heatmap of strategy x pair best Sharpe */
+.cov-table { table-layout: fixed; }
+.cov-table th { font-size: 11px; padding: 6px 4px; text-align: center; }
+.cov-table td { padding: 0; vertical-align: middle; }
+.cov-strat {
+  text-align: left;
+  padding: 8px 10px !important;
+  font-size: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.cov-strat .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.cov-strat-meta { font-size: 10.5px; color: var(--muted); margin-top: 2px; font-family: "SF Mono", ui-monospace, monospace; }
+.cov-cell {
+  text-align: center;
+  padding: 6px 4px !important;
+  font-family: "SF Mono", Menlo, ui-monospace, monospace;
+  border-left: 1px solid var(--border);
+}
+.cov-sharpe { font-size: 13px; font-weight: 600; }
+.cov-meta { font-size: 10px; color: var(--muted); margin-top: 1px; }
+.cov-empty   { background: transparent; color: var(--muted); }
+.cov-bad     { background: rgba(248,81,73,0.20);  color: #f85149; }
+.cov-weak    { background: rgba(210,153,34,0.18); color: #d29922; }
+.cov-ok      { background: rgba(56,139,253,0.18); color: #58a6ff; }
+.cov-good    { background: rgba(63,185,80,0.20);  color: #3fb950; }
+.cov-strong  { background: rgba(63,185,80,0.36);  color: #3fb950; font-weight: 700; }
+.cov-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  margin-right: 4px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
 /* Footer */
 footer {
   margin-top: 40px;
@@ -256,21 +290,21 @@ footer {
       <h1><span class="accent">◐</span> Lab <span style="color:var(--muted);font-weight:400">— FX Research Report</span></h1>
       <div class="subtitle">9 OANDA majors &middot; 4 strategy families &middot; 15m primary + 1h trend filter &middot; 50x leverage &middot; backtest only</div>
     </div>
-    <div class="timestamp">2026-06-15 13:18:06 UTC</div>
+    <div class="timestamp">2026-06-15 14:05:26 UTC</div>
   </header>
 
   
 <div class="grid">
   <div class="card">
-    <div class="stat-value">942</div>
+    <div class="stat-value">947</div>
     <div class="stat-label">Total runs</div>
   </div>
   <div class="card">
-    <div class="stat-value green">90</div>
+    <div class="stat-value green">91</div>
     <div class="stat-label">Passes (n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%)</div>
   </div>
   <div class="card">
-    <div class="stat-value orange">180</div>
+    <div class="stat-value orange">81</div>
     <div class="stat-label">Pareto-kept</div>
   </div>
   <div class="card">
@@ -1335,6 +1369,11 @@ footer {
 <circle cx="804.3" cy="302.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+41.51% dd=3.94%</title></circle>
 <circle cx="576.1" cy="293.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.10% dd=7.03%</title></circle>
 <circle cx="503.5" cy="220.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.62% dd=32.53%</title></circle>
+<circle cx="610.5" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.78% dd=3.46%</title></circle>
+<circle cx="598.5" cy="296.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.37% dd=5.90%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="693.7" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.40% dd=3.34%</title></circle>
+<circle cx="568.5" cy="276.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.61% dd=12.80%</title></circle>
 <polyline fill="none" stroke="#3fb950" stroke-width="2" points="596.6,313.4 615.0,313.4 617.9,313.4 638.8,313.4 669.7,310.1 702.2,310.0 787.9,306.4 804.3,302.1 836.6,289.9"/>
 <circle cx="596.6" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+0.00% dd=0.00%</title></circle>
 <circle cx="615.0" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+3.67% dd=0.00%</title></circle>
@@ -1348,9 +1387,9 @@ footer {
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#475569"></span>All runs (942)</span>
+    <span><span class="dot" style="background:#475569"></span>All runs (947)</span>
     <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (9)</span>
-    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T13:16:26Z</span>
+    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T14:05:02Z</span>
   </div>
 </div>
   
@@ -1657,6 +1696,49 @@ footer {
 </tr>
     </tbody>
   </table>
+</div>
+  
+<div class="panel">
+  <h2 style="margin-top:0"><span class="icon">▦</span> Coverage matrix — all 4 strategies × 9 pairs</h2>
+  <p class="muted" style="font-size:12px;margin:-6px 0 10px">
+    Each cell shows best clean Sharpe (n≥30) and passes/total runs. Strategies and pairs with no passing runs still appear so the research surface is fully visible.
+  </p>
+  <table class="cov-table">
+    <thead><tr><th style="text-align:left">Strategy \ Pair</th><th>EUR/USD</th><th>GBP/USD</th><th>USD/JPY</th><th>USD/CHF</th><th>AUD/USD</th><th>NZD/USD</th><th>USD/CAD</th><th>EUR/GBP</th><th>EUR/JPY</th></tr></thead>
+    <tbody>
+<tr>
+  <td class="cov-strat"><span class="dot" style="background:#58a6ff"></span><strong>divergence_at_sr</strong>
+    <div class="cov-strat-meta">38/250 pass · 23 pareto · best +2.95</div>
+  </td>
+  <td class="cov-cell cov-strong"><div class="cov-sharpe">+2.95</div><div class="cov-meta">6/24</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.34</div><div class="cov-meta">4/25</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.63</div><div class="cov-meta">0/20</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/25</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.74</div><div class="cov-meta">4/30</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.31</div><div class="cov-meta">0/34</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.41</div><div class="cov-meta">6/28</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.79</div><div class="cov-meta">10/36</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.45</div><div class="cov-meta">4/28</div></td>
+</tr>
+<tr>
+  <td class="cov-strat"><span class="dot" style="background:#3fb950"></span><strong>mean_reversion</strong>
+    <div class="cov-strat-meta">20/206 pass · 27 pareto · best +1.94</div>
+  </td>
+  <td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/14</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.10</div><div class="cov-meta">0/18</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.94</div><div class="cov-meta">5/25</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.14</div><div class="cov-meta">2/30</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.46</div><div class="cov-meta">7/26</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.07</div><div class="cov-meta">0/28</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.47</div><div class="cov-meta">2/20</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.16</div><div class="cov-meta">0/24</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.46</div><div class="cov-meta">0/21</div></td>
+</tr>
+<tr>
+  <td class="cov-strat"><span class="dot" style="background:#d29922"></span><strong>breakout</strong>
+    <div class="cov-strat-meta">0/221 pass · 11 pareto · best +0.47</div>
+  </td>
+  <td class="cov-cell cov-bad"><div class="cov-sharpe">-1.07</div><div class="cov-meta">0/21</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.47</div><div class="cov-meta">0/15</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.39</div><div class="cov-meta">0/26</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.63</div><div class="cov-meta">0/31</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.68</div><div class="cov-meta">0/22</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.77</div><div class="cov-meta">0/34</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.03</div><div class="cov-meta">0/25</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-3.96</div><div class="cov-meta">0/28</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.33</div><div class="cov-meta">0/19</div></td>
+</tr>
+<tr>
+  <td class="cov-strat"><span class="dot" style="background:#bc8cff"></span><strong>confluence</strong>
+    <div class="cov-strat-meta">33/270 pass · 20 pareto · best +3.47</div>
+  </td>
+  <td class="cov-cell cov-strong"><div class="cov-sharpe">+3.47</div><div class="cov-meta">7/29</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.34</div><div class="cov-meta">0/24</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.14</div><div class="cov-meta">8/25</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.42</div><div class="cov-meta">0/33</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.69</div><div class="cov-meta">3/42</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.13</div><div class="cov-meta">0/37</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.53</div><div class="cov-meta">2/23</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.01</div><div class="cov-meta">0/26</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.39</div><div class="cov-meta">13/31</div></td>
+</tr></tbody>
+  </table>
+  <div class="pareto-legend" style="margin-top:8px;font-size:11.5px">
+    <span><span class="cov-dot cov-strong"></span>≥2.0</span>
+    <span><span class="cov-dot cov-good"></span>≥1.0</span>
+    <span><span class="cov-dot cov-ok"></span>≥0.5 (pass)</span>
+    <span><span class="cov-dot cov-weak"></span>0–0.5</span>
+    <span><span class="cov-dot cov-bad"></span>&lt;0</span>
+    <span><span class="cov-dot cov-empty"></span>no n≥30 yet</span>
+  </div>
 </div>
 
   <footer>
