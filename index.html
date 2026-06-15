@@ -556,7 +556,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </div>
     <div class="head-right">
       <div class="live-pill">15-min cycle</div>
-      <div class="timestamp">2026-06-15 22:01:24 UTC</div>
+      <div class="timestamp">2026-06-15 22:10:33 UTC</div>
     </div>
   </header>
 
@@ -2491,6 +2491,117 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 </div>
   
 <div class="panel">
+  <h2><span class="icon">⌖</span> Forward-test tracker</h2>
+  <p class="panel-note">
+    All runs that passed the forward test (<code>forward_pass=1</code>),
+    sorted by fitness score. The <strong>live</strong> badge marks runs
+    currently cleared for paper trading. The <strong>tracked</strong> badge
+    shows forward-passed runs that haven't been promoted (often because of
+    the RR &gt; 1.0 rule, the novelty penalty, or insufficient rolling OOS).
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Run</th><th>Family</th><th>Pair</th>
+        <th class="num">IS Sharpe</th><th class="num">OOS Sharpe</th>
+        <th class="num">RR</th><th class="num">Fitness</th>
+        <th class="num">30d OOS</th><th class="num">60d OOS</th><th class="num">90d OOS</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody><tr>
+  <td><a href="#run-1099">#1099</a></td>
+  <td>divergence_at_sr</td>
+  <td>EUR_JPY</td>
+  <td class="num">+3.38</td>
+  <td class="num">+3.29</td>
+  <td class="num">3.31</td>
+  <td class="num">66.06</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-1071">#1071</a></td>
+  <td>divergence_at_sr</td>
+  <td>EUR_JPY</td>
+  <td class="num">+2.15</td>
+  <td class="num">+2.40</td>
+  <td class="num">2.94</td>
+  <td class="num">53.80</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-976">#976</a></td>
+  <td>divergence_at_sr</td>
+  <td>EUR_JPY</td>
+  <td class="num">+2.01</td>
+  <td class="num">+2.59</td>
+  <td class="num">2.68</td>
+  <td class="num">51.07</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-974">#974</a></td>
+  <td>confluence</td>
+  <td>EUR_USD</td>
+  <td class="num">+2.14</td>
+  <td class="num">+2.03</td>
+  <td class="num">1.03</td>
+  <td class="num">11.53</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-329">#329</a></td>
+  <td>confluence</td>
+  <td>EUR_USD</td>
+  <td class="num">+3.47</td>
+  <td class="num">+1.76</td>
+  <td class="num">0.94</td>
+  <td class="num">5.94</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-678">#678</a></td>
+  <td>confluence</td>
+  <td>EUR_USD</td>
+  <td class="num">+3.47</td>
+  <td class="num">+1.76</td>
+  <td class="num">0.94</td>
+  <td class="num">5.94</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-743">#743</a></td>
+  <td>confluence</td>
+  <td>EUR_USD</td>
+  <td class="num">+3.47</td>
+  <td class="num">+1.76</td>
+  <td class="num">0.94</td>
+  <td class="num">5.94</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr>
+    </tbody>
+  </table>
+  <script>
+    window.FORWARD_TEST_DATA = {"runs": [{"run_id": 1099, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 3.382844517275061, "oos_sharpe": 3.2850759745263867, "rr": 3.3130448156315233, "fitness_score": 66.05889791022653, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 1071, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.1514660763706193, "oos_sharpe": 2.399161353664459, "rr": 2.9446764259637366, "fitness_score": 53.8035626005194, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 976, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.0081458935590586, "oos_sharpe": 2.5936866330549404, "rr": 2.679587563352027, "fitness_score": 51.071937893013214, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 974, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 2.1399417344822846, "oos_sharpe": 2.0279742965275274, "rr": 1.0263227821291043, "fitness_score": 11.532858219130148, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 329, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 678, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 743, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}], "rolling_windows": []};
+  </script>
+</div>
+  
+<div class="panel">
   <h2><span class="icon">⚠</span> Legacy-pass revalidation (v1 → v2)</h2>
   <p class="panel-note">
     Every legacy v1 "pass" config was re-run on the freshly extended OANDA data using the v2 cost engine
@@ -3663,11 +3774,13 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 </div>
   
 <div class="panel">
-  <h2><span class="icon">⟁</span> Agent Activity Summary</h2>
+  <h2><span class="icon">⟁</span> Agent Activity &amp; Meta-State</h2>
   <p class="panel-note">
-    Parallel research agents spawned this session. All use the same OpenRouter provider
-    as the master, with fallback models enabled for non-stop operation.
+    Parallel research agents from this session, live cron status, and the
+    current meta-learning state.
   </p>
+
+  <h3>Historical agent batches</h3>
   <table>
     <thead>
       <tr>
@@ -3705,26 +3818,30 @@ footer strong { color: var(--text-dim); font-weight: 600; }
         <td>Generate 15 candidates each via cycle.py</td>
         <td class="num">5 × 2</td>
         <td class="num">30</td>
-        <td><strong>Discovered EUR/JPY confluence (run 484)</strong> — Sharpe 2.39, passed forward test (OOS Sharpe 2.54).</td>
+        <td><strong>Discovered EUR/JPY confluence (run 484)</strong> — Sharpe 2.39, passed forward test (OOS Sharpe 2.54).</td>
       </tr>
       <tr>
         <td><strong>Parallel Research‑Cycle Agents</strong> <span class="muted">(10‑cycle × 3, latest)</span></td>
         <td>Hunt for in-sample Sharpe ≥ 3.0 with n ≥ 30</td>
         <td class="num">10 × 3</td>
         <td class="num">~90</td>
-        <td>Re-discovered EUR/USD confluence as run 678 (refine of 329, same params). No new high-Sharpe strategies beyond the EUR/USD confluence pair. <em>Frontier remains thin.</em></td>
+        <td>Re-discovered EUR/USD confluence as run 678 (refine of 329, same params). No new high-Sharpe strategies. <em>Frontier remains thin.</em></td>
       </tr>
       <tr>
         <td><strong>Post‑processing</strong> <span class="muted">(master)</span></td>
         <td>forward_test.py + rolling_forward.py</td>
         <td class="num">—</td>
-        <td class="num">4</td>
-        <td>Runs 190, 284, 329, 484 all passed forward test. Run 329 remains live-eligible (rolling 30d & 90d Sharpe ≥ 0.5).</td>
+        <td class="num">—</td>
+        <td>Runs 190, 284, 329, 484 all passed forward test. Run 329 demoted (RR &lt; 1.0) on 2026-06-15.</td>
       </tr>
     </tbody>
   </table>
-</div>
 
+  
+
+  <h3 style='margin-top:18px'>Meta-state</h3>
+  <div class='panel-note'><strong>Top-weighted:</strong> <code>EUR_JPY × divergence_at_sr</code> (w=25.50, pr=45%, n=11), <code>EUR_USD × confluence</code> (w=0.72, pr=10%, n=21), <code>AUD_USD × breakout</code> (w=0.10, pr=0%, n=26)</div>
+</div>
 
   <footer>
     Generated by <a href="https://github.com/tyler109j/lab">lab</a> <span style="opacity:.5">·</span>
