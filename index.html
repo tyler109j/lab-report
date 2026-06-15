@@ -556,7 +556,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </div>
     <div class="head-right">
       <div class="live-pill">15-min cycle</div>
-      <div class="timestamp">2026-06-15 22:17:41 UTC</div>
+      <div class="timestamp">2026-06-15 22:36:31 UTC</div>
     </div>
   </header>
 
@@ -609,7 +609,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <div class="stat-sub">divergence_at_sr · EUR_JPY · <span class="cv-chip cv-v2">v2</span></div>
   </div>
   <div class="card">
-    <div class="stat-value green">6</div>
+    <div class="stat-value green">5</div>
     <div class="stat-label">v2 OOS passes</div>
     <div class="stat-sub">Realistic costs + forward test</div>
   </div>
@@ -1860,7 +1860,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <p class="panel-note">
     Out-of-sample test re-runs each high-Sharpe strategy on the last 20% of cached price data (the period the in-sample backtest never saw).
     A run “passes” if OOS Sharpe ≥ 1.0, OOS n ≥ 5, and OOS DD ≤ 30%.
-    <strong>19 of 44</strong> forward-tested runs passed. The <strong>v2</strong> chip marks runs evaluated on realistic per-pair costs + swap.
+    <strong>14 of 44</strong> forward-tested runs passed. The <strong>v2</strong> chip marks runs evaluated on realistic per-pair costs + swap.
   </p>
   <table>
     <thead>
@@ -1886,6 +1886,62 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td class="num pos">+45.06%</td>
   <td class="num neg">4.56%</td>
   <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
+<tr>
+  <td class="num muted">329</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v1">v1</span></td>
+  <td class="num">+3.47</td>
+  <td class="num pos">+2.95</td>
+  <td class="num muted">+0.85</td>
+  <td class="num">29</td>
+  <td class="num pos">+12.40%</td>
+  <td class="num neg">2.21%</td>
+  <td><span class="badge b-fail">✗ fail</span></td>
+</tr>
+<tr>
+  <td class="num muted">678</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v1">v1</span></td>
+  <td class="num">+3.47</td>
+  <td class="num pos">+2.95</td>
+  <td class="num muted">+0.85</td>
+  <td class="num">29</td>
+  <td class="num pos">+12.40%</td>
+  <td class="num neg">2.21%</td>
+  <td><span class="badge b-fail">✗ fail</span></td>
+</tr>
+<tr>
+  <td class="num muted">743</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v1">v1</span></td>
+  <td class="num">+3.47</td>
+  <td class="num pos">+2.95</td>
+  <td class="num muted">+0.85</td>
+  <td class="num">29</td>
+  <td class="num pos">+12.40%</td>
+  <td class="num neg">2.21%</td>
+  <td><span class="badge b-fail">✗ fail</span></td>
+</tr>
+<tr>
+  <td class="num muted">972</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v2">v2</span></td>
+  <td class="num">+3.03</td>
+  <td class="num pos">+2.95</td>
+  <td class="num muted">+0.97</td>
+  <td class="num">29</td>
+  <td class="num pos">+12.40%</td>
+  <td class="num neg">2.21%</td>
+  <td><span class="badge b-fail">✗ fail</span></td>
 </tr>
 <tr>
   <td class="num muted">866</td>
@@ -2000,62 +2056,6 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><span class="badge b-pass">✓ pass</span></td>
 </tr>
 <tr>
-  <td class="num muted">329</td>
-  <td><strong>confluence</strong></td>
-  <td>EUR_USD</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td><span class="cv-chip cv-v1">v1</span></td>
-  <td class="num">+3.47</td>
-  <td class="num pos">+1.76</td>
-  <td class="num muted">+0.51</td>
-  <td class="num">29</td>
-  <td class="num pos">+8.13%</td>
-  <td class="num neg">2.21%</td>
-  <td><span class="badge b-pass">✓ pass</span></td>
-</tr>
-<tr>
-  <td class="num muted">678</td>
-  <td><strong>confluence</strong></td>
-  <td>EUR_USD</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td><span class="cv-chip cv-v1">v1</span></td>
-  <td class="num">+3.47</td>
-  <td class="num pos">+1.76</td>
-  <td class="num muted">+0.51</td>
-  <td class="num">29</td>
-  <td class="num pos">+8.13%</td>
-  <td class="num neg">2.21%</td>
-  <td><span class="badge b-pass">✓ pass</span></td>
-</tr>
-<tr>
-  <td class="num muted">743</td>
-  <td><strong>confluence</strong></td>
-  <td>EUR_USD</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td><span class="cv-chip cv-v1">v1</span></td>
-  <td class="num">+3.47</td>
-  <td class="num pos">+1.76</td>
-  <td class="num muted">+0.51</td>
-  <td class="num">29</td>
-  <td class="num pos">+8.13%</td>
-  <td class="num neg">2.21%</td>
-  <td><span class="badge b-pass">✓ pass</span></td>
-</tr>
-<tr>
-  <td class="num muted">972</td>
-  <td><strong>confluence</strong></td>
-  <td>EUR_USD</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td><span class="cv-chip cv-v2">v2</span></td>
-  <td class="num">+3.03</td>
-  <td class="num pos">+1.76</td>
-  <td class="num muted">+0.58</td>
-  <td class="num">29</td>
-  <td class="num pos">+8.13%</td>
-  <td class="num neg">2.21%</td>
-  <td><span class="badge b-pass">✓ pass</span></td>
-</tr>
-<tr>
   <td class="num muted">935</td>
   <td><strong>confluence</strong></td>
   <td>EUR_JPY</td>
@@ -2067,20 +2067,6 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td class="num">44</td>
   <td class="num pos">+18.70%</td>
   <td class="num neg">5.92%</td>
-  <td><span class="badge b-pass">✓ pass</span></td>
-</tr>
-<tr>
-  <td class="num muted">290</td>
-  <td><strong>mean_reversion</strong></td>
-  <td>USD_JPY</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td><span class="cv-chip cv-v1">v1</span></td>
-  <td class="num">+1.94</td>
-  <td class="num pos">+1.49</td>
-  <td class="num muted">+0.77</td>
-  <td class="num">49</td>
-  <td class="num pos">+6.28%</td>
-  <td class="num neg">2.11%</td>
   <td><span class="badge b-pass">✓ pass</span></td>
 </tr>
 <tr>
@@ -2110,6 +2096,20 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td class="num pos">+12.02%</td>
   <td class="num neg">4.70%</td>
   <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
+<tr>
+  <td class="num muted">290</td>
+  <td><strong>mean_reversion</strong></td>
+  <td>USD_JPY</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v1">v1</span></td>
+  <td class="num">+1.94</td>
+  <td class="num pos">+1.40</td>
+  <td class="num muted">+0.72</td>
+  <td class="num">48</td>
+  <td class="num pos">+5.89%</td>
+  <td class="num neg">2.11%</td>
+  <td><span class="badge b-fail">✗ fail</span></td>
 </tr>
 <tr>
   <td class="num muted">733</td>
@@ -2518,20 +2518,32 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td>EUR_JPY</td>
   <td class="num">+3.38</td>
   <td class="num">+3.29</td>
-  <td class="num">3.31</td>
-  <td class="num">66.06</td>
+  <td class="num">2.97</td>
+  <td class="num">59.29</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td><span class="badge b-fail">○ tracked</span></td>
 </tr><tr>
-  <td><a href="#run-1071">#1071</a></td>
+  <td><a href="#run-866">#866</a></td>
   <td>divergence_at_sr</td>
   <td>EUR_JPY</td>
-  <td class="num">+2.15</td>
-  <td class="num">+2.40</td>
-  <td class="num">2.94</td>
-  <td class="num">53.80</td>
+  <td class="num">+2.45</td>
+  <td class="num">+2.59</td>
+  <td class="num">2.87</td>
+  <td class="num">54.66</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-936">#936</a></td>
+  <td>divergence_at_sr</td>
+  <td>EUR_JPY</td>
+  <td class="num">+2.45</td>
+  <td class="num">+2.59</td>
+  <td class="num">2.87</td>
+  <td class="num">54.66</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td class="num">—</td>
@@ -2542,8 +2554,104 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td>EUR_JPY</td>
   <td class="num">+2.01</td>
   <td class="num">+2.59</td>
-  <td class="num">2.68</td>
-  <td class="num">51.07</td>
+  <td class="num">2.87</td>
+  <td class="num">54.66</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-1071">#1071</a></td>
+  <td>divergence_at_sr</td>
+  <td>EUR_JPY</td>
+  <td class="num">+2.15</td>
+  <td class="num">+2.40</td>
+  <td class="num">2.89</td>
+  <td class="num">52.79</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-978">#978</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.74</td>
+  <td class="num">+1.99</td>
+  <td class="num">2.07</td>
+  <td class="num">34.00</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-484">#484</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+2.39</td>
+  <td class="num">+1.99</td>
+  <td class="num">2.07</td>
+  <td class="num">29.18</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-733">#733</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.69</td>
+  <td class="num">+1.11</td>
+  <td class="num">3.13</td>
+  <td class="num">22.60</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-826">#826</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.69</td>
+  <td class="num">+1.11</td>
+  <td class="num">3.13</td>
+  <td class="num">22.60</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-935">#935</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.97</td>
+  <td class="num">+1.68</td>
+  <td class="num">2.03</td>
+  <td class="num">19.62</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-343">#343</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.55</td>
+  <td class="num">+1.43</td>
+  <td class="num">1.98</td>
+  <td class="num">13.49</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-fail">○ tracked</span></td>
+</tr><tr>
+  <td><a href="#run-366">#366</a></td>
+  <td>confluence</td>
+  <td>EUR_JPY</td>
+  <td class="num">+1.55</td>
+  <td class="num">+1.43</td>
+  <td class="num">1.98</td>
+  <td class="num">13.49</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td class="num">—</td>
@@ -2554,44 +2662,20 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td>EUR_USD</td>
   <td class="num">+2.14</td>
   <td class="num">+2.03</td>
-  <td class="num">1.03</td>
-  <td class="num">11.53</td>
+  <td class="num">1.07</td>
+  <td class="num">11.98</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td><span class="badge b-fail">○ tracked</span></td>
 </tr><tr>
-  <td><a href="#run-329">#329</a></td>
+  <td><a href="#run-190">#190</a></td>
   <td>confluence</td>
   <td>EUR_USD</td>
-  <td class="num">+3.47</td>
-  <td class="num">+1.76</td>
-  <td class="num">0.94</td>
-  <td class="num">5.94</td>
-  <td class="num">—</td>
-  <td class="num">—</td>
-  <td class="num">—</td>
-  <td><span class="badge b-fail">○ tracked</span></td>
-</tr><tr>
-  <td><a href="#run-678">#678</a></td>
-  <td>confluence</td>
-  <td>EUR_USD</td>
-  <td class="num">+3.47</td>
-  <td class="num">+1.76</td>
-  <td class="num">0.94</td>
-  <td class="num">5.94</td>
-  <td class="num">—</td>
-  <td class="num">—</td>
-  <td class="num">—</td>
-  <td><span class="badge b-fail">○ tracked</span></td>
-</tr><tr>
-  <td><a href="#run-743">#743</a></td>
-  <td>confluence</td>
-  <td>EUR_USD</td>
-  <td class="num">+3.47</td>
-  <td class="num">+1.76</td>
-  <td class="num">0.94</td>
-  <td class="num">5.94</td>
+  <td class="num">+2.53</td>
+  <td class="num">+2.03</td>
+  <td class="num">1.07</td>
+  <td class="num">10.52</td>
   <td class="num">—</td>
   <td class="num">—</td>
   <td class="num">—</td>
@@ -2600,7 +2684,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </tbody>
   </table>
   <script>
-    window.FORWARD_TEST_DATA = {"runs": [{"run_id": 1099, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 3.382844517275061, "oos_sharpe": 3.2850759745263867, "rr": 3.3130448156315233, "fitness_score": 66.05889791022653, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 1071, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.1514660763706193, "oos_sharpe": 2.399161353664459, "rr": 2.9446764259637366, "fitness_score": 53.8035626005194, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 976, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.0081458935590586, "oos_sharpe": 2.5936866330549404, "rr": 2.679587563352027, "fitness_score": 51.071937893013214, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 974, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 2.1399417344822846, "oos_sharpe": 2.0279742965275274, "rr": 1.0263227821291043, "fitness_score": 11.532858219130148, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 329, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 678, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 743, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 3.466939056497436, "oos_sharpe": 1.7569781523300376, "rr": 0.937604708358551, "fitness_score": 5.941027661941944, "live_eligible": 0, "status": "forward_passed_not_promoted"}], "rolling_windows": []};
+    window.FORWARD_TEST_DATA = {"runs": [{"run_id": 1099, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 3.382844517275061, "oos_sharpe": 3.2850759745263867, "rr": 2.973697791122541, "fitness_score": 59.29264761913141, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 866, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.4536297274349548, "oos_sharpe": 2.5936866331035877, "rr": 2.8678392084343933, "fitness_score": 54.65994392056181, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 936, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.4536297274349548, "oos_sharpe": 2.5936866331035877, "rr": 2.8678392084343933, "fitness_score": 54.65994392056181, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 976, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.0081458935590586, "oos_sharpe": 2.5936866331035877, "rr": 2.8678392084343933, "fitness_score": 54.65994392056181, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 1071, "strategy": "divergence_at_sr", "pair": "EUR_JPY", "is_sharpe": 2.1514660763706193, "oos_sharpe": 2.399161353664459, "rr": 2.8893174151501753, "fitness_score": 52.792072177480655, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 978, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.7445874308432532, "oos_sharpe": 1.9937403547156278, "rr": 2.06783715101739, "fitness_score": 33.99690560383416, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 484, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 2.3876433019604204, "oos_sharpe": 1.9937403547156278, "rr": 2.06783715101739, "fitness_score": 29.182503787441675, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 733, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.688571245987576, "oos_sharpe": 1.112350290760095, "rr": 3.1252593111446454, "fitness_score": 22.59568206187088, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 826, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.688571245987576, "oos_sharpe": 1.112350290760095, "rr": 3.1252593111446454, "fitness_score": 22.59568206187088, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 935, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.9711110594677599, "oos_sharpe": 1.6761059290751237, "rr": 2.028932466375109, "fitness_score": 19.621143471780826, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 343, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.5479810926834254, "oos_sharpe": 1.4344820704116832, "rr": 1.979890387649214, "fitness_score": 13.492531773146318, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 366, "strategy": "confluence", "pair": "EUR_JPY", "is_sharpe": 1.5479810926834254, "oos_sharpe": 1.4344820704116832, "rr": 1.979890387649214, "fitness_score": 13.492531773146318, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 974, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 2.1399417344822846, "oos_sharpe": 2.0279742965275274, "rr": 1.0662884778341806, "fitness_score": 11.981955433204815, "live_eligible": 0, "status": "forward_passed_not_promoted"}, {"run_id": 190, "strategy": "confluence", "pair": "EUR_USD", "is_sharpe": 2.5309365982475014, "oos_sharpe": 2.0279742965275274, "rr": 1.0662884778341806, "fitness_score": 10.518571962173503, "live_eligible": 0, "status": "forward_passed_not_promoted"}], "rolling_windows": []};
   </script>
 </div>
   
@@ -3849,25 +3933,25 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <tbody><tr>
         <td><code>lab-cycle</code></td>
         <td>every 15min</td>
-        <td class='num'>1m ago</td>
+        <td class='num'>20m ago</td>
         <td>ok</td>
-        <td class='num'>just now</td>
+        <td class='num'>6m ago</td>
       </tr><tr>
         <td><code>lab-hourly-summary</code></td>
         <td>hourly</td>
-        <td class='num'>16m ago</td>
+        <td class='num'>34m ago</td>
         <td>ok</td>
         <td class='num'>just now</td>
       </tr><tr>
         <td><code>lab-cycle</code></td>
         <td>every 15min</td>
-        <td class='num'>3h ago</td>
+        <td class='num'>4h ago</td>
         <td>ok</td>
         <td class='num'>3h ago</td>
       </tr><tr>
         <td><code>lab-forward-test</code></td>
         <td>hourly :17</td>
-        <td class='num'>1h ago</td>
+        <td class='num'>18m ago</td>
         <td>ok</td>
         <td class='num'>just now</td>
       </tr><tr>
@@ -3893,7 +3977,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
         <td>every 30min</td>
         <td class='num'>—</td>
         <td>—</td>
-        <td class='num'>just now</td>
+        <td class='num'>6m ago</td>
       </tr></tbody>
   </table>
 
