@@ -256,21 +256,21 @@ footer {
       <h1><span class="accent">◐</span> Lab <span style="color:var(--muted);font-weight:400">— FX Research Report</span></h1>
       <div class="subtitle">9 OANDA majors &middot; 4 strategy families &middot; 15m primary + 1h trend filter &middot; 50x leverage &middot; backtest only</div>
     </div>
-    <div class="timestamp">2026-06-15 03:31:28 UTC</div>
+    <div class="timestamp">2026-06-15 03:39:03 UTC</div>
   </header>
 
   
 <div class="grid">
   <div class="card">
-    <div class="stat-value">614</div>
+    <div class="stat-value">708</div>
     <div class="stat-label">Total runs</div>
   </div>
   <div class="card">
-    <div class="stat-value green">51</div>
+    <div class="stat-value green">60</div>
     <div class="stat-label">Passes (n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%)</div>
   </div>
   <div class="card">
-    <div class="stat-value orange">136</div>
+    <div class="stat-value orange">151</div>
     <div class="stat-label">Pareto-kept</div>
   </div>
   <div class="card">
@@ -278,6 +278,70 @@ footer {
     <div class="stat-label">Best Sharpe (n≥30)</div>
   </div>
 </div>
+  
+<div class="panel">
+  <h2 style="margin-top:0"><span class="icon">⟁</span> Agent Activity Summary</h2>
+  <p class="muted" style="font-size:12px;margin:-6px 0 12px">
+    Parallel research agents spawned this session. All use the same OpenRouter provider
+    as the master, with fallback models enabled for non-stop operation.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Agent / Group</th>
+        <th>Task</th>
+        <th class="num">Cycles</th>
+        <th class="num">Experiments</th>
+        <th>Key Findings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pair‑Testing Agents</strong> <span class="muted">(A1‑A3)</span></td>
+        <td>Forward-test NZD_USD, EUR_GBP, USD_CHF for Sharpe ≥ 2.0</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td>NZD_USD &amp; EUR_GBP hit OpenRouter 429 rate limit. USD_CHF: 0 strategies with Sharpe ≥ 2.0.</td>
+      </tr>
+      <tr>
+        <td><strong>Research‑Cycle Agents</strong> <span class="muted">(3‑cycle batch)</span></td>
+        <td>Generate 9 candidates each via cycle.py</td>
+        <td class="num">3 × 2</td>
+        <td class="num">18</td>
+        <td>No new Sharpe ≥ 2.0 from this batch.</td>
+      </tr>
+      <tr>
+        <td><strong>Research‑Cycle Agents</strong> <span class="muted">(10‑cycle batch)</span></td>
+        <td>Generate 30 candidates each via cycle.py</td>
+        <td class="num">10 × 2</td>
+        <td class="num">60</td>
+        <td>Pareto frontier grew by ~1 point. No new Sharpe ≥ 3.0.</td>
+      </tr>
+      <tr>
+        <td><strong>Research‑Cycle Agents</strong> <span class="muted">(5‑cycle batch)</span></td>
+        <td>Generate 15 candidates each via cycle.py</td>
+        <td class="num">5 × 2</td>
+        <td class="num">30</td>
+        <td><strong>Discovered EUR/JPY confluence (run 484)</strong> — Sharpe 2.39, passed forward test (OOS Sharpe 2.54).</td>
+      </tr>
+      <tr>
+        <td><strong>Parallel Research‑Cycle Agents</strong> <span class="muted">(10‑cycle × 3, latest)</span></td>
+        <td>Hunt for in-sample Sharpe ≥ 3.0 with n ≥ 30</td>
+        <td class="num">10 × 3</td>
+        <td class="num">~90</td>
+        <td>Re-discovered EUR/USD confluence as run 678 (refine of 329, same params). No new high-Sharpe strategies beyond the EUR/USD confluence pair. <em>Frontier remains thin.</em></td>
+      </tr>
+      <tr>
+        <td><strong>Post‑processing</strong> <span class="muted">(master)</span></td>
+        <td>forward_test.py + rolling_forward.py</td>
+        <td class="num">—</td>
+        <td class="num">4</td>
+        <td>Runs 190, 284, 329, 484 all passed forward test. Run 329 remains live-eligible (rolling 30d & 90d Sharpe ≥ 0.5).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
   
 <div class="panel">
   <div class="best-run">
@@ -315,12 +379,12 @@ footer {
 <line x1="70" y1="144.0" x2="880" y2="144.0" stroke="#21262d" stroke-width="1"/>
 <line x1="70" y1="82.0" x2="880" y2="82.0" stroke="#21262d" stroke-width="1"/>
 <line x1="70" y1="20.0" x2="880" y2="20.0" stroke="#21262d" stroke-width="1"/>
-<text x="70.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-104.8%</text>
-<text x="232.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-74.1%</text>
-<text x="394.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-43.3%</text>
-<text x="556.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-12.6%</text>
-<text x="718.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">+18.2%</text>
-<text x="880.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">+49.0%</text>
+<text x="70.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-105.2%</text>
+<text x="232.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-72.9%</text>
+<text x="394.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-40.5%</text>
+<text x="556.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">-8.1%</text>
+<text x="718.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">+24.3%</text>
+<text x="880.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">+56.6%</text>
 <text x="62" y="333.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">-5.8%</text>
 <text x="62" y="271.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">15.8%</text>
 <text x="62" y="209.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">37.5%</text>
@@ -329,635 +393,730 @@ footer {
 <text x="62" y="23.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">102.4%</text>
 <text x="475.0" y="372" fill="#b1bac4" font-size="11" text-anchor="middle">Total return (15m backtest)</text>
 <text x="14" y="175.0" fill="#b1bac4" font-size="11" text-anchor="middle" transform="rotate(-90 14 175.0)">Max drawdown (chronological)</text>
-<circle cx="546.0" cy="218.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.45% dd=33.29%</title></circle>
-<circle cx="532.6" cy="246.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.00% dd=23.48%</title></circle>
-<circle cx="747.6" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.82% dd=3.36%</title></circle>
-<circle cx="605.0" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.26% dd=3.26%</title></circle>
-<circle cx="445.8" cy="195.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-33.48% dd=41.09%</title></circle>
-<circle cx="637.5" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.92% dd=3.26%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="597.1" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.75% dd=5.54%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="513.5" cy="236.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.63% dd=26.79%</title></circle>
-<circle cx="612.7" cy="286.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.79% dd=9.30%</title></circle>
-<circle cx="540.1" cy="258.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.56% dd=19.13%</title></circle>
-<circle cx="330.3" cy="148.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.40% dd=57.59%</title></circle>
-<circle cx="617.2" cy="294.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.93% dd=6.64%</title></circle>
-<circle cx="625.1" cy="307.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.57% dd=2.03%</title></circle>
-<circle cx="765.0" cy="279.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+27.12% dd=11.74%</title></circle>
-<circle cx="569.7" cy="271.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.96% dd=14.57%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="379.5" cy="166.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.06% dd=51.21%</title></circle>
-<circle cx="432.0" cy="193.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.09% dd=42.03%</title></circle>
-<circle cx="665.8" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.29% dd=4.88%</title></circle>
-<circle cx="284.3" cy="119.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-64.14% dd=67.78%</title></circle>
-<circle cx="428.5" cy="190.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.76% dd=42.74%</title></circle>
-<circle cx="420.1" cy="165.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.35% dd=51.71%</title></circle>
-<circle cx="641.5" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.67% dd=0.00%</title></circle>
-<circle cx="551.9" cy="248.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.34% dd=22.59%</title></circle>
-<circle cx="387.3" cy="179.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-44.57% dd=46.86%</title></circle>
-<circle cx="351.7" cy="143.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.34% dd=59.42%</title></circle>
-<circle cx="542.4" cy="199.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.14% dd=39.75%</title></circle>
-<circle cx="671.6" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.39% dd=2.16%</title></circle>
-<circle cx="490.6" cy="241.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.98% dd=24.98%</title></circle>
-<circle cx="379.4" cy="169.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.08% dd=50.33%</title></circle>
-<circle cx="244.9" cy="97.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-71.61% dd=75.44%</title></circle>
-<circle cx="658.9" cy="304.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.98% dd=3.29%</title></circle>
-<circle cx="594.8" cy="275.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.18% dd=13.11%</title></circle>
-<circle cx="548.4" cy="240.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.00% dd=25.36%</title></circle>
-<circle cx="627.4" cy="298.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.99% dd=5.38%</title></circle>
-<circle cx="401.9" cy="174.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.80% dd=48.43%</title></circle>
-<circle cx="302.7" cy="130.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.63% dd=63.88%</title></circle>
-<circle cx="632.9" cy="301.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.05% dd=4.20%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="420.8" cy="194.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.22% dd=41.46%</title></circle>
-<circle cx="615.1" cy="290.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.33% dd=8.16%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="620.8" cy="297.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.26% dd=5.72%</title></circle>
-<circle cx="573.4" cy="276.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.25% dd=13.02%</title></circle>
-<circle cx="677.3" cy="289.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.48% dd=8.37%</title></circle>
-<circle cx="541.6" cy="259.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.29% dd=18.76%</title></circle>
-<circle cx="244.0" cy="100.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-71.77% dd=74.41%</title></circle>
-<circle cx="175.0" cy="67.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-84.87% dd=85.94%</title></circle>
-<circle cx="449.2" cy="215.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.83% dd=34.02%</title></circle>
-<circle cx="382.8" cy="169.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.43% dd=50.33%</title></circle>
-<circle cx="650.8" cy="293.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.44% dd=6.79%</title></circle>
-<circle cx="647.5" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.81% dd=3.34%</title></circle>
-<circle cx="367.6" cy="147.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-48.33% dd=57.81%</title></circle>
-<circle cx="626.9" cy="302.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.90% dd=3.67%</title></circle>
-<circle cx="465.5" cy="211.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.73% dd=35.55%</title></circle>
-<circle cx="626.6" cy="292.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.85% dd=7.29%</title></circle>
-<circle cx="359.6" cy="163.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.83% dd=52.23%</title></circle>
-<circle cx="492.8" cy="228.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.56% dd=29.54%</title></circle>
-<circle cx="628.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.13% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="637.1" cy="290.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.85% dd=8.07%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="610.5" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.20% dd=2.20%</title></circle>
-<circle cx="410.0" cy="170.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.27% dd=49.77%</title></circle>
-<circle cx="696.1" cy="258.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.04% dd=19.23%</title></circle>
-<circle cx="261.8" cy="102.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-68.41% dd=73.50%</title></circle>
-<circle cx="614.5" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.45% dd=3.47%</title></circle>
-<circle cx="554.8" cy="272.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.78% dd=14.35%</title></circle>
-<circle cx="713.0" cy="284.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.25% dd=10.08%</title></circle>
-<circle cx="474.9" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.94% dd=41.80%</title></circle>
-<circle cx="616.4" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.48%</title></circle>
-<circle cx="257.3" cy="108.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-69.27% dd=71.60%</title></circle>
-<circle cx="168.5" cy="66.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-86.12% dd=86.12%</title></circle>
-<circle cx="400.6" cy="191.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.04% dd=42.56%</title></circle>
-<circle cx="472.8" cy="193.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.35% dd=41.75%</title></circle>
-<circle cx="345.9" cy="159.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.43% dd=53.74%</title></circle>
-<circle cx="610.0" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.29% dd=2.29%</title></circle>
-<circle cx="577.7" cy="267.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.43% dd=15.91%</title></circle>
-<circle cx="636.7" cy="290.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.76% dd=8.15%</title></circle>
-<circle cx="675.9" cy="300.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.22% dd=4.50%</title></circle>
-<circle cx="566.2" cy="279.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.62% dd=11.83%</title></circle>
-<circle cx="441.0" cy="189.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.38% dd=43.37%</title></circle>
-<circle cx="614.9" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.37% dd=7.07%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="616.1" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.14% dd=1.14%</title></circle>
-<circle cx="587.1" cy="289.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.65% dd=8.35%</title></circle>
-<circle cx="668.6" cy="298.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.82% dd=5.33%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="522.4" cy="226.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.94% dd=30.41%</title></circle>
-<circle cx="622.9" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.15% dd=1.11%</title></circle>
-<circle cx="613.9" cy="301.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.56% dd=4.26%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="651.4" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.55% dd=7.81%</title></circle>
-<circle cx="636.9" cy="306.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.80% dd=2.47%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="430.2" cy="190.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.44% dd=42.80%</title></circle>
-<circle cx="333.4" cy="149.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.82% dd=57.32%</title></circle>
-<circle cx="595.8" cy="286.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.99% dd=9.34%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="579.9" cy="276.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.02% dd=12.97%</title></circle>
-<circle cx="229.2" cy="91.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-74.59% dd=77.40%</title></circle>
-<circle cx="348.3" cy="129.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.98% dd=64.17%</title></circle>
-<circle cx="632.5" cy="303.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.98% dd=3.62%</title></circle>
-<circle cx="616.4" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.08% dd=2.21%</title></circle>
-<circle cx="523.4" cy="247.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.74% dd=22.90%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="415.2" cy="185.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.28% dd=44.74%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="680.2" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.03% dd=5.56%</title></circle>
-<circle cx="611.0" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.12% dd=2.12%</title></circle>
-<circle cx="637.0" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.82% dd=2.31%</title></circle>
-<circle cx="631.2" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.73% dd=3.46%</title></circle>
-<circle cx="557.5" cy="278.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.26% dd=12.26%</title></circle>
-<circle cx="438.4" cy="202.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.88% dd=38.79%</title></circle>
-<circle cx="442.5" cy="214.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.10% dd=34.44%</title></circle>
-<circle cx="453.9" cy="198.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-31.94% dd=40.23%</title></circle>
-<circle cx="701.2" cy="293.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.01% dd=6.86%</title></circle>
-<circle cx="605.8" cy="299.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.11% dd=4.79%</title></circle>
-<circle cx="472.4" cy="195.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.42% dd=41.29%</title></circle>
-<circle cx="196.4" cy="81.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-80.81% dd=80.81%</title></circle>
-<circle cx="637.5" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.93% dd=2.15%</title></circle>
-<circle cx="698.1" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.43% dd=2.21%</title></circle>
-<circle cx="571.9" cy="284.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.54% dd=10.15%</title></circle>
-<circle cx="581.2" cy="284.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.77% dd=10.00%</title></circle>
-<circle cx="622.2" cy="308.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.01% dd=1.61%</title></circle>
-<circle cx="666.2" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.37% dd=2.24%</title></circle>
-<circle cx="594.4" cy="297.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.27% dd=5.41%</title></circle>
-<circle cx="634.5" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.35% dd=1.15%</title></circle>
-<circle cx="642.0" cy="304.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.77% dd=3.06%</title></circle>
-<circle cx="616.3" cy="297.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.10% dd=5.67%</title></circle>
-<circle cx="535.6" cy="256.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.42% dd=19.90%</title></circle>
-<circle cx="529.8" cy="249.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.52% dd=22.42%</title></circle>
-<circle cx="600.7" cy="266.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.07% dd=16.33%</title></circle>
-<circle cx="596.3" cy="286.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.89% dd=9.50%</title></circle>
-<circle cx="554.4" cy="259.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.86% dd=18.97%</title></circle>
-<circle cx="691.9" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.25% dd=2.43%</title></circle>
-<circle cx="345.4" cy="156.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.52% dd=54.72%</title></circle>
-<circle cx="667.5" cy="303.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.62% dd=3.41%</title></circle>
-<circle cx="611.2" cy="307.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.07% dd=2.07%</title></circle>
-<circle cx="604.8" cy="285.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.28% dd=9.62%</title></circle>
-<circle cx="499.3" cy="245.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.32% dd=23.80%</title></circle>
-<circle cx="506.9" cy="248.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.87% dd=22.83%</title></circle>
-<circle cx="636.1" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.66% dd=1.17%</title></circle>
-<circle cx="216.0" cy="87.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.10% dd=78.93%</title></circle>
-<circle cx="481.4" cy="222.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-26.71% dd=31.66%</title></circle>
-<circle cx="334.6" cy="140.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.58% dd=60.45%</title></circle>
-<circle cx="527.3" cy="242.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.00% dd=24.71%</title></circle>
-<circle cx="414.9" cy="190.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.34% dd=42.84%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="614.9" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.37% dd=7.07%</title></circle>
-<circle cx="612.2" cy="289.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.88% dd=8.28%</title></circle>
-<circle cx="698.5" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.50% dd=7.80%</title></circle>
-<circle cx="380.7" cy="151.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.84% dd=56.38%</title></circle>
-<circle cx="316.7" cy="143.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-57.98% dd=59.41%</title></circle>
-<circle cx="647.4" cy="283.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.81% dd=10.41%</title></circle>
-<circle cx="442.1" cy="204.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.17% dd=38.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="499.8" cy="240.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.22% dd=25.47%</title></circle>
-<circle cx="333.8" cy="148.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.74% dd=57.58%</title></circle>
-<circle cx="441.8" cy="200.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.23% dd=39.35%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="670.9" cy="304.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.26% dd=3.21%</title></circle>
-<circle cx="614.8" cy="286.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.39% dd=9.53%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="630.0" cy="282.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.50% dd=10.90%</title></circle>
-<circle cx="376.0" cy="157.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.73% dd=54.31%</title></circle>
-<circle cx="524.5" cy="258.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.53% dd=19.09%</title></circle>
-<circle cx="638.3" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.07% dd=3.33%</title></circle>
-<circle cx="637.9" cy="272.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.99% dd=14.18%</title></circle>
-<circle cx="638.2" cy="299.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.06% dd=4.70%</title></circle>
-<circle cx="709.4" cy="270.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+16.58% dd=14.95%</title></circle>
-<circle cx="616.0" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.17% dd=1.17%</title></circle>
-<circle cx="342.8" cy="160.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.02% dd=53.51%</title></circle>
-<circle cx="434.1" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.69% dd=41.82%</title></circle>
-<circle cx="572.3" cy="280.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.46% dd=11.47%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="645.2" cy="309.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.38% dd=1.51%</title></circle>
-<circle cx="300.1" cy="131.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.14% dd=63.47%</title></circle>
-<circle cx="311.3" cy="139.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-59.00% dd=60.79%</title></circle>
-<circle cx="656.9" cy="301.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.60% dd=4.12%</title></circle>
-<circle cx="288.7" cy="118.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-63.30% dd=67.89%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="656.5" cy="303.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.53% dd=3.55%</title></circle>
-<circle cx="612.6" cy="303.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.81% dd=3.54%</title></circle>
-<circle cx="621.8" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.06% dd=3.30%</title></circle>
-<circle cx="532.5" cy="260.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.02% dd=18.54%</title></circle>
-<circle cx="725.0" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.53% dd=2.23%</title></circle>
-<circle cx="566.2" cy="219.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.61% dd=32.87%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="273.1" cy="114.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.25% dd=69.38%</title></circle>
-<circle cx="639.0" cy="309.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.21% dd=1.34%</title></circle>
-<circle cx="190.5" cy="76.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-81.94% dd=82.71%</title></circle>
-<circle cx="417.2" cy="180.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.90% dd=46.57%</title></circle>
-<circle cx="616.7" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.03% dd=1.03%</title></circle>
-<circle cx="515.5" cy="234.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.24% dd=27.46%</title></circle>
-<circle cx="624.3" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.40% dd=3.23%</title></circle>
-<circle cx="610.6" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.18% dd=2.18%</title></circle>
-<circle cx="678.2" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.65% dd=7.83%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="563.2" cy="263.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.19% dd=17.28%</title></circle>
-<circle cx="651.7" cy="301.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.62% dd=4.20%</title></circle>
-<circle cx="458.2" cy="187.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-31.12% dd=43.92%</title></circle>
-<circle cx="614.7" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.41% dd=6.67%</title></circle>
-<circle cx="600.4" cy="283.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.12% dd=10.36%</title></circle>
-<circle cx="634.5" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.35% dd=1.17%</title></circle>
-<circle cx="489.4" cy="219.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.20% dd=32.95%</title></circle>
-<circle cx="584.0" cy="288.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.24% dd=8.62%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="623.8" cy="309.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.32% dd=1.37%</title></circle>
-<circle cx="474.6" cy="230.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.00% dd=28.93%</title></circle>
-<circle cx="398.1" cy="145.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.53% dd=58.77%</title></circle>
-<circle cx="496.4" cy="208.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.86% dd=36.66%</title></circle>
-<circle cx="560.9" cy="263.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.63% dd=17.34%</title></circle>
-<circle cx="612.1" cy="300.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.90% dd=4.37%</title></circle>
-<circle cx="714.3" cy="305.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.50% dd=2.72%</title></circle>
-<circle cx="682.1" cy="279.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.38% dd=11.91%</title></circle>
-<circle cx="525.8" cy="255.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.29% dd=20.07%</title></circle>
-<circle cx="519.7" cy="249.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.45% dd=22.41%</title></circle>
-<circle cx="546.7" cy="269.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.33% dd=15.48%</title></circle>
-<circle cx="328.2" cy="141.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.81% dd=60.03%</title></circle>
-<circle cx="363.4" cy="169.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.11% dd=50.10%</title></circle>
-<circle cx="466.4" cy="218.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.57% dd=33.20%</title></circle>
-<circle cx="314.5" cy="143.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-58.40% dd=59.33%</title></circle>
-<circle cx="275.4" cy="121.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-65.83% dd=66.99%</title></circle>
-<circle cx="226.1" cy="98.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-75.18% dd=75.18%</title></circle>
-<circle cx="748.1" cy="298.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.91% dd=5.15%</title></circle>
-<circle cx="681.5" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.27% dd=2.13%</title></circle>
-<circle cx="492.4" cy="219.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.63% dd=32.85%</title></circle>
-<circle cx="296.3" cy="136.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.86% dd=61.86%</title></circle>
-<circle cx="537.7" cy="256.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.03% dd=19.86%</title></circle>
-<circle cx="647.3" cy="306.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.77% dd=2.58%</title></circle>
-<circle cx="616.8" cy="300.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.02% dd=4.66%</title></circle>
-<circle cx="417.4" cy="196.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.86% dd=40.79%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="587.0" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.68% dd=6.68%</title></circle>
-<circle cx="667.0" cy="300.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.52% dd=4.47%</title></circle>
-<circle cx="514.2" cy="242.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.48% dd=24.69%</title></circle>
-<circle cx="498.5" cy="223.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.47% dd=31.26%</title></circle>
-<circle cx="615.5" cy="288.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.25% dd=8.55%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="760.1" cy="283.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+26.19% dd=10.51%</title></circle>
-<circle cx="548.9" cy="232.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.90% dd=28.36%</title></circle>
-<circle cx="610.3" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.24% dd=2.24%</title></circle>
-<circle cx="644.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.26% dd=0.00%</title></circle>
-<circle cx="570.5" cy="280.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.80% dd=11.53%</title></circle>
-<circle cx="643.6" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.08% dd=3.23%</title></circle>
-<circle cx="441.1" cy="199.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.36% dd=39.70%</title></circle>
-<circle cx="605.7" cy="293.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.12% dd=6.80%</title></circle>
-<circle cx="451.0" cy="212.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.48% dd=35.27%</title></circle>
-<circle cx="594.4" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.26% dd=6.65%</title></circle>
-<circle cx="603.7" cy="298.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.49% dd=5.29%</title></circle>
-<circle cx="617.2" cy="303.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.93% dd=3.57%</title></circle>
-<circle cx="602.9" cy="284.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.64% dd=10.00%</title></circle>
-<circle cx="552.7" cy="262.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.19% dd=17.94%</title></circle>
-<circle cx="427.9" cy="196.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.86% dd=40.95%</title></circle>
-<circle cx="435.7" cy="198.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.39% dd=40.06%</title></circle>
-<circle cx="593.1" cy="285.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.51% dd=9.62%</title></circle>
-<circle cx="565.9" cy="264.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.67% dd=17.03%</title></circle>
-<circle cx="600.2" cy="295.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.17% dd=6.40%</title></circle>
-<circle cx="627.0" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.92% dd=0.00%</title></circle>
-<circle cx="427.5" cy="195.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.94% dd=41.05%</title></circle>
-<circle cx="335.6" cy="135.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.39% dd=61.97%</title></circle>
-<circle cx="594.1" cy="273.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.32% dd=13.89%</title></circle>
-<circle cx="171.1" cy="68.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-85.62% dd=85.62%</title></circle>
-<circle cx="498.0" cy="217.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.57% dd=33.38%</title></circle>
-<circle cx="638.7" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.15% dd=1.19%</title></circle>
-<circle cx="733.3" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+21.10% dd=1.17%</title></circle>
-<circle cx="595.9" cy="297.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.98% dd=5.72%</title></circle>
-<circle cx="674.7" cy="288.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.97% dd=8.88%</title></circle>
-<circle cx="631.1" cy="299.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.71% dd=5.04%</title></circle>
-<circle cx="628.0" cy="294.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.12% dd=6.78%</title></circle>
-<circle cx="169.6" cy="67.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-85.91% dd=85.91%</title></circle>
-<circle cx="615.3" cy="309.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.31% dd=1.31%</title></circle>
-<circle cx="544.2" cy="236.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.80% dd=26.69%</title></circle>
-<circle cx="535.9" cy="250.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.37% dd=22.09%</title></circle>
-<circle cx="511.3" cy="241.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.04% dd=24.94%</title></circle>
-<circle cx="787.5" cy="272.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+31.39% dd=14.38%</title></circle>
-<circle cx="622.9" cy="296.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.14% dd=5.94%</title></circle>
-<circle cx="623.9" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.34% dd=2.20%</title></circle>
-<circle cx="658.8" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.97% dd=2.64%</title></circle>
-<circle cx="765.4" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+27.20% dd=3.47%</title></circle>
-<circle cx="617.5" cy="306.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.88% dd=2.56%</title></circle>
-<circle cx="542.3" cy="216.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.16% dd=33.84%</title></circle>
-<circle cx="616.6" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.06% dd=1.06%</title></circle>
-<circle cx="823.5" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+38.23% dd=2.43%</title></circle>
-<circle cx="549.8" cy="251.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.73% dd=21.59%</title></circle>
-<circle cx="660.9" cy="308.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.36% dd=1.65%</title></circle>
-<circle cx="619.8" cy="307.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.44% dd=2.11%</title></circle>
-<circle cx="304.2" cy="121.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.34% dd=67.06%</title></circle>
-<circle cx="284.5" cy="128.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-64.10% dd=64.43%</title></circle>
-<circle cx="526.9" cy="255.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.07% dd=20.26%</title></circle>
-<circle cx="606.3" cy="303.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.01% dd=3.61%</title></circle>
-<circle cx="569.6" cy="255.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.96% dd=20.22%</title></circle>
-<circle cx="629.6" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.43% dd=3.32%</title></circle>
-<circle cx="728.6" cy="294.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+20.21% dd=6.70%</title></circle>
-<circle cx="658.8" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.97% dd=2.64%</title></circle>
-<circle cx="653.4" cy="298.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.94% dd=5.35%</title></circle>
-<circle cx="636.6" cy="300.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.75% dd=4.68%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="524.4" cy="206.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.55% dd=37.44%</title></circle>
-<circle cx="240.8" cy="96.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-72.39% dd=75.81%</title></circle>
-<circle cx="509.8" cy="232.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.32% dd=28.16%</title></circle>
-<circle cx="712.5" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.16% dd=2.44%</title></circle>
-<circle cx="519.7" cy="217.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.45% dd=33.62%</title></circle>
-<circle cx="641.2" cy="281.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.62% dd=11.09%</title></circle>
-<circle cx="492.9" cy="235.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.53% dd=27.35%</title></circle>
-<circle cx="609.9" cy="306.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.32% dd=2.32%</title></circle>
-<circle cx="652.2" cy="301.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.71% dd=4.31%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="655.4" cy="277.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.32% dd=12.48%</title></circle>
-<circle cx="583.8" cy="253.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.27% dd=20.82%</title></circle>
-<circle cx="500.0" cy="203.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.19% dd=38.22%</title></circle>
-<circle cx="367.8" cy="163.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-48.28% dd=52.29%</title></circle>
-<circle cx="637.0" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.82% dd=2.31%</title></circle>
-<circle cx="339.8" cy="159.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.59% dd=53.59%</title></circle>
-<circle cx="650.6" cy="283.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.40% dd=10.46%</title></circle>
-<circle cx="609.0" cy="286.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.49% dd=9.25%</title></circle>
-<circle cx="651.1" cy="303.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.49% dd=3.52%</title></circle>
-<circle cx="362.5" cy="153.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.29% dd=55.94%</title></circle>
-<circle cx="602.1" cy="300.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.79% dd=4.64%</title></circle>
-<circle cx="328.4" cy="149.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.76% dd=57.37%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="422.0" cy="204.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-37.99% dd=37.99%</title></circle>
-<circle cx="585.4" cy="286.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.97% dd=9.43%</title></circle>
-<circle cx="554.4" cy="276.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.86% dd=12.95%</title></circle>
-<circle cx="723.2" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.20% dd=2.23%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="693.0" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.46% dd=4.91%</title></circle>
-<circle cx="616.4" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.08% dd=3.49%</title></circle>
-<circle cx="521.0" cy="231.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.19% dd=28.74%</title></circle>
-<circle cx="622.3" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.04% dd=1.16%</title></circle>
-<circle cx="606.6" cy="295.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.94% dd=6.14%</title></circle>
-<circle cx="590.7" cy="296.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.96% dd=5.96%</title></circle>
-<circle cx="653.1" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.89% dd=2.25%</title></circle>
-<circle cx="241.5" cy="95.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-72.25% dd=76.07%</title></circle>
-<circle cx="579.0" cy="245.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.19% dd=23.69%</title></circle>
-<circle cx="644.4" cy="292.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.23% dd=7.31%</title></circle>
-<circle cx="656.4" cy="304.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.51% dd=3.10%</title></circle>
-<circle cx="613.4" cy="277.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.66% dd=12.58%</title></circle>
-<circle cx="702.3" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.22% dd=4.53%</title></circle>
-<circle cx="594.7" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.21% dd=6.12%</title></circle>
-<circle cx="575.9" cy="288.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.77% dd=8.77%</title></circle>
-<circle cx="614.8" cy="292.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.39% dd=7.45%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="269.9" cy="121.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.86% dd=66.86%</title></circle>
-<circle cx="637.6" cy="296.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.93% dd=6.00%</title></circle>
-<circle cx="615.9" cy="295.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.19% dd=6.25%</title></circle>
-<circle cx="630.2" cy="300.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.53% dd=4.64%</title></circle>
-<circle cx="620.1" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.39% dd=7.10%</title></circle>
-<circle cx="601.5" cy="294.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.92% dd=6.59%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="451.3" cy="212.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.42% dd=35.14%</title></circle>
-<circle cx="640.2" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.43% dd=5.56%</title></circle>
-<circle cx="598.7" cy="274.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.44% dd=13.48%</title></circle>
-<circle cx="338.4" cy="141.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.85% dd=59.87%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="588.8" cy="284.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.32% dd=9.93%</title></circle>
-<circle cx="399.8" cy="172.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.20% dd=49.33%</title></circle>
-<circle cx="618.9" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.62% dd=2.22%</title></circle>
-<circle cx="353.2" cy="141.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.06% dd=60.15%</title></circle>
-<circle cx="642.4" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.85% dd=1.11%</title></circle>
-<circle cx="676.7" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.35% dd=4.88%</title></circle>
-<circle cx="702.3" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.22% dd=4.53%</title></circle>
-<circle cx="693.0" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.46% dd=4.91%</title></circle>
-<circle cx="166.1" cy="62.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-86.57% dd=87.65%</title></circle>
-<circle cx="664.8" cy="299.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.11% dd=4.84%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="650.0" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.30% dd=1.08%</title></circle>
-<circle cx="610.4" cy="300.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.23% dd=4.51%</title></circle>
-<circle cx="642.7" cy="302.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.90% dd=3.74%</title></circle>
-<circle cx="616.9" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.99% dd=6.10%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="625.1" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.56% dd=1.24%</title></circle>
-<circle cx="635.8" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.60% dd=2.29%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="615.3" cy="309.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.31% dd=1.31%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="333.0" cy="144.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.88% dd=58.99%</title></circle>
-<circle cx="250.0" cy="103.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-70.64% dd=73.34%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="348.2" cy="152.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.00% dd=56.12%</title></circle>
-<circle cx="551.9" cy="248.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.34% dd=22.59%</title></circle>
-<circle cx="532.9" cy="261.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.95% dd=17.99%</title></circle>
-<circle cx="608.2" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.64% dd=2.64%</title></circle>
-<circle cx="699.1" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.61% dd=1.14%</title></circle>
-<circle cx="604.6" cy="282.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.32% dd=10.79%</title></circle>
-<circle cx="328.5" cy="149.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.73% dd=57.40%</title></circle>
-<circle cx="611.1" cy="307.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.10% dd=2.10%</title></circle>
-<circle cx="722.6" cy="296.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.08% dd=6.05%</title></circle>
-<circle cx="510.4" cy="224.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.21% dd=31.07%</title></circle>
-<circle cx="377.8" cy="175.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.37% dd=48.14%</title></circle>
-<circle cx="555.4" cy="260.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.67% dd=18.37%</title></circle>
-<circle cx="584.5" cy="280.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.15% dd=11.42%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="374.6" cy="160.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.99% dd=53.38%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="587.0" cy="265.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.67% dd=16.58%</title></circle>
+<circle cx="524.3" cy="218.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.45% dd=33.29%</title></circle>
+<circle cx="511.5" cy="246.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.00% dd=23.48%</title></circle>
+<circle cx="715.8" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.82% dd=3.36%</title></circle>
+<circle cx="580.3" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.26% dd=3.26%</title></circle>
+<circle cx="429.1" cy="195.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-33.48% dd=41.09%</title></circle>
+<circle cx="611.2" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.92% dd=3.26%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="572.9" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.75% dd=5.54%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="493.4" cy="236.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.63% dd=26.79%</title></circle>
+<circle cx="587.7" cy="286.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.79% dd=9.30%</title></circle>
+<circle cx="518.7" cy="258.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.56% dd=19.13%</title></circle>
+<circle cx="319.4" cy="148.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.40% dd=57.59%</title></circle>
+<circle cx="592.0" cy="294.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.93% dd=6.64%</title></circle>
+<circle cx="599.5" cy="307.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.57% dd=2.03%</title></circle>
+<circle cx="732.3" cy="279.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+27.12% dd=11.74%</title></circle>
+<circle cx="546.8" cy="271.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.96% dd=14.57%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="366.1" cy="166.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.06% dd=51.21%</title></circle>
+<circle cx="416.0" cy="193.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.09% dd=42.03%</title></circle>
+<circle cx="638.1" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.29% dd=4.88%</title></circle>
+<circle cx="275.7" cy="119.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-64.14% dd=67.78%</title></circle>
+<circle cx="412.7" cy="190.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.76% dd=42.74%</title></circle>
+<circle cx="404.7" cy="165.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.35% dd=51.71%</title></circle>
+<circle cx="615.0" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.67% dd=0.00%</title></circle>
+<circle cx="529.9" cy="248.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.34% dd=22.59%</title></circle>
+<circle cx="373.6" cy="179.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-44.57% dd=46.86%</title></circle>
+<circle cx="339.7" cy="143.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.34% dd=59.42%</title></circle>
+<circle cx="520.9" cy="199.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.14% dd=39.75%</title></circle>
+<circle cx="643.6" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.39% dd=2.16%</title></circle>
+<circle cx="471.6" cy="241.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.98% dd=24.98%</title></circle>
+<circle cx="366.1" cy="169.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.08% dd=50.33%</title></circle>
+<circle cx="238.3" cy="97.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-71.61% dd=75.44%</title></circle>
+<circle cx="631.6" cy="304.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.98% dd=3.29%</title></circle>
+<circle cx="570.7" cy="275.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.18% dd=13.11%</title></circle>
+<circle cx="526.6" cy="240.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.00% dd=25.36%</title></circle>
+<circle cx="601.6" cy="298.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.99% dd=5.38%</title></circle>
+<circle cx="387.4" cy="174.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.80% dd=48.43%</title></circle>
+<circle cx="293.2" cy="130.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.63% dd=63.88%</title></circle>
+<circle cx="606.9" cy="301.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.05% dd=4.20%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="405.4" cy="194.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.22% dd=41.46%</title></circle>
+<circle cx="590.0" cy="290.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.33% dd=8.16%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="595.3" cy="297.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.26% dd=5.72%</title></circle>
+<circle cx="550.3" cy="276.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.25% dd=13.02%</title></circle>
+<circle cx="649.1" cy="289.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.48% dd=8.37%</title></circle>
+<circle cx="520.1" cy="259.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.29% dd=18.76%</title></circle>
+<circle cx="237.5" cy="100.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-71.77% dd=74.41%</title></circle>
+<circle cx="172.0" cy="67.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-84.87% dd=85.94%</title></circle>
+<circle cx="432.4" cy="215.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.83% dd=34.02%</title></circle>
+<circle cx="369.3" cy="169.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.43% dd=50.33%</title></circle>
+<circle cx="623.8" cy="293.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.44% dd=6.79%</title></circle>
+<circle cx="620.7" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.81% dd=3.34%</title></circle>
+<circle cx="354.8" cy="147.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-48.33% dd=57.81%</title></circle>
+<circle cx="601.1" cy="302.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.90% dd=3.67%</title></circle>
+<circle cx="447.9" cy="211.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.73% dd=35.55%</title></circle>
+<circle cx="600.9" cy="292.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.85% dd=7.29%</title></circle>
+<circle cx="347.3" cy="163.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.83% dd=52.23%</title></circle>
+<circle cx="473.8" cy="228.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.56% dd=29.54%</title></circle>
+<circle cx="602.2" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.13% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="610.9" cy="290.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.85% dd=8.07%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="585.6" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.20% dd=2.20%</title></circle>
+<circle cx="395.1" cy="170.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.27% dd=49.77%</title></circle>
+<circle cx="666.9" cy="258.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.04% dd=19.23%</title></circle>
+<circle cx="254.3" cy="102.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-68.41% dd=73.50%</title></circle>
+<circle cx="589.4" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.45% dd=3.47%</title></circle>
+<circle cx="532.7" cy="272.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.78% dd=14.35%</title></circle>
+<circle cx="683.0" cy="284.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.25% dd=10.08%</title></circle>
+<circle cx="456.8" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.94% dd=41.80%</title></circle>
+<circle cx="591.2" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.48%</title></circle>
+<circle cx="250.0" cy="108.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-69.27% dd=71.60%</title></circle>
+<circle cx="165.7" cy="66.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-86.12% dd=86.12%</title></circle>
+<circle cx="386.2" cy="191.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.04% dd=42.56%</title></circle>
+<circle cx="454.7" cy="193.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.35% dd=41.75%</title></circle>
+<circle cx="334.3" cy="159.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.43% dd=53.74%</title></circle>
+<circle cx="585.1" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.29% dd=2.29%</title></circle>
+<circle cx="554.4" cy="267.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.43% dd=15.91%</title></circle>
+<circle cx="610.4" cy="290.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.76% dd=8.15%</title></circle>
+<circle cx="647.7" cy="300.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.22% dd=4.50%</title></circle>
+<circle cx="543.5" cy="279.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.62% dd=11.83%</title></circle>
+<circle cx="424.6" cy="189.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.38% dd=43.37%</title></circle>
+<circle cx="589.8" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.37% dd=7.07%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="590.9" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.14% dd=1.14%</title></circle>
+<circle cx="563.4" cy="289.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.65% dd=8.35%</title></circle>
+<circle cx="640.7" cy="298.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.82% dd=5.33%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="501.9" cy="226.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.94% dd=30.41%</title></circle>
+<circle cx="597.4" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.15% dd=1.11%</title></circle>
+<circle cx="588.8" cy="301.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.56% dd=4.26%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="624.4" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.55% dd=7.81%</title></circle>
+<circle cx="610.6" cy="306.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.80% dd=2.47%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="414.3" cy="190.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.44% dd=42.80%</title></circle>
+<circle cx="322.3" cy="149.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.82% dd=57.32%</title></circle>
+<circle cx="571.6" cy="286.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.99% dd=9.34%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="556.5" cy="276.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.02% dd=12.97%</title></circle>
+<circle cx="223.4" cy="91.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-74.59% dd=77.40%</title></circle>
+<circle cx="336.5" cy="129.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.98% dd=64.17%</title></circle>
+<circle cx="606.5" cy="303.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.98% dd=3.62%</title></circle>
+<circle cx="591.2" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.08% dd=2.21%</title></circle>
+<circle cx="502.8" cy="247.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.74% dd=22.90%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="400.1" cy="185.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.28% dd=44.74%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="651.8" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.03% dd=5.56%</title></circle>
+<circle cx="586.0" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.12% dd=2.12%</title></circle>
+<circle cx="610.7" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.82% dd=2.31%</title></circle>
+<circle cx="605.3" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.73% dd=3.46%</title></circle>
+<circle cx="535.3" cy="278.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.26% dd=12.26%</title></circle>
+<circle cx="422.1" cy="202.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.88% dd=38.79%</title></circle>
+<circle cx="426.0" cy="214.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.10% dd=34.44%</title></circle>
+<circle cx="436.8" cy="198.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-31.94% dd=40.23%</title></circle>
+<circle cx="671.7" cy="293.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.01% dd=6.86%</title></circle>
+<circle cx="581.1" cy="299.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.11% dd=4.79%</title></circle>
+<circle cx="454.4" cy="195.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.42% dd=41.29%</title></circle>
+<circle cx="192.3" cy="81.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-80.81% dd=80.81%</title></circle>
+<circle cx="611.3" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.93% dd=2.15%</title></circle>
+<circle cx="668.8" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.43% dd=2.21%</title></circle>
+<circle cx="548.9" cy="284.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.54% dd=10.15%</title></circle>
+<circle cx="557.8" cy="284.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.77% dd=10.00%</title></circle>
+<circle cx="596.7" cy="308.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.01% dd=1.61%</title></circle>
+<circle cx="638.5" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.37% dd=2.24%</title></circle>
+<circle cx="570.2" cy="297.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.27% dd=5.41%</title></circle>
+<circle cx="608.4" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.35% dd=1.15%</title></circle>
+<circle cx="615.5" cy="304.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.77% dd=3.06%</title></circle>
+<circle cx="591.1" cy="297.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.10% dd=5.67%</title></circle>
+<circle cx="514.5" cy="256.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.42% dd=19.90%</title></circle>
+<circle cx="509.0" cy="249.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.52% dd=22.42%</title></circle>
+<circle cx="576.3" cy="266.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.07% dd=16.33%</title></circle>
+<circle cx="572.1" cy="286.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.89% dd=9.50%</title></circle>
+<circle cx="532.3" cy="259.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.86% dd=18.97%</title></circle>
+<circle cx="662.9" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.25% dd=2.43%</title></circle>
+<circle cx="333.8" cy="156.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.52% dd=54.72%</title></circle>
+<circle cx="639.7" cy="303.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.62% dd=3.41%</title></circle>
+<circle cx="586.2" cy="307.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.07% dd=2.07%</title></circle>
+<circle cx="580.2" cy="285.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.28% dd=9.62%</title></circle>
+<circle cx="479.9" cy="245.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.32% dd=23.80%</title></circle>
+<circle cx="487.2" cy="248.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.87% dd=22.83%</title></circle>
+<circle cx="609.9" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.66% dd=1.17%</title></circle>
+<circle cx="210.9" cy="87.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.10% dd=78.93%</title></circle>
+<circle cx="463.0" cy="222.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-26.71% dd=31.66%</title></circle>
+<circle cx="323.5" cy="140.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.58% dd=60.45%</title></circle>
+<circle cx="506.6" cy="242.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.00% dd=24.71%</title></circle>
+<circle cx="399.8" cy="190.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.34% dd=42.84%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="589.8" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.37% dd=7.07%</title></circle>
+<circle cx="587.2" cy="289.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.88% dd=8.28%</title></circle>
+<circle cx="669.2" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.50% dd=7.80%</title></circle>
+<circle cx="367.3" cy="151.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.84% dd=56.38%</title></circle>
+<circle cx="306.5" cy="143.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-57.98% dd=59.41%</title></circle>
+<circle cx="620.7" cy="283.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.81% dd=10.41%</title></circle>
+<circle cx="425.6" cy="204.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.17% dd=38.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="480.4" cy="240.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.22% dd=25.47%</title></circle>
+<circle cx="322.7" cy="148.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.74% dd=57.58%</title></circle>
+<circle cx="425.4" cy="200.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.23% dd=39.35%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="643.0" cy="304.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.26% dd=3.21%</title></circle>
+<circle cx="589.7" cy="286.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.39% dd=9.53%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="604.1" cy="282.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.50% dd=10.90%</title></circle>
+<circle cx="362.8" cy="157.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.73% dd=54.31%</title></circle>
+<circle cx="503.9" cy="258.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.53% dd=19.09%</title></circle>
+<circle cx="612.0" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.07% dd=3.33%</title></circle>
+<circle cx="611.6" cy="272.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.99% dd=14.18%</title></circle>
+<circle cx="611.9" cy="299.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.06% dd=4.70%</title></circle>
+<circle cx="679.6" cy="270.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+16.58% dd=14.95%</title></circle>
+<circle cx="590.8" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.17% dd=1.17%</title></circle>
+<circle cx="331.3" cy="160.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.02% dd=53.51%</title></circle>
+<circle cx="418.0" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.69% dd=41.82%</title></circle>
+<circle cx="549.3" cy="280.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.46% dd=11.47%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="618.5" cy="309.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.38% dd=1.51%</title></circle>
+<circle cx="290.7" cy="131.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.14% dd=63.47%</title></circle>
+<circle cx="301.4" cy="139.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-59.00% dd=60.79%</title></circle>
+<circle cx="629.6" cy="301.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.60% dd=4.12%</title></circle>
+<circle cx="279.9" cy="118.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-63.30% dd=67.89%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="629.3" cy="303.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.53% dd=3.55%</title></circle>
+<circle cx="587.6" cy="303.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.81% dd=3.54%</title></circle>
+<circle cx="596.3" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.06% dd=3.30%</title></circle>
+<circle cx="511.5" cy="260.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.02% dd=18.54%</title></circle>
+<circle cx="694.3" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.53% dd=2.23%</title></circle>
+<circle cx="543.5" cy="219.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.61% dd=32.87%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="265.1" cy="114.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.25% dd=69.38%</title></circle>
+<circle cx="612.7" cy="309.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.21% dd=1.34%</title></circle>
+<circle cx="186.6" cy="76.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-81.94% dd=82.71%</title></circle>
+<circle cx="402.0" cy="180.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.90% dd=46.57%</title></circle>
+<circle cx="591.4" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.03% dd=1.03%</title></circle>
+<circle cx="495.3" cy="234.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.24% dd=27.46%</title></circle>
+<circle cx="598.6" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.40% dd=3.23%</title></circle>
+<circle cx="585.7" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.18% dd=2.18%</title></circle>
+<circle cx="649.9" cy="291.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.65% dd=7.83%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="540.6" cy="263.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.19% dd=17.28%</title></circle>
+<circle cx="624.7" cy="301.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.62% dd=4.20%</title></circle>
+<circle cx="440.9" cy="187.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-31.12% dd=43.92%</title></circle>
+<circle cx="589.6" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.41% dd=6.67%</title></circle>
+<circle cx="576.0" cy="283.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.12% dd=10.36%</title></circle>
+<circle cx="608.4" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.35% dd=1.17%</title></circle>
+<circle cx="470.5" cy="219.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.20% dd=32.95%</title></circle>
+<circle cx="560.4" cy="288.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.24% dd=8.62%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="598.2" cy="309.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.32% dd=1.37%</title></circle>
+<circle cx="456.5" cy="230.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-28.00% dd=28.93%</title></circle>
+<circle cx="383.8" cy="145.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.53% dd=58.77%</title></circle>
+<circle cx="477.2" cy="208.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.86% dd=36.66%</title></circle>
+<circle cx="538.4" cy="263.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.63% dd=17.34%</title></circle>
+<circle cx="587.1" cy="300.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.90% dd=4.37%</title></circle>
+<circle cx="684.2" cy="305.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.50% dd=2.72%</title></circle>
+<circle cx="653.6" cy="279.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.38% dd=11.91%</title></circle>
+<circle cx="505.1" cy="255.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.29% dd=20.07%</title></circle>
+<circle cx="499.3" cy="249.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.45% dd=22.41%</title></circle>
+<circle cx="524.9" cy="269.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.33% dd=15.48%</title></circle>
+<circle cx="317.4" cy="141.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.81% dd=60.03%</title></circle>
+<circle cx="350.9" cy="169.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.11% dd=50.10%</title></circle>
+<circle cx="448.7" cy="218.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.57% dd=33.20%</title></circle>
+<circle cx="304.4" cy="143.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-58.40% dd=59.33%</title></circle>
+<circle cx="267.2" cy="121.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-65.83% dd=66.99%</title></circle>
+<circle cx="220.5" cy="98.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-75.18% dd=75.18%</title></circle>
+<circle cx="716.3" cy="298.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.91% dd=5.15%</title></circle>
+<circle cx="653.0" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.27% dd=2.13%</title></circle>
+<circle cx="473.4" cy="219.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.63% dd=32.85%</title></circle>
+<circle cx="287.1" cy="136.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.86% dd=61.86%</title></circle>
+<circle cx="516.4" cy="256.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.03% dd=19.86%</title></circle>
+<circle cx="620.5" cy="306.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.77% dd=2.58%</title></circle>
+<circle cx="591.5" cy="300.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.02% dd=4.66%</title></circle>
+<circle cx="402.2" cy="196.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.86% dd=40.79%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="563.2" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.68% dd=6.68%</title></circle>
+<circle cx="639.2" cy="300.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.52% dd=4.47%</title></circle>
+<circle cx="494.1" cy="242.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.48% dd=24.69%</title></circle>
+<circle cx="479.2" cy="223.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.47% dd=31.26%</title></circle>
+<circle cx="590.4" cy="288.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.25% dd=8.55%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="727.6" cy="283.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+26.19% dd=10.51%</title></circle>
+<circle cx="527.0" cy="232.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.90% dd=28.36%</title></circle>
+<circle cx="585.4" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.24% dd=2.24%</title></circle>
+<circle cx="617.9" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.26% dd=0.00%</title></circle>
+<circle cx="547.6" cy="280.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.80% dd=11.53%</title></circle>
+<circle cx="617.0" cy="304.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.08% dd=3.23%</title></circle>
+<circle cx="424.7" cy="199.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.36% dd=39.70%</title></circle>
+<circle cx="581.0" cy="293.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.12% dd=6.80%</title></circle>
+<circle cx="434.1" cy="212.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.48% dd=35.27%</title></circle>
+<circle cx="570.3" cy="294.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.26% dd=6.65%</title></circle>
+<circle cx="579.2" cy="298.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.49% dd=5.29%</title></circle>
+<circle cx="592.0" cy="303.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.93% dd=3.57%</title></circle>
+<circle cx="578.4" cy="284.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.64% dd=10.00%</title></circle>
+<circle cx="530.6" cy="262.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.19% dd=17.94%</title></circle>
+<circle cx="412.2" cy="196.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.86% dd=40.95%</title></circle>
+<circle cx="419.5" cy="198.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.39% dd=40.06%</title></circle>
+<circle cx="569.1" cy="285.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.51% dd=9.62%</title></circle>
+<circle cx="543.2" cy="264.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.67% dd=17.03%</title></circle>
+<circle cx="575.8" cy="295.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.17% dd=6.40%</title></circle>
+<circle cx="601.2" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.92% dd=0.00%</title></circle>
+<circle cx="411.8" cy="195.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-36.94% dd=41.05%</title></circle>
+<circle cx="324.5" cy="135.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.39% dd=61.97%</title></circle>
+<circle cx="570.0" cy="273.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.32% dd=13.89%</title></circle>
+<circle cx="168.2" cy="68.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-85.62% dd=85.62%</title></circle>
+<circle cx="478.7" cy="217.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.57% dd=33.38%</title></circle>
+<circle cx="612.4" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.15% dd=1.19%</title></circle>
+<circle cx="702.2" cy="310.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+21.10% dd=1.17%</title></circle>
+<circle cx="571.7" cy="297.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.98% dd=5.72%</title></circle>
+<circle cx="646.5" cy="288.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.97% dd=8.88%</title></circle>
+<circle cx="605.2" cy="299.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.71% dd=5.04%</title></circle>
+<circle cx="602.2" cy="294.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.12% dd=6.78%</title></circle>
+<circle cx="166.7" cy="67.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-85.91% dd=85.91%</title></circle>
+<circle cx="590.1" cy="309.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.31% dd=1.31%</title></circle>
+<circle cx="522.6" cy="236.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.80% dd=26.69%</title></circle>
+<circle cx="514.7" cy="250.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.37% dd=22.09%</title></circle>
+<circle cx="491.3" cy="241.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.04% dd=24.94%</title></circle>
+<circle cx="753.7" cy="272.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+31.39% dd=14.38%</title></circle>
+<circle cx="597.3" cy="296.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.14% dd=5.94%</title></circle>
+<circle cx="598.3" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.34% dd=2.20%</title></circle>
+<circle cx="631.5" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.97% dd=2.64%</title></circle>
+<circle cx="732.7" cy="303.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+27.20% dd=3.47%</title></circle>
+<circle cx="592.2" cy="306.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.88% dd=2.56%</title></circle>
+<circle cx="520.7" cy="216.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.16% dd=33.84%</title></circle>
+<circle cx="591.3" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.06% dd=1.06%</title></circle>
+<circle cx="787.9" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+38.23% dd=2.43%</title></circle>
+<circle cx="527.9" cy="251.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.73% dd=21.59%</title></circle>
+<circle cx="633.5" cy="308.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.36% dd=1.65%</title></circle>
+<circle cx="594.4" cy="307.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.44% dd=2.11%</title></circle>
+<circle cx="294.7" cy="121.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.34% dd=67.06%</title></circle>
+<circle cx="275.9" cy="128.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-64.10% dd=64.43%</title></circle>
+<circle cx="506.2" cy="255.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.07% dd=20.26%</title></circle>
+<circle cx="581.6" cy="303.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.01% dd=3.61%</title></circle>
+<circle cx="546.8" cy="255.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.96% dd=20.22%</title></circle>
+<circle cx="603.8" cy="303.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.43% dd=3.32%</title></circle>
+<circle cx="697.8" cy="294.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+20.21% dd=6.70%</title></circle>
+<circle cx="631.5" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.97% dd=2.64%</title></circle>
+<circle cx="626.3" cy="298.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.94% dd=5.35%</title></circle>
+<circle cx="610.4" cy="300.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.75% dd=4.68%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="503.8" cy="206.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.55% dd=37.44%</title></circle>
+<circle cx="234.4" cy="96.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-72.39% dd=75.81%</title></circle>
+<circle cx="490.0" cy="232.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.32% dd=28.16%</title></circle>
+<circle cx="682.5" cy="306.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.16% dd=2.44%</title></circle>
+<circle cx="499.3" cy="217.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.45% dd=33.62%</title></circle>
+<circle cx="614.7" cy="281.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.62% dd=11.09%</title></circle>
+<circle cx="473.9" cy="235.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.53% dd=27.35%</title></circle>
+<circle cx="585.0" cy="306.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.32% dd=2.32%</title></circle>
+<circle cx="625.2" cy="301.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.71% dd=4.31%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="628.2" cy="277.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.32% dd=12.48%</title></circle>
+<circle cx="560.2" cy="253.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.27% dd=20.82%</title></circle>
+<circle cx="480.6" cy="203.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.19% dd=38.22%</title></circle>
+<circle cx="355.1" cy="163.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-48.28% dd=52.29%</title></circle>
+<circle cx="610.7" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.82% dd=2.31%</title></circle>
+<circle cx="328.5" cy="159.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.59% dd=53.59%</title></circle>
+<circle cx="623.6" cy="283.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.40% dd=10.46%</title></circle>
+<circle cx="584.2" cy="286.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.49% dd=9.25%</title></circle>
+<circle cx="624.1" cy="303.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.49% dd=3.52%</title></circle>
+<circle cx="350.0" cy="153.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.29% dd=55.94%</title></circle>
+<circle cx="577.6" cy="300.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.79% dd=4.64%</title></circle>
+<circle cx="317.6" cy="149.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.76% dd=57.37%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="406.5" cy="204.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-37.99% dd=37.99%</title></circle>
+<circle cx="561.7" cy="286.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.97% dd=9.43%</title></circle>
+<circle cx="532.3" cy="276.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.86% dd=12.95%</title></circle>
+<circle cx="692.7" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.20% dd=2.23%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="663.9" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.46% dd=4.91%</title></circle>
+<circle cx="591.2" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.08% dd=3.49%</title></circle>
+<circle cx="500.6" cy="231.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.19% dd=28.74%</title></circle>
+<circle cx="596.8" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.04% dd=1.16%</title></circle>
+<circle cx="581.9" cy="295.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.94% dd=6.14%</title></circle>
+<circle cx="566.8" cy="296.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.96% dd=5.96%</title></circle>
+<circle cx="626.1" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.89% dd=2.25%</title></circle>
+<circle cx="235.1" cy="95.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-72.25% dd=76.07%</title></circle>
+<circle cx="555.6" cy="245.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.19% dd=23.69%</title></circle>
+<circle cx="617.8" cy="292.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.23% dd=7.31%</title></circle>
+<circle cx="629.2" cy="304.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.51% dd=3.10%</title></circle>
+<circle cx="588.3" cy="277.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.66% dd=12.58%</title></circle>
+<circle cx="672.8" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.22% dd=4.53%</title></circle>
+<circle cx="570.6" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.21% dd=6.12%</title></circle>
+<circle cx="552.7" cy="288.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.77% dd=8.77%</title></circle>
+<circle cx="589.7" cy="292.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.39% dd=7.45%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="262.1" cy="121.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.86% dd=66.86%</title></circle>
+<circle cx="611.3" cy="296.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.93% dd=6.00%</title></circle>
+<circle cx="590.7" cy="295.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.19% dd=6.25%</title></circle>
+<circle cx="604.3" cy="300.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.53% dd=4.64%</title></circle>
+<circle cx="594.7" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.39% dd=7.10%</title></circle>
+<circle cx="577.0" cy="294.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.92% dd=6.59%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="434.4" cy="212.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.42% dd=35.14%</title></circle>
+<circle cx="613.8" cy="297.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.43% dd=5.56%</title></circle>
+<circle cx="574.4" cy="274.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.44% dd=13.48%</title></circle>
+<circle cx="327.1" cy="141.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.85% dd=59.87%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="565.0" cy="284.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.32% dd=9.93%</title></circle>
+<circle cx="385.5" cy="172.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.20% dd=49.33%</title></circle>
+<circle cx="593.5" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.62% dd=2.22%</title></circle>
+<circle cx="341.1" cy="141.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.06% dd=60.15%</title></circle>
+<circle cx="615.9" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.85% dd=1.11%</title></circle>
+<circle cx="648.4" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.35% dd=4.88%</title></circle>
+<circle cx="672.8" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+15.22% dd=4.53%</title></circle>
+<circle cx="663.9" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.46% dd=4.91%</title></circle>
+<circle cx="163.4" cy="62.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-86.57% dd=87.65%</title></circle>
+<circle cx="637.2" cy="299.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.11% dd=4.84%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="623.1" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.30% dd=1.08%</title></circle>
+<circle cx="585.4" cy="300.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.23% dd=4.51%</title></circle>
+<circle cx="616.1" cy="302.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.90% dd=3.74%</title></circle>
+<circle cx="591.7" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.99% dd=6.10%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="599.4" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.56% dd=1.24%</title></circle>
+<circle cx="609.6" cy="306.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.60% dd=2.29%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="590.1" cy="309.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.31% dd=1.31%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="322.0" cy="144.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-54.88% dd=58.99%</title></circle>
+<circle cx="243.2" cy="103.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-70.64% dd=73.34%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="336.4" cy="152.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.00% dd=56.12%</title></circle>
+<circle cx="529.9" cy="248.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-13.34% dd=22.59%</title></circle>
+<circle cx="511.8" cy="261.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.95% dd=17.99%</title></circle>
+<circle cx="583.4" cy="305.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.64% dd=2.64%</title></circle>
+<circle cx="669.7" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.61% dd=1.14%</title></circle>
+<circle cx="580.0" cy="282.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.32% dd=10.79%</title></circle>
+<circle cx="317.8" cy="149.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.73% dd=57.40%</title></circle>
+<circle cx="586.1" cy="307.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.10% dd=2.10%</title></circle>
+<circle cx="692.1" cy="296.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.08% dd=6.05%</title></circle>
+<circle cx="490.5" cy="224.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.21% dd=31.07%</title></circle>
+<circle cx="364.6" cy="175.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.37% dd=48.14%</title></circle>
+<circle cx="533.2" cy="260.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.67% dd=18.37%</title></circle>
+<circle cx="560.8" cy="280.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.15% dd=11.42%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="361.5" cy="160.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.99% dd=53.38%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="563.2" cy="265.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.67% dd=16.58%</title></circle>
 <circle cx="113.4" cy="36.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-96.57% dd=96.61%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="526.7" cy="261.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.12% dd=18.12%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="626.4" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.81% dd=1.11%</title></circle>
-<circle cx="635.5" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.54% dd=1.16%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="547.6" cy="263.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.14% dd=17.51%</title></circle>
-<circle cx="478.0" cy="233.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.36% dd=27.90%</title></circle>
-<circle cx="606.2" cy="296.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.03% dd=5.90%</title></circle>
-<circle cx="291.6" cy="132.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.74% dd=63.04%</title></circle>
-<circle cx="274.2" cy="122.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.06% dd=66.70%</title></circle>
-<circle cx="670.9" cy="296.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.25% dd=5.98%</title></circle>
-<circle cx="405.9" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.04% dd=41.81%</title></circle>
-<circle cx="587.3" cy="286.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.61% dd=9.53%</title></circle>
-<circle cx="629.0" cy="301.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.30% dd=4.01%</title></circle>
-<circle cx="548.0" cy="258.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.07% dd=19.01%</title></circle>
-<circle cx="736.6" cy="278.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+21.73% dd=12.14%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="629.3" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.37% dd=2.24%</title></circle>
-<circle cx="617.7" cy="301.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.84% dd=4.02%</title></circle>
-<circle cx="266.7" cy="119.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-67.47% dd=67.74%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="597.7" cy="272.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.64% dd=14.44%</title></circle>
-<circle cx="628.3" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.17% dd=7.09%</title></circle>
-<circle cx="616.2" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.12% dd=1.12%</title></circle>
-<circle cx="313.7" cy="138.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-58.55% dd=61.09%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="624.2" cy="302.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.39% dd=3.71%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="568.8" cy="284.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.13% dd=10.13%</title></circle>
-<circle cx="588.9" cy="293.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.30% dd=6.84%</title></circle>
-<circle cx="434.0" cy="186.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.71% dd=44.41%</title></circle>
-<circle cx="598.3" cy="274.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.52% dd=13.45%</title></circle>
-<circle cx="615.8" cy="309.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.21% dd=1.21%</title></circle>
-<circle cx="600.7" cy="286.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.07% dd=9.36%</title></circle>
-<circle cx="301.6" cy="127.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.85% dd=64.77%</title></circle>
-<circle cx="572.2" cy="255.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.48% dd=20.33%</title></circle>
-<circle cx="639.0" cy="271.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.20% dd=14.74%</title></circle>
-<circle cx="298.2" cy="137.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.49% dd=61.49%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="578.6" cy="283.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.27% dd=10.47%</title></circle>
-<circle cx="303.5" cy="128.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.49% dd=64.40%</title></circle>
-<circle cx="616.6" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.05% dd=2.20%</title></circle>
-<circle cx="542.0" cy="243.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.20% dd=24.30%</title></circle>
-<circle cx="442.3" cy="190.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.14% dd=42.96%</title></circle>
-<circle cx="615.6" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.24% dd=1.24%</title></circle>
-<circle cx="607.4" cy="277.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.80% dd=12.51%</title></circle>
-<circle cx="577.4" cy="259.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.49% dd=18.97%</title></circle>
-<circle cx="609.5" cy="306.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.40% dd=2.40%</title></circle>
-<circle cx="712.2" cy="289.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.11% dd=8.36%</title></circle>
-<circle cx="637.3" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.88% dd=0.00%</title></circle>
-<circle cx="585.4" cy="282.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.97% dd=10.96%</title></circle>
-<circle cx="615.6" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.24% dd=1.24%</title></circle>
-<circle cx="648.4" cy="299.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.99% dd=4.75%</title></circle>
-<circle cx="616.3" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.11% dd=1.11%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="504.2" cy="226.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-22.39% dd=30.37%</title></circle>
-<circle cx="434.7" cy="202.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.57% dd=38.67%</title></circle>
-<circle cx="610.2" cy="306.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.27% dd=2.27%</title></circle>
-<circle cx="417.1" cy="186.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.93% dd=44.27%</title></circle>
-<circle cx="694.6" cy="288.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.75% dd=8.71%</title></circle>
-<circle cx="211.8" cy="89.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.89% dd=78.13%</title></circle>
-<circle cx="486.5" cy="222.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.75% dd=31.82%</title></circle>
-<circle cx="660.3" cy="275.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.24% dd=13.21%</title></circle>
-<circle cx="400.4" cy="189.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.09% dd=43.30%</title></circle>
-<circle cx="613.4" cy="289.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.66% dd=8.30%</title></circle>
-<circle cx="332.0" cy="144.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.08% dd=58.99%</title></circle>
-<circle cx="601.4" cy="294.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.93% dd=6.48%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="421.6" cy="190.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.07% dd=42.85%</title></circle>
-<circle cx="513.9" cy="254.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.54% dd=20.61%</title></circle>
-<circle cx="461.8" cy="220.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.43% dd=32.59%</title></circle>
-<circle cx="610.6" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.18% dd=2.18%</title></circle>
-<circle cx="638.7" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.15% dd=2.25%</title></circle>
-<circle cx="493.8" cy="240.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.36% dd=25.50%</title></circle>
-<circle cx="678.4" cy="292.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.68% dd=7.16%</title></circle>
-<circle cx="363.0" cy="162.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.18% dd=52.75%</title></circle>
-<circle cx="612.9" cy="269.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.76% dd=15.21%</title></circle>
-<circle cx="581.9" cy="261.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.64% dd=18.20%</title></circle>
-<circle cx="836.6" cy="295.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+40.72% dd=6.26%</title></circle>
-<circle cx="520.3" cy="250.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.32% dd=22.10%</title></circle>
-<circle cx="417.4" cy="180.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.86% dd=46.56%</title></circle>
-<circle cx="620.5" cy="291.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.31% dd=7.59%</title></circle>
-<circle cx="411.1" cy="172.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.06% dd=49.30%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="601.5" cy="301.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.92% dd=4.09%</title></circle>
-<circle cx="635.7" cy="290.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.59% dd=7.88%</title></circle>
-<circle cx="599.9" cy="301.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.22% dd=4.22%</title></circle>
-<circle cx="396.9" cy="177.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.76% dd=47.44%</title></circle>
-<circle cx="432.6" cy="206.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.97% dd=37.34%</title></circle>
-<circle cx="616.2" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.12% dd=1.12%</title></circle>
-<circle cx="625.7" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.67% dd=1.10%</title></circle>
-<circle cx="544.9" cy="220.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.66% dd=32.28%</title></circle>
-<circle cx="580.4" cy="278.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.92% dd=12.16%</title></circle>
-<circle cx="393.8" cy="179.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-43.35% dd=46.79%</title></circle>
-<circle cx="539.9" cy="263.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.60% dd=17.51%</title></circle>
-<circle cx="508.6" cy="205.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.55% dd=37.58%</title></circle>
-<circle cx="691.8" cy="294.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.23% dd=6.54%</title></circle>
-<circle cx="632.0" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.87% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="616.4" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.48%</title></circle>
-<circle cx="458.9" cy="166.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.98% dd=51.42%</title></circle>
-<circle cx="578.5" cy="280.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.29% dd=11.58%</title></circle>
-<circle cx="463.0" cy="201.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.20% dd=38.90%</title></circle>
-<circle cx="489.8" cy="237.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.12% dd=26.41%</title></circle>
-<circle cx="619.6" cy="278.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.48% dd=12.34%</title></circle>
-<circle cx="645.3" cy="309.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.40% dd=1.32%</title></circle>
-<circle cx="654.4" cy="304.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.12% dd=3.17%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="658.0" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.80% dd=1.07%</title></circle>
-<circle cx="640.8" cy="285.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.54% dd=9.70%</title></circle>
-<circle cx="633.4" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.14% dd=4.90%</title></circle>
-<circle cx="747.3" cy="294.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.77% dd=6.74%</title></circle>
-<circle cx="616.9" cy="306.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.99% dd=2.32%</title></circle>
-<circle cx="292.6" cy="118.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.56% dd=68.17%</title></circle>
-<circle cx="537.3" cy="244.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.10% dd=23.90%</title></circle>
-<circle cx="634.7" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.39% dd=4.53%</title></circle>
-<circle cx="579.2" cy="281.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.16% dd=11.10%</title></circle>
-<circle cx="654.2" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.08% dd=6.10%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="618.4" cy="293.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.70% dd=7.01%</title></circle>
-<circle cx="623.0" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.16% dd=2.15%</title></circle>
-<circle cx="639.6" cy="294.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.32% dd=6.78%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="638.1" cy="292.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.03% dd=7.31%</title></circle>
-<circle cx="610.7" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.17% dd=2.17%</title></circle>
-<circle cx="685.2" cy="282.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.98% dd=10.77%</title></circle>
-<circle cx="620.9" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.24% dd=2.14%</title></circle>
-<circle cx="599.7" cy="289.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.25% dd=8.44%</title></circle>
-<circle cx="355.2" cy="150.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-50.67% dd=56.79%</title></circle>
-<circle cx="611.4" cy="303.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.04% dd=3.58%</title></circle>
-<circle cx="668.6" cy="297.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.83% dd=5.57%</title></circle>
-<circle cx="623.3" cy="297.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.22% dd=5.58%</title></circle>
-<circle cx="468.6" cy="201.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.15% dd=39.19%</title></circle>
-<circle cx="614.3" cy="296.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.49% dd=5.89%</title></circle>
-<circle cx="490.5" cy="233.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.98% dd=27.76%</title></circle>
-<circle cx="634.1" cy="300.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.28% dd=4.47%</title></circle>
-<circle cx="492.8" cy="201.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.56% dd=39.12%</title></circle>
-<circle cx="603.5" cy="289.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.54% dd=8.47%</title></circle>
-<circle cx="373.4" cy="166.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-47.22% dd=51.25%</title></circle>
-<circle cx="481.3" cy="201.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-26.73% dd=39.09%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="584.3" cy="290.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.18% dd=7.95%</title></circle>
-<circle cx="634.1" cy="290.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.27% dd=7.84%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="381.2" cy="177.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.73% dd=47.56%</title></circle>
-<circle cx="227.9" cy="92.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-74.83% dd=77.17%</title></circle>
-<circle cx="446.1" cy="206.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-33.42% dd=37.37%</title></circle>
-<circle cx="478.1" cy="232.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.33% dd=28.12%</title></circle>
-<circle cx="500.1" cy="206.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.16% dd=37.26%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="616.6" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.05% dd=1.05%</title></circle>
-<circle cx="611.9" cy="293.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.94% dd=6.96%</title></circle>
-<circle cx="722.6" cy="296.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.08% dd=6.05%</title></circle>
-<circle cx="437.2" cy="185.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.10% dd=44.78%</title></circle>
-<circle cx="636.4" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.71% dd=1.10%</title></circle>
-<circle cx="623.4" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.24% dd=1.15%</title></circle>
-<circle cx="399.6" cy="175.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.25% dd=48.04%</title></circle>
-<circle cx="562.1" cy="266.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.40% dd=16.24%</title></circle>
-<circle cx="642.5" cy="282.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.87% dd=10.81%</title></circle>
-<circle cx="360.5" cy="163.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.67% dd=52.34%</title></circle>
-<circle cx="621.4" cy="298.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.13% dd=5.16%</title></circle>
-<circle cx="290.4" cy="131.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.98% dd=63.36%</title></circle>
-<circle cx="542.3" cy="263.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.15% dd=17.47%</title></circle>
-<circle cx="642.7" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.90% dd=0.00%</title></circle>
-<circle cx="557.9" cy="261.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.18% dd=18.17%</title></circle>
-<circle cx="608.5" cy="306.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.58% dd=2.58%</title></circle>
-<circle cx="644.1" cy="275.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.17% dd=13.20%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="650.3" cy="275.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.34% dd=13.40%</title></circle>
-<circle cx="214.0" cy="85.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.48% dd=79.52%</title></circle>
-<circle cx="343.5" cy="153.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.90% dd=56.00%</title></circle>
-<circle cx="627.0" cy="295.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.92% dd=6.21%</title></circle>
-<circle cx="410.3" cy="196.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.21% dd=40.82%</title></circle>
-<circle cx="609.8" cy="279.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.34% dd=11.92%</title></circle>
-<circle cx="199.1" cy="80.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-80.31% dd=81.46%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="659.7" cy="293.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.13% dd=7.01%</title></circle>
-<circle cx="202.7" cy="77.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-79.61% dd=82.49%</title></circle>
-<circle cx="609.2" cy="296.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.45% dd=6.08%</title></circle>
-<circle cx="642.8" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.92% dd=4.92%</title></circle>
-<circle cx="700.9" cy="290.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.95% dd=8.09%</title></circle>
-<circle cx="405.5" cy="123.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.12% dd=66.16%</title></circle>
-<circle cx="605.4" cy="274.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.17% dd=13.67%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="657.9" cy="265.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.78% dd=16.57%</title></circle>
-<circle cx="620.4" cy="272.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.33% dd=14.35%</title></circle>
-<circle cx="416.4" cy="171.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.06% dd=49.44%</title></circle>
-<circle cx="744.6" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.25% dd=3.36%</title></circle>
-<circle cx="629.0" cy="303.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.31% dd=3.42%</title></circle>
-<circle cx="414.0" cy="175.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.51% dd=48.11%</title></circle>
-<circle cx="625.1" cy="298.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.56% dd=5.11%</title></circle>
-<circle cx="342.1" cy="158.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.16% dd=53.95%</title></circle>
-<circle cx="585.4" cy="280.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.98% dd=11.67%</title></circle>
-<circle cx="187.9" cy="72.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-82.44% dd=84.15%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="600.4" cy="273.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.12% dd=13.95%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="607.0" cy="284.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.87% dd=10.22%</title></circle>
-<circle cx="616.6" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.06% dd=1.06%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="266.7" cy="116.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-67.47% dd=68.64%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="616.4" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=1.09%</title></circle>
-<circle cx="622.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="624.8" cy="302.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.51% dd=3.98%</title></circle>
-<circle cx="563.5" cy="248.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.12% dd=22.53%</title></circle>
-<circle cx="616.4" cy="304.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.04%</title></circle>
-<polyline fill="none" stroke="#3fb950" stroke-width="2" points="622.1,313.4 641.5,313.4 644.6,313.4 658.0,310.3 699.1,310.1 733.3,310.0 823.5,306.4 836.6,295.5"/>
-<circle cx="622.1" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+0.00% dd=0.00%</title></circle>
-<circle cx="641.5" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+3.67% dd=0.00%</title></circle>
-<circle cx="644.6" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+4.26% dd=0.00%</title></circle>
-<circle cx="658.0" cy="310.3" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+6.80% dd=1.07%</title></circle>
-<circle cx="699.1" cy="310.1" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+14.61% dd=1.14%</title></circle>
-<circle cx="733.3" cy="310.0" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+21.10% dd=1.17%</title></circle>
-<circle cx="823.5" cy="306.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+38.23% dd=2.43%</title></circle>
-<circle cx="836.6" cy="295.5" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+40.72% dd=6.26%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="505.9" cy="261.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.12% dd=18.12%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="600.7" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.81% dd=1.11%</title></circle>
+<circle cx="609.3" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.54% dd=1.16%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="525.8" cy="263.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.14% dd=17.51%</title></circle>
+<circle cx="459.7" cy="233.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.36% dd=27.90%</title></circle>
+<circle cx="581.5" cy="296.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.03% dd=5.90%</title></circle>
+<circle cx="282.7" cy="132.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.74% dd=63.04%</title></circle>
+<circle cx="266.1" cy="122.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-66.06% dd=66.70%</title></circle>
+<circle cx="642.9" cy="296.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+9.25% dd=5.98%</title></circle>
+<circle cx="391.3" cy="193.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.04% dd=41.81%</title></circle>
+<circle cx="563.6" cy="286.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.61% dd=9.53%</title></circle>
+<circle cx="603.1" cy="301.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.30% dd=4.01%</title></circle>
+<circle cx="526.2" cy="258.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.07% dd=19.01%</title></circle>
+<circle cx="705.3" cy="278.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+21.73% dd=12.14%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="603.5" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.37% dd=2.24%</title></circle>
+<circle cx="592.4" cy="301.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.84% dd=4.02%</title></circle>
+<circle cx="259.0" cy="119.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-67.47% dd=67.74%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="573.4" cy="272.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.64% dd=14.44%</title></circle>
+<circle cx="602.5" cy="293.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.17% dd=7.09%</title></circle>
+<circle cx="591.0" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.12% dd=1.12%</title></circle>
+<circle cx="303.7" cy="138.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-58.55% dd=61.09%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="598.6" cy="302.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.39% dd=3.71%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="545.9" cy="284.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.13% dd=10.13%</title></circle>
+<circle cx="565.1" cy="293.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.30% dd=6.84%</title></circle>
+<circle cx="417.9" cy="186.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.71% dd=44.41%</title></circle>
+<circle cx="574.0" cy="274.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.52% dd=13.45%</title></circle>
+<circle cx="590.6" cy="309.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.21% dd=1.21%</title></circle>
+<circle cx="576.3" cy="286.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.07% dd=9.36%</title></circle>
+<circle cx="292.1" cy="127.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.85% dd=64.77%</title></circle>
+<circle cx="549.2" cy="255.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-9.48% dd=20.33%</title></circle>
+<circle cx="612.6" cy="271.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.20% dd=14.74%</title></circle>
+<circle cx="289.0" cy="137.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-61.49% dd=61.49%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="555.2" cy="283.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.27% dd=10.47%</title></circle>
+<circle cx="293.9" cy="128.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.49% dd=64.40%</title></circle>
+<circle cx="591.4" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.05% dd=2.20%</title></circle>
+<circle cx="520.5" cy="243.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.20% dd=24.30%</title></circle>
+<circle cx="425.8" cy="190.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-34.14% dd=42.96%</title></circle>
+<circle cx="590.4" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.24% dd=1.24%</title></circle>
+<circle cx="582.6" cy="277.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.80% dd=12.51%</title></circle>
+<circle cx="554.1" cy="259.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.49% dd=18.97%</title></circle>
+<circle cx="584.6" cy="306.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.40% dd=2.40%</title></circle>
+<circle cx="682.2" cy="289.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.11% dd=8.36%</title></circle>
+<circle cx="611.0" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.88% dd=0.00%</title></circle>
+<circle cx="561.7" cy="282.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.97% dd=10.96%</title></circle>
+<circle cx="590.4" cy="309.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.24% dd=1.24%</title></circle>
+<circle cx="621.6" cy="299.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.99% dd=4.75%</title></circle>
+<circle cx="591.1" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.11% dd=1.11%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="484.6" cy="226.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-22.39% dd=30.37%</title></circle>
+<circle cx="418.6" cy="202.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.57% dd=38.67%</title></circle>
+<circle cx="585.3" cy="306.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.27% dd=2.27%</title></circle>
+<circle cx="401.8" cy="186.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.93% dd=44.27%</title></circle>
+<circle cx="665.4" cy="288.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.75% dd=8.71%</title></circle>
+<circle cx="206.9" cy="89.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.89% dd=78.13%</title></circle>
+<circle cx="467.8" cy="222.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.75% dd=31.82%</title></circle>
+<circle cx="632.8" cy="275.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.24% dd=13.21%</title></circle>
+<circle cx="386.0" cy="189.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.09% dd=43.30%</title></circle>
+<circle cx="588.3" cy="289.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.66% dd=8.30%</title></circle>
+<circle cx="321.0" cy="144.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-55.08% dd=58.99%</title></circle>
+<circle cx="577.0" cy="294.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.93% dd=6.48%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="406.1" cy="190.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.07% dd=42.85%</title></circle>
+<circle cx="493.8" cy="254.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-20.54% dd=20.61%</title></circle>
+<circle cx="444.3" cy="220.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.43% dd=32.59%</title></circle>
+<circle cx="585.7" cy="307.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.18% dd=2.18%</title></circle>
+<circle cx="612.4" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.15% dd=2.25%</title></circle>
+<circle cx="474.7" cy="240.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.36% dd=25.50%</title></circle>
+<circle cx="650.1" cy="292.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.68% dd=7.16%</title></circle>
+<circle cx="350.5" cy="162.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.18% dd=52.75%</title></circle>
+<circle cx="587.8" cy="269.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.76% dd=15.21%</title></circle>
+<circle cx="558.4" cy="261.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.64% dd=18.20%</title></circle>
+<circle cx="800.3" cy="295.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+40.72% dd=6.26%</title></circle>
+<circle cx="499.9" cy="250.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-19.32% dd=22.10%</title></circle>
+<circle cx="402.2" cy="180.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.86% dd=46.56%</title></circle>
+<circle cx="595.1" cy="291.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.31% dd=7.59%</title></circle>
+<circle cx="396.2" cy="172.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.06% dd=49.30%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="577.0" cy="301.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.92% dd=4.09%</title></circle>
+<circle cx="609.6" cy="290.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.59% dd=7.88%</title></circle>
+<circle cx="575.5" cy="301.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.22% dd=4.22%</title></circle>
+<circle cx="382.7" cy="177.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.76% dd=47.44%</title></circle>
+<circle cx="416.6" cy="206.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.97% dd=37.34%</title></circle>
+<circle cx="591.0" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.12% dd=1.12%</title></circle>
+<circle cx="600.0" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.67% dd=1.10%</title></circle>
+<circle cx="523.2" cy="220.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-14.66% dd=32.28%</title></circle>
+<circle cx="557.0" cy="278.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.92% dd=12.16%</title></circle>
+<circle cx="379.7" cy="179.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-43.35% dd=46.79%</title></circle>
+<circle cx="518.6" cy="263.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.60% dd=17.51%</title></circle>
+<circle cx="488.8" cy="205.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-21.55% dd=37.58%</title></circle>
+<circle cx="662.8" cy="294.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+13.23% dd=6.54%</title></circle>
+<circle cx="606.0" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.87% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="591.2" cy="303.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.48%</title></circle>
+<circle cx="441.6" cy="166.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.98% dd=51.42%</title></circle>
+<circle cx="555.2" cy="280.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.29% dd=11.58%</title></circle>
+<circle cx="445.5" cy="201.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.20% dd=38.90%</title></circle>
+<circle cx="470.9" cy="237.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-25.12% dd=26.41%</title></circle>
+<circle cx="594.2" cy="278.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.48% dd=12.34%</title></circle>
+<circle cx="618.6" cy="309.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.40% dd=1.32%</title></circle>
+<circle cx="627.3" cy="304.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.12% dd=3.17%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="630.7" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.80% dd=1.07%</title></circle>
+<circle cx="614.4" cy="285.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.54% dd=9.70%</title></circle>
+<circle cx="607.3" cy="299.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.14% dd=4.90%</title></circle>
+<circle cx="715.6" cy="294.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.77% dd=6.74%</title></circle>
+<circle cx="591.7" cy="306.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.99% dd=2.32%</title></circle>
+<circle cx="283.6" cy="118.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.56% dd=68.17%</title></circle>
+<circle cx="516.1" cy="244.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.10% dd=23.90%</title></circle>
+<circle cx="608.6" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.39% dd=4.53%</title></circle>
+<circle cx="555.8" cy="281.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.16% dd=11.10%</title></circle>
+<circle cx="627.0" cy="295.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.08% dd=6.10%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="593.1" cy="293.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.70% dd=7.01%</title></circle>
+<circle cx="597.4" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.16% dd=2.15%</title></circle>
+<circle cx="613.2" cy="294.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.32% dd=6.78%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="611.8" cy="292.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.03% dd=7.31%</title></circle>
+<circle cx="585.8" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.17% dd=2.17%</title></circle>
+<circle cx="656.5" cy="282.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.98% dd=10.77%</title></circle>
+<circle cx="595.4" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.24% dd=2.14%</title></circle>
+<circle cx="575.4" cy="289.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.25% dd=8.44%</title></circle>
+<circle cx="343.1" cy="150.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-50.67% dd=56.79%</title></circle>
+<circle cx="586.4" cy="303.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.04% dd=3.58%</title></circle>
+<circle cx="640.8" cy="297.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.83% dd=5.57%</title></circle>
+<circle cx="597.7" cy="297.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.22% dd=5.58%</title></circle>
+<circle cx="450.8" cy="201.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-29.15% dd=39.19%</title></circle>
+<circle cx="589.2" cy="296.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.49% dd=5.89%</title></circle>
+<circle cx="471.6" cy="233.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.98% dd=27.76%</title></circle>
+<circle cx="608.0" cy="300.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.28% dd=4.47%</title></circle>
+<circle cx="473.7" cy="201.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-24.56% dd=39.12%</title></circle>
+<circle cx="578.9" cy="289.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.54% dd=8.47%</title></circle>
+<circle cx="360.4" cy="166.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-47.22% dd=51.25%</title></circle>
+<circle cx="462.9" cy="201.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-26.73% dd=39.09%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="560.7" cy="290.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.18% dd=7.95%</title></circle>
+<circle cx="608.0" cy="290.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.27% dd=7.84%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="367.8" cy="177.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-45.73% dd=47.56%</title></circle>
+<circle cx="222.2" cy="92.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-74.83% dd=77.17%</title></circle>
+<circle cx="429.4" cy="206.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-33.42% dd=37.37%</title></circle>
+<circle cx="459.8" cy="232.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.33% dd=28.12%</title></circle>
+<circle cx="480.8" cy="206.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-23.16% dd=37.26%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="591.4" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.05% dd=1.05%</title></circle>
+<circle cx="586.9" cy="293.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.94% dd=6.96%</title></circle>
+<circle cx="692.1" cy="296.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.08% dd=6.05%</title></circle>
+<circle cx="421.0" cy="185.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.10% dd=44.78%</title></circle>
+<circle cx="610.2" cy="310.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.71% dd=1.10%</title></circle>
+<circle cx="597.8" cy="310.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.24% dd=1.15%</title></circle>
+<circle cx="385.2" cy="175.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-42.25% dd=48.04%</title></circle>
+<circle cx="539.6" cy="266.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.40% dd=16.24%</title></circle>
+<circle cx="616.0" cy="282.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.87% dd=10.81%</title></circle>
+<circle cx="348.1" cy="163.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.67% dd=52.34%</title></circle>
+<circle cx="596.0" cy="298.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.13% dd=5.16%</title></circle>
+<circle cx="281.5" cy="131.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.98% dd=63.36%</title></circle>
+<circle cx="520.8" cy="263.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.15% dd=17.47%</title></circle>
+<circle cx="616.1" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.90% dd=0.00%</title></circle>
+<circle cx="535.7" cy="261.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.18% dd=18.17%</title></circle>
+<circle cx="583.7" cy="306.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.58% dd=2.58%</title></circle>
+<circle cx="617.5" cy="275.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.17% dd=13.20%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="623.4" cy="275.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.34% dd=13.40%</title></circle>
+<circle cx="208.9" cy="85.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-77.48% dd=79.52%</title></circle>
+<circle cx="331.9" cy="153.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.90% dd=56.00%</title></circle>
+<circle cx="601.2" cy="295.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.92% dd=6.21%</title></circle>
+<circle cx="395.4" cy="196.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-40.21% dd=40.82%</title></circle>
+<circle cx="584.9" cy="279.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.34% dd=11.92%</title></circle>
+<circle cx="194.8" cy="80.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-80.31% dd=81.46%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="632.3" cy="293.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.13% dd=7.01%</title></circle>
+<circle cx="198.3" cy="77.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-79.61% dd=82.49%</title></circle>
+<circle cx="584.4" cy="296.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.45% dd=6.08%</title></circle>
+<circle cx="616.2" cy="299.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.92% dd=4.92%</title></circle>
+<circle cx="671.4" cy="290.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+14.95% dd=8.09%</title></circle>
+<circle cx="390.9" cy="123.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.12% dd=66.16%</title></circle>
+<circle cx="580.8" cy="274.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.17% dd=13.67%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="630.6" cy="265.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+6.78% dd=16.57%</title></circle>
+<circle cx="595.0" cy="272.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.33% dd=14.35%</title></circle>
+<circle cx="401.2" cy="171.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.06% dd=49.44%</title></circle>
+<circle cx="712.9" cy="303.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.25% dd=3.36%</title></circle>
+<circle cx="603.2" cy="303.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.31% dd=3.42%</title></circle>
+<circle cx="398.9" cy="175.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.51% dd=48.11%</title></circle>
+<circle cx="599.4" cy="298.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.56% dd=5.11%</title></circle>
+<circle cx="330.6" cy="158.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-53.16% dd=53.95%</title></circle>
+<circle cx="561.7" cy="280.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-6.98% dd=11.67%</title></circle>
+<circle cx="184.1" cy="72.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-82.44% dd=84.15%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="576.0" cy="273.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.12% dd=13.95%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="582.3" cy="284.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.87% dd=10.22%</title></circle>
+<circle cx="591.3" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.06% dd=1.06%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="259.0" cy="116.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-67.47% dd=68.64%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="591.2" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=1.09%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="599.2" cy="302.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.51% dd=3.98%</title></circle>
+<circle cx="541.0" cy="248.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-11.12% dd=22.53%</title></circle>
+<circle cx="591.2" cy="304.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.09% dd=3.04%</title></circle>
+<circle cx="579.8" cy="293.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.36% dd=6.96%</title></circle>
+<circle cx="579.9" cy="298.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.35% dd=5.38%</title></circle>
+<circle cx="605.3" cy="308.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.74% dd=1.80%</title></circle>
+<circle cx="363.9" cy="165.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.51% dd=51.62%</title></circle>
+<circle cx="582.1" cy="284.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.91% dd=10.18%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="604.4" cy="307.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.56% dd=2.16%</title></circle>
+<circle cx="554.8" cy="281.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.35% dd=11.19%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="516.0" cy="246.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.12% dd=23.21%</title></circle>
+<circle cx="334.1" cy="161.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-52.46% dd=53.05%</title></circle>
+<circle cx="585.5" cy="304.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.23% dd=3.20%</title></circle>
+<circle cx="602.7" cy="258.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.22% dd=19.14%</title></circle>
+<circle cx="586.0" cy="307.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.12% dd=2.12%</title></circle>
+<circle cx="590.7" cy="299.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.17% dd=4.74%</title></circle>
+<circle cx="621.4" cy="306.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.95% dd=2.27%</title></circle>
+<circle cx="650.1" cy="292.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+10.68% dd=7.16%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="582.1" cy="299.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.91% dd=4.74%</title></circle>
+<circle cx="482.2" cy="243.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-22.88% dd=24.43%</title></circle>
+<circle cx="836.6" cy="289.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+47.96% dd=8.19%</title></circle>
+<circle cx="604.6" cy="281.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=+1.59% dd=11.03%</title></circle>
+<circle cx="586.5" cy="283.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-2.03% dd=10.51%</title></circle>
+<circle cx="441.7" cy="203.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.95% dd=38.28%</title></circle>
+<circle cx="594.3" cy="259.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.46% dd=18.81%</title></circle>
+<circle cx="533.6" cy="213.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-12.60% dd=35.03%</title></circle>
+<circle cx="282.9" cy="131.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-62.70% dd=63.34%</title></circle>
+<circle cx="573.2" cy="291.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.67% dd=7.63%</title></circle>
+<circle cx="363.5" cy="166.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-46.60% dd=51.32%</title></circle>
+<circle cx="182.5" cy="76.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-82.76% dd=82.80%</title></circle>
+<circle cx="598.4" cy="303.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.35% dd=3.38%</title></circle>
+<circle cx="400.5" cy="190.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-39.20% dd=42.92%</title></circle>
+<circle cx="133.2" cy="47.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-92.61% dd=92.76%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="569.8" cy="292.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-5.35% dd=7.43%</title></circle>
+<circle cx="459.4" cy="221.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-27.42% dd=31.93%</title></circle>
+<circle cx="715.6" cy="294.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+23.77% dd=6.74%</title></circle>
+<circle cx="408.0" cy="190.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-37.69% dd=42.81%</title></circle>
+<circle cx="359.1" cy="163.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-47.46% dd=52.37%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="309.6" cy="135.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-57.37% dd=62.02%</title></circle>
+<circle cx="518.0" cy="248.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-15.71% dd=22.60%</title></circle>
+<circle cx="638.8" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+8.43% dd=0.00%</title></circle>
+<circle cx="442.7" cy="210.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.77% dd=35.79%</title></circle>
+<circle cx="242.3" cy="110.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-70.82% dd=70.99%</title></circle>
+<circle cx="409.4" cy="174.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-37.41% dd=48.33%</title></circle>
+<circle cx="589.4" cy="305.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.45% dd=2.68%</title></circle>
+<circle cx="485.5" cy="238.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-22.20% dd=26.05%</title></circle>
+<circle cx="679.6" cy="270.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+16.58% dd=14.95%</title></circle>
+<circle cx="419.3" cy="201.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-35.44% dd=39.01%</title></circle>
+<circle cx="347.6" cy="158.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-49.77% dd=54.21%</title></circle>
+<circle cx="211.9" cy="93.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-76.90% dd=76.90%</title></circle>
+<circle cx="234.5" cy="104.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-72.37% dd=72.83%</title></circle>
+<circle cx="636.2" cy="299.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+7.90% dd=4.79%</title></circle>
+<circle cx="514.0" cy="233.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-16.51% dd=27.99%</title></circle>
+<circle cx="543.5" cy="276.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-10.62% dd=12.82%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="555.7" cy="290.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-8.17% dd=8.17%</title></circle>
+<circle cx="432.0" cy="202.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.90% dd=38.65%</title></circle>
+<circle cx="595.3" cy="295.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.26% dd=6.42%</title></circle>
+<circle cx="574.2" cy="300.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.48% dd=4.48%</title></circle>
+<circle cx="692.7" cy="307.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+19.20% dd=2.23%</title></circle>
+<circle cx="389.3" cy="171.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.44% dd=49.51%</title></circle>
+<circle cx="559.1" cy="291.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.50% dd=7.50%</title></circle>
+<circle cx="403.4" cy="183.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=-38.62% dd=45.50%</title></circle>
+<circle cx="594.4" cy="293.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.45% dd=6.89%</title></circle>
+<circle cx="619.0" cy="300.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+4.48% dd=4.52%</title></circle>
+<circle cx="679.6" cy="270.6" r="2.5" fill="#475569" opacity="0.6"><title>ret=+16.58% dd=14.95%</title></circle>
+<circle cx="560.4" cy="278.5" r="2.5" fill="#475569" opacity="0.6"><title>ret=-7.25% dd=12.18%</title></circle>
+<circle cx="580.5" cy="304.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.21% dd=3.21%</title></circle>
+<circle cx="622.2" cy="300.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=+5.12% dd=4.37%</title></circle>
+<circle cx="442.4" cy="222.8" r="2.5" fill="#475569" opacity="0.6"><title>ret=-30.82% dd=31.63%</title></circle>
+<circle cx="599.2" cy="308.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.52% dd=1.78%</title></circle>
+<circle cx="596.6" cy="313.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="507.8" cy="255.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-17.76% dd=20.14%</title></circle>
+<circle cx="312.0" cy="145.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-56.89% dd=58.65%</title></circle>
+<circle cx="438.8" cy="208.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-31.53% dd=36.54%</title></circle>
+<circle cx="571.8" cy="286.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-4.96% dd=9.49%</title></circle>
+<circle cx="591.0" cy="293.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.13% dd=7.02%</title></circle>
+<circle cx="591.4" cy="310.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-1.05% dd=1.05%</title></circle>
+<circle cx="653.0" cy="275.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=+11.27% dd=13.16%</title></circle>
+<circle cx="591.7" cy="295.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-0.98% dd=6.19%</title></circle>
+<circle cx="502.8" cy="220.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-18.76% dd=32.53%</title></circle>
+<circle cx="614.5" cy="310.3" r="2.5" fill="#475569" opacity="0.6"><title>ret=+3.58% dd=1.08%</title></circle>
+<circle cx="611.2" cy="289.0" r="2.5" fill="#475569" opacity="0.6"><title>ret=+2.91% dd=8.51%</title></circle>
+<circle cx="220.7" cy="90.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-75.13% dd=77.73%</title></circle>
+<circle cx="681.8" cy="297.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=+17.03% dd=5.69%</title></circle>
+<circle cx="386.8" cy="183.4" r="2.5" fill="#475569" opacity="0.6"><title>ret=-41.94% dd=45.36%</title></circle>
+<circle cx="340.1" cy="161.2" r="2.5" fill="#475569" opacity="0.6"><title>ret=-51.27% dd=53.13%</title></circle>
+<circle cx="577.0" cy="280.9" r="2.5" fill="#475569" opacity="0.6"><title>ret=-3.93% dd=11.34%</title></circle>
+<circle cx="435.4" cy="190.7" r="2.5" fill="#475569" opacity="0.6"><title>ret=-32.22% dd=42.83%</title></circle>
+<circle cx="296.2" cy="131.1" r="2.5" fill="#475569" opacity="0.6"><title>ret=-60.05% dd=63.64%</title></circle>
+<polyline fill="none" stroke="#3fb950" stroke-width="2" points="596.6,313.4 615.0,313.4 617.9,313.4 638.8,313.4 669.7,310.1 702.2,310.0 787.9,306.4 800.3,295.5 836.6,289.9"/>
+<circle cx="596.6" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+0.00% dd=0.00%</title></circle>
+<circle cx="615.0" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+3.67% dd=0.00%</title></circle>
+<circle cx="617.9" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+4.26% dd=0.00%</title></circle>
+<circle cx="638.8" cy="313.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+8.43% dd=0.00%</title></circle>
+<circle cx="669.7" cy="310.1" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+14.61% dd=1.14%</title></circle>
+<circle cx="702.2" cy="310.0" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+21.10% dd=1.17%</title></circle>
+<circle cx="787.9" cy="306.4" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+38.23% dd=2.43%</title></circle>
+<circle cx="800.3" cy="295.5" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+40.72% dd=6.26%</title></circle>
+<circle cx="836.6" cy="289.9" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"><title>ret=+47.96% dd=8.19%</title></circle>
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#475569"></span>All runs (614)</span>
-    <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (8)</span>
-    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T03:31:27Z</span>
+    <span><span class="dot" style="background:#475569"></span>All runs (708)</span>
+    <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (9)</span>
+    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T03:34:10Z</span>
   </div>
 </div>
   
@@ -966,17 +1125,17 @@ footer {
   <div class="pareto-wrap">
     <svg class="pareto-svg" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet">
 <line x1="70" y1="330.0" x2="880" y2="330.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="333.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">-7.4%</text>
+<text x="62" y="333.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">-12.1%</text>
 <line x1="70" y1="268.0" x2="880" y2="268.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="271.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+3.9%</text>
+<text x="62" y="271.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+3.0%</text>
 <line x1="70" y1="206.0" x2="880" y2="206.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="209.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+15.2%</text>
+<text x="62" y="209.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+18.1%</text>
 <line x1="70" y1="144.0" x2="880" y2="144.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="147.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+26.5%</text>
+<text x="62" y="147.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+33.2%</text>
 <line x1="70" y1="82.0" x2="880" y2="82.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="85.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+37.8%</text>
+<text x="62" y="85.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+48.3%</text>
 <line x1="70" y1="20.0" x2="880" y2="20.0" stroke="#21262d" stroke-width="1"/>
-<text x="62" y="23.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+49.1%</text>
+<text x="62" y="23.0" fill="#8b949e" font-size="10" text-anchor="end" font-family="ui-monospace,monospace">+63.4%</text>
 <line x1="70.0" y1="20" x2="70.0" y2="330" stroke="#21262d" stroke-width="1"/>
 <text x="70.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Sep 2025</text>
 <line x1="232.0" y1="20" x2="232.0" y2="330" stroke="#21262d" stroke-width="1"/>
@@ -989,23 +1148,23 @@ footer {
 <text x="718.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Apr 2026</text>
 <line x1="880.0" y1="20" x2="880.0" y2="330" stroke="#21262d" stroke-width="1"/>
 <text x="880.0" y="346" fill="#8b949e" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Jun 2026</text>
-<line x1="70" y1="289.1" x2="880" y2="289.1" stroke="#484f58" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="70" y1="280.4" x2="880" y2="280.4" stroke="#484f58" stroke-width="1" stroke-dasharray="2 3"/>
 <text x="475.0" y="372" fill="#b1bac4" font-size="11" text-anchor="middle">Date</text>
 <text x="14" y="175.0" fill="#b1bac4" font-size="11" text-anchor="middle" transform="rotate(-90 14 175.0)">Equity return (%)</text>
-<path d="M70.0,289.1 L79.5,282.7 L82.8,289.2 L122.0,296.1 L133.9,289.4 L147.8,282.8 L165.3,289.4 L177.2,296.5 L177.9,303.2 L178.4,297.2 L189.9,291.0 L206.3,284.6 L207.4,278.4 L245.0,285.8 L314.0,292.5 L329.6,286.4 L337.1,280.2 L378.0,274.8 L405.6,269.3 L421.7,263.1 L427.3,271.0 L437.4,278.2 L439.6,284.9 L464.9,291.4 L500.1,284.9 L504.0,278.4 L529.6,272.1 L530.1,265.5 L565.8,259.0 L611.8,253.0 L612.2,246.9 L615.9,240.3 L637.5,233.3 L643.9,226.3 L654.9,234.0 L658.6,241.1 L659.4,247.7 L660.5,240.9 L664.6,235.6 L665.0,229.9 L673.5,224.0 L716.9,217.6 L727.7,211.0 L772.9,204.4 L787.3,212.3 L815.3,206.1 L836.2,215.3" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_GBP M15 (sh=+1.69) — final +13.46% (end 2026-05-29)</title></path>
-<path d="M70.0,289.1 L79.5,279.0 L82.8,285.6 L122.0,292.5 L135.0,298.5 L147.8,288.4 L165.3,295.0 L177.2,302.0 L177.9,308.6 L178.5,299.1 L190.2,289.4 L206.4,295.7 L208.2,286.0 L245.0,293.3 L314.0,300.0 L329.6,290.4 L337.7,280.6 L378.0,271.5 L405.7,279.2 L421.7,269.4 L427.3,277.1 L437.4,284.2 L439.6,290.9 L464.9,297.3 L492.3,303.7 L500.4,293.9 L504.3,283.9 L529.7,274.0 L530.2,263.6 L565.9,253.2 L612.3,260.8 L615.9,250.5 L637.5,239.8 L644.0,228.9 L654.9,236.6 L658.6,243.6 L659.4,250.2 L660.7,239.5 L664.7,230.2 L665.0,220.4 L673.6,210.3 L716.9,199.6 L729.3,188.6 L772.9,177.3 L787.3,185.6 L815.4,174.8 L836.2,184.5" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_GBP M15 (sh=+1.79) — final +19.08% (end 2026-05-29)</title></path>
-<path d="M70.0,289.1 L79.5,279.0 L82.8,285.6 L122.0,292.5 L135.0,298.5 L147.8,288.4 L165.3,295.0 L177.2,302.0 L177.9,308.6 L178.5,299.1 L190.2,289.4 L206.4,295.7 L208.2,286.0 L245.0,293.3 L314.0,300.0 L329.6,290.4 L337.7,280.6 L378.0,271.5 L405.7,279.2 L421.7,269.4 L427.3,277.1 L437.4,284.2 L439.6,290.9 L464.9,297.3 L492.3,303.7 L500.4,293.9 L504.3,283.9 L529.7,274.0 L530.2,263.6 L565.9,253.2 L612.3,260.8 L615.9,250.5 L637.5,239.8 L644.0,228.9 L654.9,236.6 L658.6,243.6 L659.4,250.2 L660.7,239.5 L664.7,230.2 L665.0,220.4 L673.6,210.3 L716.9,199.6 L729.3,188.6 L772.9,177.3 L787.3,185.6 L815.4,174.8 L836.2,184.5" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_GBP M15 (sh=+1.79) — final +19.08% (end 2026-05-29)</title></path>
-<path d="M70.0,289.1 L90.4,286.8 L99.7,284.5 L161.4,290.4 L177.0,287.9 L179.2,285.5 L207.4,283.3 L207.6,280.9 L211.5,286.8 L222.0,284.3 L245.0,281.9 L350.9,279.4 L354.2,276.8 L385.1,282.8 L406.4,280.3 L481.7,277.9 L491.0,275.3 L521.8,272.8 L536.0,270.2 L552.3,267.7 L578.9,265.0 L587.2,262.4 L598.8,259.9 L600.6,257.2 L618.2,263.3 L632.7,260.7 L639.7,258.3 L662.2,255.6 L696.0,253.1 L722.7,250.6 L726.8,248.1 L746.7,245.6 L747.7,251.7 L760.3,249.0 L765.0,255.4 L765.0,252.9 L789.4,250.5 L803.6,248.0 L829.7,254.9 L854.3,252.6 L858.2,250.9 L876.2,248.7" fill="none" stroke="#3fb950" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>mean_reversion USD_JPY M15 (sh=+1.94) — final +7.36% (end 2026-06-11)</title></path>
-<path d="M70.0,289.1 L90.4,296.0 L115.7,286.9 L122.0,271.8 L127.0,278.1 L133.3,261.9 L164.4,246.2 L168.0,230.0 L205.7,213.2 L208.2,221.4 L208.3,229.8 L208.5,237.8 L254.6,245.4 L297.0,229.4 L383.2,237.0 L395.8,244.0 L396.6,227.7 L414.6,235.0 L436.5,217.9 L482.2,225.3 L527.8,232.8 L528.0,216.2 L571.1,198.3 L578.3,180.2 L609.7,187.5 L652.0,169.3 L683.0,150.5 L737.5,158.3 L743.5,166.6 L790.1,149.0 L803.7,157.1 L812.2,149.2 L855.3,158.0" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_USD M15 (sh=+1.94) — final +23.91% (end 2026-06-04)</title></path>
-<path d="M70.0,289.1 L78.9,279.2 L90.7,285.3 L111.7,274.9 L125.9,281.2 L134.4,282.5 L140.4,283.7 L158.5,273.3 L208.4,279.6 L209.4,269.2 L224.4,258.7 L233.2,247.8 L249.2,254.4 L254.7,243.5 L295.2,250.4 L310.3,250.1 L374.8,250.8 L375.4,239.7 L396.3,239.6 L406.6,228.2 L414.8,235.1 L416.9,233.6 L427.4,232.3 L460.6,239.0 L483.7,241.2 L493.7,229.8 L514.8,236.2 L528.8,224.7 L536.0,231.3 L549.8,238.0 L575.2,226.4 L578.9,232.9 L589.7,239.2 L614.9,228.1 L616.7,216.3 L643.4,204.6 L673.6,212.0 L701.4,200.5 L717.2,188.6 L747.0,187.7 L759.9,194.9 L786.9,202.2 L808.3,190.5 L816.2,178.1 L827.3,166.1 L830.0,163.7 L837.5,171.3 L849.8,179.0 L871.3,186.4 L876.8,174.4 L880.0,161.6" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr USD_CAD M15 (sh=+2.19) — final +23.25% (end 2026-06-12)</title></path>
-<path d="M70.0,289.1 L96.9,278.7 L100.8,267.8 L143.6,273.9 L158.9,279.9 L161.4,286.0 L161.8,275.5 L162.8,281.5 L179.9,287.5 L180.0,293.4 L189.8,282.9 L199.3,272.4 L222.9,261.4 L248.3,250.4 L263.9,256.9 L264.0,263.2 L264.2,252.2 L272.3,258.6 L273.3,247.4 L275.7,253.7 L276.3,259.9 L284.5,248.7 L293.5,237.2 L298.8,243.7 L313.0,232.3 L314.6,220.7 L328.1,227.3 L330.7,215.4 L333.0,203.3 L338.7,191.0 L352.5,198.0 L355.4,185.8 L371.0,173.1 L374.6,160.3 L384.4,167.6 L384.7,154.7 L396.4,141.6 L421.3,148.9 L421.6,156.2 L443.3,143.0 L460.6,150.3 L461.5,157.4 L467.2,164.5 L478.4,151.2 L479.7,137.8 L488.6,124.3 L489.8,131.8 L511.1,139.1 L511.2,125.5 L513.0,111.5 L525.0,119.2 L528.1,126.7 L532.5,134.2 L532.9,120.5 L546.9,128.2 L557.1,114.4 L564.9,100.3 L578.7,108.2 L595.8,116.1 L609.9,123.7 L615.1,131.5 L618.1,139.1 L621.1,146.5 L631.0,133.0 L654.7,119.3 L656.0,126.9 L661.2,113.1 L701.9,99.3 L704.2,85.0 L725.9,93.4 L744.4,92.6 L750.6,78.0 L759.4,63.4 L766.6,48.1 L769.5,56.5 L780.2,41.4 L790.0,50.4 L806.7,59.0 L810.5,67.4 L812.3,52.6 L834.6,61.1 L834.7,69.5 L847.4,54.7 L852.1,63.4 L855.7,71.9 L876.1,57.3 L879.6,65.8" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_JPY M15 (sh=+2.39) — final +40.72% (end 2026-06-12)</title></path>
-<path d="M70.0,289.1 L78.8,279.6 L90.5,285.8 L111.7,275.6 L125.9,282.1 L133.8,288.1 L140.9,286.4 L158.5,276.3 L207.6,282.7 L208.6,289.2 L209.3,279.3 L223.9,269.2 L233.1,258.9 L249.0,265.5 L254.7,255.1 L294.7,262.2 L310.5,251.3 L375.4,243.2 L396.9,236.3 L406.5,224.9 L414.8,232.1 L415.8,220.8 L427.9,219.4 L460.6,226.5 L482.8,214.8 L493.7,203.0 L514.8,209.9 L528.7,198.0 L535.9,185.9 L549.8,193.3 L575.2,180.9 L578.9,188.1 L589.0,195.0 L614.7,183.4 L616.2,190.5 L643.4,178.6 L673.6,186.6 L701.3,175.0 L716.7,163.0 L747.5,161.8 L759.9,169.5 L786.8,177.5 L808.2,165.6 L816.2,153.0 L826.9,140.9 L828.5,148.9 L849.8,157.1 L871.2,165.0 L876.8,153.0 L879.8,139.9" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr USD_CAD M15 (sh=+2.41) — final +27.20% (end 2026-06-12)</title></path>
-<path d="M70.0,289.1 L115.7,282.6 L122.2,288.6 L125.5,282.2 L135.1,288.1 L137.5,281.9 L147.5,287.8 L164.9,281.3 L168.2,287.9 L245.6,281.7 L252.7,275.1 L289.1,275.2 L294.8,269.0 L297.7,275.7 L337.8,274.9 L342.0,268.3 L354.8,261.6 L363.6,254.9 L384.1,261.7 L397.0,267.9 L421.6,261.4 L436.4,267.5 L467.5,260.7 L491.9,254.1 L505.0,247.3 L544.7,253.7 L551.4,247.0 L554.2,240.2 L609.5,246.5 L612.0,239.6 L621.7,232.6 L654.7,225.5 L664.3,222.3 L683.1,215.0 L695.9,209.5 L744.6,202.1 L747.9,209.0 L750.6,202.1 L758.5,194.6 L772.3,201.7 L781.4,194.2 L781.5,201.3 L803.1,208.5 L815.5,200.9 L836.7,193.9 L846.0,186.6 L858.4,179.3 L859.2,186.3 L870.5,186.8 L874.0,182.0" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_USD M15 (sh=+2.53) — final +19.53% (end 2026-06-10)</title></path>
-<path d="M70.0,289.1 L115.0,287.3 L125.5,282.3 L137.5,277.4 L147.5,283.3 L147.7,289.2 L164.2,288.7 L181.6,283.6 L233.7,278.6 L252.6,273.3 L263.9,268.4 L271.0,263.1 L275.9,258.1 L288.0,257.4 L294.5,252.5 L341.9,247.1 L354.7,241.7 L394.8,248.1 L414.8,254.4 L421.6,249.3 L435.5,243.7 L491.9,238.5 L505.0,233.0 L554.2,227.5 L573.4,225.0 L609.5,231.5 L621.7,225.9 L622.3,220.1 L654.6,214.4 L682.3,210.8 L694.9,209.3 L705.2,216.2 L743.5,218.9 L747.7,213.2 L750.6,208.0 L758.5,202.1 L780.2,196.1 L784.2,203.4 L803.1,210.5 L803.4,204.8 L814.6,201.0 L836.7,195.6 L846.0,189.9 L869.2,183.8" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_USD M15 (sh=+3.47) — final +19.20% (end 2026-06-08)</title></path>
+<path d="M70.0,280.4 L79.5,272.8 L82.8,277.7 L122.0,282.9 L135.0,287.4 L147.8,279.9 L165.3,284.7 L177.2,290.0 L177.9,295.0 L178.5,287.9 L190.2,280.5 L206.4,285.3 L208.2,278.0 L245.0,283.5 L314.0,288.5 L329.6,281.3 L337.7,274.0 L378.0,267.2 L405.7,272.9 L421.7,265.6 L427.3,271.4 L437.4,276.7 L439.6,281.7 L464.9,286.5 L492.3,291.3 L500.4,283.9 L504.3,276.4 L529.7,269.0 L530.2,261.3 L565.9,253.5 L612.3,259.2 L615.9,251.5 L637.5,243.4 L644.0,235.3 L654.9,241.0 L658.6,246.3 L659.4,251.2 L660.7,243.2 L664.7,236.2 L665.0,228.9 L673.6,221.3 L716.9,213.3 L729.3,205.0 L772.9,196.6 L787.3,202.9 L815.4,194.7 L836.2,202.0" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_GBP M15 (sh=+1.79) — final +19.08% (end 2026-05-29)</title></path>
+<path d="M70.0,280.4 L90.4,278.6 L99.7,276.9 L161.4,281.4 L177.0,279.5 L179.2,277.7 L207.4,276.0 L207.6,274.2 L211.5,278.6 L222.0,276.8 L245.0,274.9 L350.9,273.1 L354.2,271.2 L385.1,275.6 L406.4,273.8 L481.7,271.9 L491.0,270.0 L521.8,268.1 L536.0,266.2 L552.3,264.3 L578.9,262.3 L587.2,260.3 L598.8,258.4 L600.6,256.5 L618.2,261.0 L632.7,259.1 L639.7,257.3 L662.2,255.3 L696.0,253.4 L722.7,251.5 L726.8,249.7 L746.7,247.8 L747.7,252.4 L760.3,250.3 L765.0,255.1 L765.0,253.2 L789.4,251.4 L803.6,249.6 L829.7,254.7 L854.3,253.0 L858.2,251.7 L876.2,250.1" fill="none" stroke="#3fb950" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>mean_reversion USD_JPY M15 (sh=+1.94) — final +7.36% (end 2026-06-11)</title></path>
+<path d="M70.0,280.4 L90.4,285.6 L115.7,278.7 L122.0,267.4 L127.0,272.1 L133.3,260.0 L164.4,248.2 L168.0,236.1 L205.7,223.5 L208.2,229.7 L208.3,235.9 L208.5,242.0 L254.6,247.6 L297.0,235.6 L383.2,241.3 L395.8,246.6 L396.6,234.3 L414.6,239.8 L436.5,227.0 L482.2,232.6 L527.8,238.2 L528.0,225.8 L571.1,212.3 L578.3,198.7 L609.7,204.3 L652.0,190.6 L683.0,176.5 L737.5,182.4 L743.5,188.6 L790.1,175.4 L803.7,181.5 L812.2,175.5 L855.3,182.1" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr EUR_USD M15 (sh=+1.94) — final +23.91% (end 2026-06-04)</title></path>
+<path d="M70.0,280.4 L78.9,272.9 L90.7,277.5 L111.7,269.7 L125.9,274.4 L134.4,275.4 L140.4,276.3 L158.5,268.5 L208.4,273.2 L209.4,265.4 L224.4,257.5 L233.2,249.4 L249.2,254.4 L254.7,246.2 L295.2,251.4 L310.3,251.2 L374.8,251.6 L375.4,243.4 L396.3,243.3 L406.6,234.7 L414.8,239.9 L416.9,238.8 L427.4,237.8 L460.6,242.8 L483.7,244.5 L493.7,235.9 L514.8,240.7 L528.8,232.1 L536.0,237.1 L549.8,242.1 L575.2,233.3 L578.9,238.2 L589.7,243.0 L614.9,234.7 L616.7,225.8 L643.4,217.1 L673.6,222.6 L701.4,214.0 L717.2,205.1 L747.0,204.4 L759.9,209.8 L786.9,215.3 L808.3,206.5 L816.2,197.2 L827.3,188.2 L830.0,186.5 L837.5,192.2 L849.8,197.9 L871.3,203.4 L876.8,194.4 L880.0,184.8" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr USD_CAD M15 (sh=+2.19) — final +23.25% (end 2026-06-12)</title></path>
+<path d="M70.0,280.4 L96.9,272.5 L100.8,264.4 L143.6,269.0 L158.9,273.4 L161.4,278.0 L161.8,270.1 L162.8,274.6 L179.9,279.2 L180.0,283.6 L189.8,275.7 L199.3,267.8 L222.9,259.6 L248.3,251.4 L263.9,256.2 L264.0,261.0 L264.2,252.7 L272.3,257.5 L273.3,249.1 L275.7,253.8 L276.3,258.5 L284.5,250.1 L293.5,241.5 L298.8,246.3 L313.0,237.8 L314.6,229.1 L328.1,234.1 L330.7,225.2 L333.0,216.1 L338.7,206.9 L352.5,212.1 L355.4,203.0 L371.0,193.5 L374.6,183.9 L384.4,189.3 L384.7,179.7 L396.4,169.9 L421.3,175.4 L421.6,180.8 L443.3,170.9 L460.6,176.4 L461.5,181.7 L467.2,187.0 L478.4,177.1 L479.7,167.0 L488.6,156.9 L489.8,162.5 L511.1,168.0 L511.2,157.8 L513.0,147.3 L525.0,153.1 L528.1,158.7 L532.5,164.3 L532.9,154.1 L546.9,159.8 L557.1,149.5 L564.9,138.9 L578.7,144.8 L595.8,150.7 L609.9,156.5 L615.1,162.3 L618.1,168.0 L621.1,173.5 L631.0,163.4 L654.7,153.2 L656.0,158.9 L661.2,148.6 L701.9,138.2 L704.2,127.5 L725.9,133.8 L744.4,133.1 L750.6,122.3 L759.4,111.3 L766.6,99.8 L769.5,106.1 L780.2,94.8 L790.0,101.5 L806.7,108.0 L810.5,114.3 L812.3,103.2 L834.6,109.6 L834.7,115.8 L847.4,104.8 L852.1,111.3 L855.7,117.7 L876.1,106.8 L879.6,113.1" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_JPY M15 (sh=+2.39) — final +40.72% (end 2026-06-12)</title></path>
+<path d="M70.0,280.4 L78.8,273.2 L90.5,277.9 L111.7,270.2 L125.9,275.1 L133.8,279.6 L140.9,278.3 L158.5,270.8 L207.6,275.6 L208.6,280.5 L209.3,273.0 L223.9,265.5 L233.1,257.7 L249.0,262.7 L254.7,254.9 L294.7,260.2 L310.5,252.1 L375.4,246.0 L396.9,240.8 L406.5,232.3 L414.8,237.7 L415.8,229.2 L427.9,228.1 L460.6,233.4 L482.8,224.7 L493.7,215.9 L514.8,221.0 L528.7,212.1 L535.9,203.0 L549.8,208.6 L575.2,199.3 L578.9,204.7 L589.0,209.9 L614.7,201.2 L616.2,206.5 L643.4,197.6 L673.6,203.6 L701.3,194.9 L716.7,185.9 L747.5,185.0 L759.9,190.8 L786.8,196.8 L808.2,187.8 L816.2,178.4 L826.9,169.3 L828.5,175.3 L849.8,181.5 L871.2,187.4 L876.8,178.4 L879.8,168.6" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>divergence_at_sr USD_CAD M15 (sh=+2.41) — final +27.20% (end 2026-06-12)</title></path>
+<path d="M70.0,280.4 L73.6,284.9 L75.9,277.2 L78.5,282.0 L82.4,274.5 L90.5,279.0 L101.1,279.5 L103.7,280.9 L125.9,285.5 L146.0,290.0 L156.3,294.5 L159.7,299.0 L159.8,303.3 L168.9,296.0 L169.9,300.2 L181.6,304.6 L185.4,308.6 L186.9,307.3 L189.8,300.2 L202.0,295.2 L202.9,287.7 L208.1,290.2 L211.3,288.6 L211.9,293.4 L222.0,297.7 L230.9,302.1 L233.2,294.8 L241.5,293.1 L242.4,297.7 L246.0,302.1 L252.0,300.2 L252.2,292.8 L252.7,285.2 L255.3,277.5 L255.7,269.5 L263.7,269.5 L266.2,267.0 L268.0,271.8 L274.9,264.8 L313.3,257.0 L317.0,248.7 L336.0,240.2 L337.7,245.3 L350.2,250.2 L394.0,241.8 L395.9,239.3 L399.9,244.4 L403.2,249.3 L403.4,254.1 L405.8,249.3 L414.9,254.1 L421.2,253.2 L424.9,245.1 L426.7,247.7 L435.4,252.5 L464.1,244.0 L468.4,235.2 L469.6,240.0 L480.6,231.2 L482.2,236.1 L489.0,227.3 L491.7,232.3 L493.7,237.2 L501.1,228.4 L514.1,219.5 L522.0,217.4 L527.2,222.4 L529.6,213.5 L531.9,218.9 L534.6,218.3 L535.0,223.6 L547.9,214.8 L549.8,219.9 L564.8,225.0 L569.1,218.0 L569.8,208.8 L574.9,213.9 L578.1,218.9 L599.3,209.9 L609.1,215.1 L613.0,205.8 L614.8,205.4 L616.7,196.0 L618.8,186.5 L620.6,184.2 L621.4,189.8 L634.7,180.1 L636.8,172.6 L637.8,162.7 L640.8,152.5 L643.2,153.3 L652.2,143.0 L655.2,132.6 L655.9,138.8 L656.7,144.6 L660.8,150.5 L665.0,140.8 L673.6,146.9 L680.5,136.4 L683.4,125.9 L685.9,132.2 L695.2,138.6 L701.2,139.2 L724.7,128.7 L726.1,135.2 L738.2,124.6 L739.9,130.7 L744.7,125.2 L750.6,114.8 L763.1,121.4 L769.3,124.3 L772.4,130.8 L781.4,137.1 L785.5,126.6 L786.9,132.8 L788.4,122.3 L791.1,114.1 L792.9,103.2 L801.9,98.7 L802.9,105.3 L808.8,101.4 L810.0,90.2 L815.1,84.3 L815.9,72.9 L825.0,66.3 L828.3,54.8 L830.1,51.1 L834.5,58.1 L837.5,46.1 L849.9,53.3 L855.1,41.4 L855.9,48.6 L858.4,56.0 L868.2,62.9 L870.5,70.1 L873.8,76.8 L878.4,83.3" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence USD_CAD M15 (sh=+2.53) — final +47.96% (end 2026-06-11)</title></path>
+<path d="M70.0,280.4 L115.7,275.5 L122.2,280.0 L125.5,275.2 L135.1,279.6 L137.5,274.9 L147.5,279.4 L164.9,274.5 L168.2,279.4 L245.6,274.8 L252.7,269.9 L289.1,269.9 L294.8,265.3 L297.7,270.3 L337.8,269.7 L342.0,264.7 L354.8,259.8 L363.6,254.7 L384.1,259.8 L397.0,264.5 L421.6,259.6 L436.4,264.2 L467.5,259.1 L491.9,254.2 L505.0,249.1 L544.7,253.9 L551.4,248.9 L554.2,243.7 L609.5,248.5 L612.0,243.3 L621.7,238.0 L654.7,232.7 L664.3,230.3 L683.1,224.8 L695.9,220.7 L744.6,215.2 L747.9,220.3 L750.6,215.2 L758.5,209.5 L772.3,214.9 L781.4,209.3 L781.5,214.6 L803.1,220.0 L815.5,214.3 L836.7,209.0 L846.0,203.6 L858.4,198.1 L859.2,203.4 L870.5,203.7 L874.0,200.1" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_USD M15 (sh=+2.53) — final +19.53% (end 2026-06-10)</title></path>
+<path d="M70.0,280.4 L115.0,279.0 L125.5,275.2 L137.5,271.6 L147.5,276.0 L147.7,280.4 L164.2,280.1 L181.6,276.3 L233.7,272.5 L252.6,268.5 L263.9,264.9 L271.0,260.8 L275.9,257.1 L288.0,256.6 L294.5,253.0 L341.9,248.9 L354.7,244.8 L394.8,249.6 L414.8,254.4 L421.6,250.5 L435.5,246.4 L491.9,242.4 L505.0,238.3 L554.2,234.2 L573.4,232.4 L609.5,237.2 L621.7,233.0 L622.3,228.6 L654.6,224.4 L682.3,221.7 L694.9,220.6 L705.2,225.7 L743.5,227.8 L747.7,223.5 L750.6,219.6 L758.5,215.2 L780.2,210.7 L784.2,216.1 L803.1,221.4 L803.4,217.2 L814.6,214.4 L836.7,210.3 L846.0,206.0 L869.2,201.5" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_USD M15 (sh=+3.47) — final +19.20% (end 2026-06-08)</title></path>
+<path d="M70.0,280.4 L115.0,279.0 L125.5,275.2 L137.5,271.6 L147.5,276.0 L147.7,280.4 L164.2,280.1 L181.6,276.3 L233.7,272.5 L252.6,268.5 L263.9,264.9 L271.0,260.8 L275.9,257.1 L288.0,256.6 L294.5,253.0 L341.9,248.9 L354.7,244.8 L394.8,249.6 L414.8,254.4 L421.6,250.5 L435.5,246.4 L491.9,242.4 L505.0,238.3 L554.2,234.2 L573.4,232.4 L609.5,237.2 L621.7,233.0 L622.3,228.6 L654.6,224.4 L682.3,221.7 L694.9,220.6 L705.2,225.7 L743.5,227.8 L747.7,223.5 L750.6,219.6 L758.5,215.2 L780.2,210.7 L784.2,216.1 L803.1,221.4 L803.4,217.2 L814.6,214.4 L836.7,210.3 L846.0,206.0 L869.2,201.5" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.85" stroke-linejoin="round"><title>confluence EUR_USD M15 (sh=+3.47) — final +19.20% (end 2026-06-08)</title></path>
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#bc8cff"></span>confluence <span class="muted">(3)</span></span><span><span class="dot" style="background:#58a6ff"></span>divergence_at_sr <span class="muted">(6)</span></span><span><span class="dot" style="background:#3fb950"></span>mean_reversion <span class="muted">(1)</span></span>
+    <span><span class="dot" style="background:#bc8cff"></span>confluence <span class="muted">(5)</span></span><span><span class="dot" style="background:#58a6ff"></span>divergence_at_sr <span class="muted">(4)</span></span><span><span class="dot" style="background:#3fb950"></span>mean_reversion <span class="muted">(1)</span></span>
     <span style="margin-left:auto;font-family:ui-monospace,monospace">dashed = 0% baseline</span>
   </div>
 </div>
@@ -1115,6 +1274,20 @@ footer {
   <td><strong>confluence</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">43</td>
+  <td class="num">1.1</td>
+  <td class="num pos">+3.47</td>
+  <td class="num pos">+19.20%</td>
+  <td class="num neg">2.23%</td>
+  <td class="num">79%</td>
+  <td><span class="badge b-refine">refine</span> </td>
+  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">30</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">32</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">3</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
+</tr>
+<tr>
+  <td class="num muted">3</td>
+  <td><strong>confluence</strong></td>
+  <td>EUR_USD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
   <td class="num">49</td>
   <td class="num">1.3</td>
   <td class="num pos">+2.53</td>
@@ -1125,7 +1298,21 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">require_trend</span>=<span class="v">False</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">10</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.5</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">3</td>
+  <td class="num muted">4</td>
+  <td><strong>confluence</strong></td>
+  <td>USD_CAD</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">136</td>
+  <td class="num">3.6</td>
+  <td class="num pos">+2.53</td>
+  <td class="num pos">+47.96%</td>
+  <td class="num neg">8.19%</td>
+  <td class="num">52%</td>
+  <td><span class="badge b-new">new</span> <span class="badge b-pareto">★ pareto</span></td>
+  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">40</span> &middot; <span class="k">swing_n</span>=<span class="v">7</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
+</tr>
+<tr>
+  <td class="num muted">5</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>USD_CAD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1139,7 +1326,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">21</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">5</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">5</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.001</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">4</td>
+  <td class="num muted">6</td>
   <td><strong>confluence</strong></td>
   <td>EUR_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1153,7 +1340,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">30</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">require_trend</span>=<span class="v">False</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">60</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">21</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">slow_ma</span>=<span class="v">100</span> &middot; <span class="k">swing_n</span>=<span class="v">10</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">5</td>
+  <td class="num muted">7</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>USD_CAD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1167,7 +1354,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">21</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">5</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.0025</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">6</td>
+  <td class="num muted">8</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1181,7 +1368,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">25</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">7</td>
+  <td class="num muted">9</td>
   <td><strong>mean_reversion</strong></td>
   <td>USD_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1195,7 +1382,7 @@ footer {
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">bb_period</span>=<span class="v">15</span> &middot; <span class="k">bb_std</span>=<span class="v">2.5</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">80</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">25</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">8</td>
+  <td class="num muted">10</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_GBP</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -1207,34 +1394,6 @@ footer {
   <td class="num">54%</td>
   <td><span class="badge b-refine">refine</span> <span class="badge b-pareto">★ pareto</span></td>
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">128</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.0015</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
-</tr>
-<tr>
-  <td class="num muted">9</td>
-  <td><strong>divergence_at_sr</strong></td>
-  <td>EUR_GBP</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td class="num">46</td>
-  <td class="num">1.2</td>
-  <td class="num pos">+1.79</td>
-  <td class="num pos">+19.08%</td>
-  <td class="num neg">6.05%</td>
-  <td class="num">54%</td>
-  <td><span class="badge b-refine">refine</span> <span class="badge b-pareto">★ pareto</span></td>
-  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">128</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">7</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.0015</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
-</tr>
-<tr>
-  <td class="num muted">10</td>
-  <td><strong>divergence_at_sr</strong></td>
-  <td>EUR_GBP</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td class="num">46</td>
-  <td class="num">1.2</td>
-  <td class="num pos">+1.69</td>
-  <td class="num pos">+13.46%</td>
-  <td class="num neg">4.91%</td>
-  <td class="num">65%</td>
-  <td><span class="badge b-new">new</span> <span class="badge b-pareto">★ pareto</span></td>
-  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">128</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">10</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.0015</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
     </tbody>
   </table>
