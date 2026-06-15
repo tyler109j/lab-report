@@ -556,7 +556,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </div>
     <div class="head-right">
       <div class="live-pill">15-min cycle</div>
-      <div class="timestamp">2026-06-15 20:16:03 UTC</div>
+      <div class="timestamp">2026-06-15 20:17:25 UTC</div>
     </div>
   </header>
 
@@ -569,19 +569,19 @@ footer strong { color: var(--text-dim); font-weight: 600; }
       <div class="survivor-sub">Forward-tested on last 20% of OANDA candles. 95% bootstrap CI excludes zero; deflated Sharpe accounts for 1099 trials.</div>
     </div>
     <div class="survivor-metric">
-      <div class="v gradient">+2.59</div>
+      <div class="v gradient">+3.29</div>
       <div class="k">OOS Sharpe</div>
     </div>
     <div class="survivor-metric">
-      <div class="v pos">+40.57%</div>
-      <div class="k">OOS Return (54 trades)</div>
+      <div class="v pos">+45.06%</div>
+      <div class="k">OOS Return (39 trades)</div>
     </div>
     <div class="survivor-metric">
       <div class="v">4.56%</div>
       <div class="k">OOS Max DD</div>
     </div>
     <div class="survivor-metric">
-      <div class="v">[+0.97, +4.35]</div>
+      <div class="v">[+1.59, +5.34]</div>
       <div class="k">95% CI · DSR 1.00</div>
     </div>
   </div>
@@ -609,7 +609,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <div class="stat-sub">divergence_at_sr · EUR_JPY · <span class="cv-chip cv-v2">v2</span></div>
   </div>
   <div class="card">
-    <div class="stat-value green">4</div>
+    <div class="stat-value green">5</div>
     <div class="stat-label">v2 OOS passes</div>
     <div class="stat-sub">Realistic costs + forward test</div>
   </div>
@@ -1838,7 +1838,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <p class="panel-note">
     Out-of-sample test re-runs each high-Sharpe strategy on the last 20% of cached price data (the period the in-sample backtest never saw).
     A run “passes” if OOS Sharpe ≥ 1.0, OOS n ≥ 5, and OOS DD ≤ 30%.
-    <strong>17 of 42</strong> forward-tested runs passed. The <strong>v2</strong> chip marks runs evaluated on realistic per-pair costs + swap.
+    <strong>18 of 43</strong> forward-tested runs passed. The <strong>v2</strong> chip marks runs evaluated on realistic per-pair costs + swap.
   </p>
   <table>
     <thead>
@@ -1851,6 +1851,20 @@ footer strong { color: var(--text-dim); font-weight: 600; }
       </tr>
     </thead>
     <tbody>
+<tr>
+  <td class="num muted">1099</td>
+  <td><strong>divergence_at_sr</strong></td>
+  <td>EUR_JPY</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td><span class="cv-chip cv-v2">v2</span></td>
+  <td class="num">+3.38</td>
+  <td class="num pos">+3.29</td>
+  <td class="num muted">+0.97</td>
+  <td class="num">39</td>
+  <td class="num pos">+45.06%</td>
+  <td class="num neg">4.56%</td>
+  <td><span class="badge b-pass">✓ pass</span></td>
+</tr>
 <tr>
   <td class="num muted">866</td>
   <td><strong>divergence_at_sr</strong></td>
