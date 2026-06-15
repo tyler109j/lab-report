@@ -556,7 +556,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </div>
     <div class="head-right">
       <div class="live-pill">15-min cycle</div>
-      <div class="timestamp">2026-06-15 22:10:33 UTC</div>
+      <div class="timestamp">2026-06-15 22:13:53 UTC</div>
     </div>
   </header>
 
@@ -3838,6 +3838,61 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   </table>
 
   
+  <h3 style='margin-top:18px'>Cron status</h3>
+  <table>
+    <thead>
+      <tr><th>Job</th><th>Schedule</th><th class='num'>Last run</th><th>Status</th><th class='num'>Next</th></tr>
+    </thead>
+    <tbody><tr>
+        <td><code>lab-cycle</code></td>
+        <td>every 15min</td>
+        <td class='num'>12m ago</td>
+        <td>ok</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-hourly-summary</code></td>
+        <td>hourly</td>
+        <td class='num'>12m ago</td>
+        <td>ok</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-cycle</code></td>
+        <td>every 15min</td>
+        <td class='num'>3h ago</td>
+        <td>ok</td>
+        <td class='num'>3h ago</td>
+      </tr><tr>
+        <td><code>lab-forward-test</code></td>
+        <td>hourly :17</td>
+        <td class='num'>56m ago</td>
+        <td>ok</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-rolling-forward</code></td>
+        <td>every 6h</td>
+        <td class='num'>4h ago</td>
+        <td>ok</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-live-runner</code></td>
+        <td>2 */15 * * *</td>
+        <td class='num'>7h ago</td>
+        <td>ok</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-meta-cycle</code></td>
+        <td>daily 02:00 UTC</td>
+        <td class='num'>—</td>
+        <td>—</td>
+        <td class='num'>just now</td>
+      </tr><tr>
+        <td><code>lab-dashboard-publish</code></td>
+        <td>every 30min</td>
+        <td class='num'>—</td>
+        <td>—</td>
+        <td class='num'>just now</td>
+      </tr></tbody>
+  </table>
 
   <h3 style='margin-top:18px'>Meta-state</h3>
   <div class='panel-note'><strong>Top-weighted:</strong> <code>EUR_JPY × divergence_at_sr</code> (w=25.50, pr=45%, n=11), <code>EUR_USD × confluence</code> (w=0.72, pr=10%, n=21), <code>AUD_USD × breakout</code> (w=0.10, pr=0%, n=26)</div>
