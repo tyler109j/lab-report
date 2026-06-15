@@ -556,7 +556,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     </div>
     <div class="head-right">
       <div class="live-pill">15-min cycle</div>
-      <div class="timestamp">2026-06-15 20:01:07 UTC</div>
+      <div class="timestamp">2026-06-15 20:16:03 UTC</div>
     </div>
   </header>
 
@@ -566,7 +566,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <div>
       <div class="survivor-title">Robust survivor · v2 costs · OOS validated</div>
       <div class="survivor-name">divergence_at_sr<span class="pair-tag">EUR_JPY M15</span></div>
-      <div class="survivor-sub">Forward-tested on last 20% of OANDA candles. 95% bootstrap CI excludes zero; deflated Sharpe accounts for 1096 trials.</div>
+      <div class="survivor-sub">Forward-tested on last 20% of OANDA candles. 95% bootstrap CI excludes zero; deflated Sharpe accounts for 1099 trials.</div>
     </div>
     <div class="survivor-metric">
       <div class="v gradient">+2.59</div>
@@ -589,9 +589,9 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   
 <div class="grid">
   <div class="card">
-    <div class="stat-value">1,096</div>
+    <div class="stat-value">1,099</div>
     <div class="stat-label">Total runs</div>
-    <div class="stat-sub">141 on v2 costs</div>
+    <div class="stat-sub">144 on v2 costs</div>
   </div>
   <div class="card">
     <div class="stat-value green">97</div>
@@ -599,14 +599,14 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <div class="stat-sub">50 survive v2 · 47 invalidated</div>
   </div>
   <div class="card">
-    <div class="stat-value orange">82</div>
+    <div class="stat-value orange">80</div>
     <div class="stat-label">Pareto-kept</div>
     <div class="stat-sub">Return-vs-DD frontier</div>
   </div>
   <div class="card">
-    <div class="stat-value accent">+3.03</div>
+    <div class="stat-value accent">+3.38</div>
     <div class="stat-label">Best Sharpe (n≥30)</div>
-    <div class="stat-sub">confluence · EUR_USD · <span class="cv-chip cv-v2">v2</span></div>
+    <div class="stat-sub">divergence_at_sr · EUR_JPY · <span class="cv-chip cv-v2">v2</span></div>
   </div>
   <div class="card">
     <div class="stat-value green">4</div>
@@ -618,19 +618,19 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 <div class="panel">
   <div class="best-run">
     <div>
-      <h2><span class="icon">◆</span> Best run (n≥30) — confluence on EUR_USD M15</h2>
-      <div class="params-block"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">30</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">32</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">3</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div>
+      <h2><span class="icon">◆</span> Best run (n≥30) — divergence_at_sr on EUR_JPY M15</h2>
+      <div class="params-block"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">96</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">10</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div>
     </div>
     <div class="metrics-block">
       <div class="metric-row"><span class="k">Timeframe</span><span class="v">M15</span></div>
-      <div class="metric-row"><span class="k">Workflow</span><span class="v">new</span></div>
-      <div class="metric-row"><span class="k">n (trades)</span><span class="v">43</span></div>
-      <div class="metric-row"><span class="k">Trades / week</span><span class="v">1.1</span></div>
-      <div class="metric-row"><span class="k">Win rate</span><span class="v pos">+79.07%</span></div>
-      <div class="metric-row"><span class="k">Sharpe</span><span class="v pos">+3.03</span></div>
-      <div class="metric-row"><span class="k">Total return</span><span class="v pos">+16.58%</span></div>
-      <div class="metric-row"><span class="k">Max DD (chronological)</span><span class="v ">2.38%</span></div>
-      <div class="metric-row"><span class="k">Profit factor</span><span class="v">2.60</span></div>
+      <div class="metric-row"><span class="k">Workflow</span><span class="v">refine</span></div>
+      <div class="metric-row"><span class="k">n (trades)</span><span class="v">31</span></div>
+      <div class="metric-row"><span class="k">Trades / week</span><span class="v">0.8</span></div>
+      <div class="metric-row"><span class="k">Win rate</span><span class="v pos">+64.52%</span></div>
+      <div class="metric-row"><span class="k">Sharpe</span><span class="v pos">+3.38</span></div>
+      <div class="metric-row"><span class="k">Total return</span><span class="v pos">+41.32%</span></div>
+      <div class="metric-row"><span class="k">Max DD (chronological)</span><span class="v ">3.52%</span></div>
+      <div class="metric-row"><span class="k">Profit factor</span><span class="v">3.36</span></div>
     </div>
   </div>
 </div>
@@ -1761,7 +1761,10 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 <circle cx="635.0" cy="292.8" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=+7.68% dd=7.18%</title></circle>
 <circle cx="422.0" cy="209.6" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=-34.90% dd=36.22%</title></circle>
 <circle cx="596.6" cy="313.4" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=+0.00% dd=0.00%</title></circle>
-<polyline fill="none" stroke="#3ed598" stroke-width="2.2" stroke-linejoin="round" points="596.6,313.4 615.0,313.4 617.9,313.4 638.8,313.4 669.7,310.1 702.2,310.0 787.9,306.4 804.3,302.1 836.6,289.9" opacity="0.95"/>
+<circle cx="295.2" cy="138.1" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=-60.24% dd=61.20%</title></circle>
+<circle cx="618.9" cy="300.8" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=+4.46% dd=4.40%</title></circle>
+<circle cx="803.3" cy="303.3" r="2.5" fill="#5a6273" opacity="0.55"><title>ret=+41.32% dd=3.52%</title></circle>
+<polyline fill="none" stroke="#3ed598" stroke-width="2.2" stroke-linejoin="round" points="596.6,313.4 615.0,313.4 617.9,313.4 638.8,313.4 669.7,310.1 702.2,310.0 787.9,306.4 803.3,303.3 804.3,302.1 836.6,289.9" opacity="0.95"/>
 <circle cx="596.6" cy="313.4" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+0.00% dd=0.00%</title></circle>
 <circle cx="615.0" cy="313.4" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+3.67% dd=0.00%</title></circle>
 <circle cx="617.9" cy="313.4" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+4.26% dd=0.00%</title></circle>
@@ -1769,14 +1772,15 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 <circle cx="669.7" cy="310.1" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+14.61% dd=1.14%</title></circle>
 <circle cx="702.2" cy="310.0" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+21.10% dd=1.17%</title></circle>
 <circle cx="787.9" cy="306.4" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+38.23% dd=2.43%</title></circle>
+<circle cx="803.3" cy="303.3" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+41.32% dd=3.52%</title></circle>
 <circle cx="804.3" cy="302.1" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+41.51% dd=3.94%</title></circle>
 <circle cx="836.6" cy="289.9" r="4.5" fill="#3ed598" stroke="#07090d" stroke-width="1.8"><title>ret=+47.96% dd=8.19%</title></circle>
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#475569"></span>All runs (1096)</span>
-    <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (9)</span>
-    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T20:00:27Z</span>
+    <span><span class="dot" style="background:#475569"></span>All runs (1099)</span>
+    <span><span class="dot" style="background:#3fb950"></span>Pareto-optimal (10)</span>
+    <span style="margin-left:auto;font-family:ui-monospace,monospace">last cycle: 2026-06-15T20:15:28Z</span>
   </div>
 </div>
   
@@ -1785,17 +1789,17 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <div class="pareto-wrap">
     <svg class="pareto-svg" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet">
 <line x1="70" y1="330.0" x2="880" y2="330.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="333.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">-11.6%</text>
+<text x="62" y="333.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">-11.8%</text>
 <line x1="70" y1="268.0" x2="880" y2="268.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="271.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">-0.3%</text>
+<text x="62" y="271.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+0.1%</text>
 <line x1="70" y1="206.0" x2="880" y2="206.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="209.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+10.9%</text>
+<text x="62" y="209.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+12.0%</text>
 <line x1="70" y1="144.0" x2="880" y2="144.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="147.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+22.2%</text>
+<text x="62" y="147.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+23.9%</text>
 <line x1="70" y1="82.0" x2="880" y2="82.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="85.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+33.4%</text>
+<text x="62" y="85.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+35.8%</text>
 <line x1="70" y1="20.0" x2="880" y2="20.0" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
-<text x="62" y="23.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+44.7%</text>
+<text x="62" y="23.0" fill="#7c8595" font-size="10" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace">+47.7%</text>
 <line x1="70.0" y1="20" x2="70.0" y2="330" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
 <text x="70.0" y="346" fill="#7c8595" font-size="10" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace">Sep 2025</text>
 <line x1="232.0" y1="20" x2="232.0" y2="330" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
@@ -1808,23 +1812,23 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 <text x="718.0" y="346" fill="#7c8595" font-size="10" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace">Apr 2026</text>
 <line x1="880.0" y1="20" x2="880.0" y2="330" stroke="rgba(120,140,175,0.10)" stroke-width="1"/>
 <text x="880.0" y="346" fill="#7c8595" font-size="10" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace">Jun 2026</text>
-<line x1="70" y1="266.2" x2="880" y2="266.2" stroke="rgba(120,140,175,0.35)" stroke-width="1" stroke-dasharray="3 4"/>
+<line x1="70" y1="268.5" x2="880" y2="268.5" stroke="rgba(120,140,175,0.35)" stroke-width="1" stroke-dasharray="3 4"/>
 <text x="475.0" y="372" fill="#b9c2cf" font-size="11" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500">Date</text>
 <text x="14" y="175.0" fill="#b9c2cf" font-size="11" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" transform="rotate(-90 14 175.0)">Equity return (%)</text>
-<path d="M72.2,266.2 L92.2,259.4 L96.8,253.0 L113.1,245.1 L161.5,238.5 L222.0,245.7 L222.1,238.6 L264.0,246.5 L272.3,254.2 L313.0,247.7 L314.6,240.7 L349.7,233.4 L370.9,226.0 L443.0,218.5 L478.4,210.3 L479.5,217.4 L488.7,209.9 L489.7,217.3 L489.7,209.5 L502.2,201.4 L513.0,193.1 L526.9,200.6 L609.7,192.7 L615.1,201.2 L654.6,193.5 L656.1,201.1 L701.7,209.1 L703.9,217.8 L716.0,210.2 L726.1,218.8 L749.9,210.9 L750.2,218.0 L750.3,210.1 L752.1,202.1 L759.4,209.8 L759.5,217.3 L780.3,209.7 L850.9,203.1 L857.3,197.1" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_JPY M15 (sh=+1.53) — final +12.55% (end 2026-06-04)</title></path>
-<path d="M72.2,266.2 L78.8,258.3 L90.5,265.4 L111.8,256.1 L125.9,263.6 L133.8,270.1 L141.0,269.0 L158.5,260.0 L207.6,267.3 L208.7,275.0 L209.3,266.3 L224.0,257.7 L233.1,248.7 L249.0,256.3 L254.8,247.2 L294.8,255.7 L310.5,245.9 L375.4,238.7 L396.9,232.6 L406.6,222.4 L414.9,230.6 L415.8,220.5 L428.0,220.1 L460.7,228.0 L482.9,217.4 L493.8,206.8 L514.9,214.0 L528.8,203.3 L536.0,192.5 L549.9,200.6 L575.4,189.4 L579.0,196.9 L589.2,204.0 L614.8,194.3 L616.4,201.7 L643.5,191.6 L673.8,200.8 L701.4,191.4 L716.9,181.4 L747.6,181.0 L760.0,189.4 L787.0,198.3 L808.4,188.6 L816.4,177.8 L827.1,168.2 L828.7,176.8 L850.0,185.9 L871.4,194.5 L877.0,184.9 L880.0,173.6" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr USD_CAD M15 (sh=+1.56) — final +16.81% (end 2026-06-12)</title></path>
-<path d="M72.2,266.2 L90.4,274.0 L115.7,265.2 L122.0,250.9 L127.0,257.7 L133.3,241.9 L164.4,227.1 L168.0,211.8 L205.7,195.9 L208.3,205.2 L208.3,214.8 L208.6,224.0 L254.7,232.4 L297.0,217.6 L383.3,226.0 L395.8,233.6 L396.7,218.3 L414.7,226.2 L436.6,210.0 L482.3,218.0 L527.9,226.1 L528.2,210.8 L571.2,193.7 L578.4,176.6 L609.8,184.3 L652.1,167.3 L683.2,149.8 L737.6,157.9 L743.7,166.8 L790.3,151.2 L803.9,159.7 L812.3,152.5 L855.4,162.1" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_USD M15 (sh=+1.56) — final +18.90% (end 2026-06-04)</title></path>
-<path d="M72.2,266.2 L75.9,256.4 L78.5,264.0 L82.4,254.9 L90.5,261.6 L101.1,263.0 L103.7,265.6 L125.9,272.5 L146.0,279.4 L156.3,286.2 L159.7,292.9 L159.8,299.5 L168.9,290.3 L169.9,296.3 L181.6,302.9 L185.4,308.6 L186.9,307.2 L189.9,298.6 L202.0,292.4 L202.9,283.2 L208.2,287.0 L211.4,285.3 L212.0,292.8 L222.1,299.0 L231.0,305.5 L233.2,296.5 L241.6,294.9 L242.4,301.9 L246.0,308.3 L252.0,306.3 L252.3,297.5 L252.8,288.0 L255.3,278.6 L255.7,268.7 L263.7,269.1 L266.2,266.5 L268.0,273.5 L275.0,265.4 L313.3,256.6 L317.1,246.5 L336.0,236.1 L337.7,243.6 L350.3,250.4 L394.1,240.2 L396.0,237.4 L400.0,244.9 L403.3,251.7 L403.5,258.5 L405.8,252.9 L415.0,259.7 L421.3,259.1 L425.0,249.7 L426.8,253.5 L435.5,260.3 L464.2,249.8 L468.5,238.8 L469.7,245.2 L480.7,234.4 L482.3,241.2 L489.1,230.5 L491.8,237.3 L493.8,244.1 L501.2,233.5 L514.2,222.8 L522.1,220.5 L527.3,227.2 L529.8,216.7 L532.0,224.4 L534.7,224.0 L535.1,231.4 L548.0,221.3 L549.9,228.2 L564.9,235.0 L569.2,226.6 L569.9,215.4 L575.0,222.4 L578.3,228.9 L599.4,218.3 L609.2,225.2 L613.1,214.2 L614.9,214.1 L616.8,202.9 L618.9,191.7 L620.7,189.3 L621.5,196.8 L634.8,185.3 L636.9,176.5 L637.9,164.8 L640.9,152.8 L643.4,154.4 L652.3,142.4 L655.4,130.4 L656.1,138.9 L656.9,146.5 L661.0,154.3 L665.1,144.1 L673.8,152.5 L680.6,140.2 L683.5,128.2 L686.0,137.1 L695.3,145.8 L701.4,147.4 L724.9,135.2 L726.2,144.4 L738.4,132.5 L740.1,140.5 L744.9,134.7 L750.7,123.4 L763.2,132.6 L769.4,136.8 L772.6,145.8 L781.6,154.4 L785.7,142.7 L787.0,150.9 L788.6,139.2 L791.3,130.4 L793.1,118.4 L802.1,113.7 L803.1,122.5 L809.0,118.5 L810.2,106.1 L815.3,99.7 L816.1,87.3 L825.2,80.4 L828.5,68.1 L830.2,64.6 L834.6,73.7 L837.7,60.5 L850.1,70.2 L855.3,57.3 L856.1,66.8 L858.6,76.8 L868.4,85.7 L870.7,95.2 L874.0,103.7 L878.6,111.7" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence USD_CAD M15 (sh=+1.60) — final +28.05% (end 2026-06-11)</title></path>
-<path d="M72.2,266.2 L96.9,256.5 L100.8,246.1 L143.7,252.8 L158.9,259.3 L161.4,266.3 L161.8,256.5 L162.8,263.0 L179.9,269.7 L180.0,276.2 L189.9,266.2 L199.3,256.7 L222.9,246.4 L248.4,236.2 L264.0,243.5 L264.1,250.6 L264.2,240.4 L272.3,247.5 L273.3,237.0 L275.7,243.9 L276.4,250.6 L284.6,240.0 L293.6,229.2 L298.8,236.2 L313.1,225.9 L314.7,215.2 L328.2,222.3 L330.8,211.2 L333.1,199.9 L338.7,188.7 L352.6,196.1 L355.4,185.1 L371.1,173.5 L374.7,161.7 L384.5,169.5 L384.8,157.8 L396.5,146.0 L421.4,153.7 L421.7,161.2 L443.4,149.1 L460.7,156.7 L461.6,163.8 L467.3,171.0 L478.5,158.7 L479.8,146.2 L488.7,133.9 L489.9,141.6 L511.2,149.1 L511.3,136.4 L513.1,123.5 L525.1,131.4 L528.2,139.2 L532.6,146.9 L533.0,134.4 L547.0,142.4 L557.2,129.9 L565.0,117.0 L578.8,125.2 L595.9,133.5 L610.0,141.4 L615.2,149.8 L618.2,157.5 L621.3,165.1 L631.1,152.9 L654.9,140.7 L656.2,148.5 L661.4,136.1 L702.1,123.9 L704.4,111.3 L726.1,120.3 L744.6,120.4 L750.7,107.3 L759.6,94.4 L766.7,80.3 L769.7,89.0 L780.4,75.6 L790.2,85.5 L806.9,94.4 L810.6,103.1 L812.5,90.3 L834.8,99.0 L834.9,107.7 L847.6,94.9 L852.3,104.1 L855.9,112.9 L876.3,100.6 L879.8,109.2" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_JPY M15 (sh=+1.74) — final +28.49% (end 2026-06-12)</title></path>
-<path d="M72.2,266.2 L79.7,272.9 L82.2,259.5 L90.7,266.0 L91.2,272.9 L104.2,259.5 L114.4,245.1 L124.8,251.6 L162.1,237.7 L178.5,223.3 L180.3,230.3 L180.4,237.2 L181.9,222.7 L189.9,208.0 L208.1,215.4 L243.4,200.6 L266.2,207.9 L275.4,192.7 L339.8,199.6 L350.3,184.2 L353.5,191.5 L354.2,175.6 L357.3,183.0 L361.6,167.5 L421.9,174.7 L491.0,181.9 L492.2,165.9 L501.6,149.2 L522.9,157.2 L535.1,140.7 L549.7,149.1 L553.4,156.8 L553.8,164.4 L556.7,148.1 L566.9,131.0 L590.7,114.0 L596.8,122.6 L635.4,105.1 L682.7,93.8 L706.8,75.9 L740.6,85.6 L745.1,68.1 L764.5,76.8 L787.7,85.5 L790.1,67.7 L806.9,77.0 L827.7,60.0 L852.3,70.8 L855.2,79.7 L857.8,89.5 L877.9,98.0" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_JPY M15 (sh=+2.01) — final +30.53% (end 2026-06-11)</title></path>
-<path d="M72.2,266.2 L115.7,259.8 L122.2,266.2 L125.6,260.0 L135.1,266.1 L137.5,260.3 L147.5,266.4 L164.9,260.1 L168.2,267.3 L245.6,261.6 L252.7,255.2 L289.1,255.6 L294.8,250.0 L297.8,257.3 L337.9,256.6 L342.0,250.3 L354.9,244.0 L363.6,237.7 L384.1,244.9 L397.1,251.4 L421.7,245.4 L436.5,251.6 L467.6,245.0 L492.0,238.9 L505.1,232.4 L544.8,239.1 L551.5,232.8 L554.3,226.4 L609.6,232.9 L612.1,226.4 L621.8,219.6 L654.8,212.9 L664.4,209.9 L683.2,202.9 L696.1,197.8 L744.7,190.7 L748.1,197.7 L750.7,191.6 L758.7,184.4 L772.5,191.8 L781.6,184.8 L781.7,192.2 L803.3,199.6 L815.7,192.5 L836.9,186.1 L846.2,179.4 L858.6,172.9 L859.4,180.0 L870.7,180.7 L874.2,176.3" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_USD M15 (sh=+2.14) — final +16.33% (end 2026-06-10)</title></path>
-<path d="M70.0,266.2 L75.1,252.7 L79.7,259.6 L82.2,245.8 L90.7,252.4 L91.2,259.5 L104.2,245.8 L114.4,231.0 L124.8,237.7 L162.1,223.5 L178.5,208.7 L180.3,215.9 L180.4,222.9 L181.9,208.1 L189.9,193.0 L208.1,200.6 L243.4,185.4 L266.2,192.9 L275.4,177.3 L339.8,184.4 L350.3,168.6 L353.5,176.1 L354.2,159.8 L357.3,167.4 L361.6,151.5 L421.9,158.9 L491.0,166.3 L492.2,149.9 L501.6,132.7 L522.9,141.0 L535.1,124.0 L549.7,132.6 L553.4,140.6 L553.8,148.4 L556.7,131.6 L566.9,114.2 L590.7,96.7 L596.8,105.5 L635.4,87.6 L682.7,76.0 L706.8,57.7 L740.6,67.6 L745.1,49.6 L764.5,58.6 L787.7,67.5 L790.1,49.3 L806.9,58.8 L827.7,41.4 L852.3,52.5 L855.2,61.6 L857.8,71.6 L877.9,80.4" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_JPY M15 (sh=+2.15) — final +33.74% (end 2026-06-11)</title></path>
-<path d="M72.2,266.2 L90.4,274.0 L115.7,265.2 L122.0,250.9 L127.0,257.7 L133.3,241.9 L164.4,227.1 L168.0,211.8 L205.7,195.9 L208.3,205.2 L208.3,214.8 L208.6,224.0 L242.3,209.1 L254.7,217.7 L288.2,203.2 L294.8,188.0 L297.0,172.2 L383.3,181.2 L395.8,189.3 L396.7,172.9 L414.7,181.4 L436.6,163.9 L482.3,172.5 L527.9,181.3 L528.2,164.8 L571.2,146.4 L578.4,128.1 L609.8,136.3 L652.1,118.0 L683.2,99.3 L737.6,108.0 L743.7,117.5 L784.5,99.7 L790.3,82.5 L803.9,91.8 L812.3,83.9 L846.1,65.1 L855.4,75.9" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_USD M15 (sh=+2.53) — final +34.55% (end 2026-06-04)</title></path>
-<path d="M72.2,266.2 L115.0,264.6 L125.5,259.7 L137.5,255.2 L147.5,261.4 L147.7,267.5 L164.3,267.2 L181.6,262.4 L233.7,257.6 L252.6,252.5 L263.9,248.1 L271.0,242.9 L276.0,238.5 L288.1,238.2 L294.6,233.8 L342.0,228.7 L354.8,223.6 L394.9,230.2 L414.9,236.7 L421.7,232.0 L435.6,226.7 L492.0,221.9 L505.1,216.8 L554.3,211.7 L573.5,209.4 L609.6,216.1 L621.8,210.7 L622.4,205.1 L654.7,199.8 L682.4,196.5 L695.1,195.2 L705.4,202.3 L743.7,205.3 L747.9,199.9 L750.7,195.4 L758.7,189.8 L780.3,184.2 L784.4,191.8 L803.3,199.3 L803.6,194.1 L814.8,190.5 L836.9,185.7 L846.2,180.6 L869.3,174.9" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_USD M15 (sh=+3.03) — final +16.58% (end 2026-06-08)</title></path>
+<path d="M72.2,268.5 L78.8,261.0 L90.5,267.7 L111.8,259.0 L125.9,266.1 L133.8,272.2 L141.0,271.2 L158.5,262.7 L207.6,269.6 L208.7,276.8 L209.3,268.6 L224.0,260.5 L233.1,252.0 L249.0,259.2 L254.8,250.6 L294.8,258.6 L310.5,249.3 L375.4,242.5 L396.9,236.7 L406.6,227.1 L414.9,234.8 L415.8,225.3 L428.0,224.9 L460.7,232.3 L482.9,222.4 L493.8,212.3 L514.9,219.1 L528.8,209.0 L536.0,198.8 L549.9,206.4 L575.4,195.8 L579.0,203.0 L589.2,209.7 L614.8,200.5 L616.4,207.5 L643.5,197.9 L673.8,206.7 L701.4,197.8 L716.9,188.3 L747.6,188.0 L760.0,195.8 L787.0,204.3 L808.4,195.1 L816.4,184.9 L827.1,175.8 L828.7,183.9 L850.0,192.6 L871.4,200.7 L877.0,191.6 L880.0,181.0" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr USD_CAD M15 (sh=+1.56) — final +16.81% (end 2026-06-12)</title></path>
+<path d="M72.2,268.5 L90.4,275.9 L115.7,267.5 L122.0,254.1 L127.0,260.4 L133.3,245.5 L164.4,231.6 L168.0,217.1 L205.7,202.0 L208.3,210.8 L208.3,219.9 L208.6,228.6 L254.7,236.5 L297.0,222.6 L383.3,230.5 L395.8,237.6 L396.7,223.2 L414.7,230.6 L436.6,215.3 L482.3,222.9 L527.9,230.6 L528.2,216.1 L571.2,199.9 L578.4,183.8 L609.8,191.0 L652.1,174.9 L683.2,158.5 L737.6,166.1 L743.7,174.5 L790.3,159.8 L803.9,167.8 L812.3,161.0 L855.4,170.0" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_USD M15 (sh=+1.56) — final +18.90% (end 2026-06-04)</title></path>
+<path d="M72.2,268.5 L75.9,259.3 L78.5,266.4 L82.4,257.8 L90.5,264.2 L101.1,265.5 L103.7,268.0 L125.9,274.5 L146.0,281.0 L156.3,287.4 L159.7,293.8 L159.8,300.0 L168.9,291.3 L169.9,297.0 L181.6,303.2 L185.4,308.6 L186.9,307.3 L189.9,299.2 L202.0,293.3 L202.9,284.6 L208.2,288.1 L211.4,286.6 L212.0,293.6 L222.1,299.5 L231.0,305.7 L233.2,297.2 L241.6,295.6 L242.4,302.2 L246.0,308.3 L252.0,306.4 L252.3,298.1 L252.8,289.2 L255.3,280.3 L255.7,270.9 L263.7,271.2 L266.2,268.8 L268.0,275.4 L275.0,267.7 L313.3,259.4 L317.1,249.9 L336.0,240.0 L337.7,247.1 L350.3,253.6 L394.1,243.9 L396.0,241.3 L400.0,248.3 L403.3,254.8 L403.5,261.2 L405.8,256.0 L415.0,262.4 L421.3,261.8 L425.0,252.9 L426.8,256.5 L435.5,262.9 L464.2,253.0 L468.5,242.6 L469.7,248.7 L480.7,238.4 L482.3,244.9 L489.1,234.7 L491.8,241.2 L493.8,247.6 L501.2,237.5 L514.2,227.5 L522.1,225.3 L527.3,231.6 L529.8,221.7 L532.0,229.0 L534.7,228.6 L535.1,235.6 L548.0,226.0 L549.9,232.5 L564.9,239.0 L569.2,231.0 L569.9,220.5 L575.0,227.1 L578.3,233.2 L599.4,223.2 L609.2,229.8 L613.1,219.4 L614.9,219.3 L616.8,208.6 L618.9,198.1 L620.7,195.7 L621.5,202.9 L634.8,192.0 L636.9,183.7 L637.9,172.6 L640.9,161.2 L643.4,162.8 L652.3,151.4 L655.4,140.1 L656.1,148.2 L656.9,155.3 L661.0,162.7 L665.1,153.1 L673.8,161.0 L680.6,149.3 L683.5,138.0 L686.0,146.4 L695.3,154.7 L701.4,156.1 L724.9,144.6 L726.2,153.3 L738.4,142.1 L740.1,149.6 L744.9,144.1 L750.7,133.4 L763.2,142.2 L769.4,146.1 L772.6,154.6 L781.6,162.7 L785.7,151.8 L787.0,159.4 L788.6,148.4 L791.3,140.1 L793.1,128.7 L802.1,124.3 L803.1,132.6 L809.0,128.8 L810.2,117.0 L815.3,111.1 L816.1,99.3 L825.2,92.7 L828.5,81.2 L830.2,77.8 L834.6,86.4 L837.7,74.0 L850.1,83.1 L855.3,71.0 L856.1,79.9 L858.6,89.4 L868.4,97.8 L870.7,106.8 L874.0,114.8 L878.6,122.4" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence USD_CAD M15 (sh=+1.60) — final +28.05% (end 2026-06-11)</title></path>
+<path d="M72.2,268.5 L96.9,259.3 L100.8,249.5 L143.7,255.8 L158.9,262.0 L161.4,268.6 L161.8,259.3 L162.8,265.5 L179.9,271.8 L180.0,278.0 L189.9,268.5 L199.3,259.5 L222.9,249.8 L248.4,240.2 L264.0,247.0 L264.1,253.8 L264.2,244.1 L272.3,250.8 L273.3,240.9 L275.7,247.4 L276.4,253.7 L284.6,243.7 L293.6,233.5 L298.8,240.1 L313.1,230.4 L314.7,220.3 L328.2,227.0 L330.8,216.5 L333.1,205.8 L338.7,195.2 L352.6,202.2 L355.4,191.8 L371.1,180.8 L374.7,169.7 L384.5,177.1 L384.8,166.0 L396.5,154.8 L421.4,162.1 L421.7,169.2 L443.4,157.7 L460.7,165.0 L461.6,171.7 L467.3,178.5 L478.5,166.8 L479.8,155.0 L488.7,143.4 L489.9,150.7 L511.2,157.8 L511.3,145.8 L513.1,133.6 L525.1,141.1 L528.2,148.4 L532.6,155.7 L533.0,143.9 L547.0,151.4 L557.2,139.6 L565.0,127.4 L578.8,135.2 L595.9,143.0 L610.0,150.5 L615.2,158.4 L618.2,165.7 L621.3,172.9 L631.1,161.4 L654.9,149.8 L656.2,157.2 L661.4,145.5 L702.1,133.9 L704.4,122.0 L726.1,130.5 L744.6,130.6 L750.7,118.2 L759.6,106.0 L766.7,92.7 L769.7,100.9 L780.4,88.2 L790.2,97.6 L806.9,106.1 L810.6,114.3 L812.5,102.1 L834.8,110.4 L834.9,118.6 L847.6,106.5 L852.3,115.2 L855.9,123.6 L876.3,111.9 L879.8,120.1" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_JPY M15 (sh=+1.74) — final +28.49% (end 2026-06-12)</title></path>
+<path d="M72.2,268.5 L79.7,274.9 L82.2,262.2 L90.7,268.3 L91.2,274.8 L104.2,262.2 L114.4,248.6 L124.8,254.7 L162.1,241.6 L178.5,227.9 L180.3,234.6 L180.4,241.1 L181.9,227.4 L189.9,213.4 L208.1,220.5 L243.4,206.4 L266.2,213.4 L275.4,198.9 L339.8,205.5 L350.3,190.9 L353.5,197.9 L354.2,182.8 L357.3,189.8 L361.6,175.2 L421.9,182.0 L491.0,188.8 L492.2,173.6 L501.6,157.8 L522.9,165.5 L535.1,149.8 L549.7,157.7 L553.4,165.1 L553.8,172.3 L556.7,156.8 L566.9,140.7 L590.7,124.6 L596.8,132.7 L635.4,116.2 L682.7,105.4 L706.8,88.5 L740.6,97.7 L745.1,81.1 L764.5,89.4 L787.7,97.6 L790.1,80.8 L806.9,89.5 L827.7,73.5 L852.3,83.7 L855.2,92.1 L857.8,101.4 L877.9,109.5" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_JPY M15 (sh=+2.01) — final +30.53% (end 2026-06-11)</title></path>
+<path d="M72.2,268.5 L115.7,262.4 L122.2,268.5 L125.6,262.6 L135.1,268.4 L137.5,262.9 L147.5,268.7 L164.9,262.7 L168.2,269.6 L245.6,264.2 L252.7,258.1 L289.1,258.5 L294.8,253.2 L297.8,260.1 L337.9,259.5 L342.0,253.5 L354.9,247.5 L363.6,241.5 L384.1,248.4 L397.1,254.5 L421.7,248.8 L436.5,254.7 L467.6,248.4 L492.0,242.7 L505.1,236.6 L544.8,242.8 L551.5,236.9 L554.3,230.9 L609.6,237.0 L612.1,230.8 L621.8,224.5 L654.8,218.1 L664.4,215.3 L683.2,208.6 L696.1,203.8 L744.7,197.1 L748.1,203.8 L750.7,198.0 L758.7,191.2 L772.5,198.2 L781.6,191.5 L781.7,198.5 L803.3,205.6 L815.7,198.8 L836.9,192.7 L846.2,186.4 L858.6,180.3 L859.4,187.0 L870.7,187.6 L874.2,183.5" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_USD M15 (sh=+2.14) — final +16.33% (end 2026-06-10)</title></path>
+<path d="M70.0,268.5 L75.1,255.7 L79.7,262.2 L82.2,249.2 L90.7,255.5 L91.2,262.2 L104.2,249.2 L114.4,235.3 L124.8,241.5 L162.1,228.1 L178.5,214.1 L180.3,220.9 L180.4,227.6 L181.9,213.6 L189.9,199.3 L208.1,206.5 L243.4,192.1 L266.2,199.2 L275.4,184.4 L339.8,191.2 L350.3,176.2 L353.5,183.3 L354.2,167.9 L357.3,175.1 L361.6,160.1 L421.9,167.1 L491.0,174.1 L492.2,158.5 L501.6,142.3 L522.9,150.1 L535.1,134.0 L549.7,142.2 L553.4,149.7 L553.8,157.1 L556.7,141.2 L566.9,124.7 L590.7,108.2 L596.8,116.5 L635.4,99.6 L682.7,88.6 L706.8,71.3 L740.6,80.7 L745.1,63.7 L764.5,72.2 L787.7,80.6 L790.1,63.3 L806.9,72.3 L827.7,55.9 L852.3,66.4 L855.2,75.0 L857.8,84.4 L877.9,92.8" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_JPY M15 (sh=+2.15) — final +33.74% (end 2026-06-11)</title></path>
+<path d="M72.2,268.5 L90.4,275.9 L115.7,267.5 L122.0,254.1 L127.0,260.4 L133.3,245.5 L164.4,231.6 L168.0,217.1 L205.7,202.0 L208.3,210.8 L208.3,219.9 L208.6,228.6 L242.3,214.5 L254.7,222.6 L288.2,208.9 L294.8,194.6 L297.0,179.6 L383.3,188.1 L395.8,195.8 L396.7,180.3 L414.7,188.3 L436.6,171.8 L482.3,179.9 L527.9,188.2 L528.2,172.6 L571.2,155.3 L578.4,137.9 L609.8,145.7 L652.1,128.4 L683.2,110.6 L737.6,118.9 L743.7,127.9 L784.5,111.1 L790.3,94.8 L803.9,103.6 L812.3,96.1 L846.1,78.3 L855.4,88.5" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_USD M15 (sh=+2.53) — final +34.55% (end 2026-06-04)</title></path>
+<path d="M72.2,268.5 L115.0,267.0 L125.5,262.4 L137.5,258.1 L147.5,263.9 L147.7,269.7 L164.3,269.5 L181.6,264.9 L233.7,260.4 L252.6,255.5 L263.9,251.4 L271.0,246.5 L276.0,242.3 L288.1,242.0 L294.6,237.9 L342.0,233.1 L354.8,228.2 L394.9,234.4 L414.9,240.6 L421.7,236.2 L435.6,231.2 L492.0,226.6 L505.1,221.8 L554.3,217.0 L573.5,214.8 L609.6,221.1 L621.8,216.0 L622.4,210.8 L654.7,205.7 L682.4,202.5 L695.1,201.4 L705.4,208.1 L743.7,210.9 L747.9,205.8 L750.7,201.5 L758.7,196.2 L780.3,191.0 L784.4,198.2 L803.3,205.2 L803.6,200.3 L814.8,196.9 L836.9,192.4 L846.2,187.6 L869.3,182.2" fill="none" stroke="#c692ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>confluence EUR_USD M15 (sh=+3.03) — final +16.58% (end 2026-06-08)</title></path>
+<path d="M70.0,268.5 L75.1,255.7 L79.7,262.2 L82.2,249.2 L90.7,255.5 L114.4,241.7 L162.1,228.3 L178.5,214.2 L189.9,199.9 L350.3,185.2 L361.6,170.4 L478.5,154.6 L491.0,161.7 L492.2,145.9 L501.6,129.3 L535.1,112.7 L549.7,121.2 L553.4,128.9 L553.8,136.5 L566.9,119.9 L590.7,103.3 L635.4,86.0 L682.7,74.8 L706.8,57.2 L740.6,66.8 L745.1,49.4 L787.7,58.1 L827.7,41.4 L852.3,52.1 L857.8,61.9 L873.8,44.5 L877.9,53.3" fill="none" stroke="#6aa6ff" stroke-width="1.8" opacity="0.92" stroke-linejoin="round" stroke-linecap="round"><title>divergence_at_sr EUR_JPY M15 (sh=+3.38) — final +41.32% (end 2026-06-11)</title></path>
 </svg>
   </div>
   <div class="pareto-legend">
-    <span><span class="dot" style="background:#c692ff"></span>confluence <span class="muted">(5)</span></span><span><span class="dot" style="background:#6aa6ff"></span>divergence_at_sr <span class="muted">(5)</span></span>
+    <span><span class="dot" style="background:#6aa6ff"></span>divergence_at_sr <span class="muted">(6)</span></span><span><span class="dot" style="background:#c692ff"></span>confluence <span class="muted">(4)</span></span>
     <span style="margin-left:auto;font-family:ui-monospace,monospace">dashed = 0% baseline</span>
   </div>
 </div>
@@ -3426,6 +3430,20 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <tbody>
 <tr>
   <td class="num muted">1</td>
+  <td><strong>divergence_at_sr</strong></td>
+  <td>EUR_JPY</td>
+  <td><span class="tf-badge tf-m15">M15</span></td>
+  <td class="num">31</td>
+  <td class="num">0.8</td>
+  <td class="num pos">+3.38</td>
+  <td class="num pos">+41.32%</td>
+  <td class="num neg">3.52%</td>
+  <td class="num">65%</td>
+  <td><span class="badge b-refine">refine</span> <span class="badge b-pareto">★ pareto</span></td>
+  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">96</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">10</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
+</tr>
+<tr>
+  <td class="num muted">2</td>
   <td><strong>confluence</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3439,7 +3457,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">30</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">32</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">3</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">2</td>
+  <td class="num muted">3</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3453,7 +3471,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">30</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">3</td>
+  <td class="num muted">4</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3467,7 +3485,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">96</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">4</td>
+  <td class="num muted">5</td>
   <td><strong>confluence</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3481,7 +3499,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">require_trend</span>=<span class="v">False</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">10</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">2.5</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">5</td>
+  <td class="num muted">6</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3495,7 +3513,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">96</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">10</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">6</td>
+  <td class="num muted">7</td>
   <td><strong>confluence</strong></td>
   <td>EUR_JPY</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3509,7 +3527,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">30</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">require_trend</span>=<span class="v">False</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">60</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">21</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">slow_ma</span>=<span class="v">100</span> &middot; <span class="k">swing_n</span>=<span class="v">10</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">7</td>
+  <td class="num muted">8</td>
   <td><strong>confluence</strong></td>
   <td>USD_CAD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3523,7 +3541,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">70</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">2.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">40</span> &middot; <span class="k">swing_n</span>=<span class="v">7</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">4.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">8</td>
+  <td class="num muted">9</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>EUR_USD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3537,7 +3555,7 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">8</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">26</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">48</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">3</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">3</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.004</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">25</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">100</span></div></td>
 </tr>
 <tr>
-  <td class="num muted">9</td>
+  <td class="num muted">10</td>
   <td><strong>divergence_at_sr</strong></td>
   <td>USD_CAD</td>
   <td><span class="tf-badge tf-m15">M15</span></td>
@@ -3549,20 +3567,6 @@ footer strong { color: var(--text-dim); font-weight: 600; }
   <td class="num">59%</td>
   <td><span class="badge b-robust">robust</span> </td>
   <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">macd_fast</span>=<span class="v">12</span> &middot; <span class="k">macd_signal</span>=<span class="v">9</span> &middot; <span class="k">macd_slow</span>=<span class="v">21</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">pivot_div_lookback</span>=<span class="v">5</span> &middot; <span class="k">pivot_lookback</span>=<span class="v">5</span> &middot; <span class="k">proximity_pct</span>=<span class="v">0.001</span> &middot; <span class="k">require_trend_down</span>=<span class="v">True</span> &middot; <span class="k">require_trend_up</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">40</span> &middot; <span class="k">rsi_period</span>=<span class="v">7</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">3.0</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
-</tr>
-<tr>
-  <td class="num muted">10</td>
-  <td><strong>confluence</strong></td>
-  <td>EUR_JPY</td>
-  <td><span class="tf-badge tf-m15">M15</span></td>
-  <td class="num">38</td>
-  <td class="num">1.0</td>
-  <td class="num pos">+1.53</td>
-  <td class="num pos">+12.55%</td>
-  <td class="num neg">4.17%</td>
-  <td class="num">63%</td>
-  <td><span class="badge b-robust">robust</span> </td>
-  <td><div class="params-block" style="padding:6px 10px;font-size:11.5px"><span class="k">atr_period</span>=<span class="v">14</span> &middot; <span class="k">fast_ma</span>=<span class="v">20</span> &middot; <span class="k">max_hold_bars</span>=<span class="v">64</span> &middot; <span class="k">require_trend</span>=<span class="v">True</span> &middot; <span class="k">rsi_overbought</span>=<span class="v">65</span> &middot; <span class="k">rsi_oversold</span>=<span class="v">35</span> &middot; <span class="k">rsi_period</span>=<span class="v">14</span> &middot; <span class="k">sl_atr_mult</span>=<span class="v">1.0</span> &middot; <span class="k">slow_ma</span>=<span class="v">80</span> &middot; <span class="k">swing_n</span>=<span class="v">3</span> &middot; <span class="k">tp_atr_mult</span>=<span class="v">1.5</span> &middot; <span class="k">trend_ema_n</span>=<span class="v">50</span></div></td>
 </tr>
     </tbody>
   </table>
@@ -3578,15 +3582,15 @@ footer strong { color: var(--text-dim); font-weight: 600; }
     <tbody>
 <tr>
   <td class="cov-strat"><span class="dot" style="background:#6aa6ff"></span><strong>divergence_at_sr</strong>
-    <div class="cov-strat-meta">56/302 pass · 24 pareto · best +2.95</div>
+    <div class="cov-strat-meta">57/303 pass · 23 pareto · best +3.38</div>
   </td>
-  <td class="cov-cell cov-strong"><div class="cov-sharpe">+2.95</div><div class="cov-meta">12/30</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.34</div><div class="cov-meta">6/30</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.51</div><div class="cov-meta">0/23</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/30</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.74</div><div class="cov-meta">7/35</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.31</div><div class="cov-meta">0/39</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.41</div><div class="cov-meta">9/34</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.79</div><div class="cov-meta">12/49</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.45</div><div class="cov-meta">6/32</div></td>
+  <td class="cov-cell cov-strong"><div class="cov-sharpe">+2.95</div><div class="cov-meta">12/30</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.34</div><div class="cov-meta">6/30</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.51</div><div class="cov-meta">0/23</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/30</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.74</div><div class="cov-meta">7/35</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.31</div><div class="cov-meta">0/39</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.41</div><div class="cov-meta">9/34</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.79</div><div class="cov-meta">12/49</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+3.38</div><div class="cov-meta">7/33</div></td>
 </tr>
 <tr>
   <td class="cov-strat"><span class="dot" style="background:#3ed598"></span><strong>mean_reversion</strong>
-    <div class="cov-strat-meta">22/252 pass · 28 pareto · best +1.94</div>
+    <div class="cov-strat-meta">22/253 pass · 28 pareto · best +1.94</div>
   </td>
-  <td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/17</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.10</div><div class="cov-meta">0/20</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.94</div><div class="cov-meta">7/32</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.14</div><div class="cov-meta">2/37</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.46</div><div class="cov-meta">7/35</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.07</div><div class="cov-meta">0/32</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.47</div><div class="cov-meta">2/23</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.16</div><div class="cov-meta">0/30</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.46</div><div class="cov-meta">0/26</div></td>
+  <td class="cov-cell cov-ok"><div class="cov-sharpe">+0.89</div><div class="cov-meta">4/17</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.10</div><div class="cov-meta">0/20</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.94</div><div class="cov-meta">7/32</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.14</div><div class="cov-meta">2/37</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.46</div><div class="cov-meta">7/35</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.07</div><div class="cov-meta">0/32</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.47</div><div class="cov-meta">2/23</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.16</div><div class="cov-meta">0/31</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.46</div><div class="cov-meta">0/26</div></td>
 </tr>
 <tr>
   <td class="cov-strat"><span class="dot" style="background:#ffb547"></span><strong>breakout</strong>
@@ -3596,9 +3600,9 @@ footer strong { color: var(--text-dim); font-weight: 600; }
 </tr>
 <tr>
   <td class="cov-strat"><span class="dot" style="background:#c692ff"></span><strong>confluence</strong>
-    <div class="cov-strat-meta">55/313 pass · 19 pareto · best +3.47</div>
+    <div class="cov-strat-meta">56/314 pass · 18 pareto · best +3.47</div>
   </td>
-  <td class="cov-cell cov-strong"><div class="cov-sharpe">+3.47</div><div class="cov-meta">11/34</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.34</div><div class="cov-meta">0/25</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.36</div><div class="cov-meta">15/36</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.42</div><div class="cov-meta">0/34</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.69</div><div class="cov-meta">3/46</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.13</div><div class="cov-meta">0/39</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.53</div><div class="cov-meta">4/27</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.01</div><div class="cov-meta">0/27</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.39</div><div class="cov-meta">22/45</div></td>
+  <td class="cov-cell cov-strong"><div class="cov-sharpe">+3.47</div><div class="cov-meta">11/34</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.73</div><div class="cov-meta">1/26</div></td><td class="cov-cell cov-good"><div class="cov-sharpe">+1.36</div><div class="cov-meta">15/36</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.42</div><div class="cov-meta">0/34</div></td><td class="cov-cell cov-ok"><div class="cov-sharpe">+0.69</div><div class="cov-meta">3/46</div></td><td class="cov-cell cov-bad"><div class="cov-sharpe">-0.13</div><div class="cov-meta">0/39</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.53</div><div class="cov-meta">4/27</div></td><td class="cov-cell cov-weak"><div class="cov-sharpe">+0.01</div><div class="cov-meta">0/27</div></td><td class="cov-cell cov-strong"><div class="cov-sharpe">+2.39</div><div class="cov-meta">22/45</div></td>
 </tr></tbody>
   </table>
   <div class="pareto-legend" style="margin-top:8px;font-size:11.5px">
