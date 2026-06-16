@@ -78,8 +78,14 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 .blk .prox .frac{font-size:18px;font-weight:800}
 /* ---- EQUITY CURVE ---- */
 .eqwrap{position:relative}
-.eq-legend{display:flex;gap:18px;font-size:11.5px;color:var(--dim);margin-top:8px}
+.eq-legend{display:flex;gap:18px;font-size:11.5px;color:var(--dim);margin-top:8px;flex-wrap:wrap}
 .eq-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.eq-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0 4px}
+.eq-chip{background:rgba(11,14,20,.55);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.eq-chip .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.eq-chip .v{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.eq-chip .v.green{color:var(--green)} .eq-chip .v.red{color:var(--red)} .eq-chip .v.orange{color:var(--orange)}
+.eq-chip .s{color:var(--dim);font-size:10.5px;margin-top:1px;font-family:'JetBrains Mono',monospace}
 /* ---- LOOP STATUS ---- */
 .loops{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .loop{background:rgba(11,14,20,.5);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
@@ -100,7 +106,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-16 02:01 UTC<br>1,138 runs · 15 forward-tested · 0 live</div>
+    <div class="ts">Generated 2026-06-16 02:09 UTC<br>1,138 runs · 15 forward-tested · 0 live</div>
   </div>
   
 <div class="verdict no">
@@ -126,7 +132,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     <div class="v accent">362</div>
     <div class="s">541 runs, 10% pass</div></div>
   <div class="stat"><div class="k">Paper signals</div>
-    <div class="v">41</div>
+    <div class="v">45</div>
     <div class="s">enters logged (dry-run)</div></div>
   <div class="stat"><div class="k">Total runs</div>
     <div class="v">1,138</div>
@@ -138,22 +144,32 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <p class="note">
     Normalized composite of the top 10 forward-tested runs, equal-weighted.
     <strong>This is the IS+OOS backtest, not live results</strong> — we have 0 executed paper
-    trades so far. Dashed line = breakeven. Range: <code>2025-09-22</code> → <code>2026-06-12</code>.
+    trades so far. Range: <code>2025-09-22</code> → <code>2026-06-12</code>.
   </p>
   <div class="eqwrap">
-  <svg width="100%" viewBox="0 0 1080 260" preserveAspectRatio="none" style="display:block">
-    <defs><linearGradient id="eqg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(62,213,152,.28)"/>
-      <stop offset="100%" stop-color="rgba(62,213,152,0)"/></linearGradient></defs>
-    <line x1="8" y1="252.0" x2="1072" y2="252.0" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
-    <path d="M 8.0,252.0 L 19.1,244.5 L 30.2,234.8 L 41.2,235.4 L 52.3,242.4 L 63.4,238.9 L 74.5,226.4 L 85.6,226.8 L 96.7,224.9 L 107.8,220.4 L 118.8,212.6 L 129.9,206.9 L 141.0,201.7 L 152.1,186.3 L 163.2,181.7 L 174.2,179.3 L 185.3,178.9 L 196.4,174.0 L 207.5,173.4 L 218.6,165.5 L 229.7,165.9 L 240.8,157.4 L 251.8,149.1 L 262.9,140.9 L 274.0,142.7 L 285.1,138.3 L 296.2,130.9 L 307.2,119.6 L 318.3,115.7 L 329.4,109.9 L 340.5,106.7 L 351.6,109.0 L 362.7,121.4 L 373.8,109.4 L 384.8,98.9 L 395.9,88.1 L 407.0,79.7 L 418.1,76.8 L 429.2,70.0 L 440.2,59.6 L 451.3,57.1 L 462.4,54.9 L 473.5,60.0 L 484.6,63.2 L 495.7,55.3 L 506.8,54.9 L 517.8,45.2 L 528.9,50.9 L 540.0,46.6 L 551.1,50.1 L 562.2,58.9 L 573.2,65.2 L 584.3,60.5 L 595.4,58.0 L 606.5,66.5 L 617.6,63.8 L 628.7,60.9 L 639.8,69.5 L 650.8,78.1 L 661.9,86.5 L 673.0,95.0 L 684.1,88.0 L 695.2,96.3 L 706.2,93.8 L 717.3,91.0 L 728.4,99.4 L 739.5,96.6 L 750.6,93.7 L 761.7,90.4 L 772.8,84.6 L 783.8,73.6 L 794.9,70.3 L 806.0,67.0 L 817.1,48.3 L 828.2,57.2 L 839.2,38.6 L 850.3,32.4 L 861.4,41.8 L 872.5,45.7 L 883.6,42.5 L 894.7,35.8 L 905.8,28.3 L 916.8,25.6 L 927.9,18.4 L 939.0,28.1 L 950.1,25.6 L 961.2,34.8 L 972.2,30.9 L 983.3,40.0 L 994.4,16.9 L 1005.5,26.1 L 1016.6,35.3 L 1027.7,12.1 L 1038.8,21.7 L 1049.8,31.1 L 1060.9,8.0 L 1072.0,17.3 L 1072,252 L 8,252 Z" fill="url(#eqg)"/>
-    <polyline points="8.0,252.0 19.1,244.5 30.2,234.8 41.2,235.4 52.3,242.4 63.4,238.9 74.5,226.4 85.6,226.8 96.7,224.9 107.8,220.4 118.8,212.6 129.9,206.9 141.0,201.7 152.1,186.3 163.2,181.7 174.2,179.3 185.3,178.9 196.4,174.0 207.5,173.4 218.6,165.5 229.7,165.9 240.8,157.4 251.8,149.1 262.9,140.9 274.0,142.7 285.1,138.3 296.2,130.9 307.2,119.6 318.3,115.7 329.4,109.9 340.5,106.7 351.6,109.0 362.7,121.4 373.8,109.4 384.8,98.9 395.9,88.1 407.0,79.7 418.1,76.8 429.2,70.0 440.2,59.6 451.3,57.1 462.4,54.9 473.5,60.0 484.6,63.2 495.7,55.3 506.8,54.9 517.8,45.2 528.9,50.9 540.0,46.6 551.1,50.1 562.2,58.9 573.2,65.2 584.3,60.5 595.4,58.0 606.5,66.5 617.6,63.8 628.7,60.9 639.8,69.5 650.8,78.1 661.9,86.5 673.0,95.0 684.1,88.0 695.2,96.3 706.2,93.8 717.3,91.0 728.4,99.4 739.5,96.6 750.6,93.7 761.7,90.4 772.8,84.6 783.8,73.6 794.9,70.3 806.0,67.0 817.1,48.3 828.2,57.2 839.2,38.6 850.3,32.4 861.4,41.8 872.5,45.7 883.6,42.5 894.7,35.8 905.8,28.3 916.8,25.6 927.9,18.4 939.0,28.1 950.1,25.6 961.2,34.8 972.2,30.9 983.3,40.0 994.4,16.9 1005.5,26.1 1016.6,35.3 1027.7,12.1 1038.8,21.7 1049.8,31.1 1060.9,8.0 1072.0,17.3" fill="none" stroke="#3ed598" stroke-width="2" stroke-linejoin="round"/>
+  <svg width="100%" viewBox="0 0 1080 280" preserveAspectRatio="none" style="display:block">
+    <defs>
+      <linearGradient id="eqg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(62,213,152,.28)"/>
+        <stop offset="100%" stop-color="rgba(62,213,152,0)"/></linearGradient>
+      <linearGradient id="ddg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(255,93,108,0)"/>
+        <stop offset="100%" stop-color="rgba(255,93,108,.3)"/></linearGradient>
+    </defs>
+    <line x1="8" y1="272.0" x2="1072" y2="272.0" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
+    <rect x="517.8" y="8" width="210.6" height="264" fill="rgba(255,93,108,.10)"/><text x="623.1" y="19" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,93,108,.75)">worst DD 6.8%</text>
+    <path d="M 8.0,44.0 L 19.1,44.0 L 30.2,44.0 L 41.2,43.5 L 52.3,38.1 L 63.4,40.8 L 74.5,44.0 L 85.6,43.7 L 96.7,44.0 L 107.8,44.0 L 118.8,44.0 L 129.9,44.0 L 141.0,44.0 L 152.1,44.0 L 163.2,44.0 L 174.2,44.0 L 185.3,44.0 L 196.4,44.0 L 207.5,44.0 L 218.6,44.0 L 229.7,43.7 L 240.8,44.0 L 251.8,44.0 L 262.9,44.0 L 274.0,42.8 L 285.1,44.0 L 296.2,44.0 L 307.2,44.0 L 318.3,44.0 L 329.4,44.0 L 340.5,44.0 L 351.6,42.5 L 362.7,34.7 L 373.8,42.3 L 384.8,44.0 L 395.9,44.0 L 407.0,44.0 L 418.1,44.0 L 429.2,44.0 L 440.2,44.0 L 451.3,44.0 L 462.4,44.0 L 473.5,41.0 L 484.6,39.1 L 495.7,43.8 L 506.8,44.0 L 517.8,44.0 L 528.9,40.6 L 540.0,43.1 L 551.1,41.1 L 562.2,35.9 L 573.2,32.2 L 584.3,35.0 L 595.4,36.5 L 606.5,31.4 L 617.6,33.0 L 628.7,34.7 L 639.8,29.6 L 650.8,24.6 L 661.9,19.6 L 673.0,14.6 L 684.1,18.7 L 695.2,13.8 L 706.2,15.3 L 717.3,17.0 L 728.4,12.0 L 739.5,13.6 L 750.6,15.4 L 761.7,17.3 L 772.8,20.8 L 783.8,27.2 L 794.9,29.2 L 806.0,31.1 L 817.1,42.2 L 828.2,36.9 L 839.2,44.0 L 850.3,44.0 L 861.4,38.5 L 872.5,36.3 L 883.6,38.1 L 894.7,42.0 L 905.8,44.0 L 916.8,44.0 L 927.9,44.0 L 939.0,38.4 L 950.1,39.8 L 961.2,34.6 L 972.2,36.8 L 983.3,31.7 L 994.4,44.0 L 1005.5,38.7 L 1016.6,33.5 L 1027.7,44.0 L 1038.8,38.5 L 1049.8,33.2 L 1060.9,44.0 L 1072.0,38.7 L 1072,44 L 8,44 Z" fill="rgba(255,93,108,.22)"/><text x="12" y="18" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,93,108,.7)">drawdown</text>
+    <path d="M 8.0,272.0 L 19.1,263.9 L 30.2,253.3 L 41.2,254.0 L 52.3,261.6 L 63.4,257.9 L 74.5,244.3 L 85.6,244.8 L 96.7,242.7 L 107.8,237.9 L 118.8,229.4 L 129.9,223.2 L 141.0,217.6 L 152.1,200.9 L 163.2,195.9 L 174.2,193.4 L 185.3,192.9 L 196.4,187.6 L 207.5,186.9 L 218.6,178.4 L 229.7,178.8 L 240.8,169.6 L 251.8,160.6 L 262.9,151.8 L 274.0,153.7 L 285.1,149.0 L 296.2,140.9 L 307.2,128.8 L 318.3,124.5 L 329.4,118.3 L 340.5,114.8 L 351.6,117.3 L 362.7,130.7 L 373.8,117.7 L 384.8,106.4 L 395.9,94.6 L 407.0,85.5 L 418.1,82.4 L 429.2,75.1 L 440.2,63.8 L 451.3,61.1 L 462.4,58.8 L 473.5,64.2 L 484.6,67.7 L 495.7,59.2 L 506.8,58.8 L 517.8,48.2 L 528.9,54.4 L 540.0,49.8 L 551.1,53.5 L 562.2,63.1 L 573.2,69.8 L 584.3,64.8 L 595.4,62.0 L 606.5,71.3 L 617.6,68.4 L 628.7,65.3 L 639.8,74.5 L 650.8,83.8 L 661.9,92.9 L 673.0,102.1 L 684.1,94.6 L 695.2,103.6 L 706.2,100.8 L 717.3,97.8 L 728.4,106.9 L 739.5,103.9 L 750.6,100.7 L 761.7,97.2 L 772.8,90.8 L 783.8,79.0 L 794.9,75.4 L 806.0,71.8 L 817.1,51.6 L 828.2,61.2 L 839.2,41.1 L 850.3,34.4 L 861.4,44.5 L 872.5,48.8 L 883.6,45.4 L 894.7,38.0 L 905.8,30.0 L 916.8,27.0 L 927.9,19.2 L 939.0,29.7 L 950.1,27.1 L 961.2,37.0 L 972.2,32.8 L 983.3,42.6 L 994.4,17.6 L 1005.5,27.6 L 1016.6,37.5 L 1027.7,12.4 L 1038.8,22.8 L 1049.8,33.0 L 1060.9,8.0 L 1072.0,18.1 L 1072,272 L 8,272 Z" fill="url(#eqg)"/>
+    <polyline points="8.0,272.0 19.1,263.9 30.2,253.3 41.2,254.0 52.3,261.6 63.4,257.9 74.5,244.3 85.6,244.8 96.7,242.7 107.8,237.9 118.8,229.4 129.9,223.2 141.0,217.6 152.1,200.9 163.2,195.9 174.2,193.4 185.3,192.9 196.4,187.6 207.5,186.9 218.6,178.4 229.7,178.8 240.8,169.6 251.8,160.6 262.9,151.8 274.0,153.7 285.1,149.0 296.2,140.9 307.2,128.8 318.3,124.5 329.4,118.3 340.5,114.8 351.6,117.3 362.7,130.7 373.8,117.7 384.8,106.4 395.9,94.6 407.0,85.5 418.1,82.4 429.2,75.1 440.2,63.8 451.3,61.1 462.4,58.8 473.5,64.2 484.6,67.7 495.7,59.2 506.8,58.8 517.8,48.2 528.9,54.4 540.0,49.8 551.1,53.5 562.2,63.1 573.2,69.8 584.3,64.8 595.4,62.0 606.5,71.3 617.6,68.4 628.7,65.3 639.8,74.5 650.8,83.8 661.9,92.9 673.0,102.1 684.1,94.6 695.2,103.6 706.2,100.8 717.3,97.8 728.4,106.9 739.5,103.9 750.6,100.7 761.7,97.2 772.8,90.8 783.8,79.0 794.9,75.4 806.0,71.8 817.1,51.6 828.2,61.2 839.2,41.1 850.3,34.4 861.4,44.5 872.5,48.8 883.6,45.4 894.7,38.0 905.8,30.0 916.8,27.0 927.9,19.2 939.0,29.7 950.1,27.1 961.2,37.0 972.2,32.8 983.3,42.6 994.4,17.6 1005.5,27.6 1016.6,37.5 1027.7,12.4 1038.8,22.8 1049.8,33.0 1060.9,8.0 1072.0,18.1" fill="none" stroke="#3ed598" stroke-width="2" stroke-linejoin="round"/>
+    <text x="1066.0" y="10.1" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="11" fill="#3ed598" font-weight="700">×1.40</text>
   </svg>
   </div>
+  <div class="eq-metrics"><div class="eq-chip"><div class="k">Total return</div><div class="v green">+39.8%</div><div class="s">IS+OOS composite</div></div><div class="eq-chip"><div class="k">CAGR</div><div class="v green">+59.3%</div><div class="s">0.72y window</div></div><div class="eq-chip"><div class="k">Sharpe</div><div class="v green">3.89</div><div class="s">annualized</div></div><div class="eq-chip"><div class="k">Sortino</div><div class="v green">4.24</div><div class="s">downside-only</div></div><div class="eq-chip"><div class="k">Calmar</div><div class="v green">8.71</div><div class="s">CAGR / max DD</div></div><div class="eq-chip"><div class="k">Max drawdown</div><div class="v green">6.8%</div><div class="s">28 bars</div></div><div class="eq-chip"><div class="k">Win rate (bars)</div><div class="v ">67.7%</div><div class="s">97 bars</div></div></div>
   <div class="eq-legend">
     <span><i style="background:#3ed598"></i>Composite equity ×1.40</span>
     <span><i style="background:rgba(255,255,255,.4)"></i>Breakeven (×1.0)</span>
-    <span>Max DD 6.8%</span>
+    <span><i style="background:rgba(255,93,108,.4)"></i>Drawdown (top band)</span>
+    <span><i style="background:rgba(255,93,108,.2)"></i>Worst DD (6.8% peak-to-trough)</span>
   </div>
 </div>
   
@@ -447,7 +463,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <div class="lv">Reweights pairs/families toward what's working</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Paper-track</div>
       <div class="lk">paper_track.py · every 15 min</div>
-      <div class="lv">Last: <b>enter EUR_USD @ 1.15991 (2026-06-16T01:46Z)</b></div></div>
+      <div class="lv">Last: <b>enter EUR_USD @ 1.15991 (2026-06-16T02:01Z)</b></div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Promotion gauntlet</div>
       <div class="lk">weekly_revalidate.py · Sun 06:00 UTC</div>
       <div class="lv">Runs all 8 gates, auto-promotes any 8/8 to live</div></div>
@@ -474,7 +490,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 <div class="panel unk">
   <h2><span class="ic">⚠</span> What we don't know yet</h2>
   <p class="note">The honest limits of this research. Read this before trusting any number above.</p>
-  <ul><li><span class="icn">▲</span><span><b>Data window.</b> 187 days of M15 candles. Need 1+ year to cover multiple regimes. Daily refresh cron is extending this.</span></li><li><span class="icn">▲</span><span><b>Live execution.</b> 0 paper trades actually executed. 41 signals logged in dry-run only — no real OANDA fills, no real spread/slippage confirmation.</span></li><li><span class="icn">▲</span><span><b>Costs.</b> Backtest applies modeled spread + swap (v2 costs). Not yet validated against live fills.</span></li><li><span class="icn">▲</span><span><b>Regimes.</b> Window is mostly trending FX. No 2020-style vol spike or central-bank shock in the sample.</span></li><li><span class="icn">▲</span><span><b>Scope.</b> 9 OANDA majors only. No crosses, exotics, or other asset classes.</span></li></ul>
+  <ul><li><span class="icn">▲</span><span><b>Data window.</b> 187 days of M15 candles. Need 1+ year to cover multiple regimes. Daily refresh cron is extending this.</span></li><li><span class="icn">▲</span><span><b>Live execution.</b> 0 paper trades actually executed. 45 signals logged in dry-run only — no real OANDA fills, no real spread/slippage confirmation.</span></li><li><span class="icn">▲</span><span><b>Costs.</b> Backtest applies modeled spread + swap (v2 costs). Not yet validated against live fills.</span></li><li><span class="icn">▲</span><span><b>Regimes.</b> Window is mostly trending FX. No 2020-style vol spike or central-bank shock in the sample.</span></li><li><span class="icn">▲</span><span><b>Scope.</b> 9 OANDA majors only. No crosses, exotics, or other asset classes.</span></li></ul>
 </div>
   <div class="foot">
     FX Research Lab · rebuilt report v2 · organized by decision, not data source<br>
