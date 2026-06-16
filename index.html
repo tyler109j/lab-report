@@ -66,6 +66,10 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 .b-pass{background:rgba(62,213,152,.12);color:var(--green);border-color:rgba(62,213,152,.3)}
 .b-fail{background:rgba(255,93,108,.12);color:var(--red);border-color:rgba(255,93,108,.28)}
 .b-warn{background:rgba(255,181,71,.12);color:var(--orange);border-color:rgba(255,181,71,.3)}
+.lastrun{background:rgba(11,14,20,.4);border:1px solid var(--border);border-left:3px solid var(--orange);
+  border-radius:6px;padding:8px 14px;margin:0 0 12px;font-size:12.5px;color:var(--dim)}
+.lastrun b{color:var(--text)}
+.lastrun code{font-size:11.5px}
 /* ---- BLOCKERS ---- */
 .blk{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;
   background:rgba(11,14,20,.5);border:1px solid var(--border);margin-bottom:8px}
@@ -106,7 +110,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-16 12:31 UTC<br>1,258 runs · 15 forward-tested · 1 live</div>
+    <div class="ts">Generated 2026-06-16 12:35 UTC<br>1,258 runs · 15 forward-tested · 1 live</div>
   </div>
   
 <div class="verdict go">
@@ -456,6 +460,107 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <td class="num green">1.78</td>
   <td class="num">—</td>
   <td><span class="badge b-warn">🟡 overfit</span></td>
+</tr></tbody></table>
+</div>
+  
+<div class="panel">
+  <h2><span class="ic">🧪</span> Strategy families in rotation</h2>
+  <p class="note">
+    Every day at 04:00 UTC, the system picks the next family from the queue, scaffolds a
+    basic implementation (if not yet done), runs 30 random configs of it through the
+    backtester, and rotates the queue. The 14-entry queue gives us ~2 weeks of new
+    families to explore before any repeat. A family stays in the rotation as long as
+    it's in the cycle, and the cycle weights families with no qualifying runs
+    (n &lt; 30 or Sharpe &lt; 0.5) more heavily — underperformers get more attention.
+  </p>
+  <div class="lastrun"><b>Last daily run:</b> 2026-06-16T12:33Z · picked <code>volume_nodes</code> · 30 configs · best Sharpe -0.70 · <b>next pick:</b> <code>order_flow_imbal</code></div>
+  <table><thead><tr>
+    <th>Family</th><th>Status</th><th class="num">Runs (n≥30)</th>
+    <th class="num">Best Sharpe</th><th>What it is</th>
+  </tr></thead><tbody><tr>
+  <td><code>order_flow_imbal</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Order-flow imbalance: detect buy/sell pressure via consecutive up/down volume runs</td>
+</tr><tr>
+  <td><code>keltner_squeeze</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Keltner channel squeeze breakout — enter when volatility contracts then expands</td>
+</tr><tr>
+  <td><code>ichimoku_cloud</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Ichimoku Kumo: trade with the cloud (Tenkan/Kijun cross + cloud direction)</td>
+</tr><tr>
+  <td><code>range_bound</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Range-bound: detect a high/low channel and fade the extremes</td>
+</tr><tr>
+  <td><code>fibonacci_retr</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Fibonacci retracement: enter on 38.2%/61.8% pullbacks of the prior swing</td>
+</tr><tr>
+  <td><code>momentum_rotation</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Cross-pair momentum rotation: long strongest pair, short weakest on a weekly rotation</td>
+</tr><tr>
+  <td><code>vwap_deviation</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">VWAP deviation: fade moves that stretch too far from the daily VWAP</td>
+</tr><tr>
+  <td><code>rsi_divergence_2</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">RSI divergence v2: classic pivots + MACD histogram confirmation</td>
+</tr><tr>
+  <td><code>session_open</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">London/NY session open momentum: directional bias at the first 30 min of each session</td>
+</tr><tr>
+  <td><code>atr_breakout_v2</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">ATR-normalized breakout: Donchian with adaptive bands based on ATR percentile</td>
+</tr><tr>
+  <td><code>liquidity_sweep</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Liquidity sweep: enter on stop-hunts above prior highs / below prior lows that reverse</td>
+</tr><tr>
+  <td><code>gap_fill</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Gap fill (weekend): enter on Monday gaps toward Friday close</td>
+</tr><tr>
+  <td><code>trend_strength</code></td>
+  <td><span class="badge b-warn">queued</span></td>
+  <td class="num">0</td>
+  <td class="num muted">—</td>
+  <td class="muted">Trend strength filter: ADX + 3 EMA alignment, momentum continuation</td>
+</tr><tr>
+  <td><code>volume_nodes</code></td>
+  <td><span class="badge b-pass">live</span></td>
+  <td class="num">1</td>
+  <td class="num muted">-3.24</td>
+  <td class="muted">VPVR — trade reactions at high-volume price levels (implemented 2026-06-16)</td>
 </tr></tbody></table>
 </div>
   
