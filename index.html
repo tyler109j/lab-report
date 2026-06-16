@@ -106,7 +106,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-16 04:02 UTC<br>1,156 runs · 15 forward-tested · 0 live</div>
+    <div class="ts">Generated 2026-06-16 04:16 UTC<br>1,159 runs · 15 forward-tested · 0 live</div>
   </div>
   
 <div class="verdict no">
@@ -129,13 +129,13 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     <div class="v red">78.2%</div>
     <div class="s">cap is 30%</div></div>
   <div class="stat"><div class="k">Cycles / 24h</div>
-    <div class="v accent">376</div>
-    <div class="s">562 runs, 10% pass</div></div>
+    <div class="v accent">378</div>
+    <div class="s">565 runs, 10% pass</div></div>
   <div class="stat"><div class="k">Paper signals</div>
-    <div class="v">73</div>
+    <div class="v">77</div>
     <div class="s">enters logged (dry-run)</div></div>
   <div class="stat"><div class="k">Total runs</div>
-    <div class="v">1,156</div>
+    <div class="v">1,159</div>
     <div class="s">since project start</div></div>
 </div>
   
@@ -465,7 +465,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <div class="loops">
     <div class="loop"><div class="ln"><span class="dot"></span>Inner search</div>
       <div class="lk">cycle.sh · every 15 min</div>
-      <div class="lv"><b>376</b> cycles / 24h, <b>562</b> runs,
+      <div class="lv"><b>378</b> cycles / 24h, <b>565</b> runs,
         <b>59</b> passed in-sample</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Forward test</div>
       <div class="lk">forward_test.py · hourly</div>
@@ -478,7 +478,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <div class="lv">Reweights pairs/families toward what's working</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Paper-track</div>
       <div class="lk">paper_track.py · every 15 min</div>
-      <div class="lv">Last: <b>enter EUR_USD @ 1.15991 (2026-06-16T03:47Z)</b></div></div>
+      <div class="lv">Last: <b>enter EUR_USD @ 1.15991 (2026-06-16T04:04Z)</b></div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Promotion gauntlet</div>
       <div class="lk">weekly_revalidate.py · Sun 06:00 UTC</div>
       <div class="lv">Runs all 8 gates, auto-promotes any 8/8 to live</div></div>
@@ -494,18 +494,18 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
           <td class="num green">3.47</td></tr><tr><td>GBP_USD</td><td class="num">50</td>
           <td class="num orange">1.75</td></tr><tr><td>USD_JPY</td><td class="num">88</td>
           <td class="num orange">1.94</td></tr><tr><td>USD_CHF</td><td class="num">93</td>
-          <td class="num orange">1.14</td></tr><tr><td>AUD_USD</td><td class="num">96</td>
-          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">89</td>
+          <td class="num orange">1.14</td></tr><tr><td>AUD_USD</td><td class="num">97</td>
+          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">90</td>
           <td class="num red">0.31</td></tr><tr><td>USD_CAD</td><td class="num">69</td>
           <td class="num green">2.53</td></tr><tr><td>EUR_GBP</td><td class="num">92</td>
-          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">89</td>
+          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">90</td>
           <td class="num green">3.38</td></tr></tbody></table>
 </div>
   
 <div class="panel unk">
   <h2><span class="ic">⚠</span> What we don't know yet</h2>
   <p class="note">The honest limits of this research. Read this before trusting any number above.</p>
-  <ul><li><span class="icn">▲</span><span><b>Data window.</b> 187 days of M15 candles. Need 1+ year to cover multiple regimes. Daily refresh cron is extending this.</span></li><li><span class="icn">▲</span><span><b>Live execution.</b> 0 paper trades actually executed. 73 signals logged in dry-run only — no real OANDA fills, no real spread/slippage confirmation.</span></li><li><span class="icn">▲</span><span><b>Costs.</b> Backtest applies modeled spread + swap (v2 costs). Not yet validated against live fills.</span></li><li><span class="icn">▲</span><span><b>Regimes.</b> Window is mostly trending FX. No 2020-style vol spike or central-bank shock in the sample.</span></li><li><span class="icn">▲</span><span><b>Scope.</b> 9 OANDA majors only. No crosses, exotics, or other asset classes.</span></li></ul>
+  <ul><li><span class="icn">▲</span><span><b>Data window.</b> 187 days of M15 candles. Need 1+ year to cover multiple regimes. Daily refresh cron is extending this.</span></li><li><span class="icn">▲</span><span><b>Live execution.</b> 0 paper trades actually executed. 77 signals logged in dry-run only — no real OANDA fills, no real spread/slippage confirmation.</span></li><li><span class="icn">▲</span><span><b>Costs.</b> Backtest applies modeled spread + swap (v2 costs). Not yet validated against live fills.</span></li><li><span class="icn">▲</span><span><b>Regimes.</b> Window is mostly trending FX. No 2020-style vol spike or central-bank shock in the sample.</span></li><li><span class="icn">▲</span><span><b>Scope.</b> 9 OANDA majors only. No crosses, exotics, or other asset classes.</span></li></ul>
 </div>
   <div class="foot">
     FX Research Lab · rebuilt report v2 · organized by decision, not data source<br>
