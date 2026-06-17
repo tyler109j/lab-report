@@ -110,7 +110,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-17 22:16 UTC<br>8,744 runs · 61 forward-tested · 5 live</div>
+    <div class="ts">Generated 2026-06-17 22:17 UTC<br>8,744 runs · 64 forward-tested · 5 live</div>
   </div>
   
 <div class="verdict go">
@@ -125,7 +125,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 <div class="strip">
   <div class="stat"><div class="k">Live-eligible</div>
     <div class="v green">5</div>
-    <div class="s">of 61 forward-tested</div></div>
+    <div class="s">of 64 forward-tested</div></div>
   <div class="stat"><div class="k">Backtest return</div>
     <div class="v red">-53.5%</div>
     <div class="s">top-5 composite, IS+OOS</div></div>
@@ -306,7 +306,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     median (stability, need ≥1.0). <strong>Def</strong> = deflated Sharpe (overfit check, need >0.95).
     The sparkline traces 90-day rolling OOS Sharpe over time.
   </p>
-  <div style="margin-bottom:10px;font-size:12.5px"><span style="color:var(--green)">● 5 healthy</span> · <span style="color:var(--orange)">● 23 watch</span> · <span style="color:var(--red)">● 2 failing</span> · <span style="color:var(--muted)">● 0 thin</span></div>
+  <div style="margin-bottom:10px;font-size:12.5px"><span style="color:var(--green)">● 5 healthy</span> · <span style="color:var(--orange)">● 24 watch</span> · <span style="color:var(--red)">● 1 failing</span> · <span style="color:var(--muted)">● 0 thin</span></div>
   <table><thead><tr>
     <th>Run</th><th>Family</th><th>Pair</th><th class="num">IS</th><th class="num">OOS</th>
     <th class="num">Decay</th><th class="num">OOS n</th><th class="num">RR</th>
@@ -472,6 +472,16 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <td class="num">—</td>
   <td><span class="badge b-warn">🟡 unstable</span></td>
 </tr><tr>
+  <td><b>#8633</b></td><td>divergence_at_sr</td><td>EUR_USD</td>
+  <td class="num">2.37</td><td class="num">1.65</td>
+  <td class="num red">-31%</td>
+  <td class="num">47</td>
+  <td class="num ">5.20</td>
+  <td class="num">1.00</td>
+  <td class="num red">—</td>
+  <td class="num">—</td>
+  <td><span class="badge b-warn">🟡 unstable</span></td>
+</tr><tr>
   <td><b>#6591</b></td><td>confluence</td><td>EUR_JPY</td>
   <td class="num">2.03</td><td class="num">2.51</td>
   <td class="num green">+24%</td>
@@ -499,6 +509,16 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <td class="num ">3.22</td>
   <td class="num">1.00</td>
   <td class="num red">0.86</td>
+  <td class="num">—</td>
+  <td><span class="badge b-warn">🟡 unstable</span></td>
+</tr><tr>
+  <td><b>#8723</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
+  <td class="num">3.44</td><td class="num">3.22</td>
+  <td class="num green">-6%</td>
+  <td class="num">21</td>
+  <td class="num ">2.86</td>
+  <td class="num">1.00</td>
+  <td class="num red">—</td>
   <td class="num">—</td>
   <td><span class="badge b-warn">🟡 unstable</span></td>
 </tr><tr>
@@ -589,26 +609,6 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <td class="num ">1.63</td>
   <td class="num">1.00</td>
   <td class="num red">0.59</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#2166</b></td><td>divergence_at_sr</td><td>EUR_USD</td>
-  <td class="num">2.55</td><td class="num">1.16</td>
-  <td class="num red">-54%</td>
-  <td class="num">41</td>
-  <td class="num ">4.72</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.82</td>
-  <td class="num">—</td>
-  <td><span class="badge b-fail">🔴 decay</span></td>
-</tr><tr>
-  <td><b>#733</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">1.69</td><td class="num">1.11</td>
-  <td class="num red">-34%</td>
-  <td class="num">76</td>
-  <td class="num ">3.13</td>
-  <td class="num">—</td>
-  <td class="num red">-0.30</td>
   <td class="num">—</td>
   <td><span class="badge b-warn">🟡 unstable</span></td>
 </tr></tbody></table>
@@ -725,7 +725,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
         <b>454</b> passed in-sample</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Forward test</div>
       <div class="lk">forward_test.py · hourly</div>
-      <div class="lv">OOS gate: Sharpe≥1, RR&gt;1. <b>61</b> runs forward-tested</div></div>
+      <div class="lv">OOS gate: Sharpe≥1, RR&gt;1. <b>64</b> runs forward-tested</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Walk-forward</div>
       <div class="lk">rolling_forward.py · every 6h</div>
       <div class="lv">30/60/90d rolling OOS, feeds the stability gate</div></div>
