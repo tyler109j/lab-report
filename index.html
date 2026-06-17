@@ -110,7 +110,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-17 08:48 UTC<br>5,879 runs · 15 forward-tested · 1 live</div>
+    <div class="ts">Generated 2026-06-17 09:04 UTC<br>5,923 runs · 15 forward-tested · 1 live</div>
   </div>
   
 <div class="verdict go">
@@ -133,13 +133,13 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     <div class="v red">78.0%</div>
     <div class="s">cap is 30%</div></div>
   <div class="stat"><div class="k">Cycles / 24h</div>
-    <div class="v accent">309</div>
-    <div class="s">4817 runs, 6% pass</div></div>
+    <div class="v accent">311</div>
+    <div class="s">4867 runs, 6% pass</div></div>
   <div class="stat"><div class="k">Paper signals</div>
     <div class="v">145</div>
     <div class="s">enters logged (dry-run)</div></div>
   <div class="stat"><div class="k">Total runs</div>
-    <div class="v">5,879</div>
+    <div class="v">5,923</div>
     <div class="s">since project start</div></div>
 </div>
   
@@ -558,7 +558,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 </tr><tr>
   <td><code>volume_nodes</code></td>
   <td><span class="badge b-pass">live</span></td>
-  <td class="num">414</td>
+  <td class="num">417</td>
   <td class="num muted">-0.48</td>
   <td class="muted">VPVR — trade reactions at high-volume price levels (implemented 2026-06-16)</td>
 </tr></tbody></table>
@@ -570,8 +570,8 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <div class="loops">
     <div class="loop"><div class="ln"><span class="dot"></span>Inner search</div>
       <div class="lk">cycle.sh · every 15 min</div>
-      <div class="lv"><b>309</b> cycles / 24h, <b>4817</b> runs,
-        <b>296</b> passed in-sample</div></div>
+      <div class="lv"><b>311</b> cycles / 24h, <b>4867</b> runs,
+        <b>298</b> passed in-sample</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Forward test</div>
       <div class="lk">forward_test.py · hourly</div>
       <div class="lv">OOS gate: Sharpe≥1, RR&gt;1. <b>15</b> runs forward-tested</div></div>
@@ -583,7 +583,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <div class="lv">Reweights pairs/families toward what's working</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Paper-track</div>
       <div class="lk">paper_track.py · every 15 min</div>
-      <div class="lv">Last: <b>heat_cap EUR_USD @ None (2026-06-17T08:47Z)</b></div></div>
+      <div class="lv">Last: <b>heat_cap EUR_USD @ None (2026-06-17T09:03Z)</b></div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Promotion gauntlet</div>
       <div class="lk">weekly_revalidate.py · Sun 06:00 UTC</div>
       <div class="lv">Runs all 8 gates, auto-promotes any 8/8 to live</div></div>
@@ -596,14 +596,14 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     biases compute toward weaker pairs to keep coverage even.</p>
   <table><thead><tr><th>Pair</th><th class="num">Runs (n≥30)</th><th class="num">Best Sharpe</th></tr></thead>
   <tbody><tr><td>EUR_USD</td><td class="num">312</td>
-          <td class="num green">4.08</td></tr><tr><td>GBP_USD</td><td class="num">388</td>
-          <td class="num green">2.27</td></tr><tr><td>USD_JPY</td><td class="num">439</td>
-          <td class="num green">2.45</td></tr><tr><td>USD_CHF</td><td class="num">287</td>
-          <td class="num green">2.44</td></tr><tr><td>AUD_USD</td><td class="num">521</td>
-          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">669</td>
-          <td class="num orange">1.08</td></tr><tr><td>USD_CAD</td><td class="num">408</td>
-          <td class="num green">3.32</td></tr><tr><td>EUR_GBP</td><td class="num">534</td>
-          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">366</td>
+          <td class="num green">4.08</td></tr><tr><td>GBP_USD</td><td class="num">391</td>
+          <td class="num green">2.27</td></tr><tr><td>USD_JPY</td><td class="num">442</td>
+          <td class="num green">2.45</td></tr><tr><td>USD_CHF</td><td class="num">289</td>
+          <td class="num green">2.44</td></tr><tr><td>AUD_USD</td><td class="num">526</td>
+          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">672</td>
+          <td class="num orange">1.08</td></tr><tr><td>USD_CAD</td><td class="num">413</td>
+          <td class="num green">3.32</td></tr><tr><td>EUR_GBP</td><td class="num">536</td>
+          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">368</td>
           <td class="num green">3.55</td></tr></tbody></table>
 </div>
   
