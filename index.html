@@ -400,9 +400,9 @@ table .neg { color: var(--red); }
 </div>
 <div class="sec">
           <h2><span class="num">4b</span> Equity Curve & Drawdown</h2>
-          <p>Stitched equity for the 10 live-eligible runs (8/8 gates cleared) on a shared $1,000 account with 1% risk per trade and 1R-multiple scaling. <span id="chart-synthetic-note" style="display:none;color:var(--orange)">Synthetic fallback — equity_series.json missing.</span></p>
+          <p>The 10 live-eligible runs, each plotted independently from a $10,000 starting balance. No cross-run compounding is implied — each curve is what would happen if you traded <em>that one strategy</em> on <em>that one pair</em> in isolation. The bold curve is the highest-Sharpe strategy (labeled "PRIMARY"). X-axis is trade index, not calendar time, because each run covers a different period. <span id="chart-synthetic-note" style="display:none;color:var(--orange)">Synthetic fallback — equity_series.json missing.</span></p>
           <div class="chart-wrap"><canvas id="chart-equity"></canvas></div>
-          <p style="margin-top:12px;color:var(--dim)">Drawdown (peak-to-trough, % of running peak).</p>
+          <p style="margin-top:12px;color:var(--dim)">Drawdown of the primary (highest-Sharpe) run: peak-to-trough, % of running peak.</p>
           <div class="chart-wrap"><canvas id="chart-dd"></canvas></div>
         </div>
 <div class="sec">
@@ -653,14 +653,15 @@ async function renderCharts() {
     return;
   }
 
-  // ---- equity chart: stitch equity_curves for live-eligible runs ----
-  // We pull from a server endpoint if available; otherwise fall back to
-  // a single synthetic series derived from `perf.forward.total_return`.
+  // ---- equity chart: 10 live-eligible runs, each independent from $10k ----
+  // We pull equity_series.json which contains per-run curves (no fake
+  // compounding) and one 'primary' curve (highest-Sharpe). The primary
+  // is rendered bold on top of the others (semi-transparent overlay).
   try {
     const eqResp = await fetch('./equity_series.json', { cache: 'no-store' });
     if (eqResp.ok) {
       const series = await eqResp.json();
-      drawEquity(series.points, series.drawdown);
+      drawEquity(series);
     } else {
       drawSyntheticEquity(m);
     }
@@ -669,36 +670,89 @@ async function renderCharts() {
   }
 }
 
-function drawEquity(points, drawdown) {
+function drawEquity(series) {
   const ctxE = document.getElementById('chart-equity');
   const ctxD = document.getElementById('chart-dd');
   if (!ctxE || !ctxD) return;
 
-  const labels = points.map(p => p.ts);
-  const equity = points.map(p => p.equity);
-  const ddPct = drawdown.map(p => (p.dd * 100).toFixed(2));
+  const runs = series.runs || [];
+  const primary = series.primary;
+  if (!runs.length || !primary) {
+    drawSyntheticEquity({});
+    return;
+  }
+
+  // Find max trade-index length so we can build a shared x-axis. Each
+  // run's `sample_idx` is the trade indices we kept; we map those to
+  // a common x range [0, maxIdx].
+  const maxIdx = Math.max(...runs.map(r => r.sample_idx[r.sample_idx.length - 1] || 0));
+  const xLabels = Array.from({length: maxIdx + 1}, (_, i) => i);
+
+  // Background curves: 9 non-primary runs, semi-transparent
+  const palette = [
+    'rgba(170, 179, 192, 0.18)',  // dim grey
+    'rgba(106, 166, 255, 0.16)',
+    'rgba(63, 213, 152, 0.16)',
+    'rgba(255, 181, 71, 0.16)',
+    'rgba(198, 146, 255, 0.16)',
+    'rgba(255, 93, 108, 0.16)',
+    'rgba(106, 230, 255, 0.16)',
+    'rgba(255, 213, 94, 0.16)',
+    'rgba(120, 220, 180, 0.16)',
+  ];
+
+  const datasets = runs
+    .filter(r => r.run_id !== primary.run_id)
+    .map((r, i) => {
+      // Build dense y-array (fill missing indices with null so Chart.js
+      // doesn't connect across gaps)
+      const y = new Array(maxIdx + 1).fill(null);
+      r.sample_idx.forEach((idx, j) => { y[idx] = r.equity[j]; });
+      return {
+        label: `${r.pair} ${r.tf} (Sharpe ${r.sharpe?.toFixed(2) || '?'})`,
+        data: y,
+        borderColor: palette[i % palette.length],
+        borderWidth: 1.2,
+        pointRadius: 0,
+        fill: false,
+        tension: 0.15,
+        spanGaps: false,
+      };
+    });
+
+  // Primary curve: bold, on top
+  const primaryY = new Array(maxIdx + 1).fill(null);
+  primary.sample_idx.forEach((idx, j) => { primaryY[idx] = primary.points[j]; });
+  datasets.push({
+    label: `★ PRIMARY: ${primary.pair} ${primary.tf} (Sharpe ${primary.sharpe?.toFixed(2)})`,
+    data: primaryY,
+    borderColor: '#6aa6ff',
+    backgroundColor: 'rgba(106, 166, 255, 0.08)',
+    borderWidth: 2.2,
+    pointRadius: 0,
+    fill: true,
+    tension: 0.15,
+    spanGaps: false,
+  });
 
   new Chart(ctxE, {
     type: 'line',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Equity (shared $1k account)',
-        data: equity,
-        borderColor: '#6aa6ff',
-        backgroundColor: 'rgba(106,166,255,0.10)',
-        borderWidth: 1.5,
-        pointRadius: 0,
-        fill: true,
-        tension: 0.05,
-      }]
-    },
+    data: { labels: xLabels, datasets },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { intersect: false, mode: 'index' },
+      interaction: { intersect: false, mode: 'nearest' },
       plugins: {
-        legend: { display: false },
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            color: '#aab3c0',
+            boxWidth: 14,
+            font: { size: 10 },
+            filter: (item) => item.text && item.text.startsWith('★'),
+          },
+        },
         tooltip: {
           backgroundColor: '#161b26',
           borderColor: '#6aa6ff',
@@ -706,35 +760,52 @@ function drawEquity(points, drawdown) {
           titleColor: '#e7ecf3',
           bodyColor: '#aab3c0',
           callbacks: {
-            title: ctx => ctx[0].label,
-            label: ctx => 'Equity: $' + ctx.parsed.y.toFixed(2),
-          }
-        }
+            title: ctx => 'Trade #' + ctx[0].label,
+            label: ctx => ctx.dataset.borderWidth > 2
+              ? `★ ${ctx.dataset.label}: $${ctx.parsed.y?.toFixed(2) ?? '—'}`
+              : `Equity: $${ctx.parsed.y?.toFixed(2) ?? '—'}`,
+          },
+        },
       },
       scales: {
-        x: { display: false },
+        x: {
+          display: true,
+          ticks: {
+            color: '#707a8a',
+            maxTicksLimit: 10,
+            callback: (v) => v % Math.ceil(maxIdx / 10) === 0 ? `#${v}` : '',
+          },
+          grid: { color: 'rgba(120,140,175,0.05)' },
+          title: { display: true, text: series.axis?.x_label || 'Trade index', color: '#707a8a' },
+        },
         y: {
           ticks: { color: '#707a8a', callback: v => '$' + v.toFixed(0) },
-          grid: { color: 'rgba(120,140,175,0.08)' }
-        }
-      }
-    }
+          grid: { color: 'rgba(120,140,175,0.08)' },
+          title: { display: true, text: 'Equity ($)', color: '#707a8a' },
+        },
+      },
+    },
   });
+
+  // Drawdown chart: only for the primary curve
+  const ddY = new Array(primary.sample_idx.length).fill(null);
+  primary.sample_idx.forEach((idx, j) => { ddY[idx] = (primary.drawdown[j] * 100).toFixed(2); });
+  const ddLabels = Array.from({length: primary.sample_idx[primary.sample_idx.length - 1] + 1}, (_, i) => i);
 
   new Chart(ctxD, {
     type: 'line',
     data: {
-      labels,
+      labels: ddLabels,
       datasets: [{
-        label: 'Drawdown %',
-        data: ddPct,
+        label: `Drawdown % (${primary.pair} ${primary.tf})`,
+        data: ddY,
         borderColor: '#ff5d6c',
         backgroundColor: 'rgba(255,93,108,0.18)',
         borderWidth: 1.5,
         pointRadius: 0,
         fill: true,
-        tension: 0.05,
-      }]
+        tension: 0.15,
+      }],
     },
     options: {
       responsive: true,
@@ -749,18 +820,29 @@ function drawEquity(points, drawdown) {
           titleColor: '#e7ecf3',
           bodyColor: '#aab3c0',
           callbacks: {
-            label: ctx => 'DD: ' + ctx.parsed.y + '%',
-          }
-        }
+            title: ctx => 'Trade #' + ctx[0].label,
+            label: ctx => 'DD: ' + (ctx.parsed.y ?? '0') + '%',
+          },
+        },
       },
       scales: {
-        x: { display: false },
+        x: {
+          display: true,
+          ticks: {
+            color: '#707a8a',
+            maxTicksLimit: 10,
+            callback: (v) => v % Math.ceil((ddLabels.length) / 10) === 0 ? `#${v}` : '',
+          },
+          grid: { color: 'rgba(120,140,175,0.05)' },
+          title: { display: true, text: 'Trade index', color: '#707a8a' },
+        },
         y: {
           ticks: { color: '#707a8a', callback: v => v + '%' },
-          grid: { color: 'rgba(120,140,175,0.08)' }
-        }
-      }
-    }
+          grid: { color: 'rgba(120,140,175,0.08)' },
+          title: { display: true, text: 'Drawdown (%)', color: '#707a8a' },
+        },
+      },
+    },
   });
 }
 
