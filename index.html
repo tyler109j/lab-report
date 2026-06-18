@@ -104,13 +104,34 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 .unk .icn{color:var(--orange)}
 .foot{color:var(--muted);font-size:11.5px;text-align:center;margin-top:30px;line-height:1.8}
 .spark{display:inline-block;vertical-align:middle}
+/* ---- DOCS PANEL ---- */
+.docs .docs-section{margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
+.docs .docs-section:first-of-type{margin-top:8px;padding-top:0;border-top:none}
+.docs h3{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.02em}
+.docs p{font-size:13px;line-height:1.65;color:var(--dim);margin-bottom:8px}
+.docs p:last-child{margin-bottom:0}
+.docs .docs-ol,.docs .docs-ul{padding-left:20px;font-size:12.5px;line-height:1.7;color:var(--dim)}
+.docs .docs-ol li,.docs .docs-ul li{margin-bottom:5px}
+.docs .docs-ol li b,.docs .docs-ul li b{color:var(--text)}
+.docs code{font-family:'JetBrains Mono',monospace;font-size:11.5px;background:rgba(106,166,255,.08);
+  padding:1px 5px;border-radius:4px;color:#a8c5ff}
+.docs-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+.docs-table th{text-align:left;color:var(--muted);font-weight:600;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.04em;padding:6px 8px;border-bottom:1px solid var(--border-hi)}
+.docs-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--dim)}
+.docs-table td.num{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text)}
+.docs-table tr:hover td{background:rgba(106,166,255,.04)}
+.docs-table .strat-blurb{font-size:12px;line-height:1.55;max-width:480px}
+.docs-table .file-cell code{font-size:11.5px}
+.docs-table-files td:first-child{width:22%;white-space:nowrap}
+.docs .muted{color:var(--muted);font-size:11.5px}
 </style></head><body><div class="wrap">
   <div class="hd">
     <div>
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-18 15:51 UTC<br>12,186 runs · 79 forward-tested · 10 live</div>
+    <div class="ts">Generated 2026-06-18 15:56 UTC<br>12,186 runs · 79 forward-tested · 10 live</div>
   </div>
   
 <div class="verdict go">
@@ -194,6 +215,267 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     <span><i style="background:rgba(255,93,108,.4)"></i>Drawdown (top band)</span>
     <span><i style="background:rgba(255,93,108,.2)"></i>Worst DD (-$531 from peak)</span>
   </div>
+</div>
+  
+<div class="panel docs">
+  <h2><span class="ic">📖</span> What we're doing here — full project dossier</h2>
+
+  <div class="docs-section">
+    <h3>The one-paragraph pitch</h3>
+    <p>
+      <b>This is a self-driving quantitative FX research pipeline.</b> Every 15 minutes it picks 1-3 backtest experiments
+      (strategy + pair + parameter set), runs them against cached OANDA candle data, scores them, updates a Pareto
+      frontier, forward-tests the survivors out-of-sample, walk-forward validates the most promising ones, and
+      re-renders this static HTML dashboard. <b>It is backtest/research only — no live trading.</b> The OANDA API
+      is used <i>read-only</i> for candles; no order, account, or trade endpoints are ever called.
+    </p>
+    <p>
+      The end state we want: a small set of strategy × pair × parameter combinations that have cleared <b>all 8
+      promotion gates</b> with stable OOS performance, trading a shared $1,000 paper account with 1% risk per trade
+      and a 30% portfolio drawdown cap. The strategies trade concurrently against the same capital — losing streaks
+      in one reduce the buying power of the others, so the <b>shared-account equity curve</b> shows compounding
+      but with correlated-drawdown risk.
+    </p>
+  </div>
+
+  <div class="docs-section">
+    <h3>How it actually works — the architecture</h3>
+    <ol class="docs-ol">
+      <li><b>Data layer (<code>data.py</code>)</b> — fetches M15 + H1 candles from OANDA practice API, caches them as
+        parquet in <code>data/&lt;PAIR&gt;_&lt;TF&gt;_&lt;N&gt;.parquet</code>. Refreshed daily at 05:00 UTC by
+        <code>daily_refresh_data.sh</code>.</li>
+      <li><b>Strategy layer (<code>strategies.py</code>)</b> — 10 strategy families, each a function
+        <code>(df_15m, df_1h, params) → list[signal]</code>. Signals are <code>{side, entry_idx, sl, tp, max_hold, reason}</code>.
+        Param spaces live in <code>PARAM_SPACES</code>; <code>sample_params()</code> / <code>mutate_params()</code> /
+        <code>crossover_params()</code> drive the search.</li>
+      <li><b>Engine (<code>engine.py</code>)</b> — walks 15m bars chronologically. At each bar, runs the strategy
+        function on the current data and any open position against current price. Applies spread, swap, and 50%
+        margin closeout. Returns <code>BacktestResult</code> with trades, equity_curve, sharpe, max_dd, etc.</li>
+      <li><b>Cycle (<code>cycle.py</code>)</b> — one experiment: pick (strategy, pair, params), run engine, persist
+        to <code>lab.db</code> via <code>db.record_run()</code>, update <code>is_pareto_kept</code>. Random vs.
+        refine vs. crossover vs. robust split per meta-cycle weights.</li>
+      <li><b>Forward-test (<code>forward_test.py</code>)</b> — for runs that pass in-sample, re-run against a
+        held-out window (last 30% of data) and compute OOS metrics. Writes <code>oos_*</code> columns.</li>
+      <li><b>Walk-forward (<code>rolling_forward.py</code>)</b> — every 6 hours, take the top forward-passers and
+        re-validate against rolling 30/60/90-day windows. Feeds the stability gate.</li>
+      <li><b>Eligibility (<code>db.update_eligibility</code>)</b> — runs the 8 promotion gates. A run is
+        <code>live_eligible=1</code> only if it passes <i>all 8</i>. Currently <b>10</b> runs are eligible
+        (all from the <code>confluence</code> family).</li>
+      <li><b>Paper track (<code>paper_track.py</code>)</b> — every 15 minutes, takes signals from currently-live
+        runs and simulates fills against recent prices. No OANDA order API. Writes <code>live_signals</code>.</li>
+      <li><b>Dashboard (<code>report.py</code>)</b> — assembles this page from DB state. Diff-aware public push
+        via <code>publish.sh</code> → <code>tyler109j/lab-report</code> GitHub Pages.</li>
+    </ol>
+  </div>
+
+  <div class="docs-section">
+    <h3>The 10 strategy families in rotation</h3>
+    <table class="docs-table">
+      <thead><tr>
+        <th>Family</th><th>Hypothesis</th>
+        <th class="num">Runs</th><th class="num">Pass</th>
+        <th class="num">Best Sh</th><th>Status</th>
+      </tr></thead>
+      <tbody><tr>
+          <td><code>divergence_at_sr</code></td>
+          <td class="strat-blurb">RSI + MACD histogram divergence at pivot-derived S/R levels. Hypothesis: when price prints a higher-high but momentum prints a lower-high at a resistance level, the next move back to support is high-probability. 1h trend filter prevents counter-trend fades.</td>
+          <td class="num">2,083</td>
+          <td class="num">365</td>
+          <td class="num">383.41</td>
+          <td><span class="badge b-info">passing</span></td>
+        </tr><tr>
+          <td><code>mean_reversion</code></td>
+          <td class="strat-blurb">Bollinger-band reversion with optional 1h trend filter. Hypothesis: in ranging regimes, prices that close outside 2σ revert to the mean within ~24h. The trend filter disables mean-reversion when the 1h regime is trending.</td>
+          <td class="num">2,655</td>
+          <td class="num">105</td>
+          <td class="num">147.00</td>
+          <td><span class="badge b-info">passing</span></td>
+        </tr><tr>
+          <td><code>breakout</code></td>
+          <td class="strat-blurb">Donchian channel breakout with optional 1h trend filter. Hypothesis: a close above N-bar high (with N∈[20..80]) initiates a trend leg; the 1h filter prevents fading strong HTF trends.</td>
+          <td class="num">1,093</td>
+          <td class="num">0</td>
+          <td class="num">0.47</td>
+          <td><span class="badge">in rotation</span></td>
+        </tr><tr>
+          <td><code>confluence</code></td>
+          <td class="strat-blurb">Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Hypothesis: when 3+ independent signals agree, the trade has higher expectancy than any single signal. Currently the highest-producing family — 10 of the live-eligible runs are this family.</td>
+          <td class="num">1,982</td>
+          <td class="num">247</td>
+          <td class="num">458.72</td>
+          <td><span class="badge b-ok">live</span></td>
+        </tr><tr>
+          <td><code>volume_nodes</code></td>
+          <td class="strat-blurb">VPVR (Volume Profile Visible Range) — identify price levels with the highest recent volume and trade reactions at those nodes. Hypothesis: high-volume nodes act as support/resistance because they represent zones where many participants established positions. Idea source: LuxAlgo VPVR indicator.</td>
+          <td class="num">883</td>
+          <td class="num">0</td>
+          <td class="num">0.00</td>
+          <td><span class="badge">in rotation</span></td>
+        </tr><tr>
+          <td><code>value_area_breakout</code></td>
+          <td class="strat-blurb">Trade the Value Area edges (VAH/VAL) computed from the rolling VPVR. When price crosses VAH in an uptrend, BUY; when it crosses VAL in a downtrend, SELL. Sibling family to volume_nodes.</td>
+          <td class="num">1,483</td>
+          <td class="num">4</td>
+          <td class="num">1.07</td>
+          <td><span class="badge b-info">passing</span></td>
+        </tr><tr>
+          <td><code>squeeze_breakout</code></td>
+          <td class="strat-blurb">TTM-Squeeze LazyBear: when Bollinger Bands collapse inside Keltner Channels for N+ bars (volatility compression) and then expand back out, take the direction of the LazyBear momentum histogram. 1h trend filter prevents counter-trend breakouts.</td>
+          <td class="num">1,952</td>
+          <td class="num">41</td>
+          <td class="num">135.36</td>
+          <td><span class="badge b-info">passing</span></td>
+        </tr><tr>
+          <td><code>order_flow_imbal</code></td>
+          <td class="strat-blurb">STUB — Order-flow imbalance: detect buy/sell pressure via consecutive up/down volume runs. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
+          <td class="num">18</td>
+          <td class="num">0</td>
+          <td class="num">0.00</td>
+          <td><span class="badge b-warn">stub</span></td>
+        </tr><tr>
+          <td><code>keltner_squeeze</code></td>
+          <td class="strat-blurb">STUB — Keltner channel squeeze breakout: enter when volatility contracts (Keltner squeeze) then expands. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
+          <td class="num">14</td>
+          <td class="num">0</td>
+          <td class="num">0.00</td>
+          <td><span class="badge b-warn">stub</span></td>
+        </tr><tr>
+          <td><code>ichimoku_cloud</code></td>
+          <td class="strat-blurb">STUB — Ichimoku Kumo: trade with the cloud (Tenkan/Kijun cross + cloud direction). Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
+          <td class="num">23</td>
+          <td class="num">0</td>
+          <td class="num">0.00</td>
+          <td><span class="badge b-warn">stub</span></td>
+        </tr></tbody>
+    </table>
+    <p class="note">Pass = n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%. "Live" means <code>live_eligible=1</code> (all 8 gates cleared).</p>
+  </div>
+
+  <div class="docs-section">
+    <h3>The 8 promotion gates (the gauntlet)</h3>
+    <p>A run becomes <code>live_eligible=1</code> only if it clears <b>all 8</b>:</p>
+    <ol class="docs-ol"><li><b>OOS Sharpe ≥ 1.0</b> <span class="muted">(oos_sharpe)</span></li><li><b>Risk:reward > 1.0</b> <span class="muted">(rr)</span></li><li><b>Walk-fwd median ≥ 1.0</b> <span class="muted">(wf_median)</span></li><li><b>Walk-fwd % positive ≥ 0.5</b> <span class="muted">(wf_pct)</span></li><li><b>Deflated Sharpe > 0.95</b> <span class="muted">(deflated)</span></li><li><b>OOS trades ≥ 5</b> <span class="muted">(oos_n)</span></li><li><b>OOS max DD ≤ 30%</b> <span class="muted">(oos_dd)</span></li><li><b>Walk-fwd windows ≥ 3</b> <span class="muted">(wf_n)</span></li></ol>
+    <p class="note">Re-run every Sunday 06:00 UTC by <code>weekly_revalidate.sh</code>. Any Pareto run that newly clears all 8 is auto-promoted to live.</p>
+  </div>
+
+  <div class="docs-section">
+    <h3>Autonomous cron schedule (Hermes scheduler, all running on this VM)</h3>
+    <table class="docs-table">
+      <thead><tr><th>Job</th><th>Schedule</th><th>What it does</th></tr></thead>
+      <tbody><tr><td><code>lab-cycle</code></td><td><code>*/15 * * * *</code></td><td>Inner search: 1-3 random configs through cycle.py → engine → DB</td></tr><tr><td><code>lab-fast-cycle</code></td><td><code>*/5 * * * *</code></td><td>Aggressive parallel backtest sweep — runs cycle.py with higher budget</td></tr><tr><td><code>lab-forward-test</code></td><td><code>17 * * * *</code></td><td>Forward-test runs with in-sample Sharpe ≥ 3 against held-out window</td></tr><tr><td><code>lab-rolling-forward</code></td><td><code>5 */6 * * *</code></td><td>30/60/90-day rolling OOS re-validation; feeds stability gate</td></tr><tr><td><code>lab-paper-track</code></td><td><code>*/15 * * * *</code></td><td>Paper-trade signals from currently-live strategies</td></tr><tr><td><code>lab-live-runner</code></td><td><code>paused</code></td><td>Real-time price monitor for paper trading — currently off</td></tr><tr><td><code>lab-meta-cycle</code></td><td><code>0 2 * * *</code></td><td>Daily meta-learning: reweights pair/family priors toward what's working</td></tr><tr><td><code>lab-new-family</code></td><td><code>0 */5 * * *</code></td><td>Scaffold next strategy family from queue (every 5 hours)</td></tr><tr><td><code>lab-daily-refresh</code></td><td><code>0 5 * * *</code></td><td>Fetch latest M15/H1 candles from OANDA, refresh parquet cache</td></tr><tr><td><code>lab-dashboard-publish</code></td><td><code>*/30 * * * *</code></td><td>Regenerate dashboard/index.html and push to public Pages if changed</td></tr><tr><td><code>lab-load-monitor</code></td><td><code>17 * * * *</code></td><td>Watchdog: alert if any cron job has been silent > expected window</td></tr><tr><td><code>lab-reddit-scan</code></td><td><code>0 13 * * *</code></td><td>Daily r/algotrading scan for new strategy ideas to add to the queue</td></tr><tr><td><code>lab-hourly-summary</code></td><td><code>0 * * * *</code></td><td>Hourly status update (this Discord channel)</td></tr><tr><td><code>lab-weekly-revalidate</code></td><td><code>0 6 * * 0</code></td><td>Weekly: run all 8 gates against every Pareto run, auto-promote 8/8 to live</td></tr></tbody>
+    </table>
+    <p class="note">All times UTC. List current as of dashboard render — verify with
+      <code>hermes cron list</code> or <code>crontab -l</code>.</p>
+  </div>
+
+  <div class="docs-section">
+    <h3>Risk model</h3>
+    <ul class="docs-ul">
+      <li><b>Per-trade risk:</b> 1% of the <i>current</i> shared-account balance at the stop-loss distance.</li>
+      <li><b>Portfolio drawdown cap:</b> 30% peak-to-trough across the shared $1,000 account. Hard limit —
+        <i>not enforced yet by code</i>, just monitored.</li>
+      <li><b>Starting account:</b> $1,000 USD (modeled). Engine's internal sizing uses $10k, scaled down by
+        10× to the shared account.</li>
+      <li><b>Leverage:</b> 50× (OANDA retail). Fixed 10,000-unit lots per pair per trade.</li>
+      <li><b>Margin closeout:</b> enforced at 50% equity loss vs. used margin, evaluated every bar.</li>
+      <li><b>Costs:</b> per-pair spread (0.8-1.6 pips typical for majors) + slippage (~0.2 pips) + swap (triple
+        on Wednesdays). Recorded as <code>costs_version</code> per run; v1 had no costs, v2+ has realistic costs.</li>
+    </ul>
+  </div>
+
+  <div class="docs-section">
+    <h3>Every file in this repo (and what role it plays)</h3>
+    <table class="docs-table docs-table-files">
+      <thead><tr><th style="width:22%">File</th><th>Role</th></tr></thead>
+      <tbody><tr><td class="file-cell"><code>engine.py</code></td><td>Backtest engine: walks 15m bars, opens positions per strategy signal, applies spread + swap + 50% margin closeout, returns BacktestResult.</td></tr><tr><td class="file-cell"><code>strategies.py</code></td><td>Strategy implementations + PARAM_SPACES registry + sample/mutate/crossover.</td></tr><tr><td class="file-cell"><code>data.py</code></td><td>OANDA candle fetcher + parquet cache (data/EUR_USD_M15_*.parquet etc.).</td></tr><tr><td class="file-cell"><code>cycle.py</code></td><td>One backtest experiment: pick (strategy, pair, params), run engine, persist to DB.</td></tr><tr><td class="file-cell"><code>cycle.sh</code></td><td>Wrapper: runs python3 cycle.py --budget N, then renders + publishes.</td></tr><tr><td class="file-cell"><code>db.py</code></td><td>SQLite layer: record_run, update_pareto, eligibility, rolling OOS, stats queries.</td></tr><tr><td class="file-cell"><code>forward_test.py</code></td><td>OOS validation: hold out last 30% of data, re-run forward-pass runs, compute oos_* metrics.</td></tr><tr><td class="file-cell"><code>rolling_forward.py</code></td><td>Walk-forward: 30/60/90-day rolling OOS windows; writes to rolling_oos table.</td></tr><tr><td class="file-cell"><code>meta_cycle.py</code></td><td>Daily meta-learning: reweights pair_weights.json + family bias from recent performance.</td></tr><tr><td class="file-cell"><code>paper_track.py</code></td><td>Paper-trade simulator: takes signals from live-eligible runs, fills virtually, tracks PnL.</td></tr><tr><td class="file-cell"><code>live_runner.py</code></td><td>Real-time price watcher for paper orders (currently paused).</td></tr><tr><td class="file-cell"><code>report.py</code></td><td>This dashboard generator — assembles every panel from DB state.</td></tr><tr><td class="file-cell"><code>dashboard.py</code></td><td>Lightweight status script used by hourly-summary cron (vs. full report.py).</td></tr><tr><td class="file-cell"><code>new_family.py</code></td><td>Scaffolds new strategy stubs into strategies.py; reads from new_family_queue.json.</td></tr><tr><td class="file-cell"><code>new_family_queue.json</code></td><td>Ordered list of family names + status. Rotated every 5 hours.</td></tr><tr><td class="file-cell"><code>publish.sh</code></td><td>Diff-aware push to public mirror (tyler109j/lab-report).</td></tr><tr><td class="file-cell"><code>walk_forward.sh</code></td><td>CLI entry point for forward_test.py + rolling_forward.py orchestration.</td></tr><tr><td class="file-cell"><code>weekly_revalidate.sh</code></td><td>Sunday re-validation: every Pareto run through all 8 gates.</td></tr><tr><td class="file-cell"><code>daily_refresh_data.sh</code></td><td>5 AM UTC: re-fetch candles, refresh parquet cache.</td></tr><tr><td class="file-cell"><code>load_monitor.sh</code></td><td>Watchdog — emits Discord alert if any cron has been silent too long.</td></tr><tr><td class="file-cell"><code>smoke_test_strategies.py</code></td><td>Regression test: runs each family through a tiny config sweep, catches engine bugs early.</td></tr><tr><td class="file-cell"><code>deflated_sharpe_check.py</code></td><td>Computes deflated Sharpe + bootstrap CI for runs (multiple-testing correction).</td></tr><tr><td class="file-cell"><code>backfill_curves.py</code></td><td>Backfills equity_curves table for runs that don't have one yet.</td></tr><tr><td class="file-cell"><code>stats.py</code></td><td>Statistical helpers: bootstrap_sharpe_ci, deflated_sharpe, permutation tests.</td></tr><tr><td class="file-cell"><code>lab.db</code></td><td>SQLite — single source of truth. ~120MB. Tables: runs, equity_curves, pareto, cycles, rolling_oos, live_signals, meta, param_memory.</td></tr><tr><td class="file-cell"><code>meta.db</code></td><td>SQLite — meta-learning state (pair weights, family priors, daily snapshots).</td></tr><tr><td class="file-cell"><code>pair_weights.json</code></td><td>Current pair allocation weights from meta_cycle (used by strategy picker).</td></tr><tr><td class="file-cell"><code>data/</code></td><td>Cached parquet candles per pair × timeframe. Refreshed daily.</td></tr><tr><td class="file-cell"><code>logs/</code></td><td>Per-cycle and per-cron logs (cycle-*.log, new_family_*.log, etc.).</td></tr><tr><td class="file-cell"><code>cycles/</code></td><td>Per-cycle artifact snapshots (best configs, rejection reasons).</td></tr><tr><td class="file-cell"><code>diagrams/</code></td><td><code>lab-architecture.drawio</code> — 2-page system map (data flow + components).</td></tr><tr><td class="file-cell"><code>notes/external_resources.md</code></td><td>Links to research sources (LuxAlgo VPVR, pandas-ta Squeeze, etc.).</td></tr><tr><td class="file-cell"><code>notes/upstream_sources/</code></td><td>Archived upstream sources (pandas-ta docs, LuxAlgo algorithm writeups).</td></tr><tr><td class="file-cell"><code>AGENTS.md</code></td><td>DOX hierarchy root — binding work contract, project invariants.</td></tr><tr><td class="file-cell"><code>README.md</code></td><td>Project one-pager (currently out of date — predates v2 strategies).</td></tr><tr><td class="file-cell"><code>HANDOFF.md</code></td><td>Agent handoff doc — first thing a new agent should read after AGENTS.md.</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="docs-section">
+    <h3>GitHub: what's public, what's private</h3>
+    <table class="docs-table">
+      <thead><tr><th>Repo</th><th>Visibility</th><th>What it contains</th></tr></thead>
+      <tbody>
+        <tr><td><code>tyler109j/lab</code></td><td><b>Private</b></td>
+          <td>Everything in this <code>/root/lab</code> directory: code, <code>lab.db</code>, logs, data cache.
+          Pushes blocked because <code>lab.db</code> exceeds the 100 MB GitHub file-size limit (it's tracked
+          in <code>.gitignore</code> but a 121 MB version is in git history — use <code>git filter-repo</code>
+          to purge if you ever need to push).</td></tr>
+        <tr><td><code>tyler109j/lab-report</code></td><td><b>Public</b> (GitHub Pages)</td>
+          <td>Only <code>index.html</code> — this rendered dashboard. Pushed every 30 min by
+          <code>lab-dashboard-publish</code>, but only if the file actually changed (hash comparison).
+          <a href="https://tyler109j.github.io/lab-report/">tyler109j.github.io/lab-report</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="docs-section">
+    <h3>Where the data comes from</h3>
+    <ul class="docs-ul">
+      <li><b>FX candles:</b> OANDA v20 REST API, <code>/v3/instruments/&lt;PAIR&gt;/candles</code> with
+        <code>granularity=M15</code> and <code>granularity=H1</code>. Read-only against the practice environment
+        using the OANDA API token stored in <code>~/.config/oanda/token</code>.</li>
+      <li><b>No proprietary data:</b> no COT reports, no order book data, no sentiment feeds. Only public price
+        action on 15-minute and 1-hour bars.</li>
+      <li><b>Coverage:</b> 9 OANDA majors only: EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY. No crosses beyond EUR/GBP and EUR/JPY,
+        no metals, no indices.</li>
+      <li><b>Lookback:</b> ~187 days of M15 candles as of this render (3,000 bars per pair, fetched daily).
+        Need 1+ year to cover multiple rate-decision regimes.</li>
+    </ul>
+  </div>
+
+  <div class="docs-section">
+    <h3>What the numbers in this dashboard actually mean</h3>
+    <ul class="docs-ul">
+      <li><b>In-sample (IS) Sharpe:</b> Sharpe ratio computed across all closed trades in the backtest window.
+        Optimistic by construction — this is what the search is optimizing.</li>
+      <li><b>OOS Sharpe:</b> Sharpe on a held-out window (last 30% of data the strategy never saw during search).
+        Honest signal. Required ≥ 1.0 for promotion.</li>
+      <li><b>Max DD:</b> peak-to-trough drawdown on the equity curve, expressed as a fraction
+        (0.30 = 30% drawdown). Hard cap: 30% on the shared account.</li>
+      <li><b>Deflated Sharpe:</b> corrects IS Sharpe for the number of trials attempted (a high Sharpe from 10k
+        random configs is less impressive than the same Sharpe from 10). Lives in the <code>deflated_sharpe</code>
+        column. We display CI in the per-strategy health section.</li>
+      <li><b>Bootstrap Sharpe CI:</b> 500-resample bootstrap 95% confidence interval on per-trade returns.
+        Narrow CI = stable estimate; wide CI = noisy, even if point estimate looks good.</li>
+      <li><b>Walk-forward passers:</b> runs where the rolling 30/60/90-day OOS Sharpe stays positive in &gt;50%
+        of windows. Tracks regime stability, not just one-shot OOS luck.</li>
+    </ul>
+  </div>
+
+  <div class="docs-section">
+    <h3>Where to read more</h3>
+    <ul class="docs-ul">
+      <li><b>Project invariants + DOX hierarchy:</b> <code>AGENTS.md</code> at the repo root — every subdirectory
+        inherits from it.</li>
+      <li><b>Operational handoff doc:</b> <code>HANDOFF.md</code> — first thing a new agent (Hermes / Claude /
+        GPT / human) should read after <code>AGENTS.md</code>.</li>
+      <li><b>System diagrams:</b> <code>diagrams/lab-architecture.drawio</code> — 2 pages: components + signal
+        data flow.</li>
+      <li><b>External research sources:</b> <code>notes/external_resources.md</code> — links to LuxAlgo VPVR,
+        pandas-ta Squeeze family, and other upstream sources that informed strategy design.</li>
+      <li><b>Public live view:</b> <a href="https://tyler109j.github.io/lab-report/">tyler109j.github.io/lab-report</a></li>
+    </ul>
+  </div>
+
+  <div class="docs-section">
+    <h3>Honest limits (what we don't know yet)</h3>
+    <ul class="docs-ul">
+      <li><b>Live execution:</b> 0 actual paper fills. 145 signals logged in dry-run;
+        no real OANDA fills, no real spread/slippage confirmation. <i>paper_track.py</i> simulates fills but
+        hasn't been validated against live fills.</li>
+      <li><b>Costs:</b> v2 spread + swap model hasn't been calibrated against real OANDA fills. Slippage is a
+        fixed 0.2 pips — real execution could be much wider during news.</li>
+      <li><b>Regimes:</b> the 187-day window is mostly trending FX. No 2020-style vol spike, no central-bank
+        shock, no USD-supply crisis in sample. Robustness across regimes is unproven.</li>
+      <li><b>Stub families:</b> 3 of 10 strategies (order_flow_imbal, keltner_squeeze,
+        ichimoku_cloud) are scaffolded stubs that return [] signals. They consume rotation slots but produce
+        0 trades until implemented.</li>
+      <li><b>Correlated-drawdown risk:</b> all 10 live-eligible runs are the same family
+        (<code>confluence</code>). If that family stops working, the entire shared account feels it.</li>
+    </ul>
+  </div>
+
 </div>
   
 <div class="panel">
