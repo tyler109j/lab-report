@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-18T18:28:13Z",
+  "generated_ts": "2026-06-18T18:45:57Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "ee89a561c023723751cc4bb4a3fea7d0aaee2c0c",
-    "short": "ee89a56",
+    "commit": "ce207aeee16dd7e1e9b37c99177fbc03624f838c",
+    "short": "ce207ae",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-18T13:22:11+00:00",
-    "message": "report: improve equity chart visualization",
+    "commit_ts": "2026-06-18T18:30:29+00:00",
+    "message": "Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria",
     "live_code_commits": [
       "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family",
       "1b28c75 strategies: add squeeze_breakout family (TTM Squeeze LazyBear) + smoke test",
@@ -61,29 +61,29 @@
     ]
   },
   "counters": {
-    "total_runs": 12699,
+    "total_runs": 12744,
     "live_eligible": 10,
     "oos_runs": 81,
     "wf_pass": 60,
-    "deflated_set": 8943,
-    "live_signals": 1157,
+    "deflated_set": 8958,
+    "live_signals": 1167,
     "live_trades": 144,
     "paper_open": 144,
-    "cycles_24h": 376,
+    "cycles_24h": 378,
     "alerts_7d": 5,
     "rolling_oos_30d": 738
   },
   "perf": {
     "backtest": {
-      "n_runs": 10713,
-      "n_trades": 2341955,
+      "n_runs": 10730,
+      "n_trades": 2345204,
       "win_rate": 0.4047,
-      "profit_factor": 17.496,
-      "sharpe": -4.939,
-      "total_return": -0.2768,
+      "profit_factor": 17.563,
+      "sharpe": -4.913,
+      "total_return": -0.2769,
       "max_dd_avg": 0.3254,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.537
+      "expectancy_r": 16.604
     },
     "oos": {
       "n_runs": 81,
@@ -279,17 +279,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 12699,
+      "value": 12744,
       "threshold": 1000,
-      "reason": "12,699 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "12,744 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 8943,
+      "value": 8958,
       "threshold": 1,
-      "reason": "8943 runs have deflated_sharpe computed"
+      "reason": "8958 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -497,12 +497,13 @@
     "open_positions_local": 144,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-18T18:16:43Z",
+    "last_signal_ts": "2026-06-18T18:32:08Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "ce207ae Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria",
     "ee89a56 report: improve equity chart visualization",
     "4b073d0 reddit-scan: 2026-06-18 (trim to under 600 words)",
     "c7c4f80 reddit-scan: 2026-06-18",
@@ -511,7 +512,6 @@
     "1a06bb4 docs: add draw.io architecture map (2 pages: system + signal flow)",
     "2a49196 docs: add draw.io architecture map of the FX Lab system",
     "234c051 report: equity curve now shows only live-ready (8/8 gates) strategies",
-    "eb324e0 reddit-scan: 2026-06-17",
-    "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family"
+    "eb324e0 reddit-scan: 2026-06-17"
   ]
 }
