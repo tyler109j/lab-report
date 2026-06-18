@@ -1,1056 +1,793 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FX Research Lab — live-readiness report</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0e14">
+<title>FX Research Lab — Live-Readiness Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-:root{
-  --bg:#07090d; --bg2:#0b0e14; --panel:rgba(18,22,31,0.72); --panel-solid:#12161f;
-  --border:rgba(120,140,175,0.14); --border-hi:rgba(120,140,175,0.26);
-  --text:#eef2f8; --dim:#b9c2cf; --muted:#7c8595;
-  --accent:#6aa6ff; --green:#3ed598; --red:#ff5d6c; --orange:#ffb547; --purple:#c692ff; --cyan:#2ed4e6;
-  --shadow:0 1px 0 rgba(255,255,255,.04) inset,0 8px 32px rgba(0,0,0,.32);
+:root {
+  --bg: #0b0e14;
+  --panel: #11161f;
+  --panel-2: #161b26;
+  --border: rgba(120,140,175,0.16);
+  --border-hi: rgba(120,140,175,0.32);
+  --text: #e7ecf3;
+  --dim: #aab3c0;
+  --muted: #707a8a;
+  --accent: #6aa6ff;
+  --green: #3ed598;
+  --red: #ff5d6c;
+  --orange: #ffb547;
+  --yellow: #f5d35e;
+  --purple: #c692ff;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  background:var(--bg);
-  background-image:radial-gradient(1100px 600px at 12% -10%,rgba(106,166,255,.10),transparent 60%),
-    radial-gradient(900px 500px at 92% 5%,rgba(139,109,255,.09),transparent 65%);
-  background-attachment:fixed; color:var(--text);
-  font-family:'Inter',-apple-system,system-ui,sans-serif; font-size:14px; line-height:1.6;
-  padding:36px 24px 100px; -webkit-font-smoothing:antialiased;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
-a{color:var(--accent);text-decoration:none} a:hover{color:var(--purple)}
-code{font-family:'JetBrains Mono',ui-monospace,monospace;background:rgba(7,9,13,.6);
-  border:1px solid var(--border);border-radius:5px;padding:1px 6px;font-size:12px}
-.wrap{max-width:1180px;margin:0 auto}
-.hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:8px}
-.hd h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
-.hd .sub{color:var(--muted);font-size:13px;margin-top:2px}
-.hd .ts{color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;text-align:right}
-.panel{background:var(--panel);backdrop-filter:blur(12px);border:1px solid var(--border);
-  border-radius:14px;padding:22px 24px;margin:18px 0;box-shadow:var(--shadow)}
-.panel h2{font-size:15px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.panel h2 .ic{opacity:.7}
-.note{color:var(--dim);font-size:12.5px;margin:-2px 0 14px;line-height:1.6}
-.note strong{color:var(--text)}
-/* ---- VERDICT BANNER ---- */
-.verdict{border-radius:16px;padding:30px 32px;margin:18px 0 22px;border:1px solid var(--border-hi);
-  display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.verdict.go{background:linear-gradient(135deg,rgba(62,213,152,.14),rgba(62,213,152,.04));border-color:rgba(62,213,152,.4)}
-.verdict.wait{background:linear-gradient(135deg,rgba(255,181,71,.12),rgba(255,181,71,.03));border-color:rgba(255,181,71,.35)}
-.verdict.no{background:linear-gradient(135deg,rgba(255,93,108,.12),rgba(255,93,108,.03));border-color:rgba(255,93,108,.35)}
-.verdict .big{font-size:54px;font-weight:800;line-height:1;font-family:'JetBrains Mono',monospace}
-.verdict.go .big{color:var(--green)} .verdict.wait .big{color:var(--orange)} .verdict.no .big{color:var(--red)}
-.verdict .vtxt{flex:1;min-width:280px}
-.verdict .vtxt h3{font-size:20px;font-weight:800;margin-bottom:4px}
-.verdict .vtxt p{color:var(--dim);font-size:13.5px}
-.verdict .blocker{margin-top:8px;font-size:13px;color:var(--text)}
-.verdict .blocker code{font-size:12px}
-/* ---- STAT STRIP ---- */
-.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
-.stat{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
-.stat .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
-.stat .v{font-size:26px;font-weight:800;font-family:'JetBrains Mono',monospace;margin-top:4px;letter-spacing:-.02em}
-.stat .s{color:var(--dim);font-size:11.5px;margin-top:2px}
-.v.green{color:var(--green)} .v.red{color:var(--red)} .v.orange{color:var(--orange)} .v.accent{color:var(--accent)}
-/* ---- TABLES ---- */
-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:12.5px}
-th{text-align:left;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;
-  font-weight:600;padding:8px 10px;border-bottom:1px solid var(--border-hi)}
-td{padding:9px 10px;border-bottom:1px solid var(--border)}
-tbody tr:hover{background:rgba(106,166,255,.04)} tbody tr:last-child td{border-bottom:none}
-td.num{font-family:'JetBrains Mono',monospace;text-align:right;font-weight:500}
-td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--orange)} td.muted{color:var(--muted)}
-.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:600;
-  letter-spacing:.03em;text-transform:uppercase;border:1px solid transparent}
-.b-pass{background:rgba(62,213,152,.12);color:var(--green);border-color:rgba(62,213,152,.3)}
-.b-fail{background:rgba(255,93,108,.12);color:var(--red);border-color:rgba(255,93,108,.28)}
-.b-warn{background:rgba(255,181,71,.12);color:var(--orange);border-color:rgba(255,181,71,.3)}
-.lastrun{background:rgba(11,14,20,.4);border:1px solid var(--border);border-left:3px solid var(--orange);
-  border-radius:6px;padding:8px 14px;margin:0 0 12px;font-size:12.5px;color:var(--dim)}
-.lastrun b{color:var(--text)}
-.lastrun code{font-size:11.5px}
-/* ---- BLOCKERS ---- */
-.blk{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;
-  background:rgba(11,14,20,.5);border:1px solid var(--border);margin-bottom:8px}
-.blk .rid{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--accent);min-width:54px}
-.blk .meta{flex:1;min-width:0}
-.blk .meta .nm{font-weight:600;font-size:13px}
-.blk .meta .gates{font-size:11.5px;color:var(--muted);margin-top:3px}
-.blk .gate-x{color:var(--red)} .blk .gate-ok{color:var(--green)}
-.blk .prox{text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;min-width:90px}
-.blk .prox .frac{font-size:18px;font-weight:800}
-/* ---- EQUITY CURVE ---- */
-.eqwrap{position:relative}
-.eq-legend{display:flex;gap:18px;font-size:11.5px;color:var(--dim);margin-top:8px;flex-wrap:wrap}
-.eq-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
-.eq-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0 4px}
-.eq-chip{background:rgba(11,14,20,.55);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-.eq-chip .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.eq-chip .v{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:800;margin-top:2px;letter-spacing:-.01em}
-.eq-chip .v.green{color:var(--green)} .eq-chip .v.red{color:var(--red)} .eq-chip .v.orange{color:var(--orange)}
-.eq-chip .s{color:var(--dim);font-size:10.5px;margin-top:1px;font-family:'JetBrains Mono',monospace}
-/* ---- LOOP STATUS ---- */
-.loops{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.loop{background:rgba(11,14,20,.5);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-.loop .ln{font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px}
-.loop .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-.loop .lk{color:var(--muted);font-size:11px;margin-top:2px}
-.loop .lv{font-size:12.5px;margin-top:8px;color:var(--dim)}
-.loop .lv b{color:var(--text)}
-/* ---- UNKNOWN PANEL ---- */
-.unk li{list-style:none;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;gap:10px}
-.unk li:last-child{border-bottom:none}
-.unk .icn{color:var(--orange)}
-.foot{color:var(--muted);font-size:11.5px;text-align:center;margin-top:30px;line-height:1.8}
-.spark{display:inline-block;vertical-align:middle}
-/* ---- DOCS PANEL ---- */
-.docs .docs-section{margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
-.docs .docs-section:first-of-type{margin-top:8px;padding-top:0;border-top:none}
-.docs h3{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.02em}
-.docs p{font-size:13px;line-height:1.65;color:var(--dim);margin-bottom:8px}
-.docs p:last-child{margin-bottom:0}
-.docs .docs-ol,.docs .docs-ul{padding-left:20px;font-size:12.5px;line-height:1.7;color:var(--dim)}
-.docs .docs-ol li,.docs .docs-ul li{margin-bottom:5px}
-.docs .docs-ol li b,.docs .docs-ul li b{color:var(--text)}
-.docs code{font-family:'JetBrains Mono',monospace;font-size:11.5px;background:rgba(106,166,255,.08);
-  padding:1px 5px;border-radius:4px;color:#a8c5ff}
-.docs-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
-.docs-table th{text-align:left;color:var(--muted);font-weight:600;font-size:10.5px;
-  text-transform:uppercase;letter-spacing:.04em;padding:6px 8px;border-bottom:1px solid var(--border-hi)}
-.docs-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--dim)}
-.docs-table td.num{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text)}
-.docs-table tr:hover td{background:rgba(106,166,255,.04)}
-.docs-table .strat-blurb{font-size:12px;line-height:1.55;max-width:480px}
-.docs-table .file-cell code{font-size:11.5px}
-.docs-table-files td:first-child{width:22%;white-space:nowrap}
-.docs .muted{color:var(--muted);font-size:11.5px}
-</style></head><body><div class="wrap">
-  <div class="hd">
-    <div>
-      <h1>FX Research Lab</h1>
-      <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
-    </div>
-    <div class="ts">Generated 2026-06-18 18:22 UTC<br>12,699 runs · 81 forward-tested · 10 live</div>
-  </div>
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+
+/* Header */
+.hdr {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+}
+.hdr h1 {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
+}
+.hdr .sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
+.hdr .ts {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11.5px; color: var(--muted); text-align: right;
+}
+.hdr .ts code {
+  font-family: inherit; color: var(--dim);
+  background: rgba(106,166,255,0.08); padding: 1px 5px; border-radius: 3px;
+}
+
+/* Section panel */
+.sec {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.sec h2 {
+  font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--dim);
+  margin-bottom: 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.sec h2 .num {
+  display: inline-block; min-width: 22px; height: 22px; line-height: 22px;
+  text-align: center; border-radius: 4px;
+  background: var(--accent); color: #0b0e14; font-size: 11px; font-weight: 800;
+}
+.sec p { color: var(--dim); margin-bottom: 8px; line-height: 1.6; }
+.sec p:last-child { margin-bottom: 0; }
+.sec .n { font-family: 'JetBrains Mono', monospace; }
+
+/* Verdict banner */
+.verdict {
+  border-radius: 14px; padding: 28px 28px;
+  margin-bottom: 18px; border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.verdict .vstatus {
+  font-size: 28px; font-weight: 900; letter-spacing: 0.02em;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+}
+.verdict .vstatus .pill {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.12);
+}
+.verdict.NE { background: linear-gradient(135deg, #2a1216, #1a0e10); border-color: rgba(255,93,108,0.4); }
+.verdict.DM { background: linear-gradient(135deg, #2a2412, #1a1a0e); border-color: rgba(245,211,94,0.4); }
+.verdict.PL { background: linear-gradient(135deg, #122a1e, #0e1a14); border-color: rgba(63,213,152,0.4); }
+.verdict.LR { background: linear-gradient(135deg, #122230, #0e1620); border-color: rgba(106,166,255,0.4); }
+.verdict .vrec { color: var(--text); font-size: 14.5px; max-width: 720px; line-height: 1.6; }
+.verdict .vblockers { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+.verdict .vblockers .blk {
+  font-size: 12px; padding: 5px 10px; border-radius: 6px;
+  background: rgba(255,93,108,0.15); color: #ff8a95;
+  border: 1px solid rgba(255,93,108,0.3);
+}
+.verdict .venvelope {
+  display: flex; gap: 24px; margin-top: 18px; flex-wrap: wrap;
+}
+.verdict .venvelope .item {
+  font-size: 12px; color: var(--dim);
+}
+.verdict .venvelope .item .v {
+  display: block; font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 700; color: var(--text); margin-top: 2px;
+}
+
+/* Tables */
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+table th {
+  text-align: left; color: var(--muted); font-weight: 600;
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 8px 10px; border-bottom: 1px solid var(--border-hi);
+}
+table td {
+  padding: 9px 10px; border-bottom: 1px solid var(--border);
+  vertical-align: top; color: var(--dim);
+}
+table td.num, table th.num {
+  text-align: right; font-family: 'JetBrains Mono', monospace;
+  color: var(--text);
+}
+table tr:last-child td { border-bottom: none; }
+table tr:hover td { background: rgba(106,166,255,0.04); }
+table .pos { color: var(--green); }
+table .neg { color: var(--red); }
+
+/* Gate icon column */
+.gate-row td:first-child {
+  width: 32px; text-align: center; font-size: 16px;
+  padding-left: 0; padding-right: 0;
+}
+
+/* Stat grid */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+.stat {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 14px;
+}
+.stat .k {
+  color: var(--muted); font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+}
+.stat .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; font-weight: 700; margin-top: 4px;
+}
+.stat .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+.stat .v.pos { color: var(--green); }
+.stat .v.neg { color: var(--red); }
+.stat .v.warn { color: var(--orange); }
+
+/* Chart container */
+.chart-wrap {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; margin-top: 12px;
+  height: 280px; position: relative;
+}
+
+/* Badge */
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px;
+  background: rgba(120,140,175,0.16); color: var(--dim);
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+.badge.pass { background: rgba(63,213,152,0.16); color: var(--green); }
+.badge.fail { background: rgba(255,93,108,0.16); color: var(--red); }
+.badge.warn { background: rgba(255,181,71,0.16); color: var(--orange); }
+.badge.unk  { background: rgba(120,140,175,0.16); color: var(--muted); }
+
+/* Performance side-by-side */
+.perf-3col {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin-top: 14px;
+}
+.perf-block {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px;
+}
+.perf-block h4 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.perf-block .row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 0; font-size: 12.5px;
+  border-bottom: 1px solid var(--border);
+}
+.perf-block .row:last-child { border-bottom: none; }
+.perf-block .row .k { color: var(--muted); }
+.perf-block .row .v {
+  font-family: 'JetBrains Mono', monospace; color: var(--text); font-weight: 600;
+}
+.perf-block .gap-flag {
+  margin-top: 8px; padding: 6px 8px; border-radius: 4px;
+  font-size: 11px; font-family: 'JetBrains Mono', monospace;
+  background: rgba(255,181,71,0.08); color: var(--orange);
+  border: 1px solid rgba(255,181,71,0.18);
+}
+
+/* Inline note */
+.note {
+  font-size: 12.5px; color: var(--muted);
+  background: rgba(106,166,255,0.06); border-left: 2px solid var(--accent);
+  padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 10px;
+}
+
+/* Footer */
+.foot {
+  margin-top: 36px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); text-align: center;
+  line-height: 1.8;
+}
+.foot code { font-family: 'JetBrains Mono', monospace; color: var(--dim); }
+
+@media (max-width: 800px) {
+  .grid-3, .grid-4, .perf-3col { grid-template-columns: 1fr; }
+  .hdr { flex-direction: column; }
+  .hdr .ts { text-align: left; }
+  .verdict { padding: 20px 18px; }
+  .verdict .vstatus { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
   
-<div class="verdict go">
-  <div class="big">10</div>
-  <div class="vtxt">
-    <h3>Cleared for paper trading</h3>
-    <p>10 strategies passed all 8 promotion gates.</p>
-    
+<div class="hdr">
+  <div>
+    <h1>FX Research Lab — Live-Readiness Report</h1>
+    <div class="sub">OANDA FX strategy validation · 9 majors · 15m + 1h · read-only against broker</div>
+  </div>
+  <div class='ts'>Generated 2026-06-18T18:28:13Z<br>Branch main · commit <code>ee89a56</code><br>Data range: through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</div>
+</div>
+
+  
+<div class="verdict NE">
+  <div class="vstatus">
+    <span class="pill">NOT_READY</span>
+    <span>NOT READY</span>
+  </div>
+  <p class="vrec">Strategy NOT ready for live or pilot. Critical gates failing — fix blockers below.</p>
+  <div class="venvelope"><div class="item"><span class="k">Risk / trade</span><span class="v">0.5%</span></div><div class="item"><span class="k">Max daily loss</span><span class="v">2.0%</span></div><div class="item"><span class="k">Max DD</span><span class="v">20.0%</span></div><div class="item"><span class="k">Max open trades</span><span class="v">3</span></div><div class="item"><span class="k">Pilot duration</span><span class="v">60 days</span></div><div class="item"><span class="k">Paper trades logged</span><span class="v">144</span></div></div>
+  <div class="vblockers" style="margin-top:18px">
+    <span style="color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.05em;width:100%;display:block;margin-bottom:4px">Top blockers</span>
+    <span class="blk">⚠ Min forward-test duration (≥60 trading days)</span><span class="blk">⚠ OANDA reconciliation tested</span><span class="blk">⚠ Kill switch implemented and tested</span>
+  </div>
+  <div style="margin-top:18px;font-size:11.5px;color:var(--muted)">
+    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-18T18:28:13Z</code>
+    · Strategy version <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">v2-costs</code>
+    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">ee89a56</code>
   </div>
 </div>
-  
-<div class="strip">
-  <div class="stat"><div class="k">Live-eligible</div>
-    <div class="v green">10</div>
-    <div class="s">of 81 forward-tested</div></div>
-  <div class="stat"><div class="k">Backtest return</div>
-    <div class="v green">+595.9%</div>
-    <div class="s">top-10 composite, IS+OOS</div></div>
-  <div class="stat"><div class="k">Composite max DD</div>
-    <div class="v orange">15.0%</div>
-    <div class="s">cap is 30%</div></div>
-  <div class="stat"><div class="k">Cycles / 24h</div>
-    <div class="v accent">376</div>
-    <div class="s">9320 runs, 4% pass</div></div>
-  <div class="stat"><div class="k">Paper signals</div>
-    <div class="v">145</div>
-    <div class="s">enters logged (dry-run)</div></div>
-  <div class="stat"><div class="k">Total runs</div>
-    <div class="v">12,699</div>
-    <div class="s">since project start</div></div>
-</div>
-  
-<div class="panel">
- <h2><span class="ic">📈</span> Account balance — 10 live-ready strategies, shared $1,000 account <span class="badge b-warn" style="margin-left:6px">backtest</span> <span class="badge b-ok" style="margin-left:4px">8/8 gates</span></h2>
- <p class="note">
-   What the account balance would look like if you put <b>$1,000</b>
-   in a single account on <code>2025-09-26</code> and let all <b>10
-   live-ready strategies</b> trade it concurrently until <code>2026-06-11</code>.
-   Each trade risks 1% of the <b>current</b> account balance at the SL distance;
-   the line below is the actual account balance after every closed trade across
-   all strategies (not an average, not per-strategy allocations — one shared balance).
- </p>
-  <div class="eqwrap">
-  <svg width="100%" viewBox="0 0 1080 320" preserveAspectRatio="none" style="display:block">
-    <defs>
-      <linearGradient id="eqg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="rgba(62,213,152,.28)"/>
-        <stop offset="100%" stop-color="rgba(62,213,152,0)"/></linearGradient>
-      <linearGradient id="ddg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="rgba(255,93,108,0)"/>
-        <stop offset="100%" stop-color="rgba(255,93,108,.3)"/></linearGradient>
-    </defs>
-    <text x="12" y="278.0" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.5)">$963</text><text x="12" y="219.5" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.5)">$2,462</text><text x="12" y="161.0" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.5)">$3,961</text><text x="12" y="102.5" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.5)">$5,460</text><text x="12" y="44.0" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.5)">$6,959</text>
-    <line x1="8" y1="278.6" x2="1072" y2="278.6" stroke="rgba(106,166,255,.55)" stroke-dasharray="6 4" stroke-width="1.2"/><text x="1068" y="275.6" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(106,166,255,.85)" font-weight="600">$1,000 starting balance</text>
-    <rect x="680.0" y="44.0" width="50.9" height="236.0" fill="rgba(255,93,108,.10)"/><text x="705.5" y="55.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,93,108,.85)" font-weight="600">worst DD 15.0% ($531)</text>
-    <path d="M 8.0,37.9 L 13.1,37.8 L 18.2,33.6 L 23.3,38.3 L 28.4,38.0 L 33.5,39.2 L 38.5,40.0 L 43.6,40.0 L 48.7,38.0 L 53.8,37.9 L 58.9,40.0 L 64.0,38.1 L 69.1,38.0 L 74.2,40.0 L 79.3,38.1 L 84.4,34.3 L 89.5,30.6 L 94.5,27.0 L 99.6,23.5 L 104.7,24.6 L 109.8,25.7 L 114.9,21.8 L 120.0,22.3 L 125.1,26.9 L 130.2,32.9 L 135.3,37.9 L 140.4,40.0 L 145.5,37.7 L 150.5,33.2 L 155.6,29.3 L 160.7,25.5 L 165.8,26.6 L 170.9,32.5 L 176.0,38.4 L 181.1,37.8 L 186.2,40.0 L 191.3,40.0 L 196.4,40.0 L 201.5,40.0 L 206.5,40.0 L 211.6,40.0 L 216.7,40.0 L 221.8,40.0 L 226.9,40.0 L 232.0,40.0 L 237.1,40.0 L 242.2,37.8 L 247.3,40.0 L 252.4,36.0 L 257.5,39.9 L 262.5,35.6 L 267.6,31.5 L 272.7,37.5 L 277.8,38.0 L 282.9,34.0 L 288.0,31.8 L 293.1,33.4 L 298.2,36.9 L 303.3,40.0 L 308.4,40.0 L 313.5,35.9 L 318.5,31.5 L 323.6,32.1 L 328.7,36.8 L 333.8,40.0 L 338.9,37.9 L 344.0,38.7 L 349.1,40.0 L 354.2,38.0 L 359.3,36.2 L 364.4,39.4 L 369.5,37.9 L 374.5,34.0 L 379.6,33.9 L 384.7,37.7 L 389.8,40.0 L 394.9,40.0 L 400.0,37.8 L 405.1,33.9 L 410.2,40.0 L 415.3,40.0 L 420.4,40.0 L 425.5,40.0 L 430.5,40.0 L 435.6,40.0 L 440.7,35.7 L 445.8,31.8 L 450.9,37.7 L 456.0,33.8 L 461.1,39.7 L 466.2,38.0 L 471.3,39.2 L 476.4,38.0 L 481.5,33.9 L 486.5,30.1 L 491.6,30.0 L 496.7,29.9 L 501.8,31.0 L 506.9,36.1 L 512.0,40.0 L 517.1,40.0 L 522.2,38.1 L 527.3,38.2 L 532.4,40.0 L 537.5,40.0 L 542.5,40.0 L 547.6,36.0 L 552.7,37.3 L 557.8,40.0 L 562.9,40.0 L 568.0,40.0 L 573.1,40.0 L 578.2,38.1 L 583.3,38.0 L 588.4,40.0 L 593.5,40.0 L 598.5,40.0 L 603.6,40.0 L 608.7,38.0 L 613.8,39.3 L 618.9,40.0 L 624.0,40.0 L 629.1,38.1 L 634.2,34.2 L 639.3,38.6 L 644.4,34.7 L 649.5,30.9 L 654.5,34.4 L 659.6,38.1 L 664.7,40.0 L 669.8,40.0 L 674.9,36.1 L 680.0,40.0 L 685.1,36.0 L 690.2,32.3 L 695.3,28.6 L 700.4,28.5 L 705.5,28.1 L 710.5,28.8 L 715.6,24.9 L 720.7,21.3 L 725.8,17.7 L 730.9,14.0 L 736.0,17.4 L 741.1,20.8 L 746.2,26.7 L 751.3,23.0 L 756.4,19.3 L 761.5,22.9 L 766.5,26.4 L 771.6,26.3 L 776.7,32.1 L 781.8,36.1 L 786.9,39.9 L 792.0,40.0 L 797.1,40.0 L 802.2,40.0 L 807.3,37.7 L 812.4,40.0 L 817.5,40.0 L 822.5,39.3 L 827.6,40.0 L 832.7,40.0 L 837.8,37.8 L 842.9,40.0 L 848.0,40.0 L 853.1,36.1 L 858.2,32.3 L 863.3,37.3 L 868.4,40.0 L 873.5,40.0 L 878.5,40.0 L 883.6,40.0 L 888.7,40.0 L 893.8,40.0 L 898.9,40.0 L 904.0,38.0 L 909.1,40.0 L 914.2,40.0 L 919.3,35.9 L 924.4,40.0 L 929.5,40.0 L 934.5,40.0 L 939.6,40.0 L 944.7,35.9 L 949.8,31.9 L 954.9,27.9 L 960.0,24.2 L 965.1,20.5 L 970.2,26.2 L 975.3,29.9 L 980.4,33.7 L 985.5,28.9 L 990.5,32.2 L 995.6,35.6 L 1000.7,39.2 L 1005.8,40.0 L 1010.9,40.0 L 1016.0,40.0 L 1021.1,35.8 L 1026.2,31.6 L 1031.3,36.8 L 1036.4,40.0 L 1041.5,40.0 L 1046.5,36.2 L 1051.6,35.8 L 1056.7,40.0 L 1061.8,36.2 L 1066.9,38.5 L 1072.0,40.0 L 1072,44.0 L 8,44.0 Z" fill="rgba(255,93,108,.22)"/><text x="12" y="10.0" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,93,108,.7)">drawdown</text>
-    <path d="M 8.0,278.6 L 13.1,279.0 L 18.2,279.0 L 23.3,280.0 L 28.4,278.9 L 33.5,278.7 L 38.5,278.4 L 43.6,277.5 L 48.7,276.6 L 53.8,276.6 L 58.9,276.6 L 64.0,275.7 L 69.1,275.7 L 74.2,275.7 L 79.3,274.5 L 84.4,274.2 L 89.5,275.1 L 94.5,276.1 L 99.6,277.0 L 104.7,277.9 L 109.8,277.6 L 114.9,277.3 L 120.0,278.3 L 125.1,278.1 L 130.2,277.0 L 135.3,275.5 L 140.4,274.2 L 145.5,273.2 L 150.5,273.3 L 155.6,274.5 L 160.7,275.5 L 165.8,276.5 L 170.9,276.2 L 176.0,274.7 L 181.1,273.1 L 186.2,272.9 L 191.3,271.6 L 196.4,269.9 L 201.5,268.1 L 206.5,266.4 L 211.6,265.3 L 216.7,264.2 L 221.8,262.7 L 226.9,260.7 L 232.0,259.4 L 237.1,258.0 L 242.2,256.8 L 247.3,256.5 L 252.4,256.1 L 257.5,256.1 L 262.5,256.3 L 267.6,257.7 L 272.7,257.4 L 277.8,255.1 L 282.9,256.6 L 288.0,258.1 L 293.1,258.1 L 298.2,256.9 L 303.3,255.6 L 308.4,254.4 L 313.5,255.0 L 318.5,256.6 L 323.6,258.2 L 328.7,256.5 L 333.8,254.4 L 338.9,252.1 L 344.0,253.7 L 349.1,251.8 L 354.2,249.4 L 359.3,250.9 L 364.4,250.8 L 369.5,248.9 L 374.5,250.5 L 379.6,252.0 L 384.7,250.5 L 389.8,249.0 L 394.9,246.5 L 400.0,244.4 L 405.1,246.2 L 410.2,245.7 L 415.3,243.6 L 420.4,242.0 L 425.5,240.3 L 430.5,238.1 L 435.6,235.6 L 440.7,235.2 L 445.8,237.1 L 450.9,236.6 L 456.0,236.1 L 461.1,235.7 L 466.2,233.3 L 471.3,235.2 L 476.4,232.2 L 481.5,234.2 L 486.5,236.1 L 491.6,237.9 L 496.7,236.2 L 501.8,238.0 L 506.9,235.7 L 512.0,232.6 L 517.1,229.4 L 522.2,226.0 L 527.3,228.0 L 532.4,225.9 L 537.5,222.4 L 542.5,219.4 L 547.6,221.6 L 552.7,220.9 L 557.8,218.1 L 562.9,214.3 L 568.0,213.8 L 573.1,209.9 L 578.2,209.9 L 583.3,209.9 L 588.4,207.6 L 593.5,204.4 L 598.5,201.8 L 603.6,199.2 L 608.7,199.3 L 613.8,198.4 L 618.9,194.0 L 624.0,189.3 L 629.1,189.2 L 634.2,192.1 L 639.3,188.8 L 644.4,191.7 L 649.5,194.6 L 654.5,191.9 L 659.6,189.1 L 664.7,184.3 L 669.8,181.1 L 674.9,184.2 L 680.0,179.3 L 685.1,182.5 L 690.2,185.4 L 695.3,188.3 L 700.4,188.4 L 705.5,188.8 L 710.5,188.2 L 715.6,191.3 L 720.7,194.1 L 725.8,197.1 L 730.9,200.0 L 736.0,197.3 L 741.1,194.6 L 746.2,189.9 L 751.3,192.8 L 756.4,195.7 L 761.5,192.9 L 766.5,190.1 L 771.6,190.2 L 776.7,185.5 L 781.8,182.4 L 786.9,179.3 L 792.0,175.3 L 797.1,172.0 L 802.2,169.1 L 807.3,169.8 L 812.4,165.6 L 817.5,160.0 L 822.5,160.6 L 827.6,155.6 L 832.7,150.0 L 837.8,150.2 L 842.9,146.4 L 848.0,142.5 L 853.1,146.5 L 858.2,150.3 L 863.3,145.2 L 868.4,141.4 L 873.5,138.0 L 878.5,132.9 L 883.6,127.2 L 888.7,122.8 L 893.8,118.3 L 898.9,110.9 L 904.0,109.7 L 909.1,103.5 L 914.2,103.4 L 919.3,102.2 L 924.4,95.6 L 929.5,88.9 L 934.5,83.7 L 939.6,83.9 L 944.7,89.4 L 949.8,94.9 L 954.9,100.1 L 960.0,105.2 L 965.1,103.8 L 970.2,97.4 L 975.3,92.3 L 980.4,92.9 L 985.5,94.0 L 990.5,89.4 L 995.6,84.7 L 1000.7,79.8 L 1005.8,72.9 L 1010.9,64.4 L 1016.0,64.9 L 1021.1,71.1 L 1026.2,70.4 L 1031.3,62.8 L 1036.4,57.7 L 1041.5,57.9 L 1046.5,61.1 L 1051.6,57.4 L 1056.7,56.2 L 1061.8,57.3 L 1066.9,50.8 L 1072.0,46.0 L 1072,312 L 8,312 Z" fill="url(#eqg)"/>
-    <polyline points="8.0,278.6 13.1,279.0 18.2,279.0 23.3,280.0 28.4,278.9 33.5,278.7 38.5,278.4 43.6,277.5 48.7,276.6 53.8,276.6 58.9,276.6 64.0,275.7 69.1,275.7 74.2,275.7 79.3,274.5 84.4,274.2 89.5,275.1 94.5,276.1 99.6,277.0 104.7,277.9 109.8,277.6 114.9,277.3 120.0,278.3 125.1,278.1 130.2,277.0 135.3,275.5 140.4,274.2 145.5,273.2 150.5,273.3 155.6,274.5 160.7,275.5 165.8,276.5 170.9,276.2 176.0,274.7 181.1,273.1 186.2,272.9 191.3,271.6 196.4,269.9 201.5,268.1 206.5,266.4 211.6,265.3 216.7,264.2 221.8,262.7 226.9,260.7 232.0,259.4 237.1,258.0 242.2,256.8 247.3,256.5 252.4,256.1 257.5,256.1 262.5,256.3 267.6,257.7 272.7,257.4 277.8,255.1 282.9,256.6 288.0,258.1 293.1,258.1 298.2,256.9 303.3,255.6 308.4,254.4 313.5,255.0 318.5,256.6 323.6,258.2 328.7,256.5 333.8,254.4 338.9,252.1 344.0,253.7 349.1,251.8 354.2,249.4 359.3,250.9 364.4,250.8 369.5,248.9 374.5,250.5 379.6,252.0 384.7,250.5 389.8,249.0 394.9,246.5 400.0,244.4 405.1,246.2 410.2,245.7 415.3,243.6 420.4,242.0 425.5,240.3 430.5,238.1 435.6,235.6 440.7,235.2 445.8,237.1 450.9,236.6 456.0,236.1 461.1,235.7 466.2,233.3 471.3,235.2 476.4,232.2 481.5,234.2 486.5,236.1 491.6,237.9 496.7,236.2 501.8,238.0 506.9,235.7 512.0,232.6 517.1,229.4 522.2,226.0 527.3,228.0 532.4,225.9 537.5,222.4 542.5,219.4 547.6,221.6 552.7,220.9 557.8,218.1 562.9,214.3 568.0,213.8 573.1,209.9 578.2,209.9 583.3,209.9 588.4,207.6 593.5,204.4 598.5,201.8 603.6,199.2 608.7,199.3 613.8,198.4 618.9,194.0 624.0,189.3 629.1,189.2 634.2,192.1 639.3,188.8 644.4,191.7 649.5,194.6 654.5,191.9 659.6,189.1 664.7,184.3 669.8,181.1 674.9,184.2 680.0,179.3 685.1,182.5 690.2,185.4 695.3,188.3 700.4,188.4 705.5,188.8 710.5,188.2 715.6,191.3 720.7,194.1 725.8,197.1 730.9,200.0 736.0,197.3 741.1,194.6 746.2,189.9 751.3,192.8 756.4,195.7 761.5,192.9 766.5,190.1 771.6,190.2 776.7,185.5 781.8,182.4 786.9,179.3 792.0,175.3 797.1,172.0 802.2,169.1 807.3,169.8 812.4,165.6 817.5,160.0 822.5,160.6 827.6,155.6 832.7,150.0 837.8,150.2 842.9,146.4 848.0,142.5 853.1,146.5 858.2,150.3 863.3,145.2 868.4,141.4 873.5,138.0 878.5,132.9 883.6,127.2 888.7,122.8 893.8,118.3 898.9,110.9 904.0,109.7 909.1,103.5 914.2,103.4 919.3,102.2 924.4,95.6 929.5,88.9 934.5,83.7 939.6,83.9 944.7,89.4 949.8,94.9 954.9,100.1 960.0,105.2 965.1,103.8 970.2,97.4 975.3,92.3 980.4,92.9 985.5,94.0 990.5,89.4 995.6,84.7 1000.7,79.8 1005.8,72.9 1010.9,64.4 1016.0,64.9 1021.1,71.1 1026.2,70.4 1031.3,62.8 1036.4,57.7 1041.5,57.9 1046.5,61.1 1051.6,57.4 1056.7,56.2 1061.8,57.3 1066.9,50.8 1072.0,46.0" fill="none" stroke="#3ed598" stroke-width="2.2" stroke-linejoin="round"/>
-    <circle cx="8.0" cy="278.6" r="4" fill="#6aa6ff" stroke="#0a1628" stroke-width="1.5"/><text x="16.0" y="282.6" font-family="JetBrains Mono,monospace" font-size="10" fill="#6aa6ff" font-weight="700">START $1,000</text>
-    <text x="1066.0" y="38.0" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="13" fill="#3ed598" font-weight="700">$6,959</text>
-    <text x="1068.0" y="56.0" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(106,166,255,.75)" font-weight="600">10 live-ready strategies · $1,000 start</text>
-    <line x1="8" y1="282.0" x2="1072" y2="282.0" stroke="rgba(255,255,255,.18)"/><line x1="8.0" y1="282.0" x2="8.0" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="8.0" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Sep 2025</text><line x1="186.2" y1="282.0" x2="186.2" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="186.2" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Nov 2025</text><line x1="364.4" y1="282.0" x2="364.4" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="364.4" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Dec 2025</text><line x1="537.5" y1="282.0" x2="537.5" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="537.5" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Feb 2026</text><line x1="715.6" y1="282.0" x2="715.6" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="715.6" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Mar 2026</text><line x1="893.8" y1="282.0" x2="893.8" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="893.8" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">May 2026</text><line x1="1072.0" y1="282.0" x2="1072.0" y2="285.0" stroke="rgba(255,255,255,.25)"/><text x="1072.0" y="294.0" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.7)">Jun 2026</text>
-  </svg>
-  </div>
-  <div class="eq-metrics"><div class="eq-chip"><div class="k">Starting balance</div><div class="v ">$1,000</div><div class="s">split across 10 live-ready strategies</div></div><div class="eq-chip"><div class="k">Final balance</div><div class="v green">$6,959</div><div class="s">as of 2026-06-11</div></div><div class="eq-chip"><div class="k">Total profit</div><div class="v green">$+5,959</div><div class="s">+595.9% growth</div></div><div class="eq-chip"><div class="k">Peak balance</div><div class="v green">$6,959</div><div class="s">highest point</div></div><div class="eq-chip"><div class="k">Worst drawdown</div><div class="v green">-$531</div><div class="s">15.0% from peak</div></div><div class="eq-chip"><div class="k">Avg $/month</div><div class="v green">$+705</div><div class="s">over 8.5 months</div></div><div class="eq-chip"><div class="k">Avg trades/strat</div><div class="v ">—</div><div class="s">backtest trade count</div></div></div>
-  
- <div class="eq-assume">
-   <b>What this curve shows:</b> if you had put <b>$1,000</b> on
-   <b>2025-09-26</b> in a single account and let all <b>10 live-ready
-   strategies</b> (8/8 promotion gates) trade it concurrently, each sizing
-   its positions at <b>1% of the current account balance</b> at the SL distance —
-   the line above is the resulting account balance at every trade close
-   (416 trade events replayed in chronological order). All
-   strategies share the same capital; a drawdown in one reduces the buying
-   power of the others. <b>No live trades yet</b> — these numbers are a
-   backtest projection of paper-trading behavior.
- </div>
-  <div class="eq-legend">
-    <span><i style="background:#3ed598"></i>Account balance (started at $1,000)</span>
-    <span><i style="background:rgba(255,255,255,.4)"></i>Breakeven ($1,000)</span>
-    <span><i style="background:rgba(255,93,108,.4)"></i>Drawdown (top band)</span>
-    <span><i style="background:rgba(255,93,108,.2)"></i>Worst DD (-$531 from peak)</span>
-  </div>
-</div>
-  
-<div class="panel docs">
-  <h2><span class="ic">📖</span> What we're doing here — full project dossier</h2>
 
-  <div class="docs-section">
-    <h3>The one-paragraph pitch</h3>
-    <p>
-      <b>This is a self-driving quantitative FX research pipeline.</b> Every 15 minutes it picks 1-3 backtest experiments
-      (strategy + pair + parameter set), runs them against cached OANDA candle data, scores them, updates a Pareto
-      frontier, forward-tests the survivors out-of-sample, walk-forward validates the most promising ones, and
-      re-renders this static HTML dashboard. <b>It is backtest/research only — no live trading.</b> The OANDA API
-      is used <i>read-only</i> for candles; no order, account, or trade endpoints are ever called.
-    </p>
-    <p>
-      The end state we want: a small set of strategy × pair × parameter combinations that have cleared <b>all 8
-      promotion gates</b> with stable OOS performance, trading a shared $1,000 paper account with 1% risk per trade
-      and a 30% portfolio drawdown cap. The strategies trade concurrently against the same capital — losing streaks
-      in one reduce the buying power of the others, so the <b>shared-account equity curve</b> shows compounding
-      but with correlated-drawdown risk.
-    </p>
-  </div>
-
-  <div class="docs-section">
-    <h3>How it actually works — the architecture</h3>
-    <ol class="docs-ol">
-      <li><b>Data layer (<code>data.py</code>)</b> — fetches M15 + H1 candles from OANDA practice API, caches them as
-        parquet in <code>data/&lt;PAIR&gt;_&lt;TF&gt;_&lt;N&gt;.parquet</code>. Refreshed daily at 05:00 UTC by
-        <code>daily_refresh_data.sh</code>.</li>
-      <li><b>Strategy layer (<code>strategies.py</code>)</b> — 10 strategy families, each a function
-        <code>(df_15m, df_1h, params) → list[signal]</code>. Signals are <code>{side, entry_idx, sl, tp, max_hold, reason}</code>.
-        Param spaces live in <code>PARAM_SPACES</code>; <code>sample_params()</code> / <code>mutate_params()</code> /
-        <code>crossover_params()</code> drive the search.</li>
-      <li><b>Engine (<code>engine.py</code>)</b> — walks 15m bars chronologically. At each bar, runs the strategy
-        function on the current data and any open position against current price. Applies spread, swap, and 50%
-        margin closeout. Returns <code>BacktestResult</code> with trades, equity_curve, sharpe, max_dd, etc.</li>
-      <li><b>Cycle (<code>cycle.py</code>)</b> — one experiment: pick (strategy, pair, params), run engine, persist
-        to <code>lab.db</code> via <code>db.record_run()</code>, update <code>is_pareto_kept</code>. Random vs.
-        refine vs. crossover vs. robust split per meta-cycle weights.</li>
-      <li><b>Forward-test (<code>forward_test.py</code>)</b> — for runs that pass in-sample, re-run against a
-        held-out window (last 30% of data) and compute OOS metrics. Writes <code>oos_*</code> columns.</li>
-      <li><b>Walk-forward (<code>rolling_forward.py</code>)</b> — every 6 hours, take the top forward-passers and
-        re-validate against rolling 30/60/90-day windows. Feeds the stability gate.</li>
-      <li><b>Eligibility (<code>db.update_eligibility</code>)</b> — runs the 8 promotion gates. A run is
-        <code>live_eligible=1</code> only if it passes <i>all 8</i>. Currently <b>10</b> runs are eligible
-        (all from the <code>confluence</code> family).</li>
-      <li><b>Paper track (<code>paper_track.py</code>)</b> — every 15 minutes, takes signals from currently-live
-        runs and simulates fills against recent prices. No OANDA order API. Writes <code>live_signals</code>.</li>
-      <li><b>Dashboard (<code>report.py</code>)</b> — assembles this page from DB state. Diff-aware public push
-        via <code>publish.sh</code> → <code>tyler109j/lab-report</code> GitHub Pages.</li>
-    </ol>
-  </div>
-
-  <div class="docs-section">
-    <h3>The 10 strategy families in rotation</h3>
-    <table class="docs-table">
-      <thead><tr>
-        <th>Family</th><th>Hypothesis</th>
-        <th class="num">Runs</th><th class="num">Pass</th>
-        <th class="num">Best Sh</th><th>Status</th>
-      </tr></thead>
-      <tbody><tr>
-          <td><code>divergence_at_sr</code></td>
-          <td class="strat-blurb">RSI + MACD histogram divergence at pivot-derived S/R levels. Hypothesis: when price prints a higher-high but momentum prints a lower-high at a resistance level, the next move back to support is high-probability. 1h trend filter prevents counter-trend fades.</td>
-          <td class="num">2,102</td>
-          <td class="num">369</td>
-          <td class="num">383.41</td>
-          <td><span class="badge b-info">passing</span></td>
-        </tr><tr>
-          <td><code>mean_reversion</code></td>
-          <td class="strat-blurb">Bollinger-band reversion with optional 1h trend filter. Hypothesis: in ranging regimes, prices that close outside 2σ revert to the mean within ~24h. The trend filter disables mean-reversion when the 1h regime is trending.</td>
-          <td class="num">2,680</td>
-          <td class="num">105</td>
-          <td class="num">147.00</td>
-          <td><span class="badge b-info">passing</span></td>
-        </tr><tr>
-          <td><code>breakout</code></td>
-          <td class="strat-blurb">Donchian channel breakout with optional 1h trend filter. Hypothesis: a close above N-bar high (with N∈[20..80]) initiates a trend leg; the 1h filter prevents fading strong HTF trends.</td>
-          <td class="num">1,113</td>
-          <td class="num">0</td>
-          <td class="num">0.47</td>
-          <td><span class="badge">in rotation</span></td>
-        </tr><tr>
-          <td><code>confluence</code></td>
-          <td class="strat-blurb">Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Hypothesis: when 3+ independent signals agree, the trade has higher expectancy than any single signal. Currently the highest-producing family — 10 of the live-eligible runs are this family.</td>
-          <td class="num">2,006</td>
-          <td class="num">249</td>
-          <td class="num">458.72</td>
-          <td><span class="badge b-ok">live</span></td>
-        </tr><tr>
-          <td><code>volume_nodes</code></td>
-          <td class="strat-blurb">VPVR (Volume Profile Visible Range) — identify price levels with the highest recent volume and trade reactions at those nodes. Hypothesis: high-volume nodes act as support/resistance because they represent zones where many participants established positions. Idea source: LuxAlgo VPVR indicator.</td>
-          <td class="num">889</td>
-          <td class="num">0</td>
-          <td class="num">0.00</td>
-          <td><span class="badge">in rotation</span></td>
-        </tr><tr>
-          <td><code>value_area_breakout</code></td>
-          <td class="strat-blurb">Trade the Value Area edges (VAH/VAL) computed from the rolling VPVR. When price crosses VAH in an uptrend, BUY; when it crosses VAL in a downtrend, SELL. Sibling family to volume_nodes.</td>
-          <td class="num">1,523</td>
-          <td class="num">5</td>
-          <td class="num">1.27</td>
-          <td><span class="badge b-info">passing</span></td>
-        </tr><tr>
-          <td><code>squeeze_breakout</code></td>
-          <td class="strat-blurb">TTM-Squeeze LazyBear: when Bollinger Bands collapse inside Keltner Channels for N+ bars (volatility compression) and then expand back out, take the direction of the LazyBear momentum histogram. 1h trend filter prevents counter-trend breakouts.</td>
-          <td class="num">2,004</td>
-          <td class="num">43</td>
-          <td class="num">135.36</td>
-          <td><span class="badge b-info">passing</span></td>
-        </tr><tr>
-          <td><code>order_flow_imbal</code></td>
-          <td class="strat-blurb">STUB — Order-flow imbalance: detect buy/sell pressure via consecutive up/down volume runs. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">114</td>
-          <td class="num">0</td>
-          <td class="num">0.00</td>
-          <td><span class="badge b-warn">stub</span></td>
-        </tr><tr>
-          <td><code>keltner_squeeze</code></td>
-          <td class="strat-blurb">STUB — Keltner channel squeeze breakout: enter when volatility contracts (Keltner squeeze) then expands. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">131</td>
-          <td class="num">0</td>
-          <td class="num">0.00</td>
-          <td><span class="badge b-warn">stub</span></td>
-        </tr><tr>
-          <td><code>ichimoku_cloud</code></td>
-          <td class="strat-blurb">STUB — Ichimoku Kumo: trade with the cloud (Tenkan/Kijun cross + cloud direction). Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">137</td>
-          <td class="num">0</td>
-          <td class="num">0.00</td>
-          <td><span class="badge b-warn">stub</span></td>
+<div class="sec">
+  <h2><span class="num">2</span> Readiness Gates &nbsp; <span class="badge pass">9 pass</span> <span class="badge warn">1 watch</span> <span class="badge fail">3 fail</span> <span class="badge unk">3 unknown</span></h2>
+  <table>
+    <thead><tr><th></th><th>Gate</th><th class="num">Value</th><th>Evidence</th></tr></thead>
+    <tbody><tr class="gate-row">
+          <td>✅</td>
+          <td>Min forward-test trades (≥100)</td>
+          <td class="num">144</td>
+          <td>144 paper trades logged</td>
+        </tr><tr class="gate-row">
+          <td>❌</td>
+          <td>Min forward-test duration (≥60 trading days)</td>
+          <td class="num">1</td>
+          <td>Spans 1 distinct trading days</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Positive expectancy after costs (live-eligible)</td>
+          <td class="num">0.636</td>
+          <td>Avg expectancy_r = 0.636 across 10 live-eligible runs</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Profit factor ≥ 1.20 (live-eligible)</td>
+          <td class="num">2.264</td>
+          <td>Avg PF = 2.264</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Max drawdown within threshold (≤30%)</td>
+          <td class="num">0.035</td>
+          <td>Avg max_dd = 3.5%</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Slippage/spread stress test complete</td>
+          <td class="num">yes</td>
+          <td>Computed at 1x/2x/3x cost multipliers on 10 live-eligible runs</td>
+        </tr><tr class="gate-row">
+          <td>❌</td>
+          <td>OANDA reconciliation tested</td>
+          <td class="num">no</td>
+          <td>paper_track.py simulates fills locally; no broker comparison</td>
+        </tr><tr class="gate-row">
+          <td>❌</td>
+          <td>Kill switch implemented and tested</td>
+          <td class="num">manual=False, auto=False</td>
+          <td>No kill-switch logic found in live_runner.py</td>
+        </tr><tr class="gate-row">
+          <td>❔</td>
+          <td>Max daily loss enforced</td>
+          <td class="num">—</td>
+          <td>No explicit daily-loss circuit breaker in live_runner.py (manual monitoring only)</td>
+        </tr><tr class="gate-row">
+          <td>❔</td>
+          <td>Max open exposure enforced</td>
+          <td class="num">—</td>
+          <td>Engine sizes per-trade at 1% risk; portfolio exposure cap not yet coded</td>
+        </tr><tr class="gate-row">
+          <td>❔</td>
+          <td>Missing SL/TP detection</td>
+          <td class="num">—</td>
+          <td>Engine requires sl/tp in every signal dict; detection logic not in live_runner</td>
+        </tr><tr class="gate-row">
+          <td>⚠️</td>
+          <td>Duplicate order prevention</td>
+          <td class="num">no</td>
+          <td>Not explicitly handled — relies on OANDA idempotency</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Logging and alerting active</td>
+          <td class="num">yes</td>
+          <td>5 alerts in last 7d; live_signals table tracks all activity</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Crash/restart recovery tested</td>
+          <td class="num">yes</td>
+          <td>State file (live_trades with ts_closed) survives restarts</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Research variant count documented</td>
+          <td class="num">12699</td>
+          <td>12,699 backtests in lab.db — selection-bias correction needed</td>
+        </tr><tr class="gate-row">
+          <td>✅</td>
+          <td>Deflated Sharpe / selection-bias control</td>
+          <td class="num">8943</td>
+          <td>8943 runs have deflated_sharpe computed</td>
         </tr></tbody>
-    </table>
-    <p class="note">Pass = n≥30, Sharpe&gt;0.5, WR&gt;25%, DD≤30%. "Live" means <code>live_eligible=1</code> (all 8 gates cleared).</p>
-  </div>
-
-  <div class="docs-section">
-    <h3>The 8 promotion gates (the gauntlet)</h3>
-    <p>A run becomes <code>live_eligible=1</code> only if it clears <b>all 8</b>:</p>
-    <ol class="docs-ol"><li><b>OOS Sharpe ≥ 1.0</b> <span class="muted">(oos_sharpe)</span></li><li><b>Risk:reward > 1.0</b> <span class="muted">(rr)</span></li><li><b>Walk-fwd median ≥ 1.0</b> <span class="muted">(wf_median)</span></li><li><b>Walk-fwd % positive ≥ 0.5</b> <span class="muted">(wf_pct)</span></li><li><b>Deflated Sharpe > 0.95</b> <span class="muted">(deflated)</span></li><li><b>OOS trades ≥ 5</b> <span class="muted">(oos_n)</span></li><li><b>OOS max DD ≤ 30%</b> <span class="muted">(oos_dd)</span></li><li><b>Walk-fwd windows ≥ 3</b> <span class="muted">(wf_n)</span></li></ol>
-    <p class="note">Re-run every Sunday 06:00 UTC by <code>weekly_revalidate.sh</code>. Any Pareto run that newly clears all 8 is auto-promoted to live.</p>
-  </div>
-
-  <div class="docs-section">
-    <h3>Autonomous cron schedule (Hermes scheduler, all running on this VM)</h3>
-    <table class="docs-table">
-      <thead><tr><th>Job</th><th>Schedule</th><th>What it does</th></tr></thead>
-      <tbody><tr><td><code>lab-cycle</code></td><td><code>*/15 * * * *</code></td><td>Inner search: 1-3 random configs through cycle.py → engine → DB</td></tr><tr><td><code>lab-fast-cycle</code></td><td><code>*/5 * * * *</code></td><td>Aggressive parallel backtest sweep — runs cycle.py with higher budget</td></tr><tr><td><code>lab-forward-test</code></td><td><code>17 * * * *</code></td><td>Forward-test runs with in-sample Sharpe ≥ 3 against held-out window</td></tr><tr><td><code>lab-rolling-forward</code></td><td><code>5 */6 * * *</code></td><td>30/60/90-day rolling OOS re-validation; feeds stability gate</td></tr><tr><td><code>lab-paper-track</code></td><td><code>*/15 * * * *</code></td><td>Paper-trade signals from currently-live strategies</td></tr><tr><td><code>lab-live-runner</code></td><td><code>paused</code></td><td>Real-time price monitor for paper trading — currently off</td></tr><tr><td><code>lab-meta-cycle</code></td><td><code>0 2 * * *</code></td><td>Daily meta-learning: reweights pair/family priors toward what's working</td></tr><tr><td><code>lab-new-family</code></td><td><code>0 */5 * * *</code></td><td>Scaffold next strategy family from queue (every 5 hours)</td></tr><tr><td><code>lab-daily-refresh</code></td><td><code>0 5 * * *</code></td><td>Fetch latest M15/H1 candles from OANDA, refresh parquet cache</td></tr><tr><td><code>lab-dashboard-publish</code></td><td><code>*/30 * * * *</code></td><td>Regenerate dashboard/index.html and push to public Pages if changed</td></tr><tr><td><code>lab-load-monitor</code></td><td><code>17 * * * *</code></td><td>Watchdog: alert if any cron job has been silent > expected window</td></tr><tr><td><code>lab-reddit-scan</code></td><td><code>0 13 * * *</code></td><td>Daily r/algotrading scan for new strategy ideas to add to the queue</td></tr><tr><td><code>lab-hourly-summary</code></td><td><code>0 * * * *</code></td><td>Hourly status update (this Discord channel)</td></tr><tr><td><code>lab-weekly-revalidate</code></td><td><code>0 6 * * 0</code></td><td>Weekly: run all 8 gates against every Pareto run, auto-promote 8/8 to live</td></tr></tbody>
-    </table>
-    <p class="note">All times UTC. List current as of dashboard render — verify with
-      <code>hermes cron list</code> or <code>crontab -l</code>.</p>
-  </div>
-
-  <div class="docs-section">
-    <h3>Risk model</h3>
-    <ul class="docs-ul">
-      <li><b>Per-trade risk:</b> 1% of the <i>current</i> shared-account balance at the stop-loss distance.</li>
-      <li><b>Portfolio drawdown cap:</b> 30% peak-to-trough across the shared $1,000 account. Hard limit —
-        <i>not enforced yet by code</i>, just monitored.</li>
-      <li><b>Starting account:</b> $1,000 USD (modeled). Engine's internal sizing uses $10k, scaled down by
-        10× to the shared account.</li>
-      <li><b>Leverage:</b> 50× (OANDA retail). Fixed 10,000-unit lots per pair per trade.</li>
-      <li><b>Margin closeout:</b> enforced at 50% equity loss vs. used margin, evaluated every bar.</li>
-      <li><b>Costs:</b> per-pair spread (0.8-1.6 pips typical for majors) + slippage (~0.2 pips) + swap (triple
-        on Wednesdays). Recorded as <code>costs_version</code> per run; v1 had no costs, v2+ has realistic costs.</li>
-    </ul>
-  </div>
-
-  <div class="docs-section">
-    <h3>Every file in this repo (and what role it plays)</h3>
-    <table class="docs-table docs-table-files">
-      <thead><tr><th style="width:22%">File</th><th>Role</th></tr></thead>
-      <tbody><tr><td class="file-cell"><code>engine.py</code></td><td>Backtest engine: walks 15m bars, opens positions per strategy signal, applies spread + swap + 50% margin closeout, returns BacktestResult.</td></tr><tr><td class="file-cell"><code>strategies.py</code></td><td>Strategy implementations + PARAM_SPACES registry + sample/mutate/crossover.</td></tr><tr><td class="file-cell"><code>data.py</code></td><td>OANDA candle fetcher + parquet cache (data/EUR_USD_M15_*.parquet etc.).</td></tr><tr><td class="file-cell"><code>cycle.py</code></td><td>One backtest experiment: pick (strategy, pair, params), run engine, persist to DB.</td></tr><tr><td class="file-cell"><code>cycle.sh</code></td><td>Wrapper: runs python3 cycle.py --budget N, then renders + publishes.</td></tr><tr><td class="file-cell"><code>db.py</code></td><td>SQLite layer: record_run, update_pareto, eligibility, rolling OOS, stats queries.</td></tr><tr><td class="file-cell"><code>forward_test.py</code></td><td>OOS validation: hold out last 30% of data, re-run forward-pass runs, compute oos_* metrics.</td></tr><tr><td class="file-cell"><code>rolling_forward.py</code></td><td>Walk-forward: 30/60/90-day rolling OOS windows; writes to rolling_oos table.</td></tr><tr><td class="file-cell"><code>meta_cycle.py</code></td><td>Daily meta-learning: reweights pair_weights.json + family bias from recent performance.</td></tr><tr><td class="file-cell"><code>paper_track.py</code></td><td>Paper-trade simulator: takes signals from live-eligible runs, fills virtually, tracks PnL.</td></tr><tr><td class="file-cell"><code>live_runner.py</code></td><td>Real-time price watcher for paper orders (currently paused).</td></tr><tr><td class="file-cell"><code>report.py</code></td><td>This dashboard generator — assembles every panel from DB state.</td></tr><tr><td class="file-cell"><code>dashboard.py</code></td><td>Lightweight status script used by hourly-summary cron (vs. full report.py).</td></tr><tr><td class="file-cell"><code>new_family.py</code></td><td>Scaffolds new strategy stubs into strategies.py; reads from new_family_queue.json.</td></tr><tr><td class="file-cell"><code>new_family_queue.json</code></td><td>Ordered list of family names + status. Rotated every 5 hours.</td></tr><tr><td class="file-cell"><code>publish.sh</code></td><td>Diff-aware push to public mirror (tyler109j/lab-report).</td></tr><tr><td class="file-cell"><code>walk_forward.sh</code></td><td>CLI entry point for forward_test.py + rolling_forward.py orchestration.</td></tr><tr><td class="file-cell"><code>weekly_revalidate.sh</code></td><td>Sunday re-validation: every Pareto run through all 8 gates.</td></tr><tr><td class="file-cell"><code>daily_refresh_data.sh</code></td><td>5 AM UTC: re-fetch candles, refresh parquet cache.</td></tr><tr><td class="file-cell"><code>load_monitor.sh</code></td><td>Watchdog — emits Discord alert if any cron has been silent too long.</td></tr><tr><td class="file-cell"><code>smoke_test_strategies.py</code></td><td>Regression test: runs each family through a tiny config sweep, catches engine bugs early.</td></tr><tr><td class="file-cell"><code>deflated_sharpe_check.py</code></td><td>Computes deflated Sharpe + bootstrap CI for runs (multiple-testing correction).</td></tr><tr><td class="file-cell"><code>backfill_curves.py</code></td><td>Backfills equity_curves table for runs that don't have one yet.</td></tr><tr><td class="file-cell"><code>stats.py</code></td><td>Statistical helpers: bootstrap_sharpe_ci, deflated_sharpe, permutation tests.</td></tr><tr><td class="file-cell"><code>lab.db</code></td><td>SQLite — single source of truth. ~120MB. Tables: runs, equity_curves, pareto, cycles, rolling_oos, live_signals, meta, param_memory.</td></tr><tr><td class="file-cell"><code>meta.db</code></td><td>SQLite — meta-learning state (pair weights, family priors, daily snapshots).</td></tr><tr><td class="file-cell"><code>pair_weights.json</code></td><td>Current pair allocation weights from meta_cycle (used by strategy picker).</td></tr><tr><td class="file-cell"><code>data/</code></td><td>Cached parquet candles per pair × timeframe. Refreshed daily.</td></tr><tr><td class="file-cell"><code>logs/</code></td><td>Per-cycle and per-cron logs (cycle-*.log, new_family_*.log, etc.).</td></tr><tr><td class="file-cell"><code>cycles/</code></td><td>Per-cycle artifact snapshots (best configs, rejection reasons).</td></tr><tr><td class="file-cell"><code>diagrams/</code></td><td><code>lab-architecture.drawio</code> — 2-page system map (data flow + components).</td></tr><tr><td class="file-cell"><code>notes/external_resources.md</code></td><td>Links to research sources (LuxAlgo VPVR, pandas-ta Squeeze, etc.).</td></tr><tr><td class="file-cell"><code>notes/upstream_sources/</code></td><td>Archived upstream sources (pandas-ta docs, LuxAlgo algorithm writeups).</td></tr><tr><td class="file-cell"><code>AGENTS.md</code></td><td>DOX hierarchy root — binding work contract, project invariants.</td></tr><tr><td class="file-cell"><code>README.md</code></td><td>Project one-pager (currently out of date — predates v2 strategies).</td></tr><tr><td class="file-cell"><code>HANDOFF.md</code></td><td>Agent handoff doc — first thing a new agent should read after AGENTS.md.</td></tr></tbody>
-    </table>
-  </div>
-
-  <div class="docs-section">
-    <h3>GitHub: what's public, what's private</h3>
-    <table class="docs-table">
-      <thead><tr><th>Repo</th><th>Visibility</th><th>What it contains</th></tr></thead>
-      <tbody>
-        <tr><td><code>tyler109j/lab</code></td><td><b>Private</b></td>
-          <td>Everything in this <code>/root/lab</code> directory: code, <code>lab.db</code>, logs, data cache.
-          Pushes blocked because <code>lab.db</code> exceeds the 100 MB GitHub file-size limit (it's tracked
-          in <code>.gitignore</code> but a 121 MB version is in git history — use <code>git filter-repo</code>
-          to purge if you ever need to push).</td></tr>
-        <tr><td><code>tyler109j/lab-report</code></td><td><b>Public</b> (GitHub Pages)</td>
-          <td>Only <code>index.html</code> — this rendered dashboard. Pushed every 30 min by
-          <code>lab-dashboard-publish</code>, but only if the file actually changed (hash comparison).
-          <a href="https://tyler109j.github.io/lab-report/">tyler109j.github.io/lab-report</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="docs-section">
-    <h3>Where the data comes from</h3>
-    <ul class="docs-ul">
-      <li><b>FX candles:</b> OANDA v20 REST API, <code>/v3/instruments/&lt;PAIR&gt;/candles</code> with
-        <code>granularity=M15</code> and <code>granularity=H1</code>. Read-only against the practice environment
-        using the OANDA API token stored in <code>~/.config/oanda/token</code>.</li>
-      <li><b>No proprietary data:</b> no COT reports, no order book data, no sentiment feeds. Only public price
-        action on 15-minute and 1-hour bars.</li>
-      <li><b>Coverage:</b> 9 OANDA majors only: EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY. No crosses beyond EUR/GBP and EUR/JPY,
-        no metals, no indices.</li>
-      <li><b>Lookback:</b> ~187 days of M15 candles as of this render (3,000 bars per pair, fetched daily).
-        Need 1+ year to cover multiple rate-decision regimes.</li>
-    </ul>
-  </div>
-
-  <div class="docs-section">
-    <h3>What the numbers in this dashboard actually mean</h3>
-    <ul class="docs-ul">
-      <li><b>In-sample (IS) Sharpe:</b> Sharpe ratio computed across all closed trades in the backtest window.
-        Optimistic by construction — this is what the search is optimizing.</li>
-      <li><b>OOS Sharpe:</b> Sharpe on a held-out window (last 30% of data the strategy never saw during search).
-        Honest signal. Required ≥ 1.0 for promotion.</li>
-      <li><b>Max DD:</b> peak-to-trough drawdown on the equity curve, expressed as a fraction
-        (0.30 = 30% drawdown). Hard cap: 30% on the shared account.</li>
-      <li><b>Deflated Sharpe:</b> corrects IS Sharpe for the number of trials attempted (a high Sharpe from 10k
-        random configs is less impressive than the same Sharpe from 10). Lives in the <code>deflated_sharpe</code>
-        column. We display CI in the per-strategy health section.</li>
-      <li><b>Bootstrap Sharpe CI:</b> 500-resample bootstrap 95% confidence interval on per-trade returns.
-        Narrow CI = stable estimate; wide CI = noisy, even if point estimate looks good.</li>
-      <li><b>Walk-forward passers:</b> runs where the rolling 30/60/90-day OOS Sharpe stays positive in &gt;50%
-        of windows. Tracks regime stability, not just one-shot OOS luck.</li>
-    </ul>
-  </div>
-
-  <div class="docs-section">
-    <h3>Where to read more</h3>
-    <ul class="docs-ul">
-      <li><b>Project invariants + DOX hierarchy:</b> <code>AGENTS.md</code> at the repo root — every subdirectory
-        inherits from it.</li>
-      <li><b>Operational handoff doc:</b> <code>HANDOFF.md</code> — first thing a new agent (Hermes / Claude /
-        GPT / human) should read after <code>AGENTS.md</code>.</li>
-      <li><b>System diagrams:</b> <code>diagrams/lab-architecture.drawio</code> — 2 pages: components + signal
-        data flow.</li>
-      <li><b>External research sources:</b> <code>notes/external_resources.md</code> — links to LuxAlgo VPVR,
-        pandas-ta Squeeze family, and other upstream sources that informed strategy design.</li>
-      <li><b>Public live view:</b> <a href="https://tyler109j.github.io/lab-report/">tyler109j.github.io/lab-report</a></li>
-    </ul>
-  </div>
-
-  <div class="docs-section">
-    <h3>Honest limits (what we don't know yet)</h3>
-    <ul class="docs-ul">
-      <li><b>Live execution:</b> 0 actual paper fills. 145 signals logged in dry-run;
-        no real OANDA fills, no real spread/slippage confirmation. <i>paper_track.py</i> simulates fills but
-        hasn't been validated against live fills.</li>
-      <li><b>Costs:</b> v2 spread + swap model hasn't been calibrated against real OANDA fills. Slippage is a
-        fixed 0.2 pips — real execution could be much wider during news.</li>
-      <li><b>Regimes:</b> the 187-day window is mostly trending FX. No 2020-style vol spike, no central-bank
-        shock, no USD-supply crisis in sample. Robustness across regimes is unproven.</li>
-      <li><b>Stub families:</b> 3 of 10 strategies (order_flow_imbal, keltner_squeeze,
-        ichimoku_cloud) are scaffolded stubs that return [] signals. They consume rotation slots but produce
-        0 trades until implemented.</li>
-      <li><b>Correlated-drawdown risk:</b> all 10 live-eligible runs are the same family
-        (<code>confluence</code>). If that family stops working, the entire shared account feels it.</li>
-    </ul>
-  </div>
-
+  </table>
+  <p class="note">Legend: ✅ pass &nbsp; ⚠️ watch &nbsp; ❌ fail &nbsp; ❔ unknown (no measurement yet). Unknown items must be promoted to pass or fail before live deployment.</p>
 </div>
-  
-<div class="panel">
-  <h2><span class="ic">🚧</span> What's blocking live</h2>
-  <p class="note">
-    Every forward-tested run, sorted by how many of the 8 promotion gates it clears.
-    A run only goes live at <strong>8/8</strong>. The list below is literally the to-do
-    list for the autonomous loop — these are the exact metrics that need to improve.
-  </p>
-  
-  <div class="blk">
-    <div class="rid">#7997</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · confluence · OOS Sharpe 2.59</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#8003</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · confluence · OOS Sharpe 1.57</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#11452</div>
-    <div class="meta">
-      <div class="nm">EUR_USD · confluence · OOS Sharpe 2.80</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#8712</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · confluence · OOS Sharpe 1.49</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#974</div>
-    <div class="meta">
-      <div class="nm">EUR_USD · confluence · OOS Sharpe 2.03</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#1265</div>
-    <div class="meta">
-      <div class="nm">EUR_USD · confluence · OOS Sharpe 2.03</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#9223</div>
-    <div class="meta">
-      <div class="nm">EUR_USD · confluence · OOS Sharpe 2.33</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#7261</div>
-    <div class="meta">
-      <div class="nm">USD_JPY · confluence · OOS Sharpe 1.10</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#11357</div>
-    <div class="meta">
-      <div class="nm">USD_JPY · confluence · OOS Sharpe 1.10</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#10913</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · confluence · OOS Sharpe 1.59</div>
-      <div class="gates"><span class="gate-ok">✓ all gates passed</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--green)">8/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#3370</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · confluence · OOS Sharpe 2.59</div>
-      <div class="gates"><span class="gate-x">✗ Walk-fwd median ≥ 1.0</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--orange)">7/8</span><br>gates</div>
-  </div>
-  <div class="blk">
-    <div class="rid">#1099</div>
-    <div class="meta">
-      <div class="nm">EUR_JPY · divergence_at_sr · OOS Sharpe 3.29</div>
-      <div class="gates"><span class="gate-x">✗ Walk-fwd median ≥ 1.0</span></div>
-    </div>
-    <div class="prox"><span class="frac" style="color:var(--orange)">7/8</span><br>gates</div>
-  </div>
+
+<div class="sec">
+  <h2><span class="num">3</span> Strategy Identity Card</h2>
+  <table>
+    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 7 strategy families (10 live-eligible runs)</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: M15 · filter: H1</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>ee89a56 (report: improve equity chart visualization)</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-18T18:28:13Z</td></tr></tbody>
+  </table>
 </div>
-  
-<div class="panel">
-  <h2><span class="ic">⌖</span> Per-strategy health</h2>
-  <p class="note">
-    <strong>Decay</strong> = OOS vs IS Sharpe (edge held?). <strong>WF</strong> = walk-forward
-    median (stability, need ≥1.0). <strong>Def</strong> = deflated Sharpe (overfit check, need >0.95).
-    The sparkline traces 90-day rolling OOS Sharpe over time.
-  </p>
-  <div style="margin-bottom:10px;font-size:12.5px"><span style="color:var(--green)">● 10 healthy</span> · <span style="color:var(--orange)">● 20 watch</span> · <span style="color:var(--red)">● 0 failing</span> · <span style="color:var(--muted)">● 0 thin</span></div>
-  <table><thead><tr>
-    <th>Run</th><th>Family</th><th>Pair</th><th class="num">IS</th><th class="num">OOS</th>
-    <th class="num">Decay</th><th class="num">OOS n</th><th class="num">RR</th>
-    <th class="num">Def</th><th class="num">WF</th><th class="num">90d trend</th><th>Verdict</th>
-  </tr></thead><tbody><tr>
-  <td><b>#7997</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">3.12</td><td class="num">2.59</td>
-  <td class="num orange">-17%</td>
-  <td class="num">24</td>
-  <td class="num ">1.92</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.70</td>
-  <td class="num"><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="1.0,17.0 23.7,17.0 46.3,17.0 69.0,17.0" fill="none" stroke="#6aa6ff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#8003</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.11</td><td class="num">1.57</td>
-  <td class="num orange">-26%</td>
-  <td class="num">39</td>
-  <td class="num ">1.92</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.76</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#11452</b></td><td>confluence</td><td>EUR_USD</td>
-  <td class="num">3.11</td><td class="num">2.80</td>
-  <td class="num green">-10%</td>
-  <td class="num">21</td>
-  <td class="num ">1.18</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.38</td>
-  <td class="num"><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="1.0,17.0 69.0,17.0" fill="none" stroke="#6aa6ff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#8712</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.04</td><td class="num">1.49</td>
-  <td class="num orange">-27%</td>
-  <td class="num">39</td>
-  <td class="num ">1.72</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.57</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#974</b></td><td>confluence</td><td>EUR_USD</td>
-  <td class="num">2.14</td><td class="num">2.03</td>
-  <td class="num green">-5%</td>
-  <td class="num">34</td>
-  <td class="num ">1.07</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.78</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#1265</b></td><td>confluence</td><td>EUR_USD</td>
-  <td class="num">2.14</td><td class="num">2.03</td>
-  <td class="num green">-5%</td>
-  <td class="num">34</td>
-  <td class="num ">1.07</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.78</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#9223</b></td><td>confluence</td><td>EUR_USD</td>
-  <td class="num">3.11</td><td class="num">2.33</td>
-  <td class="num orange">-25%</td>
-  <td class="num">22</td>
-  <td class="num ">1.18</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.38</td>
-  <td class="num"><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="1.0,17.0 35.0,17.0 69.0,17.0" fill="none" stroke="#6aa6ff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#7261</b></td><td>confluence</td><td>USD_JPY</td>
-  <td class="num">2.56</td><td class="num">1.10</td>
-  <td class="num red">-57%</td>
-  <td class="num">39</td>
-  <td class="num ">1.93</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.28</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#11357</b></td><td>confluence</td><td>USD_JPY</td>
-  <td class="num">2.56</td><td class="num">1.10</td>
-  <td class="num red">-57%</td>
-  <td class="num">39</td>
-  <td class="num ">1.93</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.28</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#10913</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.63</td><td class="num">1.59</td>
-  <td class="num red">-40%</td>
-  <td class="num">31</td>
-  <td class="num ">1.25</td>
-  <td class="num">1.00</td>
-  <td class="num green">1.11</td>
-  <td class="num">—</td>
-  <td><span class="badge b-pass">🟢 live</span></td>
-</tr><tr>
-  <td><b>#3370</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.00</td><td class="num">2.59</td>
-  <td class="num green">+30%</td>
-  <td class="num">29</td>
-  <td class="num ">4.32</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.84</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#1099</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">3.38</td><td class="num">3.29</td>
-  <td class="num green">-3%</td>
-  <td class="num">39</td>
-  <td class="num ">2.97</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.52</td>
-  <td class="num"><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="1.0,17.0 7.2,17.0 13.4,17.0 19.5,17.0 25.7,17.0 31.9,17.0 38.1,17.0 44.3,17.0 50.5,17.0 56.6,17.0 62.8,17.0 69.0,17.0" fill="none" stroke="#6aa6ff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#2563</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.18</td><td class="num">2.53</td>
-  <td class="num green">+16%</td>
-  <td class="num">27</td>
-  <td class="num ">4.19</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.00</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#866</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">2.45</td><td class="num">2.59</td>
-  <td class="num green">+6%</td>
-  <td class="num">54</td>
-  <td class="num ">2.87</td>
-  <td class="num">—</td>
-  <td class="num red">0.62</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#936</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">2.45</td><td class="num">2.59</td>
-  <td class="num green">+6%</td>
-  <td class="num">54</td>
-  <td class="num ">2.87</td>
-  <td class="num">—</td>
-  <td class="num red">0.62</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#976</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">2.01</td><td class="num">2.59</td>
-  <td class="num green">+29%</td>
-  <td class="num">54</td>
-  <td class="num ">2.87</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.62</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#9597</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.05</td><td class="num">2.44</td>
-  <td class="num green">+19%</td>
-  <td class="num">27</td>
-  <td class="num ">4.24</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.00</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#1071</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">2.15</td><td class="num">2.40</td>
-  <td class="num green">+12%</td>
-  <td class="num">58</td>
-  <td class="num ">2.89</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.62</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#4512</b></td><td>divergence_at_sr</td><td>EUR_JPY</td>
-  <td class="num">2.54</td><td class="num">2.32</td>
-  <td class="num green">-9%</td>
-  <td class="num">28</td>
-  <td class="num ">4.60</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.42</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#10136</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.21</td><td class="num">2.90</td>
-  <td class="num green">+32%</td>
-  <td class="num">22</td>
-  <td class="num ">3.74</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.00</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#7933</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.00</td><td class="num">2.57</td>
-  <td class="num green">+28%</td>
-  <td class="num">22</td>
-  <td class="num ">4.06</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.00</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#8338</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.31</td><td class="num">1.74</td>
-  <td class="num orange">-25%</td>
-  <td class="num">40</td>
-  <td class="num ">5.16</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.91</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#8913</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.31</td><td class="num">1.74</td>
-  <td class="num orange">-25%</td>
-  <td class="num">40</td>
-  <td class="num ">5.16</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.91</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#9321</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.31</td><td class="num">1.74</td>
-  <td class="num orange">-25%</td>
-  <td class="num">40</td>
-  <td class="num ">5.16</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.91</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#11146</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.31</td><td class="num">1.74</td>
-  <td class="num orange">-25%</td>
-  <td class="num">40</td>
-  <td class="num ">5.16</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.91</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#7422</b></td><td>divergence_at_sr</td><td>EUR_USD</td>
-  <td class="num">2.37</td><td class="num">1.65</td>
-  <td class="num red">-31%</td>
-  <td class="num">47</td>
-  <td class="num ">5.20</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.71</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#8633</b></td><td>divergence_at_sr</td><td>EUR_USD</td>
-  <td class="num">2.37</td><td class="num">1.65</td>
-  <td class="num red">-31%</td>
-  <td class="num">47</td>
-  <td class="num ">5.20</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.71</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#6591</b></td><td>confluence</td><td>EUR_JPY</td>
-  <td class="num">2.03</td><td class="num">2.51</td>
-  <td class="num green">+24%</td>
-  <td class="num">27</td>
-  <td class="num ">3.18</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.00</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#3180</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.27</td><td class="num">2.20</td>
-  <td class="num green">-3%</td>
-  <td class="num">36</td>
-  <td class="num ">3.22</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.86</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr><tr>
-  <td><b>#3629</b></td><td>divergence_at_sr</td><td>GBP_USD</td>
-  <td class="num">2.27</td><td class="num">2.20</td>
-  <td class="num green">-3%</td>
-  <td class="num">36</td>
-  <td class="num ">3.22</td>
-  <td class="num">1.00</td>
-  <td class="num red">0.86</td>
-  <td class="num">—</td>
-  <td><span class="badge b-warn">🟡 unstable</span></td>
-</tr></tbody></table>
+
+<div class="sec">
+  <h2><span class="num">4</span> Performance: Backtest vs OOS vs Forward-Test</h2>
+  <p>Three <b>separate</b> slices. Never blend. The gap between backtest and forward is the headline risk signal — what you trusted vs what you got.</p>
+  <div class="perf-3col"><div class="perf-block">
+      <h4>Backtest (in-sample, all runs)</h4>
+      <div class="row"><span class="k">Runs</span><span class="v ">10,713</span></div><div class="row"><span class="k">Trades</span><span class="v ">2,341,955</span></div><div class="row"><span class="k">Win rate</span><span class="v ">40.5%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.50</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.54</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.94</span></div><div class="row"><span class="k">Total return</span><span class="v ">-27.7%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">32.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
+      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=10,713</div>
+    </div><div class="perf-block">
+      <h4>Out-of-Sample (forward_pass=1)</h4>
+      <div class="row"><span class="k">Runs</span><span class="v ">81</span></div><div class="row"><span class="k">Trades</span><span class="v ">3,509</span></div><div class="row"><span class="k">Win rate</span><span class="v ">56.0%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.26</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">1.01</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.44</span></div><div class="row"><span class="k">Total return</span><span class="v ">32.9%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.3%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">14.6%</span></div>
+      <div class="gap-flag">Held-out window · n_runs=81</div>
+    </div><div class="perf-block">
+      <h4>Forward-Test (live_eligible=1)</h4>
+      <div class="row"><span class="k">Runs</span><span class="v ">10</span></div><div class="row"><span class="k">Trades</span><span class="v ">416</span></div><div class="row"><span class="k">Win rate</span><span class="v ">64.7%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.26</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.64</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.55</span></div><div class="row"><span class="k">Total return</span><span class="v ">22.0%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">3.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">4.9%</span></div>
+      <div class="gap-flag">BT Sharpe -4.94 → FWD Sharpe 2.55 (Δ = -7.49)</div>
+    </div></div>
+  <div class="note">
+          <b>Rolling 30-day OOS (last 30 days):</b>
+          246 windows ·
+          avg Sharpe 6.08 ·
+          avg return 2.3% ·
+          avg max DD 1.4% ·
+          avg WR 71.6%
+        </div>
+  <div class="note">
+          <b>Paper-track fills (dry-run):</b>
+          144 trades ·
+          0 wins / 0 losses ·
+          WR 0.0% ·
+          cumulative PnL +0.00 ·
+          144 still open
+        </div>
+  <p class="note">Walk-forward passers (rolling OOS stability): <b>60</b> runs · avg Sharpe <b>2.53</b> · avg PF <b>2.25</b> · worst DD <b>8.2%</b></p>
 </div>
-  
-<div class="panel">
-  <h2><span class="ic">🧪</span> Strategy families in rotation</h2>
-  <p class="note">
-    Every day at 04:00 UTC, the system picks the next family from the queue, scaffolds a
-    basic implementation (if not yet done), runs 30 random configs of it through the
-    backtester, and rotates the queue. The 14-entry queue gives us ~2 weeks of new
-    families to explore before any repeat. A family stays in the rotation as long as
-    it's in the cycle, and the cycle weights families with no qualifying runs
-    (n &lt; 30 or Sharpe &lt; 0.5) more heavily — underperformers get more attention.
-  </p>
-  <div class="lastrun"><b>Last daily run:</b> 2026-06-18T15:34Z · picked <code>ichimoku_cloud</code> · 30 configs · best Sharpe 0.00 · <b>next pick:</b> <code>range_bound</code></div>
-  <table><thead><tr>
-    <th>Family</th><th>Status</th><th class="num">Runs (n≥30)</th>
-    <th class="num">Best Sharpe</th><th>What it is</th>
-  </tr></thead><tbody><tr>
-  <td><code>range_bound</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Range-bound: detect a high/low channel and fade the extremes</td>
-</tr><tr>
-  <td><code>fibonacci_retr</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Fibonacci retracement: enter on 38.2%/61.8% pullbacks of the prior swing</td>
-</tr><tr>
-  <td><code>momentum_rotation</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Cross-pair momentum rotation: long strongest pair, short weakest on a weekly rotation</td>
-</tr><tr>
-  <td><code>vwap_deviation</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">VWAP deviation: fade moves that stretch too far from the daily VWAP</td>
-</tr><tr>
-  <td><code>rsi_divergence_2</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">RSI divergence v2: classic pivots + MACD histogram confirmation</td>
-</tr><tr>
-  <td><code>session_open</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">London/NY session open momentum: directional bias at the first 30 min of each session</td>
-</tr><tr>
-  <td><code>atr_breakout_v2</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">ATR-normalized breakout: Donchian with adaptive bands based on ATR percentile</td>
-</tr><tr>
-  <td><code>liquidity_sweep</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Liquidity sweep: enter on stop-hunts above prior highs / below prior lows that reverse</td>
-</tr><tr>
-  <td><code>gap_fill</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Gap fill (weekend): enter on Monday gaps toward Friday close</td>
-</tr><tr>
-  <td><code>trend_strength</code></td>
-  <td><span class="badge b-warn">queued</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Trend strength filter: ADX + 3 EMA alignment, momentum continuation</td>
-</tr><tr>
-  <td><code>volume_nodes</code></td>
-  <td><span class="badge b-pass">live</span></td>
-  <td class="num">750</td>
-  <td class="num muted">-0.48</td>
-  <td class="muted">VPVR — trade reactions at high-volume price levels (implemented 2026-06-16)</td>
-</tr><tr>
-  <td><code>order_flow_imbal</code></td>
-  <td><span class="badge b-pass">live</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Order-flow imbalance: detect buy/sell pressure via consecutive up/down volume runs (scaffolded)</td>
-</tr><tr>
-  <td><code>keltner_squeeze</code></td>
-  <td><span class="badge b-pass">live</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Keltner channel squeeze breakout — enter when volatility contracts then expands (scaffolded)</td>
-</tr><tr>
-  <td><code>ichimoku_cloud</code></td>
-  <td><span class="badge b-pass">live</span></td>
-  <td class="num">0</td>
-  <td class="num muted">—</td>
-  <td class="muted">Ichimoku Kumo: trade with the cloud (Tenkan/Kijun cross + cloud direction) (scaffolded)</td>
-</tr></tbody></table>
+<div class="sec">
+          <h2><span class="num">4b</span> Equity Curve & Drawdown</h2>
+          <p>Stitched equity for the 10 live-eligible runs (8/8 gates cleared) on a shared $1,000 account with 1% risk per trade and 1R-multiple scaling. <span id="chart-synthetic-note" style="display:none;color:var(--orange)">Synthetic fallback — equity_series.json missing.</span></p>
+          <div class="chart-wrap"><canvas id="chart-equity"></canvas></div>
+          <p style="margin-top:12px;color:var(--dim)">Drawdown (peak-to-trough, % of running peak).</p>
+          <div class="chart-wrap"><canvas id="chart-dd"></canvas></div>
+        </div>
+<div class="sec">
+  <h2><span class="num">5</span> Execution Cost Stress Test</h2>
+  <p>Re-applies cost penalties to existing live-eligible trades at 1× / 2× / 3× of modeled spread+slippage. Tests whether edge survives bad execution days.</p>
+  <table>
+    <thead><tr><th>Metric</th><th class="num">Ideal (1×)</th><th class="num">Realistic (5×)</th><th class="num">Stress (15×)</th><th class="num">Net @ stress</th><th>Verdict</th></tr></thead>
+    <tbody><tr>
+          <td><b>Avg net return (10 live-eligible)</b></td>
+          <td class="num">modeled (v2)</td>
+          <td class="num">5× modeled</td>
+          <td class="num">15× modeled</td>
+          <td class="num">+17.8%</td>
+          <td><span class="badge pass">Pass</span></td>
+        </tr><tr>
+          <td><b>Profit factor (avg)</b></td>
+          <td class="num">modeled (v2)</td>
+          <td class="num">5× modeled</td>
+          <td class="num">15× modeled</td>
+          <td class="num">+3.0%</td>
+          <td><span class="badge warn">Watch</span></td>
+        </tr><tr>
+          <td><b>Max DD observed</b></td>
+          <td class="num">modeled (v2)</td>
+          <td class="num">5× modeled</td>
+          <td class="num">15× modeled</td>
+          <td class="num">+0.0%</td>
+          <td><span class="badge fail">Fail</span></td>
+        </tr></tbody>
+  </table>
+  <p class="note">Notes on rejected orders / missed fills / session-specific performance: <b>Not yet tracked separately</b>. paper_track.py logs every entry signal but does not currently distinguish filled vs rejected by OANDA (it never calls the order endpoint).</p>
 </div>
-  
-<div class="panel">
-  <h2><span class="ic">⚙</span> What the system is doing</h2>
-  <p class="note">Six autonomous loops run on cron. Green dot = active.</p>
-  <div class="loops">
-    <div class="loop"><div class="ln"><span class="dot"></span>Inner search</div>
-      <div class="lk">cycle.sh · every 15 min</div>
-      <div class="lv"><b>376</b> cycles / 24h, <b>9320</b> runs,
-        <b>416</b> passed in-sample</div></div>
-    <div class="loop"><div class="ln"><span class="dot"></span>Forward test</div>
-      <div class="lk">forward_test.py · hourly</div>
-      <div class="lv">OOS gate: Sharpe≥1, RR&gt;1. <b>81</b> runs forward-tested</div></div>
-    <div class="loop"><div class="ln"><span class="dot"></span>Walk-forward</div>
-      <div class="lk">rolling_forward.py · every 6h</div>
-      <div class="lv">30/60/90d rolling OOS, feeds the stability gate</div></div>
-    <div class="loop"><div class="ln"><span class="dot"></span>Meta-learning</div>
-      <div class="lk">meta_cycle.py · daily 02:00</div>
-      <div class="lv">Reweights pairs/families toward what's working</div></div>
-    <div class="loop"><div class="ln"><span class="dot"></span>Paper-track</div>
-      <div class="lk">paper_track.py · every 15 min</div>
-      <div class="lv">Last: <b>heat_cap EUR_USD @ None (2026-06-18T18:16Z)</b></div></div>
-    <div class="loop"><div class="ln"><span class="dot"></span>Promotion gauntlet</div>
-      <div class="lk">weekly_revalidate.py · Sun 06:00 UTC</div>
-      <div class="lv">Runs all 8 gates, auto-promotes any 8/8 to live</div></div>
+
+<div class="sec">
+  <h2><span class="num">6</span> Statistical Confidence</h2>
+  <div class="grid-4">
+    <div class="stat"><div class="k">Variants tested</div><div class="v">12,699</div><div class="s">backtests in lab.db</div></div>
+    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">8,943</div><div class="s">with selection-bias correction</div></div>
+    <div class="stat"><div class="k">Std Sharpe (forward)</div><div class="v">2.55</div><div class="s">avg across live-eligible</div></div>
+    <div class="stat"><div class="k">Avg Deflated Sharpe</div><div class="v">1.00</div><div class="s">live-eligible</div></div>
+  </div>
+  <p style="margin-top:14px"><b>Track record:</b> 416 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 8,943 of 12,699 variants.</p>
+  <p class="note"><b>Why this matters:</b> Because many variants may be tested during research, a high Sharpe alone is insufficient. The number of trials must be logged and selection-bias correction (deflated Sharpe) applied before promoting to live. The current system logs every variant and computes deflated Sharpe on all 10 live-eligible runs.</p>
+</div>
+
+<div class="sec">
+  <h2><span class="num">7</span> Monte Carlo / Risk-of-Ruin</h2>
+  <p>5,000 bootstrap simulations × 200 trades each. Per-trade outcomes sampled from live-eligible empirical distribution (Bootstrap from live-eligible runs: avg_wr=0.65, avg_win=1.53R, n_sims=5000).</p>
+  <table>
+    <thead><tr><th class="num">Risk / trade</th><th class="num">Median final</th><th class="num">95th-pctile max DD</th><th class="num">Risk of ruin</th><th>Verdict</th></tr></thead>
+    <tbody><tr>
+          <td class="num"><b>0.10%</b></td>
+          <td class="num">1.134×</td>
+          <td class="num">0.8%</td>
+          <td class="num">0.00%</td>
+          <td><span class="badge pass">Pass</span></td>
+        </tr><tr>
+          <td class="num"><b>0.25%</b></td>
+          <td class="num">1.377×</td>
+          <td class="num">2.0%</td>
+          <td class="num">0.00%</td>
+          <td><span class="badge pass">Pass</span></td>
+        </tr><tr>
+          <td class="num"><b>0.50%</b></td>
+          <td class="num">1.893×</td>
+          <td class="num">3.9%</td>
+          <td class="num">0.00%</td>
+          <td><span class="badge pass">Pass</span></td>
+        </tr><tr>
+          <td class="num"><b>1.00%</b></td>
+          <td class="num">3.549×</td>
+          <td class="num">7.7%</td>
+          <td class="num">0.00%</td>
+          <td><span class="badge pass">Pass</span></td>
+        </tr></tbody>
+  </table>
+  <p class="note">Ruin threshold = account below 50% of starting balance. Verdict: <b>Pass</b> if ruin &lt; 1%, <b>Watch</b> if 1–10%, <b>Fail</b> if &gt; 10%.</p>
+</div>
+
+<div class="sec">
+  <h2><span class="num">8</span> OANDA Reconciliation</h2>
+  <table><tbody><tr><td><b>Open positions (local)</b></td><td>144</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>0</td></tr><tr><td><b>Fills without signal</b></td><td>0</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-18T18:16:43Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge pass">pass</span></td></tr></tbody></table>
+  <p class="note"><b>Major blocker for live promotion.</b> True broker reconciliation requires comparing local open positions to OANDA's <code>/v3/accounts/{{accountId}}/openTrades</code> endpoint. Currently <b>not implemented</b> — the system only reads candle data, never order/account state.</p>
+</div>
+
+<div class="sec">
+  <h2><span class="num">9</span> Operational Controls</h2>
+  <table>
+    <thead><tr><th>Control</th><th>Status</th></tr></thead>
+    <tbody><tr><td>Kill switch (manual)</td><td><span class="badge warn">warn</span></td></tr><tr><td>Kill switch (auto)</td><td><span class="badge fail">fail</span></td></tr><tr><td>Max daily loss</td><td><span class="badge fail">fail</span></td></tr><tr><td>Max weekly loss</td><td><span class="badge fail">fail</span></td></tr><tr><td>Max drawdown cap</td><td><span class="badge warn">warn</span></td></tr><tr><td>Max open risk (aggregate)</td><td><span class="badge warn">warn</span></td></tr><tr><td>Spread filter</td><td><span class="badge warn">warn</span></td></tr><tr><td>News filter</td><td><span class="badge fail">fail</span></td></tr><tr><td>API heartbeat</td><td><span class="badge pass">pass</span></td></tr><tr><td>Discord alerts</td><td><span class="badge pass">pass</span></td></tr><tr><td>Crash recovery</td><td><span class="badge warn">warn</span></td></tr><tr><td>Restart-safe state</td><td><span class="badge pass">pass</span></td></tr><tr><td>Secrets not in repo</td><td><span class="badge fail">fail</span></td></tr><tr><td>Config change detection</td><td><span class="badge warn">warn</span></td></tr><tr><td>Protected orders file</td><td><span class="badge warn">warn</span></td></tr><tr><td>Log retention</td><td>30 days</td></tr></tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <h2><span class="num">10</span> Known Failure Modes</h2>
+  <table>
+    <thead><tr><th>Mode</th><th>Impact</th><th>Detection</th><th>Mitigation</th><th>Status</th></tr></thead>
+    <tbody><tr>
+          <td><b>Spread spike (news / rollover)</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>watch OANDA spread indicator</td>
+          <td>Backtest modeled spread (v2); live filter not coded</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>Slippage exceeds model</b></td>
+          <td><span class="badge warn">medium</span></td>
+          <td>Compare paper_track fills to OANDA mid at signal time</td>
+          <td>Slippage modeled at 0.2 pip; live comparison not coded</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>OANDA API outage</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>HTTP error in oanda_client</td>
+          <td>paper_track continues with last-known prices; no retry logic yet</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>VPS / host outage</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>load_monitor cron silent > expected window</td>
+          <td>Daily refresh skips; manual restart needed</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>Bot crash mid-position</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>live_trades row with ts_opened but no close</td>
+          <td>Open positions re-loaded from DB on restart (assumed)</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>State corruption (DB)</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>sqlite3 integrity check on dashboard load</td>
+          <td>lab.db daily snapshot via cron; restore from snapshot</td>
+          <td><span class="badge pass">pass</span></td>
+        </tr><tr>
+          <td><b>Duplicate orders</b></td>
+          <td><span class="badge warn">medium</span></td>
+          <td>live_signals.action='enter' for same run_id within N seconds</td>
+          <td>OANDA clientOrderRef idempotency; not yet enforced in code</td>
+          <td><span class="badge warn">watch</span></td>
+        </tr><tr>
+          <td><b>Missing SL/TP</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>Pre-trade check on signal dict</td>
+          <td>Engine refuses signals without sl/tp</td>
+          <td><span class="badge pass">pass</span></td>
+        </tr><tr>
+          <td><b>News volatility</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>Calendar feed not integrated</td>
+          <td>None — would need news calendar + window filter</td>
+          <td><span class="badge fail">fail</span></td>
+        </tr><tr>
+          <td><b>Overfitting / strategy decay</b></td>
+          <td><span class="badge fail">high</span></td>
+          <td>Deflated Sharpe, walk-forward passers, rolling OOS drift</td>
+          <td>weekly_revalidate demotes live_eligible when OOS Sharpe drops</td>
+          <td><span class="badge pass">pass</span></td>
+        </tr><tr>
+          <td><b>Pair degradation (regime change)</b></td>
+          <td><span class="badge warn">medium</span></td>
+          <td>30d rolling OOS Sharpe < 0</td>
+          <td>rolling_forward.py flags; meta_cycle reweights</td>
+          <td><span class="badge pass">pass</span></td>
+        </tr><tr>
+          <td><b>Credential exposure (git push)</b></td>
+          <td><span class="badge unk">critical</span></td>
+          <td>Pre-push grep for OANDA_API_KEY literals</td>
+          <td>Token in env file, not in code; .env in .gitignore</td>
+          <td><span class="badge pass">pass</span></td>
+        </tr></tbody>
+  </table>
+</div>
+
+<div class="sec">
+  <h2><span class="num">11</span> Promotion Criteria</h2>
+  <p>Thresholds for each stage transition. A strategy cannot advance until every criterion in the current stage is met.</p>
+  <div style="margin-bottom:18px">
+          <h4 style="font-size:12px;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Research → Demo</h4>
+          <ol style="padding-left:20px;font-size:12.5px;color:var(--dim);line-height:1.7"><li>Backtest pass: n≥30, sharpe>0.5, WR>25%, DD≤30%</li><li>OOS validates: forward_pass=1 on held-out window</li><li>Code deployed to demo environment</li><li>Deflated Sharpe documented (selection-bias corrected)</li></ol>
+        </div>
+  <div style="margin-bottom:18px">
+          <h4 style="font-size:12px;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Demo → Micro-Live</h4>
+          <ol style="padding-left:20px;font-size:12.5px;color:var(--dim);line-height:1.7"><li>≥100 paper trades</li><li>≥60 calendar days of paper trading</li><li>Positive expectancy after costs (PF ≥ 1.20)</li><li>Max DD within 30% threshold</li><li>Kill switch tested (manual + auto)</li><li>No missing SL/TP in paper_trades</li><li>No critical errors for 14 consecutive days</li><li>Deflated Sharpe documented</li></ol>
+        </div>
+  <div style="margin-bottom:18px">
+          <h4 style="font-size:12px;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Micro-Live → Larger Allocation</h4>
+          <ol style="padding-left:20px;font-size:12.5px;color:var(--dim);line-height:1.7"><li>≥50 live trades</li><li>Real slippage within modeled range (±0.2 pip)</li><li>Positive live expectancy</li><li>No operational failures (API outages, crashes)</li><li>No reconciliation mismatches</li><li>Max observed DD < 20% on live</li></ol>
+        </div>
+</div>
+
+<div class="sec">
+  <h2><span class="num">12</span> Micro-Live Pilot Plan</h2>
+  <p>Risk envelope for the first 60-day pilot if the verdict above is <b>PILOT_READY</b>. Each constraint is enforced by the operator — not by code.</p>
+  <table><tbody><tr><td><b>Starting risk / trade</b></td><td>0.5% (half of backtest)</td></tr><tr><td><b>Max daily loss</b></td><td>2.0%</td></tr><tr><td><b>Max weekly loss</b></td><td>5.0%</td></tr><tr><td><b>Max drawdown</b></td><td>20.0%</td></tr><tr><td><b>Max open trades</b></td><td>3</td></tr><tr><td><b>Max open risk (aggregate)</b></td><td>1.5%</td></tr><tr><td><b>Allowed pairs</b></td><td>EUR_USD, USD_JPY</td></tr><tr><td><b>Disallowed pairs</b></td><td>GBP_USD, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pilot duration</b></td><td>60 days</td></tr><tr><td><b>Review cadence</b></td><td>every 7 days</td></tr></tbody></table>
+  <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px">
+    <div>
+      <h4 style="font-size:12px;color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Stop conditions (abort)</h4>
+      <ul style="padding-left:20px;font-size:12.5px;color:var(--dim);line-height:1.7"><li>Cumulative DD > 15%</li><li>Any 3 consecutive losing days</li><li>API error rate > 5% in 24h</li><li>Reconciliation mismatch > 0 trades</li><li>Manual abort by operator</li></ul>
+    </div>
+    <div>
+      <h4 style="font-size:12px;color:var(--green);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Promotion conditions (to larger)</h4>
+      <ul style="padding-left:20px;font-size:12.5px;color:var(--dim);line-height:1.7"><li>60 days completed with positive net R</li><li>Sharpe > 0.5 on live period</li><li>No stop condition triggered</li><li>PF > 1.20 after costs</li><li>DD < 15% peak-to-trough</li></ul>
+    </div>
   </div>
 </div>
-  
-<div class="panel">
-  <h2><span class="ic">🌐</span> Pair coverage</h2>
-  <p class="note">Best in-sample Sharpe per pair (n≥30 runs). The cycle picker
-    biases compute toward weaker pairs to keep coverage even.</p>
-  <table><thead><tr><th>Pair</th><th class="num">Runs (n≥30)</th><th class="num">Best Sharpe</th></tr></thead>
-  <tbody><tr><td>EUR_USD</td><td class="num">619</td>
-          <td class="num green">4.22</td></tr><tr><td>GBP_USD</td><td class="num">737</td>
-          <td class="num green">2.31</td></tr><tr><td>USD_JPY</td><td class="num">876</td>
-          <td class="num green">2.56</td></tr><tr><td>USD_CHF</td><td class="num">488</td>
-          <td class="num green">2.44</td></tr><tr><td>AUD_USD</td><td class="num">1085</td>
-          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">1347</td>
-          <td class="num orange">1.08</td></tr><tr><td>USD_CAD</td><td class="num">810</td>
-          <td class="num green">3.32</td></tr><tr><td>EUR_GBP</td><td class="num">1126</td>
-          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">773</td>
-          <td class="num green">3.55</td></tr></tbody></table>
+
+<div class="sec">
+  <h2><span class="num">13</span> Report Metadata + Changelog</h2>
+  <table>
+    <tr><td><b>Report generated</b></td><td>2026-06-18T18:28:13Z</td></tr>
+    <tr><td><b>Data through</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr>
+    <tr><td><b>Strategy version</b></td><td>v2-costs</td></tr>
+    <tr><td><b>Git commit</b></td><td><code>ee89a56</code> · report: improve equity chart visualization · 2026-06-18T13:22:11+00:00</td></tr>
+    <tr><td><b>Branch</b></td><td>main · dirty = True</td></tr>
+  </table>
+  <p style="margin-top:14px"><b>Recent commits (last 10):</b></p>
+  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>ee89a56</code> report: improve equity chart visualization</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>4b073d0</code> reddit-scan: 2026-06-18 (trim to under 600 words)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>c7c4f80</code> reddit-scan: 2026-06-18</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>905fdfb</code> report: equity curve now simulates SHARED $1,000 account with 1%-of-current-balance sizing</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>dd4bc8b</code> chore: untrack lab.db (exceeds 100MB GitHub limit) — moved to gitignore</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>1a06bb4</code> docs: add draw.io architecture map (2 pages: system + signal flow)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>2a49196</code> docs: add draw.io architecture map of the FX Lab system</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>234c051</code> report: equity curve now shows only live-ready (8/8 gates) strategies</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>eb324e0</code> reddit-scan: 2026-06-17</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>a098165</code> strategies: port LuxAlgo VPVR + value_area_breakout family</li></ol>
 </div>
+
   
-<div class="panel unk">
-  <h2><span class="ic">⚠</span> What we don't know yet</h2>
-  <p class="note">The honest limits of this research. Read this before trusting any number above.</p>
-  <ul><li><span class="icn">▲</span><span><b>Data window.</b> 187 days of M15 candles. Need 1+ year to cover multiple regimes. Daily refresh cron is extending this.</span></li><li><span class="icn">▲</span><span><b>Live execution.</b> 0 paper trades actually executed. 145 signals logged in dry-run only — no real OANDA fills, no real spread/slippage confirmation.</span></li><li><span class="icn">▲</span><span><b>Costs.</b> Backtest applies modeled spread + swap (v2 costs). Not yet validated against live fills.</span></li><li><span class="icn">▲</span><span><b>Regimes.</b> Window is mostly trending FX. No 2020-style vol spike or central-bank shock in the sample.</span></li><li><span class="icn">▲</span><span><b>Scope.</b> 9 OANDA majors only. No crosses, exotics, or other asset classes.</span></li></ul>
+<div class="foot">
+  FX Research Lab · deployment-readiness report v2 · 2026-06-18T18:28:13Z<br>
+  Read-only against OANDA candles · no live orders · this document is the operator's go/no-go reference<br>
+  <a href="https://tyler109j.github.io/lab-report/" style="color:var(--accent);text-decoration:none">tyler109j.github.io/lab-report</a>
 </div>
-  <div class="foot">
-    FX Research Lab · rebuilt report v2 · organized by decision, not data source<br>
-    Read-only against OANDA candles · no live orders · 1% risk/trade · 30% portfolio DD cap<br>
-    <a href="https://tyler109j.github.io/lab-report/">tyler109j.github.io/lab-report</a>
-  </div>
-</div></body></html>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const metricsUrl = './metrics.json';
+
+async function loadMetrics() {
+  try {
+    const r = await fetch(metricsUrl, { cache: 'no-store' });
+    return await r.json();
+  } catch (e) {
+    console.error('metrics.json fetch failed:', e);
+    return null;
+  }
+}
+
+async function renderCharts() {
+  const m = await loadMetrics();
+  if (!m) {
+    document.getElementById('chart-equity').innerHTML =
+      '<div style="padding:60px;color:var(--muted);text-align:center">metrics.json not available — charts cannot render. Re-run weekly_audit.py + report.py.</div>';
+    return;
+  }
+
+  // ---- equity chart: stitch equity_curves for live-eligible runs ----
+  // We pull from a server endpoint if available; otherwise fall back to
+  // a single synthetic series derived from `perf.forward.total_return`.
+  try {
+    const eqResp = await fetch('./equity_series.json', { cache: 'no-store' });
+    if (eqResp.ok) {
+      const series = await eqResp.json();
+      drawEquity(series.points, series.drawdown);
+    } else {
+      drawSyntheticEquity(m);
+    }
+  } catch (e) {
+    drawSyntheticEquity(m);
+  }
+}
+
+function drawEquity(points, drawdown) {
+  const ctxE = document.getElementById('chart-equity');
+  const ctxD = document.getElementById('chart-dd');
+  if (!ctxE || !ctxD) return;
+
+  const labels = points.map(p => p.ts);
+  const equity = points.map(p => p.equity);
+  const ddPct = drawdown.map(p => (p.dd * 100).toFixed(2));
+
+  new Chart(ctxE, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Equity (shared $1k account)',
+        data: equity,
+        borderColor: '#6aa6ff',
+        backgroundColor: 'rgba(106,166,255,0.10)',
+        borderWidth: 1.5,
+        pointRadius: 0,
+        fill: true,
+        tension: 0.05,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#161b26',
+          borderColor: '#6aa6ff',
+          borderWidth: 1,
+          titleColor: '#e7ecf3',
+          bodyColor: '#aab3c0',
+          callbacks: {
+            title: ctx => ctx[0].label,
+            label: ctx => 'Equity: $' + ctx.parsed.y.toFixed(2),
+          }
+        }
+      },
+      scales: {
+        x: { display: false },
+        y: {
+          ticks: { color: '#707a8a', callback: v => '$' + v.toFixed(0) },
+          grid: { color: 'rgba(120,140,175,0.08)' }
+        }
+      }
+    }
+  });
+
+  new Chart(ctxD, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Drawdown %',
+        data: ddPct,
+        borderColor: '#ff5d6c',
+        backgroundColor: 'rgba(255,93,108,0.18)',
+        borderWidth: 1.5,
+        pointRadius: 0,
+        fill: true,
+        tension: 0.05,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#161b26',
+          borderColor: '#ff5d6c',
+          borderWidth: 1,
+          titleColor: '#e7ecf3',
+          bodyColor: '#aab3c0',
+          callbacks: {
+            label: ctx => 'DD: ' + ctx.parsed.y + '%',
+          }
+        }
+      },
+      scales: {
+        x: { display: false },
+        y: {
+          ticks: { color: '#707a8a', callback: v => v + '%' },
+          grid: { color: 'rgba(120,140,175,0.08)' }
+        }
+      }
+    }
+  });
+}
+
+function drawSyntheticEquity(m) {
+  // Fallback when equity_series.json not available — build a simple
+  // monotonic line from the forward-test aggregate total_return.
+  const fwd = (m.perf && m.perf.forward) || {};
+  const start = 1000;
+  const end = start * (1 + (fwd.total_return || 0));
+  const n = 50;
+  const points = [];
+  const drawdown = [];
+  let peak = start;
+  for (let i = 0; i <= n; i++) {
+    const v = start + (end - start) * (i / n);
+    peak = Math.max(peak, v);
+    const dd = (peak - v) / peak;
+    const ts = new Date(Date.now() - (n - i) * 86400000 * 6).toISOString().slice(0, 10);
+    points.push({ ts, equity: v });
+    drawdown.push({ ts, dd });
+  }
+  drawEquity(points, drawdown);
+  document.getElementById('chart-synthetic-note').style.display = 'block';
+}
+
+renderCharts();
+</script>
+
+</body>
+</html>
