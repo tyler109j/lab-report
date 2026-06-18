@@ -131,7 +131,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <h1>FX Research Lab</h1>
       <div class="sub">Autonomous multi-strategy FX research · 9 OANDA majors · 15m + 1h · read-only</div>
     </div>
-    <div class="ts">Generated 2026-06-18 16:51 UTC<br>12,369 runs · 81 forward-tested · 10 live</div>
+    <div class="ts">Generated 2026-06-18 17:06 UTC<br>12,416 runs · 81 forward-tested · 10 live</div>
   </div>
   
 <div class="verdict go">
@@ -154,13 +154,13 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     <div class="v orange">15.0%</div>
     <div class="s">cap is 30%</div></div>
   <div class="stat"><div class="k">Cycles / 24h</div>
-    <div class="v accent">362</div>
-    <div class="s">8970 runs, 5% pass</div></div>
+    <div class="v accent">364</div>
+    <div class="s">9020 runs, 5% pass</div></div>
   <div class="stat"><div class="k">Paper signals</div>
     <div class="v">145</div>
     <div class="s">enters logged (dry-run)</div></div>
   <div class="stat"><div class="k">Total runs</div>
-    <div class="v">12,369</div>
+    <div class="v">12,416</div>
     <div class="s">since project start</div></div>
 </div>
   
@@ -279,70 +279,70 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <tbody><tr>
           <td><code>divergence_at_sr</code></td>
           <td class="strat-blurb">RSI + MACD histogram divergence at pivot-derived S/R levels. Hypothesis: when price prints a higher-high but momentum prints a lower-high at a resistance level, the next move back to support is high-probability. 1h trend filter prevents counter-trend fades.</td>
-          <td class="num">2,088</td>
-          <td class="num">366</td>
+          <td class="num">2,091</td>
+          <td class="num">367</td>
           <td class="num">383.41</td>
           <td><span class="badge b-info">passing</span></td>
         </tr><tr>
           <td><code>mean_reversion</code></td>
           <td class="strat-blurb">Bollinger-band reversion with optional 1h trend filter. Hypothesis: in ranging regimes, prices that close outside 2σ revert to the mean within ~24h. The trend filter disables mean-reversion when the 1h regime is trending.</td>
-          <td class="num">2,666</td>
+          <td class="num">2,667</td>
           <td class="num">105</td>
           <td class="num">147.00</td>
           <td><span class="badge b-info">passing</span></td>
         </tr><tr>
           <td><code>breakout</code></td>
           <td class="strat-blurb">Donchian channel breakout with optional 1h trend filter. Hypothesis: a close above N-bar high (with N∈[20..80]) initiates a trend leg; the 1h filter prevents fading strong HTF trends.</td>
-          <td class="num">1,096</td>
+          <td class="num">1,098</td>
           <td class="num">0</td>
           <td class="num">0.47</td>
           <td><span class="badge">in rotation</span></td>
         </tr><tr>
           <td><code>confluence</code></td>
           <td class="strat-blurb">Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Hypothesis: when 3+ independent signals agree, the trade has higher expectancy than any single signal. Currently the highest-producing family — 10 of the live-eligible runs are this family.</td>
-          <td class="num">1,993</td>
+          <td class="num">1,996</td>
           <td class="num">249</td>
           <td class="num">458.72</td>
           <td><span class="badge b-ok">live</span></td>
         </tr><tr>
           <td><code>volume_nodes</code></td>
           <td class="strat-blurb">VPVR (Volume Profile Visible Range) — identify price levels with the highest recent volume and trade reactions at those nodes. Hypothesis: high-volume nodes act as support/resistance because they represent zones where many participants established positions. Idea source: LuxAlgo VPVR indicator.</td>
-          <td class="num">885</td>
+          <td class="num">886</td>
           <td class="num">0</td>
           <td class="num">0.00</td>
           <td><span class="badge">in rotation</span></td>
         </tr><tr>
           <td><code>value_area_breakout</code></td>
           <td class="strat-blurb">Trade the Value Area edges (VAH/VAL) computed from the rolling VPVR. When price crosses VAH in an uptrend, BUY; when it crosses VAL in a downtrend, SELL. Sibling family to volume_nodes.</td>
-          <td class="num">1,496</td>
+          <td class="num">1,500</td>
           <td class="num">4</td>
           <td class="num">1.07</td>
           <td><span class="badge b-info">passing</span></td>
         </tr><tr>
           <td><code>squeeze_breakout</code></td>
           <td class="strat-blurb">TTM-Squeeze LazyBear: when Bollinger Bands collapse inside Keltner Channels for N+ bars (volatility compression) and then expand back out, take the direction of the LazyBear momentum histogram. 1h trend filter prevents counter-trend breakouts.</td>
-          <td class="num">1,969</td>
+          <td class="num">1,972</td>
           <td class="num">42</td>
           <td class="num">135.36</td>
           <td><span class="badge b-info">passing</span></td>
         </tr><tr>
           <td><code>order_flow_imbal</code></td>
           <td class="strat-blurb">STUB — Order-flow imbalance: detect buy/sell pressure via consecutive up/down volume runs. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">61</td>
+          <td class="num">69</td>
           <td class="num">0</td>
           <td class="num">0.00</td>
           <td><span class="badge b-warn">stub</span></td>
         </tr><tr>
           <td><code>keltner_squeeze</code></td>
           <td class="strat-blurb">STUB — Keltner channel squeeze breakout: enter when volatility contracts (Keltner squeeze) then expands. Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">49</td>
+          <td class="num">65</td>
           <td class="num">0</td>
           <td class="num">0.00</td>
           <td><span class="badge b-warn">stub</span></td>
         </tr><tr>
           <td><code>ichimoku_cloud</code></td>
           <td class="strat-blurb">STUB — Ichimoku Kumo: trade with the cloud (Tenkan/Kijun cross + cloud direction). Real implementation TBD. Currently scaffolds in rotation but produces 0 signals.</td>
-          <td class="num">66</td>
+          <td class="num">72</td>
           <td class="num">0</td>
           <td class="num">0.00</td>
           <td><span class="badge b-warn">stub</span></td>
@@ -976,7 +976,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
 </tr><tr>
   <td><code>volume_nodes</code></td>
   <td><span class="badge b-pass">live</span></td>
-  <td class="num">747</td>
+  <td class="num">748</td>
   <td class="num muted">-0.48</td>
   <td class="muted">VPVR — trade reactions at high-volume price levels (implemented 2026-06-16)</td>
 </tr><tr>
@@ -1006,8 +1006,8 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
   <div class="loops">
     <div class="loop"><div class="ln"><span class="dot"></span>Inner search</div>
       <div class="lk">cycle.sh · every 15 min</div>
-      <div class="lv"><b>362</b> cycles / 24h, <b>8970</b> runs,
-        <b>411</b> passed in-sample</div></div>
+      <div class="lv"><b>364</b> cycles / 24h, <b>9020</b> runs,
+        <b>412</b> passed in-sample</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Forward test</div>
       <div class="lk">forward_test.py · hourly</div>
       <div class="lv">OOS gate: Sharpe≥1, RR&gt;1. <b>81</b> runs forward-tested</div></div>
@@ -1019,7 +1019,7 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
       <div class="lv">Reweights pairs/families toward what's working</div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Paper-track</div>
       <div class="lk">paper_track.py · every 15 min</div>
-      <div class="lv">Last: <b>heat_cap EUR_USD @ None (2026-06-18T16:46Z)</b></div></div>
+      <div class="lv">Last: <b>heat_cap EUR_USD @ None (2026-06-18T17:01Z)</b></div></div>
     <div class="loop"><div class="ln"><span class="dot"></span>Promotion gauntlet</div>
       <div class="lk">weekly_revalidate.py · Sun 06:00 UTC</div>
       <div class="lv">Runs all 8 gates, auto-promotes any 8/8 to live</div></div>
@@ -1032,14 +1032,14 @@ td.green{color:var(--green)} td.red{color:var(--red)} td.orange{color:var(--oran
     biases compute toward weaker pairs to keep coverage even.</p>
   <table><thead><tr><th>Pair</th><th class="num">Runs (n≥30)</th><th class="num">Best Sharpe</th></tr></thead>
   <tbody><tr><td>EUR_USD</td><td class="num">615</td>
-          <td class="num green">4.22</td></tr><tr><td>GBP_USD</td><td class="num">731</td>
-          <td class="num green">2.31</td></tr><tr><td>USD_JPY</td><td class="num">863</td>
-          <td class="num green">2.56</td></tr><tr><td>USD_CHF</td><td class="num">479</td>
-          <td class="num green">2.44</td></tr><tr><td>AUD_USD</td><td class="num">1077</td>
-          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">1332</td>
-          <td class="num orange">1.08</td></tr><tr><td>USD_CAD</td><td class="num">801</td>
+          <td class="num green">4.22</td></tr><tr><td>GBP_USD</td><td class="num">733</td>
+          <td class="num green">2.31</td></tr><tr><td>USD_JPY</td><td class="num">864</td>
+          <td class="num green">2.56</td></tr><tr><td>USD_CHF</td><td class="num">480</td>
+          <td class="num green">2.44</td></tr><tr><td>AUD_USD</td><td class="num">1079</td>
+          <td class="num orange">1.74</td></tr><tr><td>NZD_USD</td><td class="num">1335</td>
+          <td class="num orange">1.08</td></tr><tr><td>USD_CAD</td><td class="num">804</td>
           <td class="num green">3.32</td></tr><tr><td>EUR_GBP</td><td class="num">1117</td>
-          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">769</td>
+          <td class="num orange">1.79</td></tr><tr><td>EUR_JPY</td><td class="num">770</td>
           <td class="num green">3.55</td></tr></tbody></table>
 </div>
   
