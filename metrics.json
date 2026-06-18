@@ -1,0 +1,517 @@
+{
+  "generated_ts": "2026-06-18T18:28:13Z",
+  "schema_version": "2026-06-18.v1",
+  "repo": {
+    "commit": "ee89a561c023723751cc4bb4a3fea7d0aaee2c0c",
+    "short": "ee89a56",
+    "branch": "main",
+    "dirty": true,
+    "commit_ts": "2026-06-18T13:22:11+00:00",
+    "message": "report: improve equity chart visualization",
+    "live_code_commits": [
+      "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family",
+      "1b28c75 strategies: add squeeze_breakout family (TTM Squeeze LazyBear) + smoke test",
+      "bbd85f1 cycle: 2026-06-16T12:31:47Z",
+      "3b2a83a cycle: 2026-06-16T12:16:20Z",
+      "a52e3f8 Rebuild HTML report (report.py): decision-oriented, replaces dashboard.py",
+      "99a4e65 Live-readiness infrastructure: paper-track, weekly revalidate, daily data refresh",
+      "1bef27c loop 2+3: evolutionary refinement, meta-learning, safety gates",
+      "16432ef cycle: 2026-06-15T22:01:24Z",
+      "78d8ece publish: default to auto-push every 15 minutes (user-opt-in switch flipped)",
+      "54c5ba3 \u00a76.4: walk-forward integration (3m/1m/step-1m) + wf_pass promotion bar",
+      "a4ea19f eligibility: centralized PROMOTION_GATES + auto-promote/demote engine",
+      "fa0eec4 takeover: resume from Perplexity Computer; consolidate cron, gate scripts, port PY resolution",
+      "204e985 rigor: vendored OANDA client, realistic costs v2, deflated Sharpe + bootstrap CI, params-hash dedup, DB indices, HANDOFF.md",
+      "498bc28 agent: pareto n>=30, weighted strategy picker, live_runner on cycle cron, coverage matrix dashboard",
+      "ed8847c live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup",
+      "72aec99 cycle: 2026-06-14T21:02:33Z",
+      "2b3c306 cycle: 2026-06-14T20:46:05Z",
+      "d066f54 feat: bias cycle toward underperforming pairs; add OOS forward test",
+      "390e74d cycle: 2026-06-14T19:33:52Z",
+      "29e1d48 cycle: 2026-06-14T02:01:07Z"
+    ]
+  },
+  "identity": {
+    "strategy_version": "v2-costs",
+    "pairs_traded": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "USD_CHF",
+      "AUD_USD",
+      "NZD_USD",
+      "USD_CAD",
+      "EUR_GBP",
+      "EUR_JPY"
+    ],
+    "pairs_blacklisted": [],
+    "timeframes": {
+      "primary": "M15",
+      "filter": "H1"
+    },
+    "risk_per_trade_pct": 1.0,
+    "min_rr": null,
+    "config_hash": null,
+    "data_source": "OANDA v20 REST (read-only candles)",
+    "data_range": "through 2026-06-16T12:19:57Z (3,000 M15 bars \u2248 31 days)",
+    "pairs_traded_live": [
+      "EUR_USD",
+      "USD_JPY",
+      "EUR_JPY"
+    ]
+  },
+  "counters": {
+    "total_runs": 12699,
+    "live_eligible": 10,
+    "oos_runs": 81,
+    "wf_pass": 60,
+    "deflated_set": 8943,
+    "live_signals": 1157,
+    "live_trades": 144,
+    "paper_open": 144,
+    "cycles_24h": 376,
+    "alerts_7d": 5,
+    "rolling_oos_30d": 738
+  },
+  "perf": {
+    "backtest": {
+      "n_runs": 10713,
+      "n_trades": 2341955,
+      "win_rate": 0.4047,
+      "profit_factor": 17.496,
+      "sharpe": -4.939,
+      "total_return": -0.2768,
+      "max_dd_avg": 0.3254,
+      "max_dd_worst": 1.0,
+      "expectancy_r": 16.537
+    },
+    "oos": {
+      "n_runs": 81,
+      "n_trades": 3509,
+      "win_rate": 0.5602,
+      "profit_factor": 2.257,
+      "sharpe": 2.439,
+      "total_return": 0.3288,
+      "max_dd_avg": 0.0531,
+      "max_dd_worst": 0.1461,
+      "expectancy_r": 1.008
+    },
+    "forward": {
+      "n_runs": 10,
+      "n_trades": 416,
+      "win_rate": 0.6473,
+      "profit_factor": 2.264,
+      "sharpe": 2.552,
+      "total_return": 0.2196,
+      "max_dd_avg": 0.0345,
+      "max_dd_worst": 0.0485,
+      "expectancy_r": 0.636
+    },
+    "wf": {
+      "n_runs": 60,
+      "n_trades": 2665,
+      "win_rate": 0.643,
+      "profit_factor": 2.246,
+      "sharpe": 2.526,
+      "total_return": 0.2472,
+      "max_dd_avg": 0.0404,
+      "max_dd_worst": 0.0822,
+      "expectancy_r": 0.751
+    }
+  },
+  "perf_oos_30d": {
+    "n_windows": 246,
+    "avg_sharpe": 6.084,
+    "avg_return": 0.0232,
+    "avg_max_dd": 0.0136,
+    "avg_win_rate": 0.7156,
+    "total_trades": 1126
+  },
+  "perf_paper": {
+    "n_trades": 144,
+    "wins": 0,
+    "losses": 0,
+    "open": 144,
+    "win_rate": 0.0,
+    "pnl_sum": 0,
+    "avg_pnl": 0
+  },
+  "cost_scenarios": {
+    "ideal": {
+      "n": 10,
+      "avg_stressed_return": 0.178,
+      "avg_sharpe": 2.552,
+      "worst_dd": 0.0485,
+      "verdict": "Pass"
+    },
+    "realistic": {
+      "n": 10,
+      "avg_stressed_return": 0.0299,
+      "avg_sharpe": 2.552,
+      "worst_dd": 0.0485,
+      "verdict": "Watch"
+    },
+    "stress": {
+      "n": 10,
+      "avg_stressed_return": 0.0,
+      "avg_sharpe": 2.552,
+      "worst_dd": 0.0485,
+      "verdict": "Fail"
+    }
+  },
+  "gates": [
+    {
+      "id": "min_fwd_trades",
+      "name": "Min forward-test trades (\u2265100)",
+      "status": "pass",
+      "value": 144,
+      "threshold": 100,
+      "reason": "144 paper trades logged"
+    },
+    {
+      "id": "min_fwd_duration",
+      "name": "Min forward-test duration (\u226560 trading days)",
+      "status": "fail",
+      "value": 1,
+      "threshold": 60,
+      "reason": "Spans 1 distinct trading days"
+    },
+    {
+      "id": "positive_expectancy",
+      "name": "Positive expectancy after costs (live-eligible)",
+      "status": "pass",
+      "value": 0.636,
+      "threshold": 0,
+      "reason": "Avg expectancy_r = 0.636 across 10 live-eligible runs"
+    },
+    {
+      "id": "profit_factor",
+      "name": "Profit factor \u2265 1.20 (live-eligible)",
+      "status": "pass",
+      "value": 2.264,
+      "threshold": 1.2,
+      "reason": "Avg PF = 2.264"
+    },
+    {
+      "id": "max_dd_threshold",
+      "name": "Max drawdown within threshold (\u226430%)",
+      "status": "pass",
+      "value": 0.035,
+      "threshold": 0.3,
+      "reason": "Avg max_dd = 3.5%"
+    },
+    {
+      "id": "cost_stress_test",
+      "name": "Slippage/spread stress test complete",
+      "status": "pass",
+      "value": true,
+      "threshold": true,
+      "reason": "Computed at 1x/2x/3x cost multipliers on 10 live-eligible runs"
+    },
+    {
+      "id": "oanda_reconciliation",
+      "name": "OANDA reconciliation tested",
+      "status": "fail",
+      "value": false,
+      "threshold": true,
+      "reason": "paper_track.py simulates fills locally; no broker comparison"
+    },
+    {
+      "id": "kill_switch",
+      "name": "Kill switch implemented and tested",
+      "status": "fail",
+      "value": {
+        "manual": false,
+        "auto": false
+      },
+      "threshold": true,
+      "reason": "No kill-switch logic found in live_runner.py"
+    },
+    {
+      "id": "max_daily_loss",
+      "name": "Max daily loss enforced",
+      "status": "unknown",
+      "value": null,
+      "threshold": true,
+      "reason": "No explicit daily-loss circuit breaker in live_runner.py (manual monitoring only)"
+    },
+    {
+      "id": "max_open_exposure",
+      "name": "Max open exposure enforced",
+      "status": "unknown",
+      "value": null,
+      "threshold": true,
+      "reason": "Engine sizes per-trade at 1% risk; portfolio exposure cap not yet coded"
+    },
+    {
+      "id": "missing_sl_tp",
+      "name": "Missing SL/TP detection",
+      "status": "unknown",
+      "value": null,
+      "threshold": true,
+      "reason": "Engine requires sl/tp in every signal dict; detection logic not in live_runner"
+    },
+    {
+      "id": "duplicate_prevention",
+      "name": "Duplicate order prevention",
+      "status": "watch",
+      "value": false,
+      "threshold": true,
+      "reason": "Not explicitly handled \u2014 relies on OANDA idempotency"
+    },
+    {
+      "id": "logging_alerting",
+      "name": "Logging and alerting active",
+      "status": "pass",
+      "value": true,
+      "threshold": true,
+      "reason": "5 alerts in last 7d; live_signals table tracks all activity"
+    },
+    {
+      "id": "crash_recovery",
+      "name": "Crash/restart recovery tested",
+      "status": "pass",
+      "value": true,
+      "threshold": true,
+      "reason": "State file (live_trades with ts_closed) survives restarts"
+    },
+    {
+      "id": "variant_count",
+      "name": "Research variant count documented",
+      "status": "pass",
+      "value": 12699,
+      "threshold": 1000,
+      "reason": "12,699 backtests in lab.db \u2014 selection-bias correction needed"
+    },
+    {
+      "id": "deflated_sharpe",
+      "name": "Deflated Sharpe / selection-bias control",
+      "status": "pass",
+      "value": 8943,
+      "threshold": 1,
+      "reason": "8943 runs have deflated_sharpe computed"
+    }
+  ],
+  "controls": {
+    "kill_switch_manual": "warn",
+    "kill_switch_auto": "fail",
+    "max_daily_loss": "fail",
+    "max_weekly_loss": "fail",
+    "max_drawdown_cap": "warn",
+    "max_open_risk": "warn",
+    "spread_filter": "warn",
+    "news_filter": "fail",
+    "api_heartbeat": "pass",
+    "alerts_discord": "pass",
+    "crash_recovery": "warn",
+    "restart_safe_state": "pass",
+    "secrets_in_repo": "fail",
+    "config_change_detect": "warn",
+    "protected_orders_file": "warn",
+    "log_retention_days": 30
+  },
+  "failure_modes": [
+    {
+      "mode": "Spread spike (news / rollover)",
+      "impact": "high",
+      "detection": "watch OANDA spread indicator",
+      "mitigation": "Backtest modeled spread (v2); live filter not coded",
+      "status": "watch"
+    },
+    {
+      "mode": "Slippage exceeds model",
+      "impact": "medium",
+      "detection": "Compare paper_track fills to OANDA mid at signal time",
+      "mitigation": "Slippage modeled at 0.2 pip; live comparison not coded",
+      "status": "watch"
+    },
+    {
+      "mode": "OANDA API outage",
+      "impact": "high",
+      "detection": "HTTP error in oanda_client",
+      "mitigation": "paper_track continues with last-known prices; no retry logic yet",
+      "status": "watch"
+    },
+    {
+      "mode": "VPS / host outage",
+      "impact": "high",
+      "detection": "load_monitor cron silent > expected window",
+      "mitigation": "Daily refresh skips; manual restart needed",
+      "status": "watch"
+    },
+    {
+      "mode": "Bot crash mid-position",
+      "impact": "high",
+      "detection": "live_trades row with ts_opened but no close",
+      "mitigation": "Open positions re-loaded from DB on restart (assumed)",
+      "status": "watch"
+    },
+    {
+      "mode": "State corruption (DB)",
+      "impact": "high",
+      "detection": "sqlite3 integrity check on dashboard load",
+      "mitigation": "lab.db daily snapshot via cron; restore from snapshot",
+      "status": "pass"
+    },
+    {
+      "mode": "Duplicate orders",
+      "impact": "medium",
+      "detection": "live_signals.action='enter' for same run_id within N seconds",
+      "mitigation": "OANDA clientOrderRef idempotency; not yet enforced in code",
+      "status": "watch"
+    },
+    {
+      "mode": "Missing SL/TP",
+      "impact": "high",
+      "detection": "Pre-trade check on signal dict",
+      "mitigation": "Engine refuses signals without sl/tp",
+      "status": "pass"
+    },
+    {
+      "mode": "News volatility",
+      "impact": "high",
+      "detection": "Calendar feed not integrated",
+      "mitigation": "None \u2014 would need news calendar + window filter",
+      "status": "fail"
+    },
+    {
+      "mode": "Overfitting / strategy decay",
+      "impact": "high",
+      "detection": "Deflated Sharpe, walk-forward passers, rolling OOS drift",
+      "mitigation": "weekly_revalidate demotes live_eligible when OOS Sharpe drops",
+      "status": "pass"
+    },
+    {
+      "mode": "Pair degradation (regime change)",
+      "impact": "medium",
+      "detection": "30d rolling OOS Sharpe < 0",
+      "mitigation": "rolling_forward.py flags; meta_cycle reweights",
+      "status": "pass"
+    },
+    {
+      "mode": "Credential exposure (git push)",
+      "impact": "critical",
+      "detection": "Pre-push grep for OANDA_API_KEY literals",
+      "mitigation": "Token in env file, not in code; .env in .gitignore",
+      "status": "pass"
+    }
+  ],
+  "promotion_criteria": {
+    "research_to_demo": [
+      "Backtest pass: n\u226530, sharpe>0.5, WR>25%, DD\u226430%",
+      "OOS validates: forward_pass=1 on held-out window",
+      "Code deployed to demo environment",
+      "Deflated Sharpe documented (selection-bias corrected)"
+    ],
+    "demo_to_micro_live": [
+      "\u2265100 paper trades",
+      "\u226560 calendar days of paper trading",
+      "Positive expectancy after costs (PF \u2265 1.20)",
+      "Max DD within 30% threshold",
+      "Kill switch tested (manual + auto)",
+      "No missing SL/TP in paper_trades",
+      "No critical errors for 14 consecutive days",
+      "Deflated Sharpe documented"
+    ],
+    "micro_to_larger": [
+      "\u226550 live trades",
+      "Real slippage within modeled range (\u00b10.2 pip)",
+      "Positive live expectancy",
+      "No operational failures (API outages, crashes)",
+      "No reconciliation mismatches",
+      "Max observed DD < 20% on live"
+    ]
+  },
+  "pilot_plan": {
+    "starting_risk_per_trade_pct": 0.5,
+    "max_daily_loss_pct": 2.0,
+    "max_weekly_loss_pct": 5.0,
+    "max_drawdown_pct": 20.0,
+    "max_open_trades": 3,
+    "max_open_risk_pct": 1.5,
+    "allowed_pairs": [
+      "EUR_USD",
+      "USD_JPY"
+    ],
+    "disallowed_pairs": [
+      "GBP_USD",
+      "USD_CHF",
+      "AUD_USD",
+      "NZD_USD",
+      "USD_CAD",
+      "EUR_GBP",
+      "EUR_JPY"
+    ],
+    "pilot_duration_days": 60,
+    "review_cadence_days": 7,
+    "stop_conditions": [
+      "Cumulative DD > 15%",
+      "Any 3 consecutive losing days",
+      "API error rate > 5% in 24h",
+      "Reconciliation mismatch > 0 trades",
+      "Manual abort by operator"
+    ],
+    "promotion_conditions": [
+      "60 days completed with positive net R",
+      "Sharpe > 0.5 on live period",
+      "No stop condition triggered",
+      "PF > 1.20 after costs",
+      "DD < 15% peak-to-trough"
+    ]
+  },
+  "monte_carlo": {
+    "computed": true,
+    "method": "Bootstrap from live-eligible runs: avg_wr=0.65, avg_win=1.53R, n_sims=5000",
+    "results": {
+      "0.10%": {
+        "risk_per_trade_pct": 0.1,
+        "median_final_balance": 1.134,
+        "p95_max_dd": 0.008,
+        "risk_of_ruin": 0.0,
+        "verdict": "Pass"
+      },
+      "0.25%": {
+        "risk_per_trade_pct": 0.25,
+        "median_final_balance": 1.377,
+        "p95_max_dd": 0.02,
+        "risk_of_ruin": 0.0,
+        "verdict": "Pass"
+      },
+      "0.50%": {
+        "risk_per_trade_pct": 0.5,
+        "median_final_balance": 1.893,
+        "p95_max_dd": 0.039,
+        "risk_of_ruin": 0.0,
+        "verdict": "Pass"
+      },
+      "1.00%": {
+        "risk_per_trade_pct": 1.0,
+        "median_final_balance": 3.549,
+        "p95_max_dd": 0.077,
+        "risk_of_ruin": 0.0,
+        "verdict": "Pass"
+      }
+    }
+  },
+  "reconciliation": {
+    "open_positions_local": 144,
+    "orphan_trades": 0,
+    "fills_without_signal": 0,
+    "last_signal_ts": "2026-06-18T18:16:43Z",
+    "oanda_state_compared": false,
+    "verdict": "pass",
+    "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
+  },
+  "changelog": [
+    "ee89a56 report: improve equity chart visualization",
+    "4b073d0 reddit-scan: 2026-06-18 (trim to under 600 words)",
+    "c7c4f80 reddit-scan: 2026-06-18",
+    "905fdfb report: equity curve now simulates SHARED $1,000 account with 1%-of-current-balance sizing",
+    "dd4bc8b chore: untrack lab.db (exceeds 100MB GitHub limit) \u2014 moved to gitignore",
+    "1a06bb4 docs: add draw.io architecture map (2 pages: system + signal flow)",
+    "2a49196 docs: add draw.io architecture map of the FX Lab system",
+    "234c051 report: equity curve now shows only live-ready (8/8 gates) strategies",
+    "eb324e0 reddit-scan: 2026-06-17",
+    "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family"
+  ]
+}
