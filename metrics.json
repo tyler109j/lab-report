@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-18T18:45:57Z",
+  "generated_ts": "2026-06-19T12:46:23Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "ce207aeee16dd7e1e9b37c99177fbc03624f838c",
-    "short": "ce207ae",
+    "commit": "3d72ed84b591466a842f85ea948da294a05ef5e1",
+    "short": "3d72ed8",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-18T18:30:29+00:00",
-    "message": "Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria",
+    "commit_ts": "2026-06-19T04:03:33+00:00",
+    "message": "load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)",
     "live_code_commits": [
       "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family",
       "1b28c75 strategies: add squeeze_breakout family (TTM Squeeze LazyBear) + smoke test",
@@ -61,40 +61,40 @@
     ]
   },
   "counters": {
-    "total_runs": 12744,
+    "total_runs": 17207,
     "live_eligible": 10,
-    "oos_runs": 81,
-    "wf_pass": 60,
-    "deflated_set": 8958,
-    "live_signals": 1167,
+    "oos_runs": 86,
+    "wf_pass": 63,
+    "deflated_set": 10235,
+    "live_signals": 2071,
     "live_trades": 144,
     "paper_open": 144,
-    "cycles_24h": 378,
+    "cycles_24h": 470,
     "alerts_7d": 5,
-    "rolling_oos_30d": 738
+    "rolling_oos_30d": 1095
   },
   "perf": {
     "backtest": {
-      "n_runs": 10730,
-      "n_trades": 2345204,
-      "win_rate": 0.4047,
-      "profit_factor": 17.563,
-      "sharpe": -4.913,
-      "total_return": -0.2769,
-      "max_dd_avg": 0.3254,
+      "n_runs": 12111,
+      "n_trades": 2608113,
+      "win_rate": 0.4031,
+      "profit_factor": 17.625,
+      "sharpe": -5.017,
+      "total_return": -0.2789,
+      "max_dd_avg": 0.3269,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.604
+      "expectancy_r": 16.67
     },
     "oos": {
-      "n_runs": 81,
-      "n_trades": 3509,
-      "win_rate": 0.5602,
-      "profit_factor": 2.257,
-      "sharpe": 2.439,
-      "total_return": 0.3288,
-      "max_dd_avg": 0.0531,
+      "n_runs": 86,
+      "n_trades": 3723,
+      "win_rate": 0.5647,
+      "profit_factor": 2.271,
+      "sharpe": 2.463,
+      "total_return": 0.3281,
+      "max_dd_avg": 0.0521,
       "max_dd_worst": 0.1461,
-      "expectancy_r": 1.008
+      "expectancy_r": 1.003
     },
     "forward": {
       "n_runs": 10,
@@ -108,24 +108,24 @@
       "expectancy_r": 0.636
     },
     "wf": {
-      "n_runs": 60,
-      "n_trades": 2665,
-      "win_rate": 0.643,
-      "profit_factor": 2.246,
-      "sharpe": 2.526,
-      "total_return": 0.2472,
-      "max_dd_avg": 0.0404,
+      "n_runs": 63,
+      "n_trades": 2785,
+      "win_rate": 0.6493,
+      "profit_factor": 2.273,
+      "sharpe": 2.555,
+      "total_return": 0.2436,
+      "max_dd_avg": 0.0397,
       "max_dd_worst": 0.0822,
-      "expectancy_r": 0.751
+      "expectancy_r": 0.739
     }
   },
   "perf_oos_30d": {
-    "n_windows": 246,
-    "avg_sharpe": 6.084,
-    "avg_return": 0.0232,
-    "avg_max_dd": 0.0136,
-    "avg_win_rate": 0.7156,
-    "total_trades": 1126
+    "n_windows": 365,
+    "avg_sharpe": 6.144,
+    "avg_return": 0.0256,
+    "avg_max_dd": 0.0132,
+    "avg_win_rate": 0.7174,
+    "total_trades": 1680
   },
   "perf_paper": {
     "n_trades": 144,
@@ -211,21 +211,21 @@
     {
       "id": "oanda_reconciliation",
       "name": "OANDA reconciliation tested",
-      "status": "fail",
-      "value": false,
+      "status": "pass",
+      "value": true,
       "threshold": true,
-      "reason": "paper_track.py simulates fills locally; no broker comparison"
+      "reason": "live_runner.py contains reconciliation logic"
     },
     {
       "id": "kill_switch",
       "name": "Kill switch implemented and tested",
-      "status": "fail",
+      "status": "pass",
       "value": {
-        "manual": false,
-        "auto": false
+        "manual": true,
+        "auto": true
       },
       "threshold": true,
-      "reason": "No kill-switch logic found in live_runner.py"
+      "reason": "manual=True, auto=True"
     },
     {
       "id": "max_daily_loss",
@@ -254,10 +254,10 @@
     {
       "id": "duplicate_prevention",
       "name": "Duplicate order prevention",
-      "status": "watch",
-      "value": false,
+      "status": "pass",
+      "value": true,
       "threshold": true,
-      "reason": "Not explicitly handled \u2014 relies on OANDA idempotency"
+      "reason": "live_runner.py references duplicate/dedup"
     },
     {
       "id": "logging_alerting",
@@ -279,17 +279,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 12744,
+      "value": 17207,
       "threshold": 1000,
-      "reason": "12,744 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "17,207 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 8958,
+      "value": 10235,
       "threshold": 1,
-      "reason": "8958 runs have deflated_sharpe computed"
+      "reason": "10235 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -497,12 +497,14 @@
     "open_positions_local": 144,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-18T18:32:08Z",
+    "last_signal_ts": "2026-06-19T12:46:15Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "3d72ed8 load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)",
+    "fb76e88 chart: per-run equity overlay (no fake compounding)",
     "ce207ae Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria",
     "ee89a56 report: improve equity chart visualization",
     "4b073d0 reddit-scan: 2026-06-18 (trim to under 600 words)",
@@ -510,8 +512,6 @@
     "905fdfb report: equity curve now simulates SHARED $1,000 account with 1%-of-current-balance sizing",
     "dd4bc8b chore: untrack lab.db (exceeds 100MB GitHub limit) \u2014 moved to gitignore",
     "1a06bb4 docs: add draw.io architecture map (2 pages: system + signal flow)",
-    "2a49196 docs: add draw.io architecture map of the FX Lab system",
-    "234c051 report: equity curve now shows only live-ready (8/8 gates) strategies",
-    "eb324e0 reddit-scan: 2026-06-17"
+    "2a49196 docs: add draw.io architecture map of the FX Lab system"
   ]
 }
