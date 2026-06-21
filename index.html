@@ -246,7 +246,7 @@ table .neg { color: var(--red); }
     <h1>FX Research Lab — Live-Readiness Report</h1>
     <div class="sub">OANDA FX strategy validation · 9 majors · 15m + 1h · read-only against broker</div>
   </div>
-  <div class='ts'>Generated 2026-06-21T03:16:24Z<br>Branch main · commit <code>90bf6ec</code><br>Data range: through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</div>
+  <div class='ts'>Generated 2026-06-21T04:09:59Z<br>Branch main · commit <code>0582dd8</code><br>Data range: through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</div>
 </div>
 
   
@@ -262,9 +262,9 @@ table .neg { color: var(--red); }
     <span class="blk">⚠ Min forward-test duration (≥60 trading days)</span>
   </div>
   <div style="margin-top:18px;font-size:11.5px;color:var(--muted)">
-    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-21T03:16:24Z</code>
+    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-21T04:09:59Z</code>
     · Strategy version <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">v2-costs</code>
-    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">90bf6ec</code>
+    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">0582dd8</code>
   </div>
 </div>
 
@@ -345,13 +345,13 @@ table .neg { color: var(--red); }
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Research variant count documented</td>
-          <td class="num">25891</td>
-          <td>25,891 backtests in lab.db — selection-bias correction needed</td>
+          <td class="num">26041</td>
+          <td>26,041 backtests in lab.db — selection-bias correction needed</td>
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Deflated Sharpe / selection-bias control</td>
-          <td class="num">12786</td>
-          <td>12786 runs have deflated_sharpe computed</td>
+          <td class="num">12837</td>
+          <td>12837 runs have deflated_sharpe computed</td>
         </tr></tbody>
   </table>
   <p class="note">Legend: ✅ pass &nbsp; ⚠️ watch &nbsp; ❌ fail &nbsp; ❔ unknown (no measurement yet). Unknown items must be promoted to pass or fail before live deployment.</p>
@@ -360,7 +360,7 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">3</span> Strategy Identity Card</h2>
   <table>
-    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 1 strategy family across 10 live-eligible runs (confluence (10))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: M15 · filter: H1</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>90bf6ec (cycle: 2026-06-20T23:37:40Z)</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-21T03:16:24Z</td></tr></tbody>
+    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 1 strategy family across 10 live-eligible runs (confluence (10))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: M15 · filter: H1</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>0582dd8 (cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber))</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-21T04:09:59Z</td></tr></tbody>
   </table>
 </div>
 
@@ -369,8 +369,8 @@ table .neg { color: var(--red); }
   <p>Three <b>separate</b> slices. Never blend. The gap between backtest and forward is the headline risk signal — what you trusted vs what you got.</p>
   <div class="perf-3col"><div class="perf-block">
       <h4>Backtest (in-sample, all runs)</h4>
-      <div class="row"><span class="k">Runs</span><span class="v ">14,876</span></div><div class="row"><span class="k">Trades</span><span class="v ">3,163,234</span></div><div class="row"><span class="k">Win rate</span><span class="v ">40.0%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">18.11</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">17.16</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.72</span></div><div class="row"><span class="k">Total return</span><span class="v ">-28.3%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">33.1%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
-      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=14,876</div>
+      <div class="row"><span class="k">Runs</span><span class="v ">14,928</span></div><div class="row"><span class="k">Trades</span><span class="v ">3,176,287</span></div><div class="row"><span class="k">Win rate</span><span class="v ">40.0%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.91</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.97</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.72</span></div><div class="row"><span class="k">Total return</span><span class="v ">-28.3%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">33.1%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
+      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=14,928</div>
     </div><div class="perf-block">
       <h4>Out-of-Sample (forward_pass=1)</h4>
       <div class="row"><span class="k">Runs</span><span class="v ">109</span></div><div class="row"><span class="k">Trades</span><span class="v ">5,237</span></div><div class="row"><span class="k">Win rate</span><span class="v ">55.7%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.20</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.99</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.45</span></div><div class="row"><span class="k">Total return</span><span class="v ">34.4%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">15.6%</span></div>
@@ -378,7 +378,7 @@ table .neg { color: var(--red); }
     </div><div class="perf-block">
       <h4>Forward-Test (live_eligible=1)</h4>
       <div class="row"><span class="k">Runs</span><span class="v ">10</span></div><div class="row"><span class="k">Trades</span><span class="v ">416</span></div><div class="row"><span class="k">Win rate</span><span class="v ">64.7%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.26</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.64</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.55</span></div><div class="row"><span class="k">Total return</span><span class="v ">22.0%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">3.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">4.9%</span></div>
-      <div class="gap-flag">BT Sharpe -4.72 → FWD Sharpe 2.55 (Δ = -7.28)</div>
+      <div class="gap-flag">BT Sharpe -4.72 → FWD Sharpe 2.55 (Δ = -7.27)</div>
     </div></div>
   <div class="note">
           <b>Rolling 30-day OOS (last 30 days):</b>
@@ -439,12 +439,12 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">6</span> Statistical Confidence</h2>
   <div class="grid-4">
-    <div class="stat"><div class="k">Variants tested</div><div class="v">25,891</div><div class="s">backtests in lab.db</div></div>
-    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">12,786</div><div class="s">with selection-bias correction</div></div>
+    <div class="stat"><div class="k">Variants tested</div><div class="v">26,041</div><div class="s">backtests in lab.db</div></div>
+    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">12,837</div><div class="s">with selection-bias correction</div></div>
     <div class="stat"><div class="k">Std Sharpe (forward)</div><div class="v">2.55</div><div class="s">avg across live-eligible</div></div>
     <div class="stat"><div class="k">Avg Deflated Sharpe</div><div class="v">1.00</div><div class="s">live-eligible</div></div>
   </div>
-  <p style="margin-top:14px"><b>Track record:</b> 416 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 12,786 of 25,891 variants.</p>
+  <p style="margin-top:14px"><b>Track record:</b> 416 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 12,837 of 26,041 variants.</p>
   <p class="note"><b>Why this matters:</b> Because many variants may be tested during research, a high Sharpe alone is insufficient. The number of trials must be logged and selection-bias correction (deflated Sharpe) applied before promoting to live. The current system logs every variant and computes deflated Sharpe on all 10 live-eligible runs.</p>
 </div>
 
@@ -484,7 +484,7 @@ table .neg { color: var(--red); }
 
 <div class="sec">
   <h2><span class="num">8</span> OANDA Reconciliation</h2>
-  <table><tbody><tr><td><b>Open positions (local)</b></td><td>144</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>0</td></tr><tr><td><b>Fills without signal</b></td><td>0</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-21T03:16:05Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge pass">pass</span></td></tr></tbody></table>
+  <table><tbody><tr><td><b>Open positions (local)</b></td><td>144</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>0</td></tr><tr><td><b>Fills without signal</b></td><td>0</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-21T04:01:03Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge pass">pass</span></td></tr></tbody></table>
   <p class="note"><b>Major blocker for live promotion.</b> True broker reconciliation requires comparing local open positions to OANDA's <code>/v3/accounts/{{accountId}}/openTrades</code> endpoint. Currently <b>not implemented</b> — the system only reads candle data, never order/account state.</p>
 </div>
 
@@ -612,19 +612,19 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">13</span> Report Metadata + Changelog</h2>
   <table>
-    <tr><td><b>Report generated</b></td><td>2026-06-21T03:16:24Z</td></tr>
+    <tr><td><b>Report generated</b></td><td>2026-06-21T04:09:59Z</td></tr>
     <tr><td><b>Data through</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr>
     <tr><td><b>Strategy version</b></td><td>v2-costs</td></tr>
-    <tr><td><b>Git commit</b></td><td><code>90bf6ec</code> · cycle: 2026-06-20T23:37:40Z · 2026-06-20T23:37:40+00:00</td></tr>
+    <tr><td><b>Git commit</b></td><td><code>0582dd8</code> · cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber) · 2026-06-21T03:25:30+00:00</td></tr>
     <tr><td><b>Branch</b></td><td>main · dirty = True</td></tr>
   </table>
   <p style="margin-top:14px"><b>Recent commits (last 10):</b></p>
-  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>90bf6ec</code> cycle: 2026-06-20T23:37:40Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>7dfe530</code> cycle: 2026-06-20T23:09:02Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>bc5850e</code> reddit-scan: 2026-06-20</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>c59e30b</code> reddit-scan: 2026-06-19</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>006a4f0</code> goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>6049107</code> cycle: 2026-06-19T12:46:25Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>3d72ed8</code> load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>fb76e88</code> chart: per-run equity overlay (no fake compounding)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>ce207ae</code> Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>ee89a56</code> report: improve equity chart visualization</li></ol>
+  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>0582dd8</code> cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>ebe352b</code> cycle: 2026-06-21T03:25:14Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>f9be28e</code> cycle: 2026-06-21T03:16:26Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>0dff931</code> cycle: 2026-06-20T23:37:40Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>102cc34</code> cycle: 2026-06-20T23:09:02Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>6da2f6c</code> reddit-scan: 2026-06-20</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>398ab2a</code> reddit-scan: 2026-06-19</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>a634b0e</code> goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>9911d4d</code> cycle: 2026-06-19T12:46:25Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>d3784f0</code> load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)</li></ol>
 </div>
 
   
 <div class="foot">
-  FX Research Lab · deployment-readiness report v2 · 2026-06-21T03:16:24Z<br>
+  FX Research Lab · deployment-readiness report v2 · 2026-06-21T04:09:59Z<br>
   Read-only against OANDA candles · no live orders · this document is the operator's go/no-go reference<br>
   <a href="https://tyler109j.github.io/lab-report/" style="color:var(--accent);text-decoration:none">tyler109j.github.io/lab-report</a>
 </div>

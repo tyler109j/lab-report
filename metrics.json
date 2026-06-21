@@ -1,34 +1,34 @@
 {
-  "generated_ts": "2026-06-21T03:16:24Z",
+  "generated_ts": "2026-06-21T04:09:59Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "90bf6ec42410111b6c4c241a01fdc3fe5980e88f",
-    "short": "90bf6ec",
+    "commit": "0582dd8d644fedefde1f2dc1b440f91e26e80ea8",
+    "short": "0582dd8",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-20T23:37:40+00:00",
-    "message": "cycle: 2026-06-20T23:37:40Z",
+    "commit_ts": "2026-06-21T03:25:30+00:00",
+    "message": "cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber)",
     "live_code_commits": [
-      "006a4f0 goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
-      "6049107 cycle: 2026-06-19T12:46:25Z",
-      "a098165 strategies: port LuxAlgo VPVR + value_area_breakout family",
-      "1b28c75 strategies: add squeeze_breakout family (TTM Squeeze LazyBear) + smoke test",
-      "bbd85f1 cycle: 2026-06-16T12:31:47Z",
-      "3b2a83a cycle: 2026-06-16T12:16:20Z",
-      "a52e3f8 Rebuild HTML report (report.py): decision-oriented, replaces dashboard.py",
-      "99a4e65 Live-readiness infrastructure: paper-track, weekly revalidate, daily data refresh",
-      "1bef27c loop 2+3: evolutionary refinement, meta-learning, safety gates",
-      "16432ef cycle: 2026-06-15T22:01:24Z",
-      "78d8ece publish: default to auto-push every 15 minutes (user-opt-in switch flipped)",
-      "54c5ba3 \u00a76.4: walk-forward integration (3m/1m/step-1m) + wf_pass promotion bar",
-      "a4ea19f eligibility: centralized PROMOTION_GATES + auto-promote/demote engine",
-      "fa0eec4 takeover: resume from Perplexity Computer; consolidate cron, gate scripts, port PY resolution",
-      "204e985 rigor: vendored OANDA client, realistic costs v2, deflated Sharpe + bootstrap CI, params-hash dedup, DB indices, HANDOFF.md",
-      "498bc28 agent: pareto n>=30, weighted strategy picker, live_runner on cycle cron, coverage matrix dashboard",
-      "ed8847c live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup",
-      "72aec99 cycle: 2026-06-14T21:02:33Z",
-      "2b3c306 cycle: 2026-06-14T20:46:05Z",
-      "d066f54 feat: bias cycle toward underperforming pairs; add OOS forward test"
+      "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
+      "9911d4d cycle: 2026-06-19T12:46:25Z",
+      "fb2f70d strategies: port LuxAlgo VPVR + value_area_breakout family",
+      "5a0133f strategies: add squeeze_breakout family (TTM Squeeze LazyBear) + smoke test",
+      "e60bac4 cycle: 2026-06-16T12:31:47Z",
+      "733f56b cycle: 2026-06-16T12:16:20Z",
+      "7f72e18 Rebuild HTML report (report.py): decision-oriented, replaces dashboard.py",
+      "d72c968 Live-readiness infrastructure: paper-track, weekly revalidate, daily data refresh",
+      "5b81ab9 loop 2+3: evolutionary refinement, meta-learning, safety gates",
+      "bc5e90e cycle: 2026-06-15T22:01:24Z",
+      "e7533be publish: default to auto-push every 15 minutes (user-opt-in switch flipped)",
+      "43730da \u00a76.4: walk-forward integration (3m/1m/step-1m) + wf_pass promotion bar",
+      "4e42d8f eligibility: centralized PROMOTION_GATES + auto-promote/demote engine",
+      "fd9549b takeover: resume from Perplexity Computer; consolidate cron, gate scripts, port PY resolution",
+      "7f10c25 rigor: vendored OANDA client, realistic costs v2, deflated Sharpe + bootstrap CI, params-hash dedup, DB indices, HANDOFF.md",
+      "d2552c0 agent: pareto n>=30, weighted strategy picker, live_runner on cycle cron, coverage matrix dashboard",
+      "e9c47dc live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup",
+      "bbef09b cycle: 2026-06-14T21:02:33Z",
+      "dd706b2 cycle: 2026-06-14T20:46:05Z",
+      "0fdee00 feat: bias cycle toward underperforming pairs; add OOS forward test"
     ]
   },
   "identity": {
@@ -61,29 +61,29 @@
     ]
   },
   "counters": {
-    "total_runs": 25891,
+    "total_runs": 26041,
     "live_eligible": 10,
     "oos_runs": 109,
     "wf_pass": 76,
-    "deflated_set": 12786,
-    "live_signals": 3702,
+    "deflated_set": 12837,
+    "live_signals": 3732,
     "live_trades": 144,
     "paper_open": 144,
-    "cycles_24h": 612,
+    "cycles_24h": 628,
     "alerts_7d": 5,
     "rolling_oos_30d": 1644
   },
   "perf": {
     "backtest": {
-      "n_runs": 14876,
-      "n_trades": 3163234,
-      "win_rate": 0.3999,
-      "profit_factor": 18.109,
-      "sharpe": -4.725,
-      "total_return": -0.2832,
-      "max_dd_avg": 0.3309,
+      "n_runs": 14928,
+      "n_trades": 3176287,
+      "win_rate": 0.3995,
+      "profit_factor": 17.914,
+      "sharpe": -4.72,
+      "total_return": -0.2835,
+      "max_dd_avg": 0.3312,
       "max_dd_worst": 1.0,
-      "expectancy_r": 17.163
+      "expectancy_r": 16.968
     },
     "oos": {
       "n_runs": 109,
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 25891,
+      "value": 26041,
       "threshold": 1000,
-      "reason": "25,891 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "26,041 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 12786,
+      "value": 12837,
       "threshold": 1,
-      "reason": "12786 runs have deflated_sharpe computed"
+      "reason": "12837 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -508,21 +508,21 @@
     "open_positions_local": 144,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-21T03:16:05Z",
+    "last_signal_ts": "2026-06-21T04:01:03Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
-    "90bf6ec cycle: 2026-06-20T23:37:40Z",
-    "7dfe530 cycle: 2026-06-20T23:09:02Z",
-    "bc5850e reddit-scan: 2026-06-20",
-    "c59e30b reddit-scan: 2026-06-19",
-    "006a4f0 goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
-    "6049107 cycle: 2026-06-19T12:46:25Z",
-    "3d72ed8 load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)",
-    "fb76e88 chart: per-run equity overlay (no fake compounding)",
-    "ce207ae Upgrade live-readiness report: readiness gates, execution stress test, promotion criteria",
-    "ee89a56 report: improve equity chart visualization"
+    "0582dd8 cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber)",
+    "ebe352b cycle: 2026-06-21T03:25:14Z",
+    "f9be28e cycle: 2026-06-21T03:16:26Z",
+    "0dff931 cycle: 2026-06-20T23:37:40Z",
+    "102cc34 cycle: 2026-06-20T23:09:02Z",
+    "6da2f6c reddit-scan: 2026-06-20",
+    "398ab2a reddit-scan: 2026-06-19",
+    "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
+    "9911d4d cycle: 2026-06-19T12:46:25Z",
+    "d3784f0 load_monitor: fix false-positive cycle-overlap (true overlap requires curr.start < prev.end)"
   ]
 }
