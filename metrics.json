@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-22T19:19:38Z",
+  "generated_ts": "2026-06-22T20:37:23Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "989d45c5c7f494362936586f1552ac9b9c5f62d6",
-    "short": "989d45c",
+    "commit": "a25552efffc48c13754b5cbc44311863a9d9df7c",
+    "short": "a25552e",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-22T16:40:20+00:00",
-    "message": "cycle: 2026-06-22T16:40:20Z",
+    "commit_ts": "2026-06-22T19:25:30+00:00",
+    "message": "cycle: 2026-06-22T19:25:30Z",
     "live_code_commits": [
       "23da818 cycle: 2026-06-21T15:07:14Z",
       "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
@@ -61,29 +61,29 @@
     ]
   },
   "counters": {
-    "total_runs": 34153,
+    "total_runs": 34347,
     "live_eligible": 17,
     "oos_runs": 138,
     "wf_pass": 95,
-    "deflated_set": 15258,
-    "live_signals": 5734,
+    "deflated_set": 33833,
+    "live_signals": 5819,
     "live_trades": 144,
     "paper_open": 144,
-    "cycles_24h": 918,
+    "cycles_24h": 936,
     "alerts_7d": 5,
     "rolling_oos_30d": 2850
   },
   "perf": {
     "backtest": {
-      "n_runs": 17559,
-      "n_trades": 3707425,
+      "n_runs": 17634,
+      "n_trades": 3723738,
       "win_rate": 0.3967,
-      "profit_factor": 17.218,
-      "sharpe": -4.779,
-      "total_return": -0.2858,
-      "max_dd_avg": 0.3336,
+      "profit_factor": 17.317,
+      "sharpe": -4.772,
+      "total_return": -0.2857,
+      "max_dd_avg": 0.3335,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.276
+      "expectancy_r": 16.376
     },
     "oos": {
       "n_runs": 138,
@@ -146,14 +146,14 @@
     },
     "realistic": {
       "n": 17,
-      "avg_stressed_return": 0.0345,
+      "avg_stressed_return": 0.0198,
       "avg_sharpe": 2.549,
       "worst_dd": 0.0485,
       "verdict": "Watch"
     },
     "stress": {
       "n": 17,
-      "avg_stressed_return": 0.0,
+      "avg_stressed_return": -0.409,
       "avg_sharpe": 2.549,
       "worst_dd": 0.0485,
       "verdict": "Fail"
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 34153,
+      "value": 34347,
       "threshold": 1000,
-      "reason": "34,153 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "34,347 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 15258,
+      "value": 33833,
       "threshold": 1,
-      "reason": "15258 runs have deflated_sharpe computed"
+      "reason": "33833 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -508,12 +508,13 @@
     "open_positions_local": 144,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-22T19:16:09Z",
+    "last_signal_ts": "2026-06-22T20:30:48Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "a25552e cycle: 2026-06-22T19:25:30Z",
     "989d45c cycle: 2026-06-22T16:40:20Z",
     "c733d40 cycle: 2026-06-22T14:40:19Z",
     "07f55b4 cycle: 2026-06-22T13:40:03Z",
@@ -522,7 +523,6 @@
     "9dc9015 cycle: 2026-06-21T17:39:24Z",
     "b91c7e3 cron_manifest: refresh from current hermes cron state",
     "e0053bf AGENTS.md: document TASK 24 novelty-block silent demotion bug",
-    "aa91346 gitignore: lab.db-shm/wal and graphify AST cache (TASK 24)",
-    "23da818 cycle: 2026-06-21T15:07:14Z"
+    "aa91346 gitignore: lab.db-shm/wal and graphify AST cache (TASK 24)"
   ]
 }
