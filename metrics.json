@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-22T04:10:04Z",
+  "generated_ts": "2026-06-22T19:19:38Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "9dc90153cd1db6c7aca67c33dc559844b660d75e",
-    "short": "9dc9015",
+    "commit": "989d45c5c7f494362936586f1552ac9b9c5f62d6",
+    "short": "989d45c",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-21T17:39:24+00:00",
-    "message": "cycle: 2026-06-21T17:39:24Z",
+    "commit_ts": "2026-06-22T16:40:20+00:00",
+    "message": "cycle: 2026-06-22T16:40:20Z",
     "live_code_commits": [
       "23da818 cycle: 2026-06-21T15:07:14Z",
       "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
@@ -61,71 +61,71 @@
     ]
   },
   "counters": {
-    "total_runs": 31250,
-    "live_eligible": 12,
-    "oos_runs": 128,
-    "wf_pass": 86,
-    "deflated_set": 14380,
-    "live_signals": 4885,
+    "total_runs": 34153,
+    "live_eligible": 17,
+    "oos_runs": 138,
+    "wf_pass": 95,
+    "deflated_set": 15258,
+    "live_signals": 5734,
     "live_trades": 144,
     "paper_open": 144,
-    "cycles_24h": 618,
+    "cycles_24h": 918,
     "alerts_7d": 5,
-    "rolling_oos_30d": 2307
+    "rolling_oos_30d": 2850
   },
   "perf": {
     "backtest": {
-      "n_runs": 16612,
-      "n_trades": 3511466,
-      "win_rate": 0.3975,
-      "profit_factor": 17.376,
-      "sharpe": -4.838,
-      "total_return": -0.2847,
-      "max_dd_avg": 0.3325,
+      "n_runs": 17559,
+      "n_trades": 3707425,
+      "win_rate": 0.3967,
+      "profit_factor": 17.218,
+      "sharpe": -4.779,
+      "total_return": -0.2858,
+      "max_dd_avg": 0.3336,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.433
+      "expectancy_r": 16.276
     },
     "oos": {
-      "n_runs": 128,
-      "n_trades": 6578,
-      "win_rate": 0.5591,
-      "profit_factor": 2.173,
-      "sharpe": 2.487,
-      "total_return": 0.3569,
-      "max_dd_avg": 0.0573,
+      "n_runs": 138,
+      "n_trades": 7015,
+      "win_rate": 0.5598,
+      "profit_factor": 2.192,
+      "sharpe": 2.505,
+      "total_return": 0.3608,
+      "max_dd_avg": 0.0563,
       "max_dd_worst": 0.1715,
-      "expectancy_r": 0.97
+      "expectancy_r": 0.988
     },
     "forward": {
-      "n_runs": 12,
-      "n_trades": 508,
-      "win_rate": 0.6445,
-      "profit_factor": 2.228,
-      "sharpe": 2.53,
-      "total_return": 0.2197,
-      "max_dd_avg": 0.0357,
+      "n_runs": 17,
+      "n_trades": 729,
+      "win_rate": 0.6386,
+      "profit_factor": 2.22,
+      "sharpe": 2.549,
+      "total_return": 0.2342,
+      "max_dd_avg": 0.037,
       "max_dd_worst": 0.0485,
-      "expectancy_r": 0.626
+      "expectancy_r": 0.658
     },
     "wf": {
-      "n_runs": 86,
-      "n_trades": 3847,
-      "win_rate": 0.6536,
-      "profit_factor": 2.296,
-      "sharpe": 2.592,
-      "total_return": 0.2411,
-      "max_dd_avg": 0.0401,
+      "n_runs": 95,
+      "n_trades": 4220,
+      "win_rate": 0.6477,
+      "profit_factor": 2.31,
+      "sharpe": 2.602,
+      "total_return": 0.253,
+      "max_dd_avg": 0.0403,
       "max_dd_worst": 0.0822,
-      "expectancy_r": 0.717
+      "expectancy_r": 0.757
     }
   },
   "perf_oos_30d": {
-    "n_windows": 769,
-    "avg_sharpe": 6.256,
-    "avg_return": 0.0296,
+    "n_windows": 950,
+    "avg_sharpe": 6.185,
+    "avg_return": 0.0308,
     "avg_max_dd": 0.0129,
-    "avg_win_rate": 0.7262,
-    "total_trades": 3592
+    "avg_win_rate": 0.7286,
+    "total_trades": 4453
   },
   "perf_paper": {
     "n_trades": 144,
@@ -138,23 +138,23 @@
   },
   "cost_scenarios": {
     "ideal": {
-      "n": 12,
-      "avg_stressed_return": 0.1774,
-      "avg_sharpe": 2.53,
+      "n": 17,
+      "avg_stressed_return": 0.1914,
+      "avg_sharpe": 2.549,
       "worst_dd": 0.0485,
       "verdict": "Pass"
     },
     "realistic": {
-      "n": 12,
-      "avg_stressed_return": 0.0249,
-      "avg_sharpe": 2.53,
+      "n": 17,
+      "avg_stressed_return": 0.0345,
+      "avg_sharpe": 2.549,
       "worst_dd": 0.0485,
       "verdict": "Watch"
     },
     "stress": {
-      "n": 12,
+      "n": 17,
       "avg_stressed_return": 0.0,
-      "avg_sharpe": 2.53,
+      "avg_sharpe": 2.549,
       "worst_dd": 0.0485,
       "verdict": "Fail"
     }
@@ -180,25 +180,25 @@
       "id": "positive_expectancy",
       "name": "Positive expectancy after costs (live-eligible)",
       "status": "pass",
-      "value": 0.626,
+      "value": 0.658,
       "threshold": 0,
-      "reason": "Avg expectancy_r = 0.626 across 12 live-eligible runs"
+      "reason": "Avg expectancy_r = 0.658 across 17 live-eligible runs"
     },
     {
       "id": "profit_factor",
       "name": "Profit factor \u2265 1.20 (live-eligible)",
       "status": "pass",
-      "value": 2.228,
+      "value": 2.22,
       "threshold": 1.2,
-      "reason": "Avg PF = 2.228"
+      "reason": "Avg PF = 2.22"
     },
     {
       "id": "max_dd_threshold",
       "name": "Max drawdown within threshold (\u226430%)",
       "status": "pass",
-      "value": 0.036,
+      "value": 0.037,
       "threshold": 0.3,
-      "reason": "Avg max_dd = 3.6%"
+      "reason": "Avg max_dd = 3.7%"
     },
     {
       "id": "cost_stress_test",
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 31250,
+      "value": 34153,
       "threshold": 1000,
-      "reason": "31,250 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "34,153 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 14380,
+      "value": 15258,
       "threshold": 1,
-      "reason": "14380 runs have deflated_sharpe computed"
+      "reason": "15258 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -472,32 +472,32 @@
   },
   "monte_carlo": {
     "computed": true,
-    "method": "Bootstrap from live-eligible runs: avg_wr=0.64, avg_win=1.52R, n_sims=5000",
+    "method": "Bootstrap from live-eligible runs: avg_wr=0.64, avg_win=1.60R, n_sims=5000",
     "results": {
       "0.10%": {
         "risk_per_trade_pct": 0.1,
-        "median_final_balance": 1.133,
+        "median_final_balance": 1.141,
         "p95_max_dd": 0.008,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "0.25%": {
         "risk_per_trade_pct": 0.25,
-        "median_final_balance": 1.367,
+        "median_final_balance": 1.39,
         "p95_max_dd": 0.02,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "0.50%": {
         "risk_per_trade_pct": 0.5,
-        "median_final_balance": 1.864,
+        "median_final_balance": 1.928,
         "p95_max_dd": 0.039,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "1.00%": {
         "risk_per_trade_pct": 1.0,
-        "median_final_balance": 3.442,
+        "median_final_balance": 3.679,
         "p95_max_dd": 0.077,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
@@ -508,21 +508,21 @@
     "open_positions_local": 144,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-22T04:01:06Z",
+    "last_signal_ts": "2026-06-22T19:16:09Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "989d45c cycle: 2026-06-22T16:40:20Z",
+    "c733d40 cycle: 2026-06-22T14:40:19Z",
+    "07f55b4 cycle: 2026-06-22T13:40:03Z",
+    "be9016a cycle: 2026-06-22T07:39:16Z",
+    "21fd5af cycle: 2026-06-22T04:10:06Z",
     "9dc9015 cycle: 2026-06-21T17:39:24Z",
     "b91c7e3 cron_manifest: refresh from current hermes cron state",
     "e0053bf AGENTS.md: document TASK 24 novelty-block silent demotion bug",
     "aa91346 gitignore: lab.db-shm/wal and graphify AST cache (TASK 24)",
-    "23da818 cycle: 2026-06-21T15:07:14Z",
-    "b15b715 cycle: 2026-06-21T07:37:57Z",
-    "c12ccbe cycle: 2026-06-21T04:10:01Z",
-    "0582dd8 cron: cleanup (taxonomy names, re-stagger, manifest, stale-scrubber)",
-    "ebe352b cycle: 2026-06-21T03:25:14Z",
-    "f9be28e cycle: 2026-06-21T03:16:26Z"
+    "23da818 cycle: 2026-06-21T15:07:14Z"
   ]
 }
