@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-22T20:37:23Z",
+  "generated_ts": "2026-06-22T20:39:05Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "a25552efffc48c13754b5cbc44311863a9d9df7c",
-    "short": "a25552e",
+    "commit": "5f0cb40d3b1480bb7f90b27fab34da58e87a23e6",
+    "short": "5f0cb40",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-22T19:25:30+00:00",
-    "message": "cycle: 2026-06-22T19:25:30Z",
+    "commit_ts": "2026-06-22T20:37:25+00:00",
+    "message": "cycle: 2026-06-22T20:37:25Z",
     "live_code_commits": [
       "23da818 cycle: 2026-06-21T15:07:14Z",
       "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
@@ -68,7 +68,7 @@
     "deflated_set": 33833,
     "live_signals": 5819,
     "live_trades": 144,
-    "paper_open": 144,
+    "paper_open": 0,
     "cycles_24h": 936,
     "alerts_7d": 5,
     "rolling_oos_30d": 2850
@@ -131,7 +131,7 @@
     "n_trades": 144,
     "wins": 0,
     "losses": 0,
-    "open": 144,
+    "open": 0,
     "win_rate": 0.0,
     "pnl_sum": 0,
     "avg_pnl": 0
@@ -505,7 +505,7 @@
     }
   },
   "reconciliation": {
-    "open_positions_local": 144,
+    "open_positions_local": 0,
     "orphan_trades": 0,
     "fills_without_signal": 0,
     "last_signal_ts": "2026-06-22T20:30:48Z",
@@ -514,6 +514,7 @@
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "5f0cb40 cycle: 2026-06-22T20:37:25Z",
     "a25552e cycle: 2026-06-22T19:25:30Z",
     "989d45c cycle: 2026-06-22T16:40:20Z",
     "c733d40 cycle: 2026-06-22T14:40:19Z",
@@ -522,7 +523,6 @@
     "21fd5af cycle: 2026-06-22T04:10:06Z",
     "9dc9015 cycle: 2026-06-21T17:39:24Z",
     "b91c7e3 cron_manifest: refresh from current hermes cron state",
-    "e0053bf AGENTS.md: document TASK 24 novelty-block silent demotion bug",
-    "aa91346 gitignore: lab.db-shm/wal and graphify AST cache (TASK 24)"
+    "e0053bf AGENTS.md: document TASK 24 novelty-block silent demotion bug"
   ]
 }
