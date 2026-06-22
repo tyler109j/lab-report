@@ -1,14 +1,15 @@
 {
-  "generated_ts": "2026-06-22T20:39:05Z",
+  "generated_ts": "2026-06-22T20:39:53Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "5f0cb40d3b1480bb7f90b27fab34da58e87a23e6",
-    "short": "5f0cb40",
+    "commit": "92496150e8a0d724267cbad83c0aae0ec041531a",
+    "short": "9249615",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-22T20:37:25+00:00",
-    "message": "cycle: 2026-06-22T20:37:25Z",
+    "commit_ts": "2026-06-22T20:39:07+00:00",
+    "message": "cycle: 2026-06-22T20:39:07Z",
     "live_code_commits": [
+      "9249615 cycle: 2026-06-22T20:39:07Z",
       "23da818 cycle: 2026-06-21T15:07:14Z",
       "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
       "9911d4d cycle: 2026-06-19T12:46:25Z",
@@ -27,8 +28,7 @@
       "7f10c25 rigor: vendored OANDA client, realistic costs v2, deflated Sharpe + bootstrap CI, params-hash dedup, DB indices, HANDOFF.md",
       "d2552c0 agent: pareto n>=30, weighted strategy picker, live_runner on cycle cron, coverage matrix dashboard",
       "e9c47dc live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup",
-      "bbef09b cycle: 2026-06-14T21:02:33Z",
-      "dd706b2 cycle: 2026-06-14T20:46:05Z"
+      "bbef09b cycle: 2026-06-14T21:02:33Z"
     ]
   },
   "identity": {
@@ -514,6 +514,7 @@
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "9249615 cycle: 2026-06-22T20:39:07Z",
     "5f0cb40 cycle: 2026-06-22T20:37:25Z",
     "a25552e cycle: 2026-06-22T19:25:30Z",
     "989d45c cycle: 2026-06-22T16:40:20Z",
@@ -522,7 +523,6 @@
     "be9016a cycle: 2026-06-22T07:39:16Z",
     "21fd5af cycle: 2026-06-22T04:10:06Z",
     "9dc9015 cycle: 2026-06-21T17:39:24Z",
-    "b91c7e3 cron_manifest: refresh from current hermes cron state",
-    "e0053bf AGENTS.md: document TASK 24 novelty-block silent demotion bug"
+    "b91c7e3 cron_manifest: refresh from current hermes cron state"
   ]
 }
