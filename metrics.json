@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-23T04:22:38Z",
+  "generated_ts": "2026-06-23T17:28:19Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "cd4eca133355e2d421a8e05c951e1d2ba05f5190",
-    "short": "cd4eca1",
+    "commit": "d3a64c3a8841e5c87e6cbcb23a26a1b2708754ff",
+    "short": "d3a64c3",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-23T04:21:55+00:00",
-    "message": "cycle: 2026-06-23T04:21:55Z",
+    "commit_ts": "2026-06-23T04:22:40+00:00",
+    "message": "cycle: 2026-06-23T04:22:40Z",
     "live_code_commits": [
       "426d1ac cycle: 2026-06-23T00:14:22Z",
       "9249615 cycle: 2026-06-22T20:39:07Z",
@@ -61,40 +61,40 @@
     ]
   },
   "counters": {
-    "total_runs": 35740,
+    "total_runs": 38092,
     "live_eligible": 17,
-    "oos_runs": 140,
-    "wf_pass": 96,
-    "deflated_set": 34235,
-    "live_signals": 6296,
+    "oos_runs": 142,
+    "wf_pass": 99,
+    "deflated_set": 34886,
+    "live_signals": 7164,
     "live_trades": 144,
     "paper_open": 0,
-    "cycles_24h": 556,
+    "cycles_24h": 792,
     "alerts_7d": 0,
-    "rolling_oos_30d": 3033
+    "rolling_oos_30d": 3402
   },
   "perf": {
     "backtest": {
-      "n_runs": 18073,
-      "n_trades": 3813338,
-      "win_rate": 0.3964,
-      "profit_factor": 17.467,
-      "sharpe": -4.766,
-      "total_return": -0.2856,
-      "max_dd_avg": 0.3333,
+      "n_runs": 18783,
+      "n_trades": 3975850,
+      "win_rate": 0.396,
+      "profit_factor": 17.578,
+      "sharpe": -4.702,
+      "total_return": -0.2872,
+      "max_dd_avg": 0.3347,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.527
+      "expectancy_r": 16.639
     },
     "oos": {
-      "n_runs": 140,
-      "n_trades": 7197,
-      "win_rate": 0.5593,
-      "profit_factor": 2.184,
-      "sharpe": 2.501,
-      "total_return": 0.3608,
+      "n_runs": 142,
+      "n_trades": 7329,
+      "win_rate": 0.5594,
+      "profit_factor": 2.181,
+      "sharpe": 2.502,
+      "total_return": 0.3609,
       "max_dd_avg": 0.0562,
       "max_dd_worst": 0.1715,
-      "expectancy_r": 0.982
+      "expectancy_r": 0.979
     },
     "forward": {
       "n_runs": 17,
@@ -108,24 +108,24 @@
       "expectancy_r": 0.658
     },
     "wf": {
-      "n_runs": 96,
-      "n_trades": 4263,
-      "win_rate": 0.646,
-      "profit_factor": 2.306,
-      "sharpe": 2.596,
-      "total_return": 0.253,
-      "max_dd_avg": 0.0406,
+      "n_runs": 99,
+      "n_trades": 4412,
+      "win_rate": 0.6445,
+      "profit_factor": 2.297,
+      "sharpe": 2.588,
+      "total_return": 0.2526,
+      "max_dd_avg": 0.0411,
       "max_dd_worst": 0.0822,
-      "expectancy_r": 0.756
+      "expectancy_r": 0.751
     }
   },
   "perf_oos_30d": {
-    "n_windows": 1011,
-    "avg_sharpe": 6.164,
-    "avg_return": 0.0311,
+    "n_windows": 1134,
+    "avg_sharpe": 6.125,
+    "avg_return": 0.0316,
     "avg_max_dd": 0.0128,
-    "avg_win_rate": 0.7292,
-    "total_trades": 4744
+    "avg_win_rate": 0.7303,
+    "total_trades": 5331
   },
   "perf_paper": {
     "n_trades": 144,
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 35740,
+      "value": 38092,
       "threshold": 1000,
-      "reason": "35,740 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "38,092 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 34235,
+      "value": 34886,
       "threshold": 1,
-      "reason": "34235 runs have deflated_sharpe computed"
+      "reason": "34886 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -508,12 +508,13 @@
     "open_positions_local": 0,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-23T04:12:35Z",
+    "last_signal_ts": "2026-06-23T17:12:27Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "d3a64c3 cycle: 2026-06-23T04:22:40Z",
     "cd4eca1 cycle: 2026-06-23T04:21:55Z",
     "426d1ac cycle: 2026-06-23T00:14:22Z",
     "0ed37c2 AGENTS.md: document lab-safety-auto-fix (TASK 25)",
@@ -522,7 +523,6 @@
     "2b541a0 cycle: 2026-06-22T20:42:51Z",
     "baef8ef cycle: 2026-06-22T20:41:59Z",
     "6e57ad8 cycle: 2026-06-22T20:39:55Z",
-    "9249615 cycle: 2026-06-22T20:39:07Z",
-    "5f0cb40 cycle: 2026-06-22T20:37:25Z"
+    "9249615 cycle: 2026-06-22T20:39:07Z"
   ]
 }
