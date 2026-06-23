@@ -220,6 +220,86 @@ table .neg { color: var(--red); }
   padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 10px;
 }
 
+/* Strategies grid — TASK 28 */
+.strat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.strat-card {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 14px;
+  cursor: pointer; transition: border-color .15s, transform .15s;
+}
+.strat-card:hover {
+  border-color: var(--accent); transform: translateY(-1px);
+}
+.strat-card .strat-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; gap: 8px; flex-wrap: wrap;
+}
+.strat-card .strat-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px; font-weight: 700;
+}
+.strat-card .strat-pair {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; color: var(--muted);
+}
+.strat-card .strat-curve {
+  background: rgba(255,255,255,0.02); border-radius: 4px;
+  padding: 2px; margin-bottom: 10px;
+}
+.strat-card .strat-kpis {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+  margin-bottom: 8px;
+}
+.strat-card .strat-kpis .kpi {
+  padding: 6px 8px;
+}
+.strat-card .strat-kpis .kpi .k { font-size: 9px; }
+.strat-card .strat-kpis .kpi .v { font-size: 13px; }
+.strat-card .strat-foot {
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+}
+.strat-card .strat-pairs {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; color: var(--muted); margin-top: 6px;
+  border-top: 1px solid var(--border); padding-top: 6px;
+}
+
+/* Per-strategy modal */
+.strat-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.strat-modal-inner {
+  background: var(--panel); border: 1px solid var(--border-hi);
+  border-radius: 12px; padding: 26px 28px; max-width: 800px; width: 92%;
+  max-height: 88vh; overflow-y: auto; position: relative;
+}
+.strat-modal-close {
+  position: absolute; top: 10px; right: 14px;
+  background: transparent; border: none; color: var(--muted);
+  font-size: 22px; cursor: pointer; padding: 4px 10px;
+}
+.strat-modal-close:hover { color: var(--text); }
+.strat-modal-inner h3 {
+  font-size: 15px; font-weight: 700; margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.strat-modal-kpis {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin-top: 10px;
+}
+@media (max-width: 800px) {
+  .strat-grid { grid-template-columns: 1fr; }
+  .strat-modal-kpis { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Footer */
 .foot {
   margin-top: 36px; padding-top: 20px;
@@ -244,9 +324,9 @@ table .neg { color: var(--red); }
 <div class="hdr">
   <div>
     <h1>FX Research Lab — Live-Readiness Report</h1>
-    <div class="sub">OANDA FX strategy validation · 9 majors · 15m + 1h · read-only against broker</div>
+    <div class="sub">OANDA FX strategy validation · 9 majors · 15m + 1h · read-only against broker · <a href="strategies.html" style="color:var(--accent);text-decoration:none">Strategies page →</a></div>
   </div>
-  <div class='ts'>Generated 2026-06-23T17:28:19Z<br>Branch main · commit <code>d3a64c3</code><br>Data range: through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</div>
+  <div class='ts'>Generated 2026-06-23T18:59:03Z<br>Branch main · commit <code>48fba5f</code><br>Data range: through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</div>
 </div>
 
   
@@ -262,9 +342,9 @@ table .neg { color: var(--red); }
     <span class="blk">⚠ Min forward-test duration (≥60 trading days)</span>
   </div>
   <div style="margin-top:18px;font-size:11.5px;color:var(--muted)">
-    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-23T17:28:19Z</code>
+    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-23T18:59:03Z</code>
     · Strategy version <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">v2-costs</code>
-    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">d3a64c3</code>
+    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">48fba5f</code>
   </div>
 </div>
 
@@ -345,13 +425,13 @@ table .neg { color: var(--red); }
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Research variant count documented</td>
-          <td class="num">38092</td>
-          <td>38,092 backtests in lab.db — selection-bias correction needed</td>
+          <td class="num">38459</td>
+          <td>38,459 backtests in lab.db — selection-bias correction needed</td>
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Deflated Sharpe / selection-bias control</td>
-          <td class="num">34886</td>
-          <td>34886 runs have deflated_sharpe computed</td>
+          <td class="num">35135</td>
+          <td>35135 runs have deflated_sharpe computed</td>
         </tr></tbody>
   </table>
   <p class="note">Legend: ✅ pass &nbsp; ⚠️ watch &nbsp; ❌ fail &nbsp; ❔ unknown (no measurement yet). Unknown items must be promoted to pass or fail before live deployment.</p>
@@ -360,7 +440,7 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">3</span> Strategy Identity Card</h2>
   <table>
-    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 2 strategy families across 17 live-eligible runs (confluence (16), divergence_at_sr (1))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: M15 · filter: H1</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>d3a64c3 (cycle: 2026-06-23T04:22:40Z)</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-23T17:28:19Z</td></tr></tbody>
+    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 2 strategy families across 17 live-eligible runs (confluence (16), divergence_at_sr (1))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: M15 · filter: H1</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>48fba5f (publish.sh: also publish dashboard/strategies.html to public mirror (TASK 28))</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-23T18:59:03Z</td></tr></tbody>
   </table>
 </div>
 
@@ -369,24 +449,24 @@ table .neg { color: var(--red); }
   <p>Three <b>separate</b> slices. Never blend. The gap between backtest and forward is the headline risk signal — what you trusted vs what you got.</p>
   <div class="perf-3col"><div class="perf-block">
       <h4>Backtest (in-sample, all runs)</h4>
-      <div class="row"><span class="k">Runs</span><span class="v ">18,783</span></div><div class="row"><span class="k">Trades</span><span class="v ">3,975,850</span></div><div class="row"><span class="k">Win rate</span><span class="v ">39.6%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.58</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.64</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.70</span></div><div class="row"><span class="k">Total return</span><span class="v ">-28.7%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">33.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
-      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=18,783</div>
+      <div class="row"><span class="k">Runs</span><span class="v ">19,058</span></div><div class="row"><span class="k">Trades</span><span class="v ">4,035,387</span></div><div class="row"><span class="k">Win rate</span><span class="v ">39.6%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.81</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.87</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.66</span></div><div class="row"><span class="k">Total return</span><span class="v ">-28.7%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">33.5%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
+      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=19,058</div>
     </div><div class="perf-block">
       <h4>Out-of-Sample (forward_pass=1)</h4>
-      <div class="row"><span class="k">Runs</span><span class="v ">142</span></div><div class="row"><span class="k">Trades</span><span class="v ">7,329</span></div><div class="row"><span class="k">Win rate</span><span class="v ">55.9%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.18</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.98</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.50</span></div><div class="row"><span class="k">Total return</span><span class="v ">36.1%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.6%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">17.2%</span></div>
-      <div class="gap-flag">Held-out window · n_runs=142</div>
+      <div class="row"><span class="k">Runs</span><span class="v ">143</span></div><div class="row"><span class="k">Trades</span><span class="v ">7,394</span></div><div class="row"><span class="k">Win rate</span><span class="v ">55.9%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.18</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.98</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.50</span></div><div class="row"><span class="k">Total return</span><span class="v ">36.1%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.6%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">17.2%</span></div>
+      <div class="gap-flag">Held-out window · n_runs=143</div>
     </div><div class="perf-block">
       <h4>Forward-Test (live_eligible=1)</h4>
       <div class="row"><span class="k">Runs</span><span class="v ">17</span></div><div class="row"><span class="k">Trades</span><span class="v ">729</span></div><div class="row"><span class="k">Win rate</span><span class="v ">63.9%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.22</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.66</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.55</span></div><div class="row"><span class="k">Total return</span><span class="v ">23.4%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">3.7%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">4.9%</span></div>
-      <div class="gap-flag">BT Sharpe -4.70 → FWD Sharpe 2.55 (Δ = -7.25)</div>
+      <div class="gap-flag">BT Sharpe -4.66 → FWD Sharpe 2.55 (Δ = -7.21)</div>
     </div></div>
   <div class="note">
           <b>Rolling 30-day OOS (last 30 days):</b>
-          1134 windows ·
-          avg Sharpe 6.12 ·
+          1197 windows ·
+          avg Sharpe 6.10 ·
           avg return 3.2% ·
           avg max DD 1.3% ·
-          avg WR 73.0%
+          avg WR 73.1%
         </div>
   <div class="note">
           <b>Paper-track fills (dry-run):</b>
@@ -405,6 +485,226 @@ table .neg { color: var(--red); }
           <p style="margin-top:12px;color:var(--dim)">Drawdown of the primary (highest-Sharpe) run: peak-to-trough, % of running peak.</p>
           <div class="chart-wrap"><canvas id="chart-dd"></canvas></div>
         </div>
+<div class="sec">
+  <h2><span class="num">4c</span> Strategies &nbsp; <span class="badge">7 active</span></h2>
+  <p>One card per strategy family the lab is actively researching. Each card shows the strategy's best run (highest Sharpe, n≥30 trades) — the mini curve is that run's backtest equity from $10k. Click any card for full detail.</p>
+  <div class="strat-grid">
+<div class="strat-card" data-strat="confluence" onclick="openStratModal('confluence')">
+  <div class="strat-head">
+    <div class="strat-name">confluence<span class="badge pass" style="margin-left:6px">LIVE</span><span class="badge warn" style="margin-left:6px">69 FWD</span></div>
+    <div class="strat-pair">EUR_USD</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,56.0 9.7,54.2 15.3,52.4 21.0,50.8 26.6,53.0 32.3,55.2 38.0,53.5 43.6,51.7 49.3,49.9 54.9,48.1 60.6,46.5 66.2,44.6 71.9,42.9 77.6,41.2 83.2,39.6 88.9,37.7 94.5,35.8 100.2,38.2 105.9,40.7 111.5,38.9 117.2,37.0 122.8,35.2 128.5,33.3 134.1,31.4 139.8,29.3 145.5,31.8 151.1,29.8 156.8,27.8 162.4,25.8 168.1,23.7 173.8,21.6 179.4,19.5 185.1,17.5 190.7,15.7 196.4,13.6 202.0,11.4 207.7,14.3 213.4,12.3 219.0,10.1 224.7,8.2 230.3,6.2 236.0,4.0"/><circle cx="236.0" cy="4.0" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+5.25</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+3.30</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">2.2%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+53.9%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">3081 runs</span>
+    <span class="badge pass">391 pass</span>
+    <span class="badge" style="font-size:10px">44% WR</span>
+  </div>
+  <div class="strat-pairs">live: EUR_JPY, EUR_USD, USD_JPY</div>
+  <div class="strat-pairs">fwd: EUR_USD, EUR_JPY, USD_JPY</div>
+</div>
+<div class="strat-card" data-strat="divergence_at_sr" onclick="openStratModal('divergence_at_sr')">
+  <div class="strat-head">
+    <div class="strat-name">divergence_at_sr<span class="badge pass" style="margin-left:6px">LIVE</span><span class="badge warn" style="margin-left:6px">74 FWD</span></div>
+    <div class="strat-pair">EUR_USD</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,54.5 10.1,56.0 16.2,53.7 22.3,51.5 28.4,49.1 34.5,46.7 40.6,44.2 46.7,41.9 52.8,39.5 58.9,41.4 65.1,43.2 71.2,40.9 77.3,42.6 83.4,40.4 89.5,38.0 95.6,39.8 101.7,37.4 107.8,39.1 113.9,36.7 120.0,38.4 126.1,35.8 132.2,33.2 138.3,30.6 144.4,27.9 150.5,29.6 156.6,26.9 162.7,25.8 168.8,27.6 174.9,24.8 181.1,22.1 187.2,19.4 193.3,16.5 199.4,13.4 205.5,10.5 211.6,7.6 217.7,4.6 223.8,5.0 229.9,7.1 236.0,4.0"/><circle cx="236.0" cy="4.0" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+4.22</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+3.56</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">1.4%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+72.3%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">3227 runs</span>
+    <span class="badge pass">588 pass</span>
+    <span class="badge" style="font-size:10px">43% WR</span>
+  </div>
+  <div class="strat-pairs">live: EUR_USD</div>
+  <div class="strat-pairs">fwd: EUR_JPY, USD_CAD, EUR_USD, GBP_USD, USD_CHF</div>
+</div>
+<div class="strat-card" data-strat="mean_reversion" onclick="openStratModal('mean_reversion')">
+  <div class="strat-head">
+    <div class="strat-name">mean_reversion</div>
+    <div class="strat-pair">USD_JPY</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,47.1 7.4,49.9 10.8,48.0 14.2,45.8 17.6,43.6 21.1,46.5 24.5,49.3 27.9,47.2 31.3,49.8 34.7,47.7 38.1,50.6 41.5,53.4 44.9,56.0 48.4,54.0 51.8,52.0 55.2,54.6 58.6,52.7 62.0,50.6 65.4,48.5 68.8,51.1 72.2,53.7 75.6,51.7 79.1,54.4 82.5,52.5 85.9,50.5 89.3,48.5 92.7,46.5 96.1,44.4 99.5,47.1 102.9,49.7 106.4,47.5 109.8,45.5 113.2,43.4 116.6,41.2 120.0,39.0 123.4,36.9 126.8,34.7 130.2,37.5 133.6,35.3 137.1,33.3 140.5,31.1 143.9,34.0 147.3,31.7 150.7,30.1 154.1,28.0 157.5,25.9 160.9,23.8 164.4,21.6 167.8,19.5 171.2,22.6 174.6,20.4 178.0,18.3 181.4,16.1 184.8,19.0 188.2,16.6 191.6,19.8 195.1,17.6 198.5,15.4 201.9,18.4 205.3,16.3 208.7,14.1 212.1,11.8 215.5,9.3 218.9,13.2 222.4,11.2 225.8,9.6 229.2,8.2 232.6,5.9 236.0,4.0"/><circle cx="236.0" cy="4.0" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+2.32</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+2.40</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">1.7%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+31.4%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">4282 runs</span>
+    <span class="badge pass">156 pass</span>
+    <span class="badge" style="font-size:10px">50% WR</span>
+  </div>
+  
+  
+</div>
+<div class="strat-card" data-strat="squeeze_breakout" onclick="openStratModal('squeeze_breakout')">
+  <div class="strat-head">
+    <div class="strat-name">squeeze_breakout</div>
+    <div class="strat-pair">USD_JPY</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,56.0 9.4,51.0 14.8,53.3 20.2,48.2 25.6,50.6 31.0,52.9 36.4,47.8 41.8,50.2 47.2,52.7 52.6,47.7 58.0,42.6 63.3,37.4 68.7,39.9 74.1,42.3 79.5,44.8 84.9,47.2 90.3,42.2 95.7,44.6 101.1,47.0 106.5,49.4 111.9,51.7 117.3,54.0 122.7,49.0 128.1,51.3 133.5,53.5 138.9,48.5 144.3,43.4 149.7,38.1 155.1,32.6 160.5,35.2 165.9,29.7 171.3,32.4 176.7,27.0 182.0,29.6 187.4,32.2 192.8,35.0 198.2,29.5 203.6,23.8 209.0,23.4 214.4,17.9 219.8,20.7 225.2,15.4 230.6,9.7 236.0,4.0"/><circle cx="236.0" cy="4.0" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+2.08</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+0.88</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">1.5%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+25.2%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">4107 runs</span>
+    <span class="badge pass">97 pass</span>
+    <span class="badge" style="font-size:10px">34% WR</span>
+  </div>
+  
+  
+</div>
+<div class="strat-card" data-strat="value_area_breakout" onclick="openStratModal('value_area_breakout')">
+  <div class="strat-head">
+    <div class="strat-name">value_area_breakout</div>
+    <div class="strat-pair">EUR_USD</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,53.2 6.4,54.6 8.8,56.0 11.2,53.0 13.7,49.8 16.1,46.7 18.5,48.2 20.9,45.0 23.3,46.6 25.8,48.1 28.2,49.7 30.6,51.2 33.0,52.7 35.4,54.1 37.8,51.1 40.2,52.6 42.7,49.5 45.1,51.0 47.5,52.5 49.9,51.6 52.3,48.5 54.8,50.0 57.2,46.9 59.6,43.9 62.0,45.4 64.4,42.1 66.8,43.7 69.2,40.4 71.7,42.1 74.1,43.7 76.5,40.4 78.9,37.2 81.3,39.0 83.8,35.6 86.2,37.3 88.6,34.0 91.0,35.7 93.4,37.5 95.8,34.1 98.2,30.5 100.7,32.3 103.1,28.7 105.5,25.0 107.9,26.7 110.3,22.9 112.8,19.2 115.2,15.5 117.6,11.5 120.0,13.6 122.4,15.5 124.8,17.5 127.2,19.4 129.7,21.2 132.1,17.3 134.5,13.3 136.9,15.1 139.3,16.9 141.8,18.7 144.2,14.8 146.6,16.6 149.0,18.4 151.4,17.8 153.8,19.6 156.2,21.4 158.7,23.3 161.1,19.4 163.5,21.2 165.9,17.3 168.3,19.2 170.8,15.4 173.2,11.4 175.6,13.3 178.0,9.4 180.4,5.2 182.8,7.2 185.2,7.7 187.7,9.8 190.1,5.8 192.5,7.8 194.9,9.8 197.3,5.9 199.8,7.8 202.2,9.8 204.6,5.8 207.0,7.9 209.4,4.0 211.8,6.1 214.2,8.0 216.7,10.0 219.1,12.0 221.5,14.0 223.9,16.1 226.3,18.0 228.8,14.1 231.2,16.1 233.6,18.0 236.0,14.1"/><circle cx="236.0" cy="14.1" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+1.52</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">7.6%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+30.1%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">3976 runs</span>
+    <span class="badge pass">32 pass</span>
+    <span class="badge" style="font-size:10px">31% WR</span>
+  </div>
+  
+  
+</div>
+<div class="strat-card" data-strat="breakout" onclick="openStratModal('breakout')">
+  <div class="strat-head">
+    <div class="strat-name">breakout</div>
+    <div class="strat-pair">GBP_USD</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,42.9 7.4,36.6 10.7,30.4 14.1,38.0 17.4,39.1 20.8,34.2 24.2,35.5 27.5,36.6 30.9,31.6 34.3,39.4 37.6,40.7 41.0,32.7 44.3,33.0 47.7,38.4 51.1,45.8 54.4,52.6 57.8,53.8 61.2,55.6 64.5,51.0 67.9,46.7 71.2,45.6 74.6,50.4 78.0,39.7 81.3,34.5 84.7,22.8 88.1,26.6 91.4,34.8 94.8,42.3 98.1,32.3 101.5,39.9 104.9,34.9 108.2,42.6 111.6,35.5 115.0,26.2 118.3,23.7 121.7,25.1 125.0,32.1 128.4,37.4 131.8,32.6 135.1,24.1 138.5,25.4 141.9,25.2 145.2,12.6 148.6,20.7 151.9,24.8 155.3,32.6 158.7,27.4 162.0,28.7 165.4,36.1 168.8,43.2 172.1,49.2 175.5,50.3 178.8,49.2 182.2,56.0 185.6,45.4 188.9,40.6 192.3,35.8 195.7,40.3 199.0,36.5 202.4,34.2 205.7,29.0 209.1,28.1 212.5,10.0 215.8,4.0 219.2,5.4 222.6,9.9 225.9,10.1 229.3,16.1 232.6,17.7 236.0,16.7"/><circle cx="236.0" cy="16.7" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+0.47</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">10.2%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+13.3%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">1728 runs</span>
+    <span class="badge pass">0 pass</span>
+    <span class="badge" style="font-size:10px">37% WR</span>
+  </div>
+  
+  
+</div>
+<div class="strat-card" data-strat="volume_nodes" onclick="openStratModal('volume_nodes')">
+  <div class="strat-head">
+    <div class="strat-name">volume_nodes</div>
+    <div class="strat-pair">EUR_JPY</div>
+  </div>
+  <div class="strat-curve"><svg width="240" height="60" viewBox="0 0 240 60" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#3ed598" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,31.8 6.9,30.4 9.9,28.8 12.8,42.4 15.7,56.0 18.7,55.0 21.6,53.8 24.6,52.1 27.5,35.6 30.4,34.3 33.4,33.2 36.3,31.6 39.2,15.0 42.2,29.0 45.1,27.4 48.1,10.0 51.0,8.5 53.9,23.1 56.9,21.6 59.8,20.3 62.7,34.4 65.7,17.2 68.6,16.2 71.5,14.7 74.5,29.6 77.4,28.8 80.4,27.7 83.3,26.6 86.2,25.5 89.2,8.5 92.1,7.4 95.0,6.1 98.0,4.4 100.9,18.4 103.8,16.3 106.8,30.2 109.7,12.8 112.7,10.7 115.6,9.2 118.5,23.6 121.5,6.5 124.4,4.6 127.3,19.0 130.3,17.7 133.2,15.7 136.2,13.7 139.1,12.3 142.0,26.3 145.0,39.8 147.9,22.9 150.8,5.7 153.8,20.5 156.7,18.9 159.6,17.5 162.6,16.1 165.5,14.6 168.5,13.5 171.4,12.1 174.3,13.6 177.3,28.2 180.2,27.0 183.1,10.0 186.1,9.0 189.0,23.7 191.9,22.9 194.9,22.7 197.8,21.8 200.8,4.0 203.7,15.0 206.6,30.7 209.6,29.8 212.5,29.1 215.4,43.5 218.4,42.5 221.3,26.7 224.3,25.7 227.2,24.7 230.1,8.0 233.1,6.8 236.0,5.6"/><circle cx="236.0" cy="5.6" r="2" fill="#3ed598"/></svg></div>
+  <div class="strat-kpis">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+0.27</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Max DD</div><div class="v">8.1%</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+4.2%</div></div>
+  </div>
+  <div class="strat-foot">
+    <span class="badge">1452 runs</span>
+    <span class="badge pass">0 pass</span>
+    <span class="badge" style="font-size:10px">38% WR</span>
+  </div>
+  
+  
+</div></div>
+</div>
+
+<!-- Per-strategy detail modal (no JS deps) -->
+<div id="strat-modal" class="strat-modal" style="display:none" onclick="if(event.target===this)closeStratModal()">
+  <div class="strat-modal-inner">
+    <button class="strat-modal-close" onclick="closeStratModal()">×</button>
+    <h3 id="strat-modal-title">Strategy detail</h3>
+    <div id="strat-modal-body"></div>
+  </div>
+</div>
+
+<script id="strat-payload" type="application/json">[{"strategy_id": "confluence", "n_runs": 3081, "n_pass": 391, "n_fwd_pass": 69, "n_live": 16, "best_sharpe": 5.251548103733373, "best_oos": 3.2992637410246872, "best_run_id": 20396, "best_pair": "EUR_USD", "equity": [10000.0, 10091.646468649022, 10180.41671122934, 10262.924970360076, 10150.125138421821, 10038.699833250905, 10128.13310498463, 10217.311686065606, 10305.99008962393, 10399.566330017571, 10480.180498004976, 10575.696989237857, 10657.508900181354, 10746.884402604448, 10827.176396595678, 10922.032853562427, 11016.753302573536, 10894.813467940652, 10773.272153335747, 10860.42854401119, 10958.814881075992, 11048.309621121554, 11143.908217091554, 11237.969925631733, 11343.103729911662, 11218.52011287879, 11318.423359824192, 11422.610569303346, 11522.82303273358, 11627.601568253633, 11733.295831469924, 11837.752080549946, 11941.24394779706, 12029.27961144483, 12137.84607932271, 12245.47080279156, 12099.942200244117, 12201.006717793553, 12312.564510124408, 12407.349334524491, 12507.088842769246, 12619.651266422132]}, {"strategy_id": "divergence_at_sr", "n_runs": 3227, "n_pass": 588, "n_fwd_pass": 74, "n_live": 1, "best_sharpe": 4.22357128370216, "best_oos": 3.5593042643667303, "best_run_id": 11875, "best_pair": "EUR_USD", "equity": [10000.0, 9877.037800700087, 10058.845958531758, 10236.023767883415, 10428.815083273512, 10618.88477733169, 10811.347902336067, 10998.392954010695, 11190.818829467671, 11040.612582409078, 10891.993316362192, 11074.204934527095, 10941.597729188768, 11117.402856311117, 11305.58397477092, 11165.492103600222, 11351.637546285041, 11216.578080743719, 11412.02973890538, 11273.733860158942, 11479.846987526756, 11687.956967860604, 11891.026573599645, 12106.620994894289, 11971.297127623578, 12185.358769018569, 12273.721158207181, 12132.391277542423, 12352.696362097504, 12571.373090974645, 12785.178044259908, 13017.955316129894, 13262.101425404473, 13489.443659587709, 13719.726414468885, 13958.749785486234, 13926.074818775394, 13764.478418781038, 14007.247539911008]}, {"strategy_id": "mean_reversion", "n_runs": 4282, "n_pass": 156, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.316650280602928, "best_oos": 2.399750780335408, "best_run_id": 7755, "best_pair": "USD_JPY", "equity": [10000.0, 9881.21219739489, 9962.68811453068, 10054.891114508631, 10147.883732066435, 10027.303903428385, 9909.168723691866, 9997.809835723114, 9884.756085774425, 9974.27426072066, 9851.776049114867, 9735.072508259153, 9625.311973761469, 9707.971073635912, 9791.996311058332, 9684.704893770226, 9763.60731519864, 9852.6764604999, 9939.72361462149, 9830.60319778005, 9722.419319933848, 9804.77641708055, 9692.48783913881, 9772.502170187676, 9857.033472904526, 9940.955497003933, 10027.276058302721, 10115.189641161813, 10002.16332638742, 9890.153431544657, 9981.648111497614, 10068.95348878088, 10155.203265954675, 10247.457376466278, 10340.001690477582, 10428.453122343002, 10520.81703223494, 10403.959654888977, 10496.633919891336, 10582.477535636901, 10674.087207260023, 10553.590057353716, 10646.934447560458, 10716.587315410965, 10802.577611277156, 10892.477007946041, 10982.291953639915, 11072.389261732535, 11164.344488097046, 11032.422124559069, 11124.211967590945, 11212.03513517397, 11306.356328098165, 11183.587043882344, 11284.700040189091, 11150.39875514546, 11243.387861028896, 11334.531992968532, 11210.378617272054, 11296.269182656451, 11390.114852541992, 11487.702021932995, 11591.20584198178, 11427.664317189057, 11513.059035375007, 11579.5362584976, 11638.58059703204, 11736.676028498207, 11815.052839095353]}, {"strategy_id": "squeeze_breakout", "n_runs": 4107, "n_pass": 97, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.0762799588498453, "best_oos": 0.8822592202861123, "best_run_id": 27929, "best_pair": "USD_JPY", "equity": [10000.0, 10240.324567136977, 10131.618921639285, 10377.20079767185, 10264.072809457257, 10150.363418093522, 10396.201758028568, 10279.772510295443, 10159.918410400634, 10402.466997380156, 10649.06819973351, 10904.273569158771, 10783.499099126135, 10666.038270795914, 10545.87161222325, 10425.059531134375, 10667.569050785438, 10552.512187440776, 10435.270545723675, 10322.28768988448, 10209.286105267394, 10098.962114542745, 10339.941741807657, 10229.213559304486, 10121.256304483866, 10362.74211746552, 10613.291568641698, 10870.890088585007, 11133.969987226978, 11009.696388109365, 11276.290930318237, 11146.532494363793, 11408.4195648794, 11282.998070819782, 11156.533150176034, 11020.742176757194, 11285.581748121476, 11560.55205433814, 11580.820306141804, 11848.89642649997, 11714.254414838206, 11969.565997631262, 12244.741449537201, 12523.352458339268]}, {"strategy_id": "value_area_breakout", "n_runs": 3976, "n_pass": 32, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 1.5218850362960412, "best_oos": null, "best_run_id": 15470, "best_pair": "EUR_USD", "equity": [10000.0, 9887.985574557999, 9781.025518664599, 10014.954916411192, 10256.194314139955, 10502.212335023229, 10382.664346490263, 10631.83906621509, 10508.34551548363, 10388.693924766045, 10266.150075356178, 10151.643176709766, 10038.012018880987, 9928.766857307615, 10160.885373814568, 10042.258663434013, 10282.184251550967, 10170.219641729818, 10050.252387691693, 10121.906574802682, 10362.969503512406, 10243.085009997836, 10484.480123848469, 10717.630223598399, 10598.23298279337, 10855.432385351705, 10730.18398622292, 10982.820330866161, 10856.903013443003, 10729.127974509856, 10980.9498733049, 11227.88908097955, 11092.765698992554, 11356.31127863913, 11220.783126602615, 11479.327436908616, 11350.383598258675, 11209.470841836284, 11473.130183668023, 11745.33938775548, 11608.533886407222, 11888.115455652367, 12172.558999852641, 12039.500147532042, 12330.87228812602, 12616.68226053825, 12904.707000611781, 13210.885714575235, 13053.950270988167, 12904.31815438844, 12749.996517461348, 12603.099330704008, 12464.690801332852, 12764.922660284265, 13076.351523381449, 12938.047259496141, 12796.51401537294, 12658.348742124195, 12957.973500373657, 12820.463962624231, 12682.350610217456, 12728.684608828684, 12590.684277185965, 12449.893320262969, 12306.978353241584, 12604.301030863988, 12468.91343647462, 12768.088139061001, 12617.564864949321, 12914.21389031278, 13222.626168535258, 13072.505828018293, 13376.11415780415, 13696.544225093598, 13547.567725390407, 13508.318009140427, 13342.998249630054, 13657.393496238315, 13499.416484936419, 13344.534367943226, 13648.98428426939, 13496.35022190313, 13343.605219020012, 13652.158963571037, 13493.69561114247, 13792.499657706778, 13630.342139162689, 13480.473248477903, 13331.312130981154, 13174.466933675416, 13021.134840592695, 12860.09895841235, 12708.773190680808, 13014.45986110923, 12857.985761111186, 12713.94615994283, 13014.269945776969]}, {"strategy_id": "breakout", "n_runs": 1728, "n_pass": 0, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 0.47291308573571095, "best_oos": null, "best_run_id": 910, "best_pair": "GBP_USD", "equity": [10000.0, 10377.535477194253, 10751.137114869005, 10293.256803120714, 10223.898526574463, 10519.478249514883, 10444.085700656324, 10374.925688080699, 10678.083508021246, 10210.875212512887, 10132.449938132117, 10613.807065510924, 10590.58876099349, 10265.311084961575, 9825.553338654907, 9411.22838552899, 9343.614607361316, 9232.224791653287, 9511.984608533392, 9769.792142498176, 9832.517711467657, 9547.995833737808, 10191.839894074757, 10500.347597173473, 11208.305511941624, 10976.01564238467, 10485.761359756807, 10035.003519882097, 10637.90870645896, 10176.368031128772, 10477.92749425701, 10012.453038786818, 10441.566706778844, 11003.926130673677, 11151.448507681398, 11068.5232522487, 10649.088518293362, 10326.305759589575, 10618.629631972644, 11127.541067973545, 11054.140645126994, 11062.198760624578, 11824.364395518664, 11334.89819569693, 11087.976807105793, 10616.270224831276, 10930.438941994385, 10854.689919916733, 10407.080965576688, 9980.46016850136, 9616.5687630015, 9550.299935531735, 9615.86626465232, 9208.50439155749, 9846.497752725629, 10134.100672213024, 10422.544129451138, 10156.83702949236, 10382.149860509046, 10523.416355749863, 10836.01746464906, 10890.282461273362, 11977.51299640262, 12339.777149154195, 12258.26584465845, 11981.813750264222, 11971.578864747242, 11611.514367613498, 11515.3357729415, 11574.31886817287]}, {"strategy_id": "volume_nodes", "n_runs": 1452, "n_pass": 0, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 0.2672250307258806, "best_oos": null, "best_run_id": 15828, "best_pair": "EUR_JPY", "equity": [10000.0, 10022.73644142848, 10049.502096797632, 9829.331361998722, 9610.276106105897, 9626.406923231669, 9645.765210753367, 9673.200286177884, 9940.195532177093, 9960.544289158594, 9978.227477283852, 10003.901254491479, 10272.196427205428, 10046.315641524427, 10072.586557849978, 10352.351822234776, 10377.484963650202, 10140.674170903581, 10165.402424258384, 10186.033571253052, 9959.562285197142, 10236.499791033171, 10252.221370183188, 10276.461439051298, 10036.430992649706, 10049.37813167896, 10066.468741374967, 10084.37990607133, 10101.734765322, 10377.32026387425, 10394.883613397822, 10415.960783566405, 10442.749161737096, 10216.865677403, 10250.172729820988, 10026.436107166248, 10306.854612561265, 10340.672234390906, 10365.725899058907, 10133.42055218317, 10409.71831143541, 10439.081952228065, 10206.595849193052, 10229.125596201437, 10261.01322821393, 10293.313602124736, 10316.08191375161, 10090.326789971392, 9871.389345316815, 10144.685983631587, 10422.591529536487, 10183.866940098276, 10209.691878115578, 10230.954639756295, 10254.639837293886, 10279.024082538432, 10296.165397980669, 10318.948135130648, 10295.045224623433, 10058.649229383993, 10077.494313859164, 10352.81649305869, 10369.48849958436, 10131.421953336965, 10145.212005369573, 10148.1334604281, 10161.827347213513, 10449.429771287989, 10271.652685130686, 10019.233436133769, 10033.160758448561, 10044.740619217884, 9812.130736449568, 9828.673467964163, 10083.220651276739, 10099.468515090426, 10114.977304957103, 10385.342216803325, 10403.819017465434, 10423.12608554866]}]</script>
+<script>
+(function() {
+  var DATA = JSON.parse(document.getElementById('strat-payload').textContent);
+  var byName = {};
+  DATA.forEach(function(d) { byName[d.strategy_id] = d; });
+
+  window.openStratModal = function(name) {
+    var d = byName[name];
+    if (!d) return;
+    var modal = document.getElementById('strat-modal');
+    document.getElementById('strat-modal-title').textContent = name + ' — best run #' + d.best_run_id + ' on ' + d.best_pair;
+    var body = document.getElementById('strat-modal-body');
+    // Render a larger version of the equity curve
+    var eqs = d.equity || [];
+    var svgW = 720, svgH = 220, pad = 8;
+    var curve = '';
+    if (eqs.length >= 2) {
+      var lo = Math.min.apply(null, eqs);
+      var hi = Math.max.apply(null, eqs);
+      var rng = (hi - lo) || 1;
+      var pts = [];
+      for (var i = 0; i < eqs.length; i++) {
+        var x = pad + (svgW - 2*pad) * i / Math.max(1, eqs.length - 1);
+        var y = svgH - pad - (svgH - 2*pad) * (eqs[i] - lo) / rng;
+        pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+      }
+      var col = eqs[eqs.length-1] >= eqs[0] ? '#3ed598' : '#ff5d6c';
+      curve = '<svg width="' + svgW + '" height="' + svgH + '" viewBox="0 0 ' + svgW + ' ' + svgH + '" '
+            + 'style="display:block;background:rgba(255,255,255,0.02);border-radius:6px;margin-bottom:14px">'
+            + '<polyline fill="none" stroke="' + col + '" stroke-width="1.8" points="' + pts.join(' ') + '"/>'
+            + '<circle cx="' + pts[pts.length-1].split(',')[0] + '" cy="' + pts[pts.length-1].split(',')[1] + '" r="3" fill="' + col + '"/>'
+            + '</svg>';
+    } else {
+      curve = '<div style="padding:24px;background:var(--panel-2);border-radius:6px;margin-bottom:14px;color:var(--muted)">No equity curve recorded for this run.</div>';
+    }
+    function fmt(v, kind) {
+      if (v === null || v === undefined) return '—';
+      if (kind === 'pct') return (v*100).toFixed(1) + '%';
+      if (kind === 'sh')  return (v >= 0 ? '+' : '') + v.toFixed(2);
+      if (kind === 'dd')  return (v*100).toFixed(1) + '%';
+      return String(v);
+    }
+    body.innerHTML = curve
+      + '<div class="strat-modal-kpis">'
+      + '<div class="kpi"><div class="k">Best Sharpe</div><div class="v">' + fmt(d.best_sharpe, 'sh') + '</div></div>'
+      + '<div class="kpi"><div class="k">Best OOS Sharpe</div><div class="v">' + fmt(d.best_oos, 'sh') + '</div></div>'
+      + '<div class="kpi"><div class="k">Runs</div><div class="v">' + d.n_runs + '</div></div>'
+      + '<div class="kpi"><div class="k">Pass</div><div class="v">' + d.n_pass + '</div></div>'
+      + '<div class="kpi"><div class="k">Forward Pass</div><div class="v">' + d.n_fwd_pass + '</div></div>'
+      + '<div class="kpi"><div class="k">Live Eligible</div><div class="v">' + d.n_live + '</div></div>'
+      + '</div>'
+      + '<p style="margin-top:14px;color:var(--dim);font-size:12px">Equity curve shows the backtest of run #' + d.best_run_id + ' on pair ' + d.best_pair + ' starting from $10,000. <span style="color:var(--orange)">Backtest only — does not include live or paper trade results.</span></p>';
+    modal.style.display = 'flex';
+  };
+  window.closeStratModal = function() {
+    document.getElementById('strat-modal').style.display = 'none';
+  };
+  // ESC to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closeStratModal();
+  });
+})();
+</script>
+
 <div class="sec">
   <h2><span class="num">5</span> Execution Cost Stress Test</h2>
   <p>Re-applies cost penalties to existing live-eligible trades at 1× / 2× / 3× of modeled spread+slippage. Tests whether edge survives bad execution days.</p>
@@ -439,12 +739,12 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">6</span> Statistical Confidence</h2>
   <div class="grid-4">
-    <div class="stat"><div class="k">Variants tested</div><div class="v">38,092</div><div class="s">backtests in lab.db</div></div>
-    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">34,886</div><div class="s">with selection-bias correction</div></div>
+    <div class="stat"><div class="k">Variants tested</div><div class="v">38,459</div><div class="s">backtests in lab.db</div></div>
+    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">35,135</div><div class="s">with selection-bias correction</div></div>
     <div class="stat"><div class="k">Std Sharpe (forward)</div><div class="v">2.55</div><div class="s">avg across live-eligible</div></div>
     <div class="stat"><div class="k">Avg Deflated Sharpe</div><div class="v">1.00</div><div class="s">live-eligible</div></div>
   </div>
-  <p style="margin-top:14px"><b>Track record:</b> 729 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 34,886 of 38,092 variants.</p>
+  <p style="margin-top:14px"><b>Track record:</b> 729 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 35,135 of 38,459 variants.</p>
   <p class="note"><b>Why this matters:</b> Because many variants may be tested during research, a high Sharpe alone is insufficient. The number of trials must be logged and selection-bias correction (deflated Sharpe) applied before promoting to live. The current system logs every variant and computes deflated Sharpe on all 10 live-eligible runs.</p>
 </div>
 
@@ -484,7 +784,7 @@ table .neg { color: var(--red); }
 
 <div class="sec">
   <h2><span class="num">8</span> OANDA Reconciliation</h2>
-  <table><tbody><tr><td><b>Open positions (local)</b></td><td>0</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>0</td></tr><tr><td><b>Fills without signal</b></td><td>0</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-23T17:12:27Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge pass">pass</span></td></tr></tbody></table>
+  <table><tbody><tr><td><b>Open positions (local)</b></td><td>0</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>0</td></tr><tr><td><b>Fills without signal</b></td><td>0</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-23T18:44:28Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge pass">pass</span></td></tr></tbody></table>
   <p class="note"><b>Major blocker for live promotion.</b> True broker reconciliation requires comparing local open positions to OANDA's <code>/v3/accounts/{{accountId}}/openTrades</code> endpoint. Currently <b>not implemented</b> — the system only reads candle data, never order/account state.</p>
 </div>
 
@@ -612,19 +912,19 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">13</span> Report Metadata + Changelog</h2>
   <table>
-    <tr><td><b>Report generated</b></td><td>2026-06-23T17:28:19Z</td></tr>
+    <tr><td><b>Report generated</b></td><td>2026-06-23T18:59:03Z</td></tr>
     <tr><td><b>Data through</b></td><td>through 2026-06-16T12:19:57Z (3,000 M15 bars ≈ 31 days)</td></tr>
     <tr><td><b>Strategy version</b></td><td>v2-costs</td></tr>
-    <tr><td><b>Git commit</b></td><td><code>d3a64c3</code> · cycle: 2026-06-23T04:22:40Z · 2026-06-23T04:22:40+00:00</td></tr>
+    <tr><td><b>Git commit</b></td><td><code>48fba5f</code> · publish.sh: also publish dashboard/strategies.html to public mirror (TASK 28) · 2026-06-23T18:58:57+00:00</td></tr>
     <tr><td><b>Branch</b></td><td>main · dirty = True</td></tr>
   </table>
   <p style="margin-top:14px"><b>Recent commits (last 10):</b></p>
-  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>d3a64c3</code> cycle: 2026-06-23T04:22:40Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>cd4eca1</code> cycle: 2026-06-23T04:21:55Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>426d1ac</code> cycle: 2026-06-23T00:14:22Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>0ed37c2</code> AGENTS.md: document lab-safety-auto-fix (TASK 25)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>f20bb86</code> auto_fix_loop: daily fixer for live-readiness gates (TASK 25)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>b2db861</code> cycle: 2026-06-22T20:43:14Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>2b541a0</code> cycle: 2026-06-22T20:42:51Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>baef8ef</code> cycle: 2026-06-22T20:41:59Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>6e57ad8</code> cycle: 2026-06-22T20:39:55Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>9249615</code> cycle: 2026-06-22T20:39:07Z</li></ol>
+  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>48fba5f</code> publish.sh: also publish dashboard/strategies.html to public mirror (TASK 28)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>cd0d01d</code> Add Strategies page + per-strategy cards with mini equity curves (TASK 28)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>956fc4a</code> cycle: 2026-06-23T17:52:31Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>c1f9fb3</code> G15 cleanup: delete 5 stub families + zero-trade floor + deprecated queue skip</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>d3a64c3</code> cycle: 2026-06-23T04:22:40Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>cd4eca1</code> cycle: 2026-06-23T04:21:55Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>426d1ac</code> cycle: 2026-06-23T00:14:22Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>0ed37c2</code> AGENTS.md: document lab-safety-auto-fix (TASK 25)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>f20bb86</code> auto_fix_loop: daily fixer for live-readiness gates (TASK 25)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>b2db861</code> cycle: 2026-06-22T20:43:14Z</li></ol>
 </div>
 
   
 <div class="foot">
-  FX Research Lab · deployment-readiness report v2 · 2026-06-23T17:28:19Z<br>
+  FX Research Lab · deployment-readiness report v2 · 2026-06-23T18:59:03Z<br>
   Read-only against OANDA candles · no live orders · this document is the operator's go/no-go reference<br>
   <a href="https://tyler109j.github.io/lab-report/" style="color:var(--accent);text-decoration:none">tyler109j.github.io/lab-report</a>
 </div>

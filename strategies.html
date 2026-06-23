@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0e14">
+<title>Strategies — FX Research Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0e14; --panel: #11161f; --panel-2: #161b26;
+  --border: rgba(120,140,175,0.16); --border-hi: rgba(120,140,175,0.32);
+  --text: #e7ecf3; --dim: #aab3c0; --muted: #707a8a;
+  --accent: #6aa6ff; --green: #3ed598; --red: #ff5d6c; --orange: #ffb547;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+.hdr {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+}
+.hdr h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.hdr .sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
+.hdr a { color: var(--accent); text-decoration: none; font-size: 12.5px; }
+.strat-card-lg {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px 24px; margin-bottom: 18px;
+}
+.strat-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 12px;
+}
+.strat-name { font-size: 16px; font-weight: 700; }
+.strat-pair { font-family: 'JetBrains Mono', monospace; color: var(--muted); font-size: 12px; }
+.strat-curve-lg { margin: 8px 0 14px; }
+.strat-kpis-lg {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin-bottom: 8px;
+}
+.strat-pairs {
+  font-size: 11.5px; color: var(--muted); margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.kpi {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 12px;
+}
+.kpi .k {
+  color: var(--muted); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+}
+.kpi .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 700; margin-top: 2px;
+}
+.badge {
+  display: inline-block; font-size: 10.5px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px;
+  background: rgba(120,140,175,0.16); color: var(--dim);
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+.badge.pass { background: rgba(63,213,152,0.16); color: var(--green); }
+.foot {
+  margin-top: 36px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); text-align: center;
+}
+@media (max-width: 800px) { .strat-kpis-lg { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <h1>Strategies — FX Research Lab</h1>
+      <div class="sub">One equity curve per strategy family · best run per family · click any card on the main report for detail</div>
+    </div>
+    <a href="index.html">← back to live-readiness report</a>
+  </div>
+  
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">confluence<span class="badge pass" style="margin-left:6px">LIVE</span></div>
+    <div class="strat-pair">best run #20396 · EUR_USD</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,156.0 21.4,150.7 38.7,145.5 56.1,140.7 73.5,147.3 90.8,153.8 108.2,148.6 125.6,143.4 142.9,138.2 160.3,132.8 177.7,128.1 195.0,122.6 212.4,117.8 229.8,112.7 247.1,108.0 264.5,102.5 281.9,97.0 299.2,104.1 316.6,111.1 334.0,106.1 351.3,100.4 368.7,95.2 386.0,89.6 403.4,84.2 420.8,78.1 438.1,85.3 455.5,79.5 472.9,73.5 490.2,67.6 507.6,61.6 525.0,55.4 542.3,49.4 559.7,43.4 577.1,38.3 594.4,32.0 611.8,25.7 629.2,34.2 646.5,28.3 663.9,21.8 681.3,16.3 698.6,10.5 716.0,4.0"/><circle cx="716.0" cy="4.0" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+5.25</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+3.30</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+53.9%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">2.2%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">3081</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">391</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">69</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">16</div></div>
+  </div>
+  <div class="strat-pairs">Live pairs: EUR_JPY, EUR_USD, USD_JPY</div>
+  <div class="strat-pairs">Forward-pass pairs: EUR_USD, EUR_JPY, USD_JPY</div>
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">divergence_at_sr<span class="badge pass" style="margin-left:6px">LIVE</span></div>
+    <div class="strat-pair">best run #11875 · EUR_USD</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,151.5 22.7,156.0 41.5,149.3 60.2,142.8 78.9,135.7 97.7,128.7 116.4,121.6 135.2,114.7 153.9,107.7 172.6,113.2 191.4,118.6 210.1,111.9 228.8,116.8 247.6,110.4 266.3,103.4 285.1,108.6 303.8,101.7 322.5,106.7 341.3,99.5 360.0,104.6 378.7,97.0 397.5,89.4 416.2,81.9 434.9,73.9 453.7,78.9 472.4,71.0 491.2,67.8 509.9,73.0 528.6,64.9 547.4,56.8 566.1,49.0 584.8,40.4 603.6,31.4 622.3,23.1 641.1,14.6 659.8,5.8 678.5,7.0 697.3,12.9 716.0,4.0"/><circle cx="716.0" cy="4.0" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+4.22</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+3.56</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+72.3%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">1.4%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">3227</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">588</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">74</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">1</div></div>
+  </div>
+  <div class="strat-pairs">Live pairs: EUR_USD</div>
+  <div class="strat-pairs">Forward-pass pairs: EUR_JPY, USD_CAD, EUR_USD, GBP_USD, USD_CHF</div>
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">mean_reversion</div>
+    <div class="strat-pair">best run #7755 · USD_JPY</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,130.0 14.5,138.2 24.9,132.6 35.4,126.2 45.9,119.7 56.4,128.1 66.8,136.3 77.3,130.1 87.8,138.0 98.2,131.8 108.7,140.3 119.2,148.4 129.6,156.0 140.1,150.3 150.6,144.4 161.1,151.9 171.5,146.4 182.0,140.2 192.5,134.2 202.9,141.7 213.4,149.3 223.9,143.5 234.4,151.3 244.8,145.8 255.3,139.9 265.8,134.1 276.2,128.1 286.7,122.0 297.2,129.8 307.6,137.6 318.1,131.3 328.6,125.2 339.1,119.2 349.5,112.8 360.0,106.4 370.5,100.3 380.9,93.8 391.4,102.0 401.9,95.5 412.4,89.6 422.8,83.2 433.3,91.6 443.8,85.1 454.2,80.2 464.7,74.3 475.2,68.0 485.6,61.8 496.1,55.6 506.6,49.2 517.1,58.3 527.5,52.0 538.0,45.9 548.5,39.3 558.9,47.8 569.4,40.8 579.9,50.1 590.4,43.7 600.8,37.4 611.3,46.0 621.8,40.0 632.2,33.5 642.7,26.7 653.2,19.5 663.6,30.9 674.1,25.0 684.6,20.3 695.1,16.2 705.5,9.4 716.0,4.0"/><circle cx="716.0" cy="4.0" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+2.32</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+2.40</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+31.4%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">1.7%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">4282</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">156</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">0</div></div>
+  </div>
+  
+  
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">squeeze_breakout</div>
+    <div class="strat-pair">best run #27929 · USD_JPY</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,156.0 20.6,141.5 37.1,148.1 53.7,133.3 70.2,140.1 86.8,146.9 103.3,132.1 119.9,139.1 136.5,146.4 153.0,131.8 169.6,116.9 186.1,101.5 202.7,108.8 219.3,115.9 235.8,123.1 252.4,130.4 268.9,115.8 285.5,122.7 302.0,129.8 318.6,136.6 335.2,143.4 351.7,150.0 368.3,135.5 384.8,142.2 401.4,148.7 418.0,134.1 434.5,119.1 451.1,103.5 467.6,87.7 484.2,95.2 500.7,79.1 517.3,86.9 533.9,71.2 550.4,78.7 567.0,86.3 583.5,94.5 600.1,78.6 616.7,62.0 633.2,60.8 649.8,44.6 666.3,52.7 682.9,37.4 699.4,20.8 716.0,4.0"/><circle cx="716.0" cy="4.0" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+2.08</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">+0.88</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+25.2%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">1.5%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">4107</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">97</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">0</div></div>
+  </div>
+  
+  
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">value_area_breakout</div>
+    <div class="strat-pair">best run #15470 · EUR_USD</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,147.7 11.4,151.9 18.8,156.0 26.2,147.1 33.7,138.0 41.1,128.7 48.5,133.2 55.9,123.8 63.3,128.4 70.8,133.0 78.2,137.6 85.6,142.0 93.0,146.3 100.4,150.4 107.8,141.6 115.2,146.1 122.7,137.0 130.1,141.3 137.5,145.8 144.9,143.1 152.3,133.9 159.8,138.5 167.2,129.3 174.6,120.5 182.0,125.0 189.4,115.3 196.8,120.0 204.2,110.5 211.7,115.2 219.1,120.1 226.5,110.5 233.9,101.2 241.3,106.3 248.8,96.3 256.2,101.4 263.6,91.6 271.0,96.5 278.4,101.9 285.8,91.9 293.2,81.6 300.7,86.8 308.1,76.2 315.5,65.4 322.9,70.4 330.3,59.4 337.8,48.6 345.2,37.6 352.6,26.0 360.0,32.0 367.4,37.7 374.8,43.5 382.2,49.1 389.7,54.3 397.1,42.9 404.5,31.1 411.9,36.4 419.3,41.7 426.8,47.0 434.2,35.6 441.6,40.8 449.0,46.1 456.4,44.3 463.8,49.5 471.2,54.9 478.7,60.3 486.1,49.0 493.5,54.2 500.9,42.8 508.3,48.5 515.8,37.3 523.2,25.6 530.6,31.3 538.0,19.8 545.4,7.6 552.8,13.3 560.2,14.8 567.7,21.0 575.1,9.1 582.5,15.1 589.9,21.0 597.3,9.4 604.8,15.2 612.2,21.0 619.6,9.3 627.0,15.3 634.4,4.0 641.8,10.1 649.2,15.8 656.7,21.5 664.1,27.4 671.5,33.2 678.9,39.3 686.3,45.1 693.8,33.5 701.2,39.4 708.6,44.9 716.0,33.5"/><circle cx="716.0" cy="33.5" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+1.52</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+30.1%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">7.6%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">3976</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">32</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">0</div></div>
+  </div>
+  
+  
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">breakout</div>
+    <div class="strat-pair">best run #910 · GBP_USD</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,117.8 6.6,107.0 9.1,95.8 11.7,100.7 14.2,101.7 16.8,90.2 19.4,78.4 21.9,80.3 24.5,85.7 27.1,90.7 29.6,95.6 32.2,100.5 34.7,105.3 37.3,109.9 39.9,114.7 42.4,103.5 45.0,108.2 47.5,112.9 50.1,117.7 52.7,106.9 55.2,95.6 57.8,100.5 60.3,105.4 62.9,110.2 65.5,98.8 68.0,103.6 70.6,108.3 73.2,97.0 75.7,101.8 78.3,90.5 80.8,78.8 83.4,83.9 86.0,88.8 88.5,93.8 91.1,98.9 93.6,103.8 96.2,108.8 98.8,113.5 101.3,118.2 103.9,123.0 106.4,112.2 109.0,109.1 111.6,98.0 114.1,86.6 116.7,91.6 119.3,96.4 121.8,101.5 124.4,89.9 126.9,92.6 129.5,97.5 132.1,102.2 134.6,105.8 137.2,106.5 139.7,111.2 142.3,115.9 144.9,120.4 147.4,125.3 150.0,129.8 152.5,134.3 155.1,138.7 157.7,143.0 160.2,147.3 162.8,151.5 165.4,156.0 167.9,145.9 170.5,137.7 173.0,142.0 175.6,146.4 178.2,150.7 180.7,140.4 183.3,144.7 185.8,148.8 188.4,138.7 191.0,143.4 193.5,133.3 196.1,138.1 198.6,127.7 201.2,116.9 203.8,115.4 206.3,120.0 208.9,125.0 211.5,123.2 214.0,128.2 216.6,132.7 219.1,137.2 221.7,141.6 224.3,131.2 226.8,120.5 229.4,109.6 231.9,98.3 234.5,103.1 237.1,107.8 239.6,96.4 242.2,101.2 244.7,89.8 247.3,78.0 249.9,66.1 252.4,71.5 255.0,76.7 257.6,70.5 260.1,76.1 262.7,81.5 265.2,86.7 267.8,91.8 270.4,97.0 272.9,102.0 275.5,106.9 278.0,111.6 280.6,116.3 283.2,105.1 285.7,96.7 288.3,102.0 290.8,90.5 293.4,95.4 296.0,100.3 298.5,105.1 301.1,110.3 303.7,99.1 306.2,87.6 308.8,92.5 311.3,97.4 313.9,102.2 316.5,107.1 319.0,112.3 321.6,117.3 324.1,121.9 326.7,121.2 329.3,110.2 331.8,98.9 334.4,87.3 336.9,81.8 339.5,86.8 342.1,74.9 344.6,79.8 347.2,67.7 349.8,72.7 352.3,68.6 354.9,73.7 357.4,79.0 360.0,84.1 362.6,72.1 365.1,77.1 367.7,79.8 370.2,85.0 372.8,90.1 375.4,94.9 377.9,99.8 380.5,104.7 383.1,103.9 385.6,108.8 388.2,97.8 390.7,86.4 393.3,91.4 395.9,79.6 398.4,84.5 401.0,72.6 403.5,69.6 406.1,57.3 408.7,62.5 411.2,67.6 413.8,72.7 416.3,77.8 418.9,83.0 421.5,84.4 424.0,72.4 426.6,60.1 429.2,65.1 431.7,52.7 434.3,39.8 436.8,45.1 439.4,50.5 442.0,55.7 444.5,60.7 447.1,65.8 449.6,70.8 452.2,66.2 454.8,71.3 457.3,76.5 459.9,81.4 462.4,86.5 465.0,91.5 467.6,79.9 470.1,67.9 472.7,73.0 475.3,78.0 477.8,83.4 480.4,88.3 482.9,93.2 485.5,81.3 488.1,86.1 490.6,90.9 493.2,95.6 495.7,100.4 498.3,105.0 500.9,109.5 503.4,114.1 506.0,118.7 508.5,123.2 511.1,127.7 513.7,132.3 516.2,134.2 518.8,138.7 521.4,128.1 523.9,132.5 526.5,137.1 529.0,141.3 531.6,145.6 534.2,144.7 536.7,134.3 539.3,138.7 541.8,143.0 544.4,147.4 547.0,151.7 549.5,141.4 552.1,130.8 554.6,119.9 557.2,124.4 559.8,113.6 562.3,118.3 564.9,123.0 567.5,112.1 570.0,100.8 572.6,105.8 575.1,110.9 577.7,99.8 580.3,96.9 582.8,101.6 585.4,106.3 587.9,111.1 590.5,102.9 593.1,107.8 595.6,96.5 598.2,101.5 600.7,89.9 603.3,94.7 605.9,90.6 608.4,95.4 611.0,100.3 613.6,105.1 616.1,93.7 618.7,82.1 621.2,87.0 623.8,92.1 626.4,91.3 628.9,79.7 631.5,70.5 634.0,58.5 636.6,46.1 639.2,33.2 641.7,38.8 644.3,44.2 646.8,31.1 649.4,17.8 652.0,4.0 654.5,10.0 657.1,15.7 659.7,21.2 662.2,27.1 664.8,32.7 667.3,27.0 669.9,33.1 672.5,34.7 675.0,40.5 677.6,27.7 680.1,33.5 682.7,32.2 685.3,37.9 687.8,43.5 690.4,48.9 692.9,54.2 695.5,59.6 698.1,47.4 700.6,53.0 703.2,58.3 705.8,45.6 708.3,45.0 710.9,50.5 713.4,55.7 716.0,60.8"/><circle cx="716.0" cy="60.8" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+0.47</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+13.3%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">10.2%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">1728</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">0</div></div>
+  </div>
+  
+  
+</div>
+<div class="strat-card-lg">
+  <div class="strat-head">
+    <div class="strat-name">volume_nodes</div>
+    <div class="strat-pair">best run #15828 · EUR_JPY</div>
+  </div>
+  <div class="strat-curve-lg"><svg width="720" height="160" viewBox="0 0 720 160" style="display:block;background:rgba(255,255,255,0.02);border-radius:4px"><polyline fill="none" stroke="#6aa6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" points="4.0,83.9 8.5,64.3 13.0,80.6 17.5,60.5 22.0,76.8 26.5,92.8 31.0,108.4 35.5,124.3 40.1,139.8 44.6,156.0 49.1,137.5 53.6,153.1 58.1,134.7 62.6,115.3 67.1,130.8 71.6,111.9 76.1,92.5 80.6,73.1 85.1,89.5 89.6,106.0 94.1,87.0 98.6,103.1 103.1,83.3 107.6,64.1 112.2,44.9 116.7,61.2 121.2,77.2 125.7,93.3 130.2,73.5 134.7,53.2 139.2,33.4 143.7,13.0 148.2,29.8 152.7,47.0 157.2,63.7 161.7,43.9 166.2,60.2 170.7,77.1 175.2,57.2 179.7,73.6 184.3,89.7 188.8,69.7 193.3,50.0 197.8,30.8 202.3,47.7 206.8,64.1 211.3,44.2 215.8,61.5 220.3,78.7 224.8,94.6 229.3,76.8 233.8,93.7 238.3,74.4 242.8,91.3 247.3,71.8 251.8,88.5 256.4,69.3 260.9,49.7 265.4,29.8 269.9,9.9 274.4,27.3 278.9,7.5 283.4,24.2 287.9,40.7 292.4,20.4 296.9,36.6 301.4,52.8 305.9,32.0 310.4,48.0 314.9,63.9 319.4,80.1 323.9,60.2 328.5,39.9 333.0,55.6 337.5,35.0 342.0,14.2 346.5,31.4 351.0,48.4 355.5,64.8 360.0,45.0 364.5,25.1 369.0,4.0 373.5,20.9 378.0,37.9 382.5,54.3 387.0,34.0 391.5,51.0 396.1,30.1 400.6,46.5 405.1,62.4 409.6,41.8 414.1,21.5 418.6,38.6 423.1,55.2 427.6,70.9 432.1,86.7 436.6,102.3 441.1,82.1 445.6,63.1 450.1,43.4 454.6,23.3 459.1,40.2 463.6,57.5 468.2,37.3 472.7,53.8 477.2,70.4 481.7,50.8 486.2,31.2 490.7,47.4 495.2,64.1 499.7,43.9 504.2,61.0 508.7,41.4 513.2,58.4 517.7,38.1 522.2,54.4 526.7,41.6 531.2,58.9 535.7,75.5 540.3,55.4 544.8,72.8 549.3,53.3 553.8,33.3 558.3,51.0 562.8,30.9 567.3,48.3 571.8,65.0 576.3,82.2 580.8,63.1 585.3,45.0 589.8,62.6 594.3,43.7 598.8,60.7 603.3,40.5 607.8,19.4 612.4,36.3 616.9,44.9 621.4,62.6 625.9,81.1 630.4,62.0 634.9,79.1 639.4,60.0 643.9,77.5 648.4,94.8 652.9,110.8 657.4,127.3 661.9,108.5 666.4,90.7 670.9,72.0 675.4,52.7 679.9,69.6 684.5,50.4 689.0,67.4 693.5,48.0 698.0,28.6 702.5,7.9 707.0,26.0 711.5,43.1 716.0,23.2"/><circle cx="716.0" cy="23.2" r="2" fill="#6aa6ff"/></svg></div>
+  <div class="strat-kpis-lg">
+    <div class="kpi"><div class="k">Best Sharpe</div><div class="v">+0.27</div></div>
+    <div class="kpi"><div class="k">OOS Sharpe</div><div class="v">—</div></div>
+    <div class="kpi"><div class="k">Best Return</div><div class="v">+4.2%</div></div>
+    <div class="kpi"><div class="k">Best Max DD</div><div class="v">8.1%</div></div>
+    <div class="kpi"><div class="k">Runs</div><div class="v">1452</div></div>
+    <div class="kpi"><div class="k">Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Forward Pass</div><div class="v">0</div></div>
+    <div class="kpi"><div class="k">Live Eligible</div><div class="v">0</div></div>
+  </div>
+  
+  
+</div>
+  <div class="foot">
+    Each curve is the backtest equity of that strategy's best run (highest Sharpe, n≥30) starting from $10,000.<br>
+    Backtest only — does not include live or paper trade results. <a href="index.html">Main report</a>
+  </div>
+</div>
+</body>
+</html>
