@@ -1,14 +1,15 @@
 {
-  "generated_ts": "2026-06-22T20:44:12Z",
+  "generated_ts": "2026-06-23T03:48:43Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "b2db861a900e6a2c1993f852ad8866214f16bf0c",
-    "short": "b2db861",
+    "commit": "426d1aced9794672beb09aaff6dd3e59ccfc26c1",
+    "short": "426d1ac",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-22T20:43:14+00:00",
-    "message": "cycle: 2026-06-22T20:43:14Z",
+    "commit_ts": "2026-06-23T00:14:22+00:00",
+    "message": "cycle: 2026-06-23T00:14:22Z",
     "live_code_commits": [
+      "426d1ac cycle: 2026-06-23T00:14:22Z",
       "9249615 cycle: 2026-06-22T20:39:07Z",
       "23da818 cycle: 2026-06-21T15:07:14Z",
       "a634b0e goal: daily audit cron + kill switch + daily loss + broker reconciliation + paper dedup",
@@ -27,8 +28,7 @@
       "fd9549b takeover: resume from Perplexity Computer; consolidate cron, gate scripts, port PY resolution",
       "7f10c25 rigor: vendored OANDA client, realistic costs v2, deflated Sharpe + bootstrap CI, params-hash dedup, DB indices, HANDOFF.md",
       "d2552c0 agent: pareto n>=30, weighted strategy picker, live_runner on cycle cron, coverage matrix dashboard",
-      "e9c47dc live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup",
-      "bbef09b cycle: 2026-06-14T21:02:33Z"
+      "e9c47dc live_runner: bootstrap OANDA_API_KEY from .env and create live tables on startup"
     ]
   },
   "identity": {
@@ -61,40 +61,40 @@
     ]
   },
   "counters": {
-    "total_runs": 34367,
+    "total_runs": 35649,
     "live_eligible": 17,
-    "oos_runs": 138,
-    "wf_pass": 95,
-    "deflated_set": 33841,
-    "live_signals": 5819,
+    "oos_runs": 140,
+    "wf_pass": 96,
+    "deflated_set": 34208,
+    "live_signals": 6261,
     "live_trades": 144,
     "paper_open": 0,
-    "cycles_24h": 940,
-    "alerts_7d": 5,
-    "rolling_oos_30d": 2850
+    "cycles_24h": 547,
+    "alerts_7d": 0,
+    "rolling_oos_30d": 3033
   },
   "perf": {
     "backtest": {
-      "n_runs": 17643,
-      "n_trades": 3724519,
-      "win_rate": 0.3967,
-      "profit_factor": 17.309,
-      "sharpe": -4.803,
-      "total_return": -0.2857,
-      "max_dd_avg": 0.3334,
+      "n_runs": 18043,
+      "n_trades": 3808824,
+      "win_rate": 0.3965,
+      "profit_factor": 17.439,
+      "sharpe": -4.768,
+      "total_return": -0.2856,
+      "max_dd_avg": 0.3333,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.368
+      "expectancy_r": 16.499
     },
     "oos": {
-      "n_runs": 138,
-      "n_trades": 7015,
-      "win_rate": 0.5598,
-      "profit_factor": 2.192,
-      "sharpe": 2.505,
+      "n_runs": 140,
+      "n_trades": 7197,
+      "win_rate": 0.5593,
+      "profit_factor": 2.184,
+      "sharpe": 2.501,
       "total_return": 0.3608,
-      "max_dd_avg": 0.0563,
+      "max_dd_avg": 0.0562,
       "max_dd_worst": 0.1715,
-      "expectancy_r": 0.988
+      "expectancy_r": 0.982
     },
     "forward": {
       "n_runs": 17,
@@ -108,24 +108,24 @@
       "expectancy_r": 0.658
     },
     "wf": {
-      "n_runs": 95,
-      "n_trades": 4220,
-      "win_rate": 0.6477,
-      "profit_factor": 2.31,
-      "sharpe": 2.602,
+      "n_runs": 96,
+      "n_trades": 4263,
+      "win_rate": 0.646,
+      "profit_factor": 2.306,
+      "sharpe": 2.596,
       "total_return": 0.253,
-      "max_dd_avg": 0.0403,
+      "max_dd_avg": 0.0406,
       "max_dd_worst": 0.0822,
-      "expectancy_r": 0.757
+      "expectancy_r": 0.756
     }
   },
   "perf_oos_30d": {
-    "n_windows": 950,
-    "avg_sharpe": 6.185,
-    "avg_return": 0.0308,
-    "avg_max_dd": 0.0129,
-    "avg_win_rate": 0.7286,
-    "total_trades": 4453
+    "n_windows": 1011,
+    "avg_sharpe": 6.164,
+    "avg_return": 0.0311,
+    "avg_max_dd": 0.0128,
+    "avg_win_rate": 0.7292,
+    "total_trades": 4744
   },
   "perf_paper": {
     "n_trades": 144,
@@ -276,7 +276,7 @@
       "status": "pass",
       "value": true,
       "threshold": true,
-      "reason": "5 alerts in last 7d; live_signals table tracks all activity"
+      "reason": "0 alerts in last 7d; live_signals table tracks all activity"
     },
     {
       "id": "crash_recovery",
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 34367,
+      "value": 35649,
       "threshold": 1000,
-      "reason": "34,367 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "35,649 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 33841,
+      "value": 34208,
       "threshold": 1,
-      "reason": "33841 runs have deflated_sharpe computed"
+      "reason": "34208 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -508,21 +508,21 @@
     "open_positions_local": 0,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-22T20:30:48Z",
+    "last_signal_ts": "2026-06-23T03:42:38Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "426d1ac cycle: 2026-06-23T00:14:22Z",
+    "0ed37c2 AGENTS.md: document lab-safety-auto-fix (TASK 25)",
+    "f20bb86 auto_fix_loop: daily fixer for live-readiness gates (TASK 25)",
     "b2db861 cycle: 2026-06-22T20:43:14Z",
     "2b541a0 cycle: 2026-06-22T20:42:51Z",
     "baef8ef cycle: 2026-06-22T20:41:59Z",
     "6e57ad8 cycle: 2026-06-22T20:39:55Z",
     "9249615 cycle: 2026-06-22T20:39:07Z",
     "5f0cb40 cycle: 2026-06-22T20:37:25Z",
-    "a25552e cycle: 2026-06-22T19:25:30Z",
-    "989d45c cycle: 2026-06-22T16:40:20Z",
-    "c733d40 cycle: 2026-06-22T14:40:19Z",
-    "07f55b4 cycle: 2026-06-22T13:40:03Z"
+    "a25552e cycle: 2026-06-22T19:25:30Z"
   ]
 }
