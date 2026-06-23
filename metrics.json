@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-23T03:48:43Z",
+  "generated_ts": "2026-06-23T04:22:38Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "426d1aced9794672beb09aaff6dd3e59ccfc26c1",
-    "short": "426d1ac",
+    "commit": "cd4eca133355e2d421a8e05c951e1d2ba05f5190",
+    "short": "cd4eca1",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-23T00:14:22+00:00",
-    "message": "cycle: 2026-06-23T00:14:22Z",
+    "commit_ts": "2026-06-23T04:21:55+00:00",
+    "message": "cycle: 2026-06-23T04:21:55Z",
     "live_code_commits": [
       "426d1ac cycle: 2026-06-23T00:14:22Z",
       "9249615 cycle: 2026-06-22T20:39:07Z",
@@ -61,29 +61,29 @@
     ]
   },
   "counters": {
-    "total_runs": 35649,
+    "total_runs": 35740,
     "live_eligible": 17,
     "oos_runs": 140,
     "wf_pass": 96,
-    "deflated_set": 34208,
-    "live_signals": 6261,
+    "deflated_set": 34235,
+    "live_signals": 6296,
     "live_trades": 144,
     "paper_open": 0,
-    "cycles_24h": 547,
+    "cycles_24h": 556,
     "alerts_7d": 0,
     "rolling_oos_30d": 3033
   },
   "perf": {
     "backtest": {
-      "n_runs": 18043,
-      "n_trades": 3808824,
-      "win_rate": 0.3965,
-      "profit_factor": 17.439,
-      "sharpe": -4.768,
+      "n_runs": 18073,
+      "n_trades": 3813338,
+      "win_rate": 0.3964,
+      "profit_factor": 17.467,
+      "sharpe": -4.766,
       "total_return": -0.2856,
       "max_dd_avg": 0.3333,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.499
+      "expectancy_r": 16.527
     },
     "oos": {
       "n_runs": 140,
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 35649,
+      "value": 35740,
       "threshold": 1000,
-      "reason": "35,649 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "35,740 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 34208,
+      "value": 34235,
       "threshold": 1,
-      "reason": "34208 runs have deflated_sharpe computed"
+      "reason": "34235 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -508,12 +508,13 @@
     "open_positions_local": 0,
     "orphan_trades": 0,
     "fills_without_signal": 0,
-    "last_signal_ts": "2026-06-23T03:42:38Z",
+    "last_signal_ts": "2026-06-23T04:12:35Z",
     "oanda_state_compared": false,
     "verdict": "pass",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
+    "cd4eca1 cycle: 2026-06-23T04:21:55Z",
     "426d1ac cycle: 2026-06-23T00:14:22Z",
     "0ed37c2 AGENTS.md: document lab-safety-auto-fix (TASK 25)",
     "f20bb86 auto_fix_loop: daily fixer for live-readiness gates (TASK 25)",
@@ -522,7 +523,6 @@
     "baef8ef cycle: 2026-06-22T20:41:59Z",
     "6e57ad8 cycle: 2026-06-22T20:39:55Z",
     "9249615 cycle: 2026-06-22T20:39:07Z",
-    "5f0cb40 cycle: 2026-06-22T20:37:25Z",
-    "a25552e cycle: 2026-06-22T19:25:30Z"
+    "5f0cb40 cycle: 2026-06-22T20:37:25Z"
   ]
 }
