@@ -1,13 +1,13 @@
 {
-  "generated_ts": "2026-06-24T04:18:53Z",
+  "generated_ts": "2026-06-24T12:20:49Z",
   "schema_version": "2026-06-18.v1",
   "repo": {
-    "commit": "f96e56aba5e8462d7091e263ec74432df667883c",
-    "short": "f96e56a",
+    "commit": "87bd21972240586e89cdfbf05ea70409e8c66c73",
+    "short": "87bd219",
     "branch": "main",
     "dirty": true,
-    "commit_ts": "2026-06-24T03:55:19+00:00",
-    "message": "cycle: 2026-06-24T03:55:19Z",
+    "commit_ts": "2026-06-24T12:18:56+00:00",
+    "message": "cycle: 2026-06-24T12:18:56Z",
     "live_code_commits": [
       "c1f9fb3 G15 cleanup: delete 5 stub families + zero-trade floor + deprecated queue skip",
       "426d1ac cycle: 2026-06-23T00:14:22Z",
@@ -61,71 +61,71 @@
     ]
   },
   "counters": {
-    "total_runs": 40644,
-    "live_eligible": 17,
-    "oos_runs": 151,
-    "wf_pass": 102,
-    "deflated_set": 36881,
-    "live_signals": 7905,
+    "total_runs": 42428,
+    "live_eligible": 19,
+    "oos_runs": 165,
+    "wf_pass": 110,
+    "deflated_set": 38252,
+    "live_signals": 8386,
     "live_trades": 145,
     "paper_open": 1,
-    "cycles_24h": 478,
+    "cycles_24h": 605,
     "alerts_7d": 0,
-    "rolling_oos_30d": 3789
+    "rolling_oos_30d": 4224
   },
   "perf": {
     "backtest": {
-      "n_runs": 20958,
-      "n_trades": 4473786,
-      "win_rate": 0.3947,
-      "profit_factor": 17.735,
-      "sharpe": -4.692,
-      "total_return": -0.292,
-      "max_dd_avg": 0.3394,
+      "n_runs": 22455,
+      "n_trades": 4799557,
+      "win_rate": 0.3937,
+      "profit_factor": 17.491,
+      "sharpe": -4.684,
+      "total_return": -0.2945,
+      "max_dd_avg": 0.3417,
       "max_dd_worst": 1.0,
-      "expectancy_r": 16.799
+      "expectancy_r": 16.556
     },
     "oos": {
-      "n_runs": 151,
-      "n_trades": 7809,
-      "win_rate": 0.5605,
-      "profit_factor": 2.189,
-      "sharpe": 2.512,
-      "total_return": 0.3639,
-      "max_dd_avg": 0.0566,
+      "n_runs": 165,
+      "n_trades": 8429,
+      "win_rate": 0.5635,
+      "profit_factor": 2.213,
+      "sharpe": 2.533,
+      "total_return": 0.3655,
+      "max_dd_avg": 0.0559,
       "max_dd_worst": 0.1715,
-      "expectancy_r": 0.989
+      "expectancy_r": 1.002
     },
     "forward": {
-      "n_runs": 17,
-      "n_trades": 729,
-      "win_rate": 0.6386,
-      "profit_factor": 2.22,
-      "sharpe": 2.549,
-      "total_return": 0.2342,
-      "max_dd_avg": 0.037,
+      "n_runs": 19,
+      "n_trades": 816,
+      "win_rate": 0.6395,
+      "profit_factor": 2.231,
+      "sharpe": 2.566,
+      "total_return": 0.2339,
+      "max_dd_avg": 0.0356,
       "max_dd_worst": 0.0485,
-      "expectancy_r": 0.658
+      "expectancy_r": 0.652
     },
     "wf": {
-      "n_runs": 102,
-      "n_trades": 4520,
-      "win_rate": 0.6417,
-      "profit_factor": 2.309,
-      "sharpe": 2.591,
-      "total_return": 0.2596,
-      "max_dd_avg": 0.0412,
+      "n_runs": 110,
+      "n_trades": 4839,
+      "win_rate": 0.6399,
+      "profit_factor": 2.331,
+      "sharpe": 2.609,
+      "total_return": 0.2687,
+      "max_dd_avg": 0.041,
       "max_dd_worst": 0.0822,
-      "expectancy_r": 0.78
+      "expectancy_r": 0.813
     }
   },
   "perf_oos_30d": {
-    "n_windows": 1263,
-    "avg_sharpe": 6.073,
-    "avg_return": 0.0321,
+    "n_windows": 1408,
+    "avg_sharpe": 5.983,
+    "avg_return": 0.0327,
     "avg_max_dd": 0.0128,
-    "avg_win_rate": 0.7312,
-    "total_trades": 5951
+    "avg_win_rate": 0.7316,
+    "total_trades": 6644
   },
   "perf_paper": {
     "n_trades": 145,
@@ -138,23 +138,23 @@
   },
   "cost_scenarios": {
     "ideal": {
-      "n": 17,
-      "avg_stressed_return": 0.1914,
-      "avg_sharpe": 2.549,
+      "n": 19,
+      "avg_stressed_return": 0.191,
+      "avg_sharpe": 2.566,
       "worst_dd": 0.0485,
       "verdict": "Pass"
     },
     "realistic": {
-      "n": 17,
-      "avg_stressed_return": 0.0198,
-      "avg_sharpe": 2.549,
+      "n": 19,
+      "avg_stressed_return": 0.0192,
+      "avg_sharpe": 2.566,
       "worst_dd": 0.0485,
       "verdict": "Watch"
     },
     "stress": {
-      "n": 17,
-      "avg_stressed_return": -0.409,
-      "avg_sharpe": 2.549,
+      "n": 19,
+      "avg_stressed_return": -0.4103,
+      "avg_sharpe": 2.566,
       "worst_dd": 0.0485,
       "verdict": "Fail"
     }
@@ -180,25 +180,25 @@
       "id": "positive_expectancy",
       "name": "Positive expectancy after costs (live-eligible)",
       "status": "pass",
-      "value": 0.658,
+      "value": 0.652,
       "threshold": 0,
-      "reason": "Avg expectancy_r = 0.658 across 17 live-eligible runs"
+      "reason": "Avg expectancy_r = 0.652 across 19 live-eligible runs"
     },
     {
       "id": "profit_factor",
       "name": "Profit factor \u2265 1.20 (live-eligible)",
       "status": "pass",
-      "value": 2.22,
+      "value": 2.231,
       "threshold": 1.2,
-      "reason": "Avg PF = 2.22"
+      "reason": "Avg PF = 2.231"
     },
     {
       "id": "max_dd_threshold",
       "name": "Max drawdown within threshold (\u226430%)",
       "status": "pass",
-      "value": 0.037,
+      "value": 0.036,
       "threshold": 0.3,
-      "reason": "Avg max_dd = 3.7%"
+      "reason": "Avg max_dd = 3.6%"
     },
     {
       "id": "cost_stress_test",
@@ -290,17 +290,17 @@
       "id": "variant_count",
       "name": "Research variant count documented",
       "status": "pass",
-      "value": 40644,
+      "value": 42428,
       "threshold": 1000,
-      "reason": "40,644 backtests in lab.db \u2014 selection-bias correction needed"
+      "reason": "42,428 backtests in lab.db \u2014 selection-bias correction needed"
     },
     {
       "id": "deflated_sharpe",
       "name": "Deflated Sharpe / selection-bias control",
       "status": "pass",
-      "value": 36881,
+      "value": 38252,
       "threshold": 1,
-      "reason": "36881 runs have deflated_sharpe computed"
+      "reason": "38252 runs have deflated_sharpe computed"
     }
   ],
   "controls": {
@@ -472,32 +472,32 @@
   },
   "monte_carlo": {
     "computed": true,
-    "method": "Bootstrap from live-eligible runs: avg_wr=0.64, avg_win=1.60R, n_sims=5000",
+    "method": "Bootstrap from live-eligible runs: avg_wr=0.64, avg_win=1.58R, n_sims=5000",
     "results": {
       "0.10%": {
         "risk_per_trade_pct": 0.1,
-        "median_final_balance": 1.141,
+        "median_final_balance": 1.139,
         "p95_max_dd": 0.008,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "0.25%": {
         "risk_per_trade_pct": 0.25,
-        "median_final_balance": 1.39,
+        "median_final_balance": 1.385,
         "p95_max_dd": 0.02,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "0.50%": {
         "risk_per_trade_pct": 0.5,
-        "median_final_balance": 1.928,
+        "median_final_balance": 1.913,
         "p95_max_dd": 0.039,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
       },
       "1.00%": {
         "risk_per_trade_pct": 1.0,
-        "median_final_balance": 3.679,
+        "median_final_balance": 3.624,
         "p95_max_dd": 0.077,
         "risk_of_ruin": 0.0,
         "verdict": "Pass"
@@ -508,21 +508,21 @@
     "open_positions_local": 1,
     "orphan_trades": 1,
     "fills_without_signal": 1,
-    "last_signal_ts": "2026-06-24T04:13:55Z",
+    "last_signal_ts": "2026-06-24T12:05:20Z",
     "oanda_state_compared": false,
     "verdict": "watch",
     "note": "Local-only check \u2014 never calls OANDA order endpoints. True broker reconciliation not implemented."
   },
   "changelog": [
-    "f96e56a cycle: 2026-06-24T03:55:19Z",
-    "321a4fe cycle: 2026-06-24T03:26:49Z",
-    "69a0654 cycle: 2026-06-24T03:08:58Z",
-    "840f6a8 cycle: 2026-06-24T02:26:50Z",
-    "e5b0d40 cycle: 2026-06-24T02:24:29Z",
-    "e8611b3 cycle: 2026-06-24T01:53:56Z",
-    "4b77595 cycle: 2026-06-24T01:25:42Z",
-    "88eb1f7 cycle: 2026-06-24T01:24:22Z",
-    "c77ab58 cycle: 2026-06-24T00:55:27Z",
-    "45af051 cycle: 2026-06-24T00:26:39Z"
+    "87bd219 cycle: 2026-06-24T12:18:56Z",
+    "f289cff cycle: 2026-06-24T12:16:42Z",
+    "29defed cycle: 2026-06-24T12:14:35Z",
+    "fd1f0c8 cycle: 2026-06-24T11:44:38Z",
+    "50bee30 cycle: 2026-06-24T11:28:03Z",
+    "04c0992 cycle: 2026-06-24T11:25:57Z",
+    "fe03e95 cycle: 2026-06-24T10:56:36Z",
+    "293106c cycle: 2026-06-24T10:26:11Z",
+    "03d6d5b cycle: 2026-06-24T10:24:22Z",
+    "5897b00 cycle: 2026-06-24T09:50:31Z"
   ]
 }
