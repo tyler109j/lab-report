@@ -1,0 +1,1207 @@
+{
+  "generated_ts": "2026-06-24T13:09:15Z",
+  "tfs": [
+    "M5",
+    "M15",
+    "M30",
+    "H1",
+    "H4",
+    "D"
+  ],
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "USD_CHF",
+    "AUD_USD",
+    "NZD_USD",
+    "USD_CAD",
+    "EUR_GBP",
+    "EUR_JPY"
+  ],
+  "strategies": [
+    "breakout",
+    "confluence",
+    "divergence_at_sr",
+    "fibonacci_retr",
+    "ichimoku_cloud",
+    "keltner_squeeze",
+    "mean_reversion",
+    "momentum_rotation",
+    "order_flow_imbal",
+    "range_bound",
+    "squeeze_breakout",
+    "value_area_breakout",
+    "volume_nodes"
+  ],
+  "cells": {
+    "breakout": {
+      "AUD_USD": {
+        "M15": {
+          "n": 332,
+          "passes": 0,
+          "avg_sharpe": -4.47,
+          "best_sharpe": -0.68
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 276,
+          "passes": 0,
+          "avg_sharpe": -6.48,
+          "best_sharpe": -3.8
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 126,
+          "passes": 0,
+          "avg_sharpe": -2.19,
+          "best_sharpe": 0.33
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 178,
+          "passes": 0,
+          "avg_sharpe": -3.01,
+          "best_sharpe": -0.78
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 209,
+          "passes": 0,
+          "avg_sharpe": -2.59,
+          "best_sharpe": 0.47
+        }
+      },
+      "NZD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 344,
+          "passes": 0,
+          "avg_sharpe": -4.77,
+          "best_sharpe": -0.77
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 216,
+          "passes": 0,
+          "avg_sharpe": -3.48,
+          "best_sharpe": 0.03
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 102,
+          "passes": 0,
+          "avg_sharpe": -3.95,
+          "best_sharpe": -0.63
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 221,
+          "passes": 0,
+          "avg_sharpe": -2.0,
+          "best_sharpe": -0.17
+        }
+      }
+    },
+    "confluence": {
+      "AUD_USD": {
+        "M15": {
+          "n": 542,
+          "passes": 9,
+          "avg_sharpe": -0.61,
+          "best_sharpe": 173.05
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 508,
+          "passes": 0,
+          "avg_sharpe": -3.81,
+          "best_sharpe": 2.1
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 222,
+          "passes": 105,
+          "avg_sharpe": 7.29,
+          "best_sharpe": 458.72
+        }
+      },
+      "EUR_USD": {
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.75,
+          "best_sharpe": -0.75
+        },
+        "M15": {
+          "n": 279,
+          "passes": 94,
+          "avg_sharpe": 1.91,
+          "best_sharpe": 145.32
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -7.99,
+          "best_sharpe": -7.99
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 374,
+          "passes": 54,
+          "avg_sharpe": -2.38,
+          "best_sharpe": 2.61
+        }
+      },
+      "NZD_USD": {
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 671,
+          "passes": 19,
+          "avg_sharpe": -0.71,
+          "best_sharpe": 469.73
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -3.81,
+          "best_sharpe": -3.81
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 287,
+          "passes": 60,
+          "avg_sharpe": -0.24,
+          "best_sharpe": 57.04
+        }
+      },
+      "USD_CHF": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 217,
+          "passes": 6,
+          "avg_sharpe": -1.53,
+          "best_sharpe": 11.88
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 372,
+          "passes": 93,
+          "avg_sharpe": 0.29,
+          "best_sharpe": 2.56
+        }
+      }
+    },
+    "divergence_at_sr": {
+      "AUD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 431,
+          "passes": 79,
+          "avg_sharpe": -1.03,
+          "best_sharpe": 25.91
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 610,
+          "passes": 37,
+          "avg_sharpe": 0.67,
+          "best_sharpe": 507.37
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -6.09,
+          "best_sharpe": -6.09
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 234,
+          "passes": 62,
+          "avg_sharpe": -4.08,
+          "best_sharpe": 261.89
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 291,
+          "passes": 144,
+          "avg_sharpe": 1.88,
+          "best_sharpe": 80.19
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 339,
+          "passes": 117,
+          "avg_sharpe": -0.93,
+          "best_sharpe": 60.37
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.1,
+          "best_sharpe": 0.1
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 770,
+          "passes": 7,
+          "avg_sharpe": -42.06,
+          "best_sharpe": 1.08
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 363,
+          "passes": 163,
+          "avg_sharpe": -0.35,
+          "best_sharpe": 26.57
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 177,
+          "passes": 21,
+          "avg_sharpe": 1.82,
+          "best_sharpe": 97.6
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 484,
+          "passes": 42,
+          "avg_sharpe": -7.52,
+          "best_sharpe": 55.78
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.81,
+          "best_sharpe": -0.81
+        }
+      }
+    },
+    "fibonacci_retr": {
+      "AUD_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "ichimoku_cloud": {
+      "AUD_USD": {
+        "M15": {
+          "n": 947,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 890,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 128,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 425,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 637,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 972,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 624,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 165,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 757,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "keltner_squeeze": {
+      "AUD_USD": {
+        "M15": {
+          "n": 977,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 885,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 105,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 421,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 611,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 1023,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 617,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 163,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 763,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "mean_reversion": {
+      "AUD_USD": {
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.5,
+          "best_sharpe": -0.44
+        },
+        "M15": {
+          "n": 814,
+          "passes": 43,
+          "avg_sharpe": -2.37,
+          "best_sharpe": 15.36
+        }
+      },
+      "EUR_GBP": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 839,
+          "passes": 0,
+          "avg_sharpe": -4.78,
+          "best_sharpe": 0.72
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 341,
+          "passes": 17,
+          "avg_sharpe": 0.47,
+          "best_sharpe": 147.0
+        }
+      },
+      "EUR_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 369,
+          "passes": 22,
+          "avg_sharpe": -3.38,
+          "best_sharpe": 1.8
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.49,
+          "best_sharpe": 0.49
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 538,
+          "passes": 6,
+          "avg_sharpe": -1.84,
+          "best_sharpe": 16.48
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 914,
+          "passes": 11,
+          "avg_sharpe": -3.72,
+          "best_sharpe": 12.02
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -1.31,
+          "best_sharpe": -1.22
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 533,
+          "passes": 5,
+          "avg_sharpe": -2.33,
+          "best_sharpe": 26.25
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 229,
+          "passes": 2,
+          "avg_sharpe": -2.35,
+          "best_sharpe": 26.15
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 448,
+          "passes": 81,
+          "avg_sharpe": -0.04,
+          "best_sharpe": 99.09
+        }
+      }
+    },
+    "momentum_rotation": {
+      "AUD_USD": {
+        "M15": {
+          "n": 6,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 8,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 5,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 7,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 11,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 7,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 6,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "order_flow_imbal": {
+      "AUD_USD": {
+        "M15": {
+          "n": 824,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 773,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 109,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 361,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 551,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 910,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 603,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 171,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 659,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "range_bound": {
+      "AUD_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 26,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 27,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      }
+    },
+    "squeeze_breakout": {
+      "AUD_USD": {
+        "M15": {
+          "n": 739,
+          "passes": 0,
+          "avg_sharpe": -5.37,
+          "best_sharpe": 127.13
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.29,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "M15": {
+          "n": 765,
+          "passes": 0,
+          "avg_sharpe": -7.51,
+          "best_sharpe": 20.98
+        }
+      },
+      "EUR_JPY": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 272,
+          "passes": 18,
+          "avg_sharpe": -6.79,
+          "best_sharpe": 1.58
+        }
+      },
+      "EUR_USD": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 402,
+          "passes": 14,
+          "avg_sharpe": -1.65,
+          "best_sharpe": 57.13
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 547,
+          "passes": 30,
+          "avg_sharpe": -3.7,
+          "best_sharpe": 43.77
+        }
+      },
+      "NZD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 988,
+          "passes": 0,
+          "avg_sharpe": -2.67,
+          "best_sharpe": 90.71
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 526,
+          "passes": 21,
+          "avg_sharpe": -4.36,
+          "best_sharpe": 103.13
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 187,
+          "passes": 3,
+          "avg_sharpe": -1.43,
+          "best_sharpe": 75.64
+        }
+      },
+      "USD_JPY": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 541,
+          "passes": 38,
+          "avg_sharpe": -2.61,
+          "best_sharpe": 135.36
+        }
+      }
+    },
+    "value_area_breakout": {
+      "AUD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 869,
+          "passes": 0,
+          "avg_sharpe": -3.4,
+          "best_sharpe": -0.46
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.16,
+          "best_sharpe": -1.16
+        }
+      },
+      "EUR_GBP": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 823,
+          "passes": 0,
+          "avg_sharpe": -5.55,
+          "best_sharpe": -2.22
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 193,
+          "passes": 5,
+          "avg_sharpe": -2.18,
+          "best_sharpe": 1.1
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 387,
+          "passes": 16,
+          "avg_sharpe": -1.79,
+          "best_sharpe": 1.52
+        }
+      },
+      "GBP_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.42,
+          "best_sharpe": -0.42
+        },
+        "M15": {
+          "n": 549,
+          "passes": 0,
+          "avg_sharpe": -2.38,
+          "best_sharpe": -0.01
+        }
+      },
+      "NZD_USD": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.96,
+          "best_sharpe": -1.96
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -156.41,
+          "best_sharpe": -156.41
+        },
+        "M15": {
+          "n": 933,
+          "passes": 0,
+          "avg_sharpe": -5.27,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.96,
+          "best_sharpe": -1.96
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.34,
+          "best_sharpe": 0.34
+        },
+        "M15": {
+          "n": 521,
+          "passes": 16,
+          "avg_sharpe": -2.1,
+          "best_sharpe": 1.07
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 179,
+          "passes": 0,
+          "avg_sharpe": -2.89,
+          "best_sharpe": -0.18
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 627,
+          "passes": 15,
+          "avg_sharpe": -1.35,
+          "best_sharpe": 0.78
+        }
+      }
+    },
+    "volume_nodes": {
+      "AUD_USD": {
+        "M15": {
+          "n": 300,
+          "passes": 0,
+          "avg_sharpe": -4.41,
+          "best_sharpe": 0.0
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "EUR_GBP": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 241,
+          "passes": 0,
+          "avg_sharpe": -6.31,
+          "best_sharpe": 0.0
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -7.77,
+          "best_sharpe": -7.77
+        }
+      },
+      "EUR_JPY": {
+        "M15": {
+          "n": 103,
+          "passes": 0,
+          "avg_sharpe": -3.29,
+          "best_sharpe": 0.27
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "n": 114,
+          "passes": 0,
+          "avg_sharpe": -3.62,
+          "best_sharpe": 0.0
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -7.84,
+          "best_sharpe": -7.84
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "n": 193,
+          "passes": 0,
+          "avg_sharpe": -3.82,
+          "best_sharpe": 0.0
+        }
+      },
+      "NZD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.96,
+          "best_sharpe": -1.96
+        },
+        "M15": {
+          "n": 331,
+          "passes": 0,
+          "avg_sharpe": -5.49,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "n": 180,
+          "passes": 0,
+          "avg_sharpe": -4.95,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 70,
+          "passes": 0,
+          "avg_sharpe": -5.14,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "n": 201,
+          "passes": 0,
+          "avg_sharpe": -2.77,
+          "best_sharpe": 0.0
+        }
+      }
+    }
+  }
+}
