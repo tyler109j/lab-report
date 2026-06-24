@@ -1,5 +1,5 @@
 {
-  "generated_ts": "2026-06-24T13:09:15Z",
+  "generated_ts": "2026-06-24T15:55:28Z",
   "tfs": [
     "M5",
     "M15",
@@ -38,18 +38,36 @@
     "breakout": {
       "AUD_USD": {
         "M15": {
-          "n": 332,
+          "n": 333,
           "passes": 0,
           "avg_sharpe": -4.47,
           "best_sharpe": -0.68
         }
       },
       "EUR_GBP": {
-        "M15": {
-          "n": 276,
+        "H1": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -6.48,
+          "avg_sharpe": -1.76,
+          "best_sharpe": -1.76
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -2.97,
+          "best_sharpe": -1.77
+        },
+        "M15": {
+          "n": 282,
+          "passes": 0,
+          "avg_sharpe": -6.5,
           "best_sharpe": -3.8
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -3.97,
+          "best_sharpe": -3.97
         }
       },
       "EUR_JPY": {
@@ -61,6 +79,12 @@
         }
       },
       "EUR_USD": {
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.34,
+          "best_sharpe": -0.3
+        },
         "M15": {
           "n": 178,
           "passes": 0,
@@ -70,31 +94,61 @@
       },
       "GBP_USD": {
         "M15": {
-          "n": 209,
+          "n": 213,
           "passes": 0,
-          "avg_sharpe": -2.59,
+          "avg_sharpe": -2.6,
           "best_sharpe": 0.47
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -7.08,
+          "best_sharpe": -7.08
         }
       },
       "NZD_USD": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.53,
+          "best_sharpe": -0.31
+        },
         "M15": {
-          "n": 344,
+          "n": 348,
           "passes": 0,
           "avg_sharpe": -4.77,
           "best_sharpe": -0.77
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -1.61,
+          "best_sharpe": -1.01
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -6.94,
+          "best_sharpe": -6.94
         }
       },
       "USD_CAD": {
-        "M15": {
-          "n": 216,
+        "H1": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -3.48,
+          "avg_sharpe": 0.35,
+          "best_sharpe": 0.35
+        },
+        "M15": {
+          "n": 218,
+          "passes": 0,
+          "avg_sharpe": -3.49,
           "best_sharpe": 0.03
         }
       },
@@ -107,8 +161,14 @@
         }
       },
       "USD_JPY": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.06,
+          "best_sharpe": 0.06
+        },
         "M15": {
-          "n": 221,
+          "n": 223,
           "passes": 0,
           "avg_sharpe": -2.0,
           "best_sharpe": -0.17
@@ -117,41 +177,95 @@
     },
     "confluence": {
       "AUD_USD": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.25,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 542,
+          "n": 545,
           "passes": 9,
-          "avg_sharpe": -0.61,
+          "avg_sharpe": -0.57,
           "best_sharpe": 173.05
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
         }
       },
       "EUR_GBP": {
-        "M15": {
-          "n": 508,
+        "D": {
+          "n": 2,
           "passes": 0,
-          "avg_sharpe": -3.81,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 512,
+          "passes": 0,
+          "avg_sharpe": -3.8,
           "best_sharpe": 2.1
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.56,
+          "best_sharpe": -0.21
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -6.82,
+          "best_sharpe": -5.29
         }
       },
       "EUR_JPY": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 222,
-          "passes": 105,
-          "avg_sharpe": 7.29,
+          "n": 224,
+          "passes": 106,
+          "avg_sharpe": 7.23,
           "best_sharpe": 458.72
         }
       },
       "EUR_USD": {
         "H4": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
-          "avg_sharpe": -0.75,
-          "best_sharpe": -0.75
+          "avg_sharpe": -0.23,
+          "best_sharpe": 0.29
         },
         "M15": {
-          "n": 279,
-          "passes": 94,
-          "avg_sharpe": 1.91,
+          "n": 281,
+          "passes": 95,
+          "avg_sharpe": 1.92,
           "best_sharpe": 145.32
+        },
+        "M30": {
+          "n": 1,
+          "passes": 1,
+          "avg_sharpe": 0.67,
+          "best_sharpe": 0.67
         },
         "M5": {
           "n": 1,
@@ -161,14 +275,18 @@
         }
       },
       "GBP_USD": {
-        "M15": {
-          "n": 374,
-          "passes": 54,
-          "avg_sharpe": -2.38,
-          "best_sharpe": 2.61
-        }
-      },
-      "NZD_USD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.22,
+          "best_sharpe": -0.05
+        },
         "H4": {
           "n": 1,
           "passes": 0,
@@ -176,125 +294,325 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 671,
-          "passes": 19,
-          "avg_sharpe": -0.71,
-          "best_sharpe": 469.73
+          "n": 375,
+          "passes": 54,
+          "avg_sharpe": -2.37,
+          "best_sharpe": 2.61
         },
         "M5": {
           "n": 1,
           "passes": 0,
-          "avg_sharpe": -3.81,
-          "best_sharpe": -3.81
+          "avg_sharpe": -6.15,
+          "best_sharpe": -6.15
         }
       },
-      "USD_CAD": {
-        "M15": {
-          "n": 287,
-          "passes": 60,
-          "avg_sharpe": -0.24,
-          "best_sharpe": 57.04
-        }
-      },
-      "USD_CHF": {
+      "NZD_USD": {
         "D": {
           "n": 1,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 217,
+          "n": 674,
+          "passes": 19,
+          "avg_sharpe": -0.72,
+          "best_sharpe": 469.73
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.95,
+          "best_sharpe": -0.95
+        },
+        "M5": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -5.57,
+          "best_sharpe": -2.3
+        }
+      },
+      "USD_CAD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -1.83,
+          "best_sharpe": -1.24
+        },
+        "M15": {
+          "n": 287,
+          "passes": 60,
+          "avg_sharpe": -0.24,
+          "best_sharpe": 57.04
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.53,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.59,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 218,
           "passes": 6,
-          "avg_sharpe": -1.53,
+          "avg_sharpe": -1.56,
           "best_sharpe": 11.88
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.97,
+          "best_sharpe": 0.97
         }
       },
       "USD_JPY": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 372,
-          "passes": 93,
-          "avg_sharpe": 0.29,
+          "n": 374,
+          "passes": 94,
+          "avg_sharpe": 0.3,
           "best_sharpe": 2.56
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.31,
+          "best_sharpe": -1.31
         }
       }
     },
     "divergence_at_sr": {
       "AUD_USD": {
         "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.1,
+          "best_sharpe": 0.31
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 204.85,
+          "best_sharpe": 204.85
+        },
+        "M15": {
+          "n": 438,
+          "passes": 81,
+          "avg_sharpe": -1.01,
+          "best_sharpe": 25.91
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.38,
+          "best_sharpe": 1.13
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -2.65,
+          "best_sharpe": -2.65
+        }
+      },
+      "EUR_GBP": {
+        "D": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.22,
+          "best_sharpe": 1.37
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 616,
+          "passes": 38,
+          "avg_sharpe": 0.66,
+          "best_sharpe": 507.37
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -5.82,
+          "best_sharpe": -5.54
+        }
+      },
+      "EUR_JPY": {
+        "D": {
           "n": 1,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 431,
-          "passes": 79,
-          "avg_sharpe": -1.03,
-          "best_sharpe": 25.91
-        }
-      },
-      "EUR_GBP": {
-        "M15": {
-          "n": 610,
-          "passes": 37,
-          "avg_sharpe": 0.67,
-          "best_sharpe": 507.37
-        },
-        "M5": {
-          "n": 1,
-          "passes": 0,
-          "avg_sharpe": -6.09,
-          "best_sharpe": -6.09
-        }
-      },
-      "EUR_JPY": {
-        "M15": {
           "n": 234,
           "passes": 62,
           "avg_sharpe": -4.08,
           "best_sharpe": 261.89
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.33,
+          "best_sharpe": -0.33
         }
       },
       "EUR_USD": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 291,
+          "n": 292,
           "passes": 144,
           "avg_sharpe": 1.88,
           "best_sharpe": 80.19
         }
       },
       "GBP_USD": {
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.22,
+          "best_sharpe": 0.94
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 339,
-          "passes": 117,
-          "avg_sharpe": -0.93,
+          "n": 346,
+          "passes": 120,
+          "avg_sharpe": -0.9,
           "best_sharpe": 60.37
         },
         "M30": {
-          "n": 1,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": 0.1,
+          "avg_sharpe": -0.38,
           "best_sharpe": 0.1
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.22,
+          "best_sharpe": 0.42
         }
       },
       "NZD_USD": {
+        "D": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 35.86,
+          "best_sharpe": 71.26
+        },
         "M15": {
-          "n": 770,
+          "n": 775,
           "passes": 7,
-          "avg_sharpe": -42.06,
+          "avg_sharpe": -41.79,
           "best_sharpe": 1.08
         }
       },
       "USD_CAD": {
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.08,
+          "best_sharpe": 0.66
+        },
+        "H4": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -2.14,
+          "best_sharpe": 0.0
+        },
         "M15": {
           "n": 363,
           "passes": 163,
           "avg_sharpe": -0.35,
           "best_sharpe": 26.57
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.19,
+          "best_sharpe": 0.19
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -1.0,
+          "best_sharpe": -0.54
         }
       },
       "USD_CHF": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.95,
+          "best_sharpe": 0.95
+        },
         "M15": {
           "n": 177,
           "passes": 21,
@@ -303,11 +621,29 @@
         }
       },
       "USD_JPY": {
+        "D": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.83,
+          "best_sharpe": 2.21
+        },
         "M15": {
-          "n": 484,
+          "n": 487,
           "passes": 42,
-          "avg_sharpe": -7.52,
+          "avg_sharpe": -7.55,
           "best_sharpe": 55.78
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
         },
         "M5": {
           "n": 1,
@@ -541,42 +877,78 @@
     },
     "mean_reversion": {
       "AUD_USD": {
-        "H4": {
+        "D": {
           "n": 2,
           "passes": 0,
-          "avg_sharpe": -0.5,
-          "best_sharpe": -0.44
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.24,
+          "best_sharpe": 0.24
+        },
+        "H4": {
+          "n": 5,
+          "passes": 0,
+          "avg_sharpe": -0.2,
+          "best_sharpe": 0.0
         },
         "M15": {
-          "n": 814,
+          "n": 823,
           "passes": 43,
           "avg_sharpe": -2.37,
           "best_sharpe": 15.36
+        },
+        "M30": {
+          "n": 6,
+          "passes": 2,
+          "avg_sharpe": -0.67,
+          "best_sharpe": 1.92
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
-        "H4": {
+        "H1": {
           "n": 1,
           "passes": 0,
-          "avg_sharpe": 0.0,
+          "avg_sharpe": -0.65,
+          "best_sharpe": -0.65
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.27,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 839,
+          "n": 852,
           "passes": 0,
           "avg_sharpe": -4.78,
           "best_sharpe": 0.72
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -2.71,
+          "best_sharpe": -1.78
+        },
+        "M5": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -7.79,
+          "best_sharpe": -5.83
         }
       },
       "EUR_JPY": {
         "M15": {
-          "n": 341,
+          "n": 342,
           "passes": 17,
           "avg_sharpe": 0.47,
           "best_sharpe": 147.0
@@ -584,68 +956,182 @@
       },
       "EUR_USD": {
         "D": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.64,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 375,
+          "passes": 24,
+          "avg_sharpe": -3.32,
+          "best_sharpe": 1.8
+        },
+        "M30": {
+          "n": 3,
+          "passes": 1,
+          "avg_sharpe": -0.09,
+          "best_sharpe": 0.57
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -9.68,
+          "best_sharpe": -9.68
+        }
+      },
+      "GBP_USD": {
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.87,
+          "best_sharpe": 1.73
+        },
+        "H4": {
           "n": 1,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 369,
-          "passes": 22,
-          "avg_sharpe": -3.38,
-          "best_sharpe": 1.8
-        },
-        "M30": {
-          "n": 1,
-          "passes": 0,
-          "avg_sharpe": 0.49,
-          "best_sharpe": 0.49
-        }
-      },
-      "GBP_USD": {
-        "M15": {
-          "n": 538,
+          "n": 544,
           "passes": 6,
           "avg_sharpe": -1.84,
           "best_sharpe": 16.48
+        },
+        "M30": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -0.54,
+          "best_sharpe": -0.29
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -8.32,
+          "best_sharpe": -8.32
         }
       },
       "NZD_USD": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.17,
+          "best_sharpe": -1.17
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -47.98,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 914,
+          "n": 927,
           "passes": 11,
-          "avg_sharpe": -3.72,
+          "avg_sharpe": -3.71,
           "best_sharpe": 12.02
         },
         "M30": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -2.0,
+          "best_sharpe": -1.22
+        },
+        "M5": {
           "n": 2,
           "passes": 0,
-          "avg_sharpe": -1.31,
-          "best_sharpe": -1.22
+          "avg_sharpe": -3.88,
+          "best_sharpe": 0.0
         }
       },
       "USD_CAD": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.19,
+          "best_sharpe": 0.19
+        },
+        "H4": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -0.16,
+          "best_sharpe": 0.4
+        },
         "M15": {
-          "n": 533,
+          "n": 536,
           "passes": 5,
-          "avg_sharpe": -2.33,
+          "avg_sharpe": -2.35,
           "best_sharpe": 26.25
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -1.96,
+          "best_sharpe": -1.08
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -6.88,
+          "best_sharpe": -6.88
         }
       },
       "USD_CHF": {
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.33,
+          "best_sharpe": -0.33
+        },
         "M15": {
-          "n": 229,
+          "n": 231,
           "passes": 2,
-          "avg_sharpe": -2.35,
+          "avg_sharpe": -2.32,
           "best_sharpe": 26.15
         }
       },
       "USD_JPY": {
+        "D": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -1.93,
+          "best_sharpe": -0.23
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -2.31,
+          "best_sharpe": -1.78
+        },
         "M15": {
-          "n": 448,
+          "n": 450,
           "passes": 81,
-          "avg_sharpe": -0.04,
+          "avg_sharpe": -0.05,
           "best_sharpe": 99.09
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -4.98,
+          "best_sharpe": -4.98
         }
       }
     },
@@ -857,66 +1343,8 @@
     },
     "squeeze_breakout": {
       "AUD_USD": {
-        "M15": {
-          "n": 739,
-          "passes": 0,
-          "avg_sharpe": -5.37,
-          "best_sharpe": 127.13
-        },
-        "M5": {
-          "n": 2,
-          "passes": 0,
-          "avg_sharpe": -0.29,
-          "best_sharpe": 0.0
-        }
-      },
-      "EUR_GBP": {
-        "M15": {
-          "n": 765,
-          "passes": 0,
-          "avg_sharpe": -7.51,
-          "best_sharpe": 20.98
-        }
-      },
-      "EUR_JPY": {
         "D": {
-          "n": 1,
-          "passes": 0,
-          "avg_sharpe": 0.0,
-          "best_sharpe": 0.0
-        },
-        "M15": {
-          "n": 272,
-          "passes": 18,
-          "avg_sharpe": -6.79,
-          "best_sharpe": 1.58
-        }
-      },
-      "EUR_USD": {
-        "H1": {
-          "n": 1,
-          "passes": 0,
-          "avg_sharpe": 0.0,
-          "best_sharpe": 0.0
-        },
-        "M15": {
-          "n": 402,
-          "passes": 14,
-          "avg_sharpe": -1.65,
-          "best_sharpe": 57.13
-        }
-      },
-      "GBP_USD": {
-        "M15": {
-          "n": 547,
-          "passes": 30,
-          "avg_sharpe": -3.7,
-          "best_sharpe": 43.77
-        }
-      },
-      "NZD_USD": {
-        "D": {
-          "n": 1,
+          "n": 4,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -928,76 +1356,314 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 988,
+          "n": 751,
           "passes": 0,
-          "avg_sharpe": -2.67,
-          "best_sharpe": 90.71
+          "avg_sharpe": -5.33,
+          "best_sharpe": 127.13
+        },
+        "M5": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -3.59,
+          "best_sharpe": 0.0
         }
       },
-      "USD_CAD": {
+      "EUR_GBP": {
+        "D": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.53,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -0.1,
+          "best_sharpe": -0.1
+        },
         "M15": {
-          "n": 526,
-          "passes": 21,
-          "avg_sharpe": -4.36,
-          "best_sharpe": 103.13
+          "n": 775,
+          "passes": 0,
+          "avg_sharpe": -7.42,
+          "best_sharpe": 20.98
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -1.94,
+          "best_sharpe": 0.0
+        },
+        "M5": {
+          "n": 5,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
         }
       },
-      "USD_CHF": {
+      "EUR_JPY": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 187,
-          "passes": 3,
-          "avg_sharpe": -1.43,
-          "best_sharpe": 75.64
+          "n": 273,
+          "passes": 18,
+          "avg_sharpe": -6.77,
+          "best_sharpe": 1.58
         }
       },
-      "USD_JPY": {
+      "EUR_USD": {
         "D": {
           "n": 1,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -57.4,
+          "best_sharpe": 0.0
+        },
         "M15": {
-          "n": 541,
+          "n": 406,
+          "passes": 14,
+          "avg_sharpe": -1.64,
+          "best_sharpe": 57.13
+        }
+      },
+      "GBP_USD": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.73,
+          "best_sharpe": -0.57
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 557,
+          "passes": 31,
+          "avg_sharpe": -3.66,
+          "best_sharpe": 43.77
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.23,
+          "best_sharpe": 0.47
+        }
+      },
+      "NZD_USD": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 994,
+          "passes": 0,
+          "avg_sharpe": -2.66,
+          "best_sharpe": 90.71
+        },
+        "M30": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M5": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.74,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CAD": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 530,
+          "passes": 21,
+          "avg_sharpe": -4.34,
+          "best_sharpe": 103.13
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "n": 189,
+          "passes": 3,
+          "avg_sharpe": -1.42,
+          "best_sharpe": 75.64
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        }
+      },
+      "USD_JPY": {
+        "D": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -0.29,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -156.11,
+          "best_sharpe": -102.68
+        },
+        "M15": {
+          "n": 546,
           "passes": 38,
-          "avg_sharpe": -2.61,
+          "avg_sharpe": -2.59,
           "best_sharpe": 135.36
+        },
+        "M5": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -3.99,
+          "best_sharpe": -3.72
         }
       }
     },
     "value_area_breakout": {
       "AUD_USD": {
         "D": {
-          "n": 1,
+          "n": 6,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H1": {
+          "n": 4,
+          "passes": 0,
+          "avg_sharpe": -0.51,
+          "best_sharpe": 0.26
+        },
+        "H4": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -97.13,
+          "best_sharpe": -0.85
+        },
         "M15": {
-          "n": 869,
+          "n": 884,
           "passes": 0,
           "avg_sharpe": -3.4,
           "best_sharpe": -0.46
         },
         "M30": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
-          "avg_sharpe": -1.16,
+          "avg_sharpe": -2.27,
           "best_sharpe": -1.16
+        },
+        "M5": {
+          "n": 5,
+          "passes": 0,
+          "avg_sharpe": -7.79,
+          "best_sharpe": -5.08
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 1,
+          "n": 7,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -2.51,
+          "best_sharpe": -1.97
+        },
+        "H4": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -3.43,
+          "best_sharpe": -2.82
+        },
         "M15": {
-          "n": 823,
+          "n": 836,
           "passes": 0,
           "avg_sharpe": -5.55,
           "best_sharpe": -2.22
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -3.77,
+          "best_sharpe": -3.03
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -8.44,
+          "best_sharpe": -7.1
         }
       },
       "EUR_JPY": {
@@ -1009,39 +1675,81 @@
         }
       },
       "EUR_USD": {
+        "D": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.41,
+          "best_sharpe": 0.08
+        },
         "M15": {
-          "n": 387,
+          "n": 394,
           "passes": 16,
-          "avg_sharpe": -1.79,
+          "avg_sharpe": -1.78,
           "best_sharpe": 1.52
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -2.21,
+          "best_sharpe": -2.21
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -7.62,
+          "best_sharpe": -6.75
         }
       },
       "GBP_USD": {
         "D": {
-          "n": 1,
+          "n": 6,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 1,
+          "n": 2,
+          "passes": 1,
+          "avg_sharpe": 0.21,
+          "best_sharpe": 0.85
+        },
+        "H4": {
+          "n": 2,
           "passes": 0,
-          "avg_sharpe": -0.42,
-          "best_sharpe": -0.42
+          "avg_sharpe": -0.93,
+          "best_sharpe": -0.66
         },
         "M15": {
-          "n": 549,
+          "n": 562,
           "passes": 0,
           "avg_sharpe": -2.38,
           "best_sharpe": -0.01
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.25,
+          "best_sharpe": -1.25
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -4.64,
+          "best_sharpe": -4.64
         }
       },
       "NZD_USD": {
         "H1": {
-          "n": 1,
+          "n": 3,
           "passes": 0,
-          "avg_sharpe": -1.96,
-          "best_sharpe": -1.96
+          "avg_sharpe": -1.05,
+          "best_sharpe": -0.31
         },
         "H4": {
           "n": 1,
@@ -1050,51 +1758,117 @@
           "best_sharpe": -156.41
         },
         "M15": {
-          "n": 933,
+          "n": 947,
           "passes": 0,
           "avg_sharpe": -5.27,
           "best_sharpe": 0.0
+        },
+        "M30": {
+          "n": 5,
+          "passes": 0,
+          "avg_sharpe": -2.52,
+          "best_sharpe": -1.7
+        },
+        "M5": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -7.21,
+          "best_sharpe": -6.86
         }
       },
       "USD_CAD": {
-        "H1": {
+        "D": {
           "n": 1,
           "passes": 0,
-          "avg_sharpe": -1.96,
-          "best_sharpe": -1.96
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.61,
+          "best_sharpe": 0.14
         },
         "H4": {
-          "n": 1,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": 0.34,
-          "best_sharpe": 0.34
+          "avg_sharpe": 58.85,
+          "best_sharpe": 235.55
         },
         "M15": {
-          "n": 521,
+          "n": 532,
           "passes": 16,
-          "avg_sharpe": -2.1,
+          "avg_sharpe": -2.09,
           "best_sharpe": 1.07
         }
       },
       "USD_CHF": {
-        "M15": {
-          "n": 179,
+        "H1": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -2.89,
+          "avg_sharpe": 0.46,
+          "best_sharpe": 0.46
+        },
+        "M15": {
+          "n": 180,
+          "passes": 0,
+          "avg_sharpe": -2.9,
           "best_sharpe": -0.18
         }
       },
       "USD_JPY": {
+        "D": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -0.6,
+          "best_sharpe": -0.04
+        },
+        "H4": {
+          "n": 3,
+          "passes": 0,
+          "avg_sharpe": -1.63,
+          "best_sharpe": -0.33
+        },
         "M15": {
-          "n": 627,
-          "passes": 15,
-          "avg_sharpe": -1.35,
+          "n": 636,
+          "passes": 16,
+          "avg_sharpe": -1.34,
           "best_sharpe": 0.78
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -0.59,
+          "best_sharpe": -0.23
+        },
+        "M5": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -4.21,
+          "best_sharpe": -2.48
         }
       }
     },
     "volume_nodes": {
       "AUD_USD": {
+        "D": {
+          "n": 6,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -3.56,
+          "best_sharpe": -1.77
+        },
         "M15": {
           "n": 300,
           "passes": 0,
@@ -1106,19 +1880,37 @@
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -9.36,
+          "best_sharpe": -9.36
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
-        "M15": {
-          "n": 241,
+        "H1": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -6.31,
+          "avg_sharpe": -2.6,
+          "best_sharpe": -2.6
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.5,
+          "best_sharpe": -1.5
+        },
+        "M15": {
+          "n": 245,
+          "passes": 0,
+          "avg_sharpe": -6.29,
           "best_sharpe": 0.0
         },
         "M30": {
@@ -1130,17 +1922,29 @@
       },
       "EUR_JPY": {
         "M15": {
-          "n": 103,
+          "n": 104,
           "passes": 0,
-          "avg_sharpe": -3.29,
+          "avg_sharpe": -3.27,
           "best_sharpe": 0.27
         }
       },
       "EUR_USD": {
-        "M15": {
-          "n": 114,
+        "H1": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -3.62,
+          "avg_sharpe": -1.36,
+          "best_sharpe": -1.36
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": -1.13,
+          "best_sharpe": -1.13
+        },
+        "M15": {
+          "n": 116,
+          "passes": 0,
+          "avg_sharpe": -3.63,
           "best_sharpe": 0.0
         },
         "M5": {
@@ -1151,16 +1955,22 @@
         }
       },
       "GBP_USD": {
-        "M15": {
-          "n": 193,
+        "D": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -3.82,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "M15": {
+          "n": 194,
+          "passes": 0,
+          "avg_sharpe": -3.81,
           "best_sharpe": 0.0
         }
       },
       "NZD_USD": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -1172,17 +1982,41 @@
           "best_sharpe": -1.96
         },
         "M15": {
-          "n": 331,
+          "n": 332,
           "passes": 0,
           "avg_sharpe": -5.49,
+          "best_sharpe": 0.0
+        },
+        "M30": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         }
       },
       "USD_CAD": {
-        "M15": {
-          "n": 180,
+        "D": {
+          "n": 1,
           "passes": 0,
-          "avg_sharpe": -4.95,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
+          "best_sharpe": 0.0
+        },
+        "H4": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.35,
+          "best_sharpe": 0.35
+        },
+        "M15": {
+          "n": 184,
+          "passes": 0,
+          "avg_sharpe": -4.97,
           "best_sharpe": 0.0
         }
       },
@@ -1195,10 +2029,28 @@
         }
       },
       "USD_JPY": {
+        "H1": {
+          "n": 2,
+          "passes": 1,
+          "avg_sharpe": 0.38,
+          "best_sharpe": 0.75
+        },
         "M15": {
-          "n": 201,
+          "n": 203,
           "passes": 0,
-          "avg_sharpe": -2.77,
+          "avg_sharpe": -2.78,
+          "best_sharpe": 0.0
+        },
+        "M30": {
+          "n": 2,
+          "passes": 0,
+          "avg_sharpe": -2.88,
+          "best_sharpe": -2.01
+        },
+        "M5": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         }
       }
