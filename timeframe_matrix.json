@@ -1,5 +1,5 @@
 {
-  "generated_ts": "2026-06-25T15:19:00Z",
+  "generated_ts": "2026-06-25T16:25:09Z",
   "tfs": [
     "M5",
     "M15",
@@ -39,15 +39,15 @@
     "breakout": {
       "AUD_USD": {
         "D": {
-          "n": 18,
+          "n": 19,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 13,
-          "passes": 1,
-          "avg_sharpe": -0.53,
+          "n": 14,
+          "passes": 2,
+          "avg_sharpe": -0.46,
           "best_sharpe": 0.72
         },
         "H4": {
@@ -57,9 +57,9 @@
           "best_sharpe": 1.32
         },
         "M15": {
-          "n": 394,
+          "n": 396,
           "passes": 0,
-          "avg_sharpe": -4.48,
+          "avg_sharpe": -4.47,
           "best_sharpe": -0.68
         },
         "M30": {
@@ -95,7 +95,7 @@
           "best_sharpe": -0.4
         },
         "M15": {
-          "n": 334,
+          "n": 338,
           "passes": 0,
           "avg_sharpe": -6.55,
           "best_sharpe": -3.8
@@ -159,9 +159,9 @@
           "best_sharpe": 0.98
         },
         "M15": {
-          "n": 206,
+          "n": 208,
           "passes": 0,
-          "avg_sharpe": -3.04,
+          "avg_sharpe": -3.03,
           "best_sharpe": -0.78
         },
         "M30": {
@@ -171,9 +171,9 @@
           "best_sharpe": -0.6
         },
         "M5": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -5.99,
+          "avg_sharpe": -6.31,
           "best_sharpe": -5.38
         }
       },
@@ -197,9 +197,9 @@
           "best_sharpe": 0.4
         },
         "M15": {
-          "n": 256,
+          "n": 257,
           "passes": 0,
-          "avg_sharpe": -2.64,
+          "avg_sharpe": -2.63,
           "best_sharpe": 0.47
         },
         "M30": {
@@ -217,7 +217,7 @@
       },
       "NZD_USD": {
         "D": {
-          "n": 12,
+          "n": 14,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -229,19 +229,19 @@
           "best_sharpe": 0.27
         },
         "H4": {
-          "n": 20,
+          "n": 21,
           "passes": 0,
-          "avg_sharpe": -0.5,
+          "avg_sharpe": -0.48,
           "best_sharpe": 0.46
         },
         "M15": {
-          "n": 403,
+          "n": 405,
           "passes": 0,
-          "avg_sharpe": -4.79,
+          "avg_sharpe": -4.78,
           "best_sharpe": -0.77
         },
         "M30": {
-          "n": 19,
+          "n": 20,
           "passes": 0,
           "avg_sharpe": -2.3,
           "best_sharpe": -0.82
@@ -255,7 +255,7 @@
       },
       "USD_CAD": {
         "D": {
-          "n": 5,
+          "n": 6,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -273,21 +273,21 @@
           "best_sharpe": 2.95
         },
         "M15": {
-          "n": 247,
+          "n": 249,
           "passes": 0,
-          "avg_sharpe": -3.54,
+          "avg_sharpe": -3.55,
           "best_sharpe": 0.03
         },
         "M30": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": -1.89,
+          "avg_sharpe": -2.0,
           "best_sharpe": 0.09
         },
         "M5": {
-          "n": 4,
+          "n": 5,
           "passes": 0,
-          "avg_sharpe": -6.13,
+          "avg_sharpe": -6.15,
           "best_sharpe": -5.37
         }
       },
@@ -319,7 +319,7 @@
       },
       "USD_JPY": {
         "D": {
-          "n": 5,
+          "n": 6,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -337,9 +337,9 @@
           "best_sharpe": 0.35
         },
         "M15": {
-          "n": 268,
+          "n": 274,
           "passes": 0,
-          "avg_sharpe": -2.01,
+          "avg_sharpe": -2.0,
           "best_sharpe": -0.17
         },
         "M30": {
@@ -349,10 +349,10 @@
           "best_sharpe": -0.15
         },
         "M5": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -5.85,
-          "best_sharpe": -4.71
+          "avg_sharpe": -5.66,
+          "best_sharpe": -4.31
         }
       }
     },
@@ -415,7 +415,7 @@
           "best_sharpe": 1.01
         },
         "M15": {
-          "n": 534,
+          "n": 537,
           "passes": 0,
           "avg_sharpe": -3.79,
           "best_sharpe": 2.1
@@ -473,9 +473,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -0.19,
+          "avg_sharpe": -0.22,
           "best_sharpe": 2.23
         },
         "H4": {
@@ -491,10 +491,10 @@
           "best_sharpe": 145.32
         },
         "M30": {
-          "n": 3,
+          "n": 4,
           "passes": 1,
-          "avg_sharpe": 0.44,
-          "best_sharpe": 0.67
+          "avg_sharpe": 0.7,
+          "best_sharpe": 1.48
         },
         "M5": {
           "n": 5,
@@ -505,7 +505,7 @@
       },
       "GBP_USD": {
         "D": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -567,10 +567,10 @@
           "best_sharpe": 469.73
         },
         "M30": {
-          "n": 9,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": -1.39,
-          "best_sharpe": 0.12
+          "avg_sharpe": -1.23,
+          "best_sharpe": 0.22
         },
         "M5": {
           "n": 11,
@@ -599,7 +599,7 @@
           "best_sharpe": 0.73
         },
         "M15": {
-          "n": 306,
+          "n": 307,
           "passes": 62,
           "avg_sharpe": -0.26,
           "best_sharpe": 57.04
@@ -657,7 +657,7 @@
       },
       "USD_JPY": {
         "D": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -675,9 +675,9 @@
           "best_sharpe": 144.29
         },
         "M15": {
-          "n": 394,
-          "passes": 99,
-          "avg_sharpe": 0.3,
+          "n": 395,
+          "passes": 100,
+          "avg_sharpe": 0.31,
           "best_sharpe": 2.56
         },
         "M30": {
@@ -715,7 +715,7 @@
           "best_sharpe": 204.85
         },
         "M15": {
-          "n": 459,
+          "n": 460,
           "passes": 87,
           "avg_sharpe": -0.94,
           "best_sharpe": 25.91
@@ -727,15 +727,15 @@
           "best_sharpe": 3.29
         },
         "M5": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -1.1,
+          "avg_sharpe": -0.96,
           "best_sharpe": 0.73
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 8,
+          "n": 10,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -747,27 +747,27 @@
           "best_sharpe": 1.37
         },
         "H4": {
-          "n": 9,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": -0.1,
-          "best_sharpe": 0.0
+          "avg_sharpe": -0.04,
+          "best_sharpe": 0.5
         },
         "M15": {
-          "n": 654,
+          "n": 656,
           "passes": 41,
-          "avg_sharpe": 0.54,
+          "avg_sharpe": 0.53,
           "best_sharpe": 507.37
         },
         "M30": {
-          "n": 11,
+          "n": 12,
           "passes": 0,
-          "avg_sharpe": 28.03,
+          "avg_sharpe": 25.69,
           "best_sharpe": 302.55
         },
         "M5": {
-          "n": 15,
+          "n": 17,
           "passes": 0,
-          "avg_sharpe": -5.09,
+          "avg_sharpe": -4.71,
           "best_sharpe": 0.0
         }
       },
@@ -823,7 +823,7 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 304,
+          "n": 305,
           "passes": 150,
           "avg_sharpe": 1.9,
           "best_sharpe": 80.19
@@ -849,21 +849,21 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": 0.41,
+          "avg_sharpe": 0.43,
           "best_sharpe": 0.94
         },
         "H4": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": 0.3,
+          "avg_sharpe": 0.26,
           "best_sharpe": 0.91
         },
         "M15": {
-          "n": 360,
-          "passes": 121,
-          "avg_sharpe": -0.97,
+          "n": 362,
+          "passes": 123,
+          "avg_sharpe": -0.96,
           "best_sharpe": 60.37
         },
         "M30": {
@@ -893,15 +893,15 @@
           "best_sharpe": 72.64
         },
         "H4": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": 1.27,
+          "avg_sharpe": 1.17,
           "best_sharpe": 105.25
         },
         "M15": {
-          "n": 813,
+          "n": 814,
           "passes": 7,
-          "avg_sharpe": -39.88,
+          "avg_sharpe": -39.83,
           "best_sharpe": 1.08
         },
         "M30": {
@@ -937,9 +937,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 375,
+          "n": 378,
           "passes": 167,
-          "avg_sharpe": -0.31,
+          "avg_sharpe": -0.32,
           "best_sharpe": 26.57
         },
         "M30": {
@@ -969,8 +969,8 @@
           "best_sharpe": 1.14
         },
         "M15": {
-          "n": 177,
-          "passes": 21,
+          "n": 178,
+          "passes": 22,
           "avg_sharpe": 1.82,
           "best_sharpe": 97.6
         },
@@ -1263,13 +1263,13 @@
           "best_sharpe": 725.28
         },
         "H4": {
-          "n": 15,
+          "n": 17,
           "passes": 0,
           "avg_sharpe": -0.66,
           "best_sharpe": 0.44
         },
         "M15": {
-          "n": 871,
+          "n": 873,
           "passes": 47,
           "avg_sharpe": -2.32,
           "best_sharpe": 15.36
@@ -1281,9 +1281,9 @@
           "best_sharpe": 1.92
         },
         "M5": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -5.96,
+          "avg_sharpe": -5.62,
           "best_sharpe": -0.41
         }
       },
@@ -1307,27 +1307,27 @@
           "best_sharpe": 7.0
         },
         "M15": {
-          "n": 898,
+          "n": 901,
           "passes": 0,
-          "avg_sharpe": -4.76,
+          "avg_sharpe": -4.77,
           "best_sharpe": 0.72
         },
         "M30": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": -2.79,
+          "avg_sharpe": -2.69,
           "best_sharpe": 0.13
         },
         "M5": {
-          "n": 18,
+          "n": 19,
           "passes": 0,
-          "avg_sharpe": -7.14,
+          "avg_sharpe": -7.43,
           "best_sharpe": -0.91
         }
       },
       "EUR_JPY": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -1377,13 +1377,13 @@
           "best_sharpe": 71.29
         },
         "H4": {
-          "n": 9,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": -0.61,
+          "avg_sharpe": -0.8,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 397,
+          "n": 398,
           "passes": 25,
           "avg_sharpe": -3.19,
           "best_sharpe": 1.8
@@ -1395,9 +1395,9 @@
           "best_sharpe": 0.9
         },
         "M5": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": -5.03,
+          "avg_sharpe": -5.61,
           "best_sharpe": 1.79
         }
       },
@@ -1447,19 +1447,19 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 14,
+          "n": 15,
           "passes": 0,
-          "avg_sharpe": -1.78,
+          "avg_sharpe": -1.82,
           "best_sharpe": 0.14
         },
         "H4": {
-          "n": 13,
+          "n": 14,
           "passes": 0,
-          "avg_sharpe": -15.8,
+          "avg_sharpe": -14.71,
           "best_sharpe": 0.66
         },
         "M15": {
-          "n": 971,
+          "n": 975,
           "passes": 12,
           "avg_sharpe": -3.68,
           "best_sharpe": 12.02
@@ -1485,21 +1485,21 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 5,
+          "n": 6,
           "passes": 0,
-          "avg_sharpe": -1.45,
+          "avg_sharpe": -1.21,
           "best_sharpe": 0.19
         },
         "H4": {
-          "n": 11,
+          "n": 12,
           "passes": 0,
-          "avg_sharpe": -24.99,
+          "avg_sharpe": -23.02,
           "best_sharpe": 0.4
         },
         "M15": {
-          "n": 564,
+          "n": 565,
           "passes": 5,
-          "avg_sharpe": -2.35,
+          "avg_sharpe": -2.36,
           "best_sharpe": 26.25
         },
         "M30": {
@@ -1561,9 +1561,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 13,
+          "n": 14,
           "passes": 0,
-          "avg_sharpe": -0.74,
+          "avg_sharpe": -0.69,
           "best_sharpe": 0.59
         },
         "H4": {
@@ -1573,9 +1573,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 479,
-          "passes": 86,
-          "avg_sharpe": -0.09,
+          "n": 480,
+          "passes": 87,
+          "avg_sharpe": -0.08,
           "best_sharpe": 99.09
         },
         "M30": {
@@ -1585,9 +1585,9 @@
           "best_sharpe": 2.37
         },
         "M5": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": -2.4,
+          "avg_sharpe": -2.5,
           "best_sharpe": 0.0
         }
       }
@@ -1801,7 +1801,7 @@
     "squeeze_breakout": {
       "AUD_USD": {
         "D": {
-          "n": 13,
+          "n": 15,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -1813,27 +1813,27 @@
           "best_sharpe": 0.66
         },
         "H4": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
           "avg_sharpe": 0.03,
           "best_sharpe": 0.33
         },
         "M15": {
-          "n": 808,
+          "n": 809,
           "passes": 0,
-          "avg_sharpe": -5.23,
+          "avg_sharpe": -5.22,
           "best_sharpe": 127.13
         },
         "M30": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -0.46,
+          "avg_sharpe": -0.42,
           "best_sharpe": 1.67
         },
         "M5": {
-          "n": 19,
+          "n": 20,
           "passes": 0,
-          "avg_sharpe": -27.12,
+          "avg_sharpe": -47.65,
           "best_sharpe": 0.0
         }
       },
@@ -1857,21 +1857,21 @@
           "best_sharpe": 0.36
         },
         "M15": {
-          "n": 839,
+          "n": 843,
           "passes": 0,
-          "avg_sharpe": -7.56,
+          "avg_sharpe": -7.53,
           "best_sharpe": 35.06
         },
         "M30": {
-          "n": 15,
+          "n": 16,
           "passes": 0,
-          "avg_sharpe": -0.45,
+          "avg_sharpe": -0.5,
           "best_sharpe": 0.0
         },
         "M5": {
-          "n": 16,
+          "n": 18,
           "passes": 0,
-          "avg_sharpe": -0.69,
+          "avg_sharpe": -0.99,
           "best_sharpe": 0.0
         }
       },
@@ -1889,9 +1889,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 283,
+          "n": 285,
           "passes": 18,
-          "avg_sharpe": -6.85,
+          "avg_sharpe": -6.81,
           "best_sharpe": 1.58
         },
         "M30": {
@@ -1927,9 +1927,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 429,
+          "n": 430,
           "passes": 14,
-          "avg_sharpe": -1.88,
+          "avg_sharpe": -2.03,
           "best_sharpe": 57.13
         },
         "M30": {
@@ -1997,13 +1997,13 @@
           "best_sharpe": 0.53
         },
         "H4": {
-          "n": 14,
+          "n": 17,
           "passes": 0,
-          "avg_sharpe": 0.01,
-          "best_sharpe": 0.21
+          "avg_sharpe": 0.18,
+          "best_sharpe": 2.82
         },
         "M15": {
-          "n": 1040,
+          "n": 1042,
           "passes": 0,
           "avg_sharpe": -2.7,
           "best_sharpe": 90.71
@@ -2029,21 +2029,21 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 8,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": 21.37,
+          "avg_sharpe": 17.1,
           "best_sharpe": 169.66
         },
         "H4": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 573,
+          "n": 575,
           "passes": 22,
-          "avg_sharpe": -4.05,
+          "avg_sharpe": -4.04,
           "best_sharpe": 103.13
         },
         "M30": {
@@ -2099,27 +2099,27 @@
       },
       "USD_JPY": {
         "D": {
-          "n": 7,
+          "n": 9,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": 0.23,
+          "avg_sharpe": 0.2,
           "best_sharpe": 2.74
         },
         "H4": {
-          "n": 13,
+          "n": 15,
           "passes": 0,
-          "avg_sharpe": -24.02,
+          "avg_sharpe": -30.12,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 568,
+          "n": 569,
           "passes": 38,
-          "avg_sharpe": -4.22,
+          "avg_sharpe": -4.21,
           "best_sharpe": 135.36
         },
         "M30": {
@@ -2151,33 +2151,33 @@
           "best_sharpe": 1.0
         },
         "H4": {
-          "n": 20,
+          "n": 22,
           "passes": 0,
-          "avg_sharpe": -57.59,
+          "avg_sharpe": -52.4,
           "best_sharpe": 1.64
         },
         "M15": {
-          "n": 961,
+          "n": 965,
           "passes": 0,
           "avg_sharpe": -3.42,
           "best_sharpe": -0.46
         },
         "M30": {
-          "n": 13,
+          "n": 14,
           "passes": 0,
-          "avg_sharpe": -1.94,
+          "avg_sharpe": -2.07,
           "best_sharpe": 0.26
         },
         "M5": {
-          "n": 13,
+          "n": 15,
           "passes": 0,
-          "avg_sharpe": -7.27,
+          "avg_sharpe": -7.28,
           "best_sharpe": -4.67
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 19,
+          "n": 20,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -2189,13 +2189,13 @@
           "best_sharpe": -1.14
         },
         "H4": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": -18.92,
+          "avg_sharpe": -17.66,
           "best_sharpe": -0.4
         },
         "M15": {
-          "n": 916,
+          "n": 919,
           "passes": 0,
           "avg_sharpe": -5.57,
           "best_sharpe": -2.14
@@ -2215,7 +2215,7 @@
       },
       "EUR_JPY": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -2239,9 +2239,9 @@
           "best_sharpe": -1.77
         },
         "M5": {
-          "n": 2,
+          "n": 3,
           "passes": 0,
-          "avg_sharpe": -5.96,
+          "avg_sharpe": -6.22,
           "best_sharpe": -5.89
         }
       },
@@ -2265,7 +2265,7 @@
           "best_sharpe": 2.17
         },
         "M15": {
-          "n": 432,
+          "n": 433,
           "passes": 17,
           "avg_sharpe": -1.78,
           "best_sharpe": 1.52
@@ -2285,7 +2285,7 @@
       },
       "GBP_USD": {
         "D": {
-          "n": 17,
+          "n": 20,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -2303,7 +2303,7 @@
           "best_sharpe": -0.66
         },
         "M15": {
-          "n": 608,
+          "n": 610,
           "passes": 0,
           "avg_sharpe": -2.4,
           "best_sharpe": -0.01
@@ -2315,9 +2315,9 @@
           "best_sharpe": -0.43
         },
         "M5": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -5.68,
+          "avg_sharpe": -5.73,
           "best_sharpe": -4.64
         }
       },
@@ -2329,27 +2329,27 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 13,
+          "n": 14,
           "passes": 2,
-          "avg_sharpe": -0.91,
+          "avg_sharpe": -0.95,
           "best_sharpe": 1.0
         },
         "H4": {
-          "n": 19,
+          "n": 21,
           "passes": 0,
-          "avg_sharpe": -72.83,
+          "avg_sharpe": -72.79,
           "best_sharpe": 0.61
         },
         "M15": {
-          "n": 1012,
+          "n": 1015,
           "passes": 0,
           "avg_sharpe": -5.27,
           "best_sharpe": 0.0
         },
         "M30": {
-          "n": 15,
+          "n": 16,
           "passes": 0,
-          "avg_sharpe": -2.41,
+          "avg_sharpe": -2.42,
           "best_sharpe": -0.45
         },
         "M5": {
@@ -2379,21 +2379,21 @@
           "best_sharpe": 235.55
         },
         "M15": {
-          "n": 576,
+          "n": 577,
           "passes": 18,
           "avg_sharpe": -2.06,
           "best_sharpe": 1.07
         },
         "M30": {
-          "n": 9,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -1.58,
+          "avg_sharpe": -1.62,
           "best_sharpe": 0.01
         },
         "M5": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -6.36,
+          "avg_sharpe": -6.46,
           "best_sharpe": -4.33
         }
       },
@@ -2455,7 +2455,7 @@
           "best_sharpe": -0.33
         },
         "M15": {
-          "n": 687,
+          "n": 688,
           "passes": 18,
           "avg_sharpe": -1.33,
           "best_sharpe": 0.78
@@ -2477,53 +2477,53 @@
     "volume_nodes": {
       "AUD_USD": {
         "D": {
-          "n": 32,
+          "n": 33,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 22,
+          "n": 23,
           "passes": 0,
-          "avg_sharpe": -2.68,
+          "avg_sharpe": -2.56,
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 18,
+          "n": 20,
           "passes": 0,
-          "avg_sharpe": -1.07,
+          "avg_sharpe": -1.0,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 382,
+          "n": 384,
           "passes": 0,
-          "avg_sharpe": -4.44,
+          "avg_sharpe": -4.46,
           "best_sharpe": 0.0
         },
         "M30": {
-          "n": 13,
+          "n": 15,
           "passes": 0,
-          "avg_sharpe": -2.24,
+          "avg_sharpe": -2.32,
           "best_sharpe": 0.0
         },
         "M5": {
-          "n": 24,
+          "n": 25,
           "passes": 0,
-          "avg_sharpe": -6.5,
+          "avg_sharpe": -6.52,
           "best_sharpe": 0.0
         }
       },
       "EUR_GBP": {
         "D": {
-          "n": 17,
+          "n": 18,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 17,
+          "n": 18,
           "passes": 0,
-          "avg_sharpe": -2.77,
+          "avg_sharpe": -2.62,
           "best_sharpe": 0.0
         },
         "H4": {
@@ -2533,7 +2533,7 @@
           "best_sharpe": 1.42
         },
         "M15": {
-          "n": 324,
+          "n": 326,
           "passes": 0,
           "avg_sharpe": -6.29,
           "best_sharpe": 0.0
@@ -2609,7 +2609,7 @@
           "best_sharpe": 0.75
         },
         "M15": {
-          "n": 155,
+          "n": 157,
           "passes": 0,
           "avg_sharpe": -3.53,
           "best_sharpe": 0.0
@@ -2621,9 +2621,9 @@
           "best_sharpe": -0.26
         },
         "M5": {
-          "n": 14,
+          "n": 15,
           "passes": 0,
-          "avg_sharpe": -7.02,
+          "avg_sharpe": -7.13,
           "best_sharpe": 0.0
         }
       },
@@ -2641,9 +2641,9 @@
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 15,
+          "n": 17,
           "passes": 0,
-          "avg_sharpe": 0.27,
+          "avg_sharpe": 0.3,
           "best_sharpe": 1.69
         },
         "M15": {
@@ -2679,27 +2679,27 @@
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 17,
+          "n": 18,
           "passes": 0,
-          "avg_sharpe": -5.52,
+          "avg_sharpe": -5.28,
           "best_sharpe": 1.36
         },
         "M15": {
-          "n": 433,
+          "n": 437,
           "passes": 0,
-          "avg_sharpe": -5.44,
+          "avg_sharpe": -5.47,
           "best_sharpe": 0.0
         },
         "M30": {
-          "n": 22,
+          "n": 24,
           "passes": 0,
-          "avg_sharpe": -3.39,
+          "avg_sharpe": -3.4,
           "best_sharpe": 0.0
         },
         "M5": {
-          "n": 21,
+          "n": 22,
           "passes": 0,
-          "avg_sharpe": -9.02,
+          "avg_sharpe": -8.98,
           "best_sharpe": -6.44
         }
       },
@@ -2723,9 +2723,9 @@
           "best_sharpe": 1.74
         },
         "M15": {
-          "n": 235,
+          "n": 239,
           "passes": 0,
-          "avg_sharpe": -4.78,
+          "avg_sharpe": -4.81,
           "best_sharpe": 0.0
         },
         "M30": {
@@ -2749,15 +2749,15 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -2.18,
+          "avg_sharpe": -1.95,
           "best_sharpe": -1.24
         },
         "H4": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -0.74,
+          "avg_sharpe": -0.91,
           "best_sharpe": 0.12
         },
         "M15": {
@@ -2799,9 +2799,9 @@
           "best_sharpe": 1.69
         },
         "M15": {
-          "n": 280,
+          "n": 282,
           "passes": 0,
-          "avg_sharpe": -2.82,
+          "avg_sharpe": -2.83,
           "best_sharpe": 0.0
         },
         "M30": {
