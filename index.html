@@ -326,7 +326,7 @@ table .neg { color: var(--red); }
     <h1>FX Research Lab — Live-Readiness Report</h1>
     <div class="sub">OANDA FX strategy validation · 9 majors · 15m + 1h · read-only against broker · <a href="strategies.html" style="color:var(--accent);text-decoration:none">Strategies page →</a></div>
   </div>
-  <div class='ts'>Generated 2026-06-24T16:04:09Z<br>Branch main · commit <code>732a7b0</code><br>Data range: through 2026-06-24T13:49:46Z (parquet bar counts: D=200, H1=9000, H4=1000, M15=18000, M30=9000, M5=50000)</div>
+  <div class='ts'>Generated 2026-06-25T03:41:56Z<br>Branch main · commit <code>eda7f95</code><br>Data range: through 2026-06-24T13:49:46Z (parquet bar counts: D=200, H1=9000, H4=1000, M15=18000, M30=9000, M5=50000)</div>
 </div>
 
   
@@ -342,9 +342,9 @@ table .neg { color: var(--red); }
     <span class="blk">⚠ Min forward-test duration (≥60 trading days)</span>
   </div>
   <div style="margin-top:18px;font-size:11.5px;color:var(--muted)">
-    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-24T16:04:09Z</code>
+    Report generated <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">2026-06-25T03:41:56Z</code>
     · Strategy version <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">v2-costs</code>
-    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">732a7b0</code>
+    · Git commit <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">eda7f95</code>
   </div>
 </div>
 
@@ -425,13 +425,13 @@ table .neg { color: var(--red); }
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Research variant count documented</td>
-          <td class="num">43283</td>
-          <td>43,283 backtests in lab.db — selection-bias correction needed</td>
+          <td class="num">45450</td>
+          <td>45,450 backtests in lab.db — selection-bias correction needed</td>
         </tr><tr class="gate-row">
           <td>✅</td>
           <td>Deflated Sharpe / selection-bias control</td>
-          <td class="num">38827</td>
-          <td>38827 runs have deflated_sharpe computed</td>
+          <td class="num">40317</td>
+          <td>40317 runs have deflated_sharpe computed</td>
         </tr></tbody>
   </table>
   <p class="note">Legend: ✅ pass &nbsp; ⚠️ watch &nbsp; ❌ fail &nbsp; ❔ unknown (no measurement yet). Unknown items must be promoted to pass or fail before live deployment.</p>
@@ -440,7 +440,7 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">3</span> Strategy Identity Card</h2>
   <table>
-    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 2 strategy families across 19 live-eligible runs (confluence (17), divergence_at_sr (2))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: ['M5', 'M15', 'M30', 'H1', 'H4', 'D'] · filter: —</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>732a7b0 (cycle: 2026-06-24T15:45:55Z)</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-24T13:49:46Z (parquet bar counts: D=200, H1=9000, H4=1000, M15=18000, M30=9000, M5=50000)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-24T16:04:09Z</td></tr></tbody>
+    <tbody><tr><td><b>Strategy name + version</b></td><td>v2-costs · 2 strategy families across 19 live-eligible runs (confluence (17), divergence_at_sr (2))</td></tr><tr><td><b>Pairs traded (live-eligible)</b></td><td>EUR_USD, USD_JPY, EUR_JPY</td></tr><tr><td><b>Pairs in research universe</b></td><td>EUR_USD, GBP_USD, USD_JPY, USD_CHF, AUD_USD, NZD_USD, USD_CAD, EUR_GBP, EUR_JPY</td></tr><tr><td><b>Pairs blacklisted</b></td><td>None</td></tr><tr><td><b>Timeframes</b></td><td>primary: ['M5', 'M15', 'M30', 'H1', 'H4', 'D'] · filter: —</td></tr><tr><td><b>Entry / exit logic</b></td><td>Multi-signal confluence: RSI extreme + MA cross + swing structure + 1h trend alignment. Signals carry explicit SL + TP at fixed R-multiple.</td></tr><tr><td><b>Risk per trade</b></td><td>1.0% of equity at SL distance</td></tr><tr><td><b>Min R:R (enforced)</b></td><td>Not yet documented</td></tr><tr><td><b>Stop logic</b></td><td>ATR-based SL (sl_atr_mult param, typically 1.0–2.5 × ATR)</td></tr><tr><td><b>Filters</b></td><td>1h trend EMA (50 or 100) gates 15m entries</td></tr><tr><td><b>Git commit hash</b></td><td>eda7f95 (cycle: 2026-06-25T03:41:24Z)</td></tr><tr><td><b>Config hash</b></td><td>a61d21f2552b (sha256 of params_json)</td></tr><tr><td><b>Data source</b></td><td>OANDA v20 REST (read-only candles)</td></tr><tr><td><b>Data range</b></td><td>through 2026-06-24T13:49:46Z (parquet bar counts: D=200, H1=9000, H4=1000, M15=18000, M30=9000, M5=50000)</td></tr><tr><td><b>Report timestamp</b></td><td>2026-06-25T03:41:56Z</td></tr></tbody>
   </table>
 </div>
 
@@ -449,21 +449,21 @@ table .neg { color: var(--red); }
   <p>Three <b>separate</b> slices. Never blend. The gap between backtest and forward is the headline risk signal — what you trusted vs what you got.</p>
   <div class="perf-3col"><div class="perf-block">
       <h4>Backtest (in-sample, all runs)</h4>
-      <div class="row"><span class="k">Runs</span><span class="v ">23,094</span></div><div class="row"><span class="k">Trades</span><span class="v ">4,937,121</span></div><div class="row"><span class="k">Win rate</span><span class="v ">39.3%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.55</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.61</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.65</span></div><div class="row"><span class="k">Total return</span><span class="v ">-29.4%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">34.2%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
-      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=23,094</div>
+      <div class="row"><span class="k">Runs</span><span class="v ">24,739</span></div><div class="row"><span class="k">Trades</span><span class="v ">5,565,316</span></div><div class="row"><span class="k">Win rate</span><span class="v ">39.2%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">17.56</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">16.62</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">-4.71</span></div><div class="row"><span class="k">Total return</span><span class="v ">-30.0%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">34.7%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v neg">100.0%</span></div>
+      <div class="gap-flag">OPTIMISTIC — selection bias possible · n_runs=24,739</div>
     </div><div class="perf-block">
       <h4>Out-of-Sample (forward_pass=1)</h4>
-      <div class="row"><span class="k">Runs</span><span class="v ">165</span></div><div class="row"><span class="k">Trades</span><span class="v ">8,429</span></div><div class="row"><span class="k">Win rate</span><span class="v ">56.4%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.21</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">1.00</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.53</span></div><div class="row"><span class="k">Total return</span><span class="v ">36.5%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.6%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">17.2%</span></div>
-      <div class="gap-flag">Held-out window · n_runs=165</div>
+      <div class="row"><span class="k">Runs</span><span class="v ">169</span></div><div class="row"><span class="k">Trades</span><span class="v ">8,617</span></div><div class="row"><span class="k">Win rate</span><span class="v ">56.3%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.23</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">1.02</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.54</span></div><div class="row"><span class="k">Total return</span><span class="v ">36.9%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">5.7%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">18.1%</span></div>
+      <div class="gap-flag">Held-out window · n_runs=169</div>
     </div><div class="perf-block">
       <h4>Forward-Test (live_eligible=1)</h4>
       <div class="row"><span class="k">Runs</span><span class="v ">19</span></div><div class="row"><span class="k">Trades</span><span class="v ">816</span></div><div class="row"><span class="k">Win rate</span><span class="v ">63.9%</span></div><div class="row"><span class="k">Profit factor</span><span class="v pos">2.23</span></div><div class="row"><span class="k">Expectancy (R)</span><span class="v ">0.65</span></div><div class="row"><span class="k">Sharpe</span><span class="v ">2.57</span></div><div class="row"><span class="k">Total return</span><span class="v ">23.4%</span></div><div class="row"><span class="k">Avg max DD</span><span class="v ">3.6%</span></div><div class="row"><span class="k">Worst max DD</span><span class="v ">4.9%</span></div>
-      <div class="gap-flag">BT Sharpe -4.65 → FWD Sharpe 2.57 (Δ = -7.22)</div>
+      <div class="gap-flag">BT Sharpe -4.71 → FWD Sharpe 2.57 (Δ = -7.27)</div>
     </div></div>
   <div class="note">
           <b>Rolling 30-day OOS (last 30 days):</b>
-          1408 windows ·
-          avg Sharpe 5.98 ·
+          1567 windows ·
+          avg Sharpe 5.91 ·
           avg return 3.3% ·
           avg max DD 1.3% ·
           avg WR 73.2%
@@ -476,7 +476,7 @@ table .neg { color: var(--red); }
           cumulative PnL +0.00 ·
           1 still open
         </div>
-  <p class="note">Walk-forward passers (rolling OOS stability): <b>113</b> runs · avg Sharpe <b>2.61</b> · avg PF <b>2.33</b> · worst DD <b>8.2%</b></p>
+  <p class="note">Walk-forward passers (rolling OOS stability): <b>118</b> runs · avg Sharpe <b>2.63</b> · avg PF <b>2.36</b> · worst DD <b>8.2%</b></p>
 </div>
 <div class="sec">
           <h2><span class="num">4b</span> Equity Curve & Drawdown</h2>
@@ -502,7 +502,7 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+53.9%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">3734 runs</span>
+    <span class="badge">3745 runs</span>
     <span class="badge pass">451 pass</span>
     <span class="badge" style="font-size:10px">44% WR</span>
   </div>
@@ -522,8 +522,8 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+72.3%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">3972 runs</span>
-    <span class="badge pass">691 pass</span>
+    <span class="badge">3977 runs</span>
+    <span class="badge pass">692 pass</span>
     <span class="badge" style="font-size:10px">43% WR</span>
   </div>
   <div class="strat-pairs">live: EUR_JPY, EUR_USD</div>
@@ -542,8 +542,8 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+31.4%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">5433 runs</span>
-    <span class="badge pass">204 pass</span>
+    <span class="badge">5442 runs</span>
+    <span class="badge pass">205 pass</span>
     <span class="badge" style="font-size:10px">50% WR</span>
   </div>
   
@@ -562,7 +562,7 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+25.7%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">5417 runs</span>
+    <span class="badge">5426 runs</span>
     <span class="badge pass">127 pass</span>
     <span class="badge" style="font-size:10px">34% WR</span>
   </div>
@@ -582,7 +582,7 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+30.1%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">5673 runs</span>
+    <span class="badge">5685 runs</span>
     <span class="badge pass">63 pass</span>
     <span class="badge" style="font-size:10px">31% WR</span>
   </div>
@@ -602,7 +602,7 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+20.1%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">2340 runs</span>
+    <span class="badge">2356 runs</span>
     <span class="badge pass">7 pass</span>
     <span class="badge" style="font-size:10px">38% WR</span>
   </div>
@@ -622,7 +622,7 @@ table .neg { color: var(--red); }
     <div class="kpi"><div class="k">Best Return</div><div class="v">+13.3%</div></div>
   </div>
   <div class="strat-foot">
-    <span class="badge">2264 runs</span>
+    <span class="badge">2280 runs</span>
     <span class="badge pass">3 pass</span>
     <span class="badge" style="font-size:10px">37% WR</span>
   </div>
@@ -640,7 +640,7 @@ table .neg { color: var(--red); }
   </div>
 </div>
 
-<script id="strat-payload" type="application/json">[{"strategy_id": "confluence", "n_runs": 3734, "n_pass": 451, "n_fwd_pass": 75, "n_live": 17, "best_sharpe": 5.251548103733373, "best_oos": 3.2992637410246872, "best_run_id": 20396, "best_pair": "EUR_USD", "equity": [10000.0, 10091.646468649022, 10180.41671122934, 10262.924970360076, 10150.125138421821, 10038.699833250905, 10128.13310498463, 10217.311686065606, 10305.99008962393, 10399.566330017571, 10480.180498004976, 10575.696989237857, 10657.508900181354, 10746.884402604448, 10827.176396595678, 10922.032853562427, 11016.753302573536, 10894.813467940652, 10773.272153335747, 10860.42854401119, 10958.814881075992, 11048.309621121554, 11143.908217091554, 11237.969925631733, 11343.103729911662, 11218.52011287879, 11318.423359824192, 11422.610569303346, 11522.82303273358, 11627.601568253633, 11733.295831469924, 11837.752080549946, 11941.24394779706, 12029.27961144483, 12137.84607932271, 12245.47080279156, 12099.942200244117, 12201.006717793553, 12312.564510124408, 12407.349334524491, 12507.088842769246, 12619.651266422132]}, {"strategy_id": "divergence_at_sr", "n_runs": 3972, "n_pass": 691, "n_fwd_pass": 94, "n_live": 2, "best_sharpe": 4.22357128370216, "best_oos": 3.5593042643667303, "best_run_id": 11875, "best_pair": "EUR_USD", "equity": [10000.0, 9877.037800700087, 10058.845958531758, 10236.023767883415, 10428.815083273512, 10618.88477733169, 10811.347902336067, 10998.392954010695, 11190.818829467671, 11040.612582409078, 10891.993316362192, 11074.204934527095, 10941.597729188768, 11117.402856311117, 11305.58397477092, 11165.492103600222, 11351.637546285041, 11216.578080743719, 11412.02973890538, 11273.733860158942, 11479.846987526756, 11687.956967860604, 11891.026573599645, 12106.620994894289, 11971.297127623578, 12185.358769018569, 12273.721158207181, 12132.391277542423, 12352.696362097504, 12571.373090974645, 12785.178044259908, 13017.955316129894, 13262.101425404473, 13489.443659587709, 13719.726414468885, 13958.749785486234, 13926.074818775394, 13764.478418781038, 14007.247539911008]}, {"strategy_id": "mean_reversion", "n_runs": 5433, "n_pass": 204, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.3737218567229026, "best_oos": 2.399750780335408, "best_run_id": 44654, "best_pair": "USD_JPY", "equity": [10000.0, 9894.45866583019, 10010.953861815296, 10129.930106745458, 10250.616759488674, 10371.093734949938, 10262.490144782738, 10340.847231419606, 10231.701626493861, 10121.957229161713, 10242.314324855648, 10362.197457272314, 10251.270280929732, 10373.398183774176, 10262.331294301679, 10153.062353306128, 10048.24393472377, 10168.168771833947, 10289.595132452712, 10412.988491931188, 10535.609587997778, 10423.451167895237, 10312.14099152353, 10431.188250111143, 10557.537032245873, 10682.189824981479, 10806.716745337313, 10917.827516667154, 11006.086186752467, 10882.830162227427, 11004.988620366934, 11119.31856523337, 11225.098471905838, 11346.163059911434, 11481.829827469608]}, {"strategy_id": "squeeze_breakout", "n_runs": 5417, "n_pass": 127, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.0762799588498453, "best_oos": 0.8822592202861123, "best_run_id": 27929, "best_pair": "USD_JPY", "equity": [10000.0, 10240.324567136977, 10131.618921639285, 10377.20079767185, 10264.072809457257, 10150.363418093522, 10396.201758028568, 10279.772510295443, 10159.918410400634, 10402.466997380156, 10649.06819973351, 10904.273569158771, 10783.499099126135, 10666.038270795914, 10545.87161222325, 10425.059531134375, 10667.569050785438, 10552.512187440776, 10435.270545723675, 10322.28768988448, 10209.286105267394, 10098.962114542745, 10339.941741807657, 10229.213559304486, 10121.256304483866, 10362.74211746552, 10613.291568641698, 10870.890088585007, 11133.969987226978, 11009.696388109365, 11276.290930318237, 11146.532494363793, 11408.4195648794, 11282.998070819782, 11156.533150176034, 11020.742176757194, 11285.581748121476, 11560.55205433814, 11580.820306141804, 11848.89642649997, 11714.254414838206, 11969.565997631262, 12244.741449537201, 12523.352458339268]}, {"strategy_id": "value_area_breakout", "n_runs": 5673, "n_pass": 63, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 1.5218850362960412, "best_oos": null, "best_run_id": 15470, "best_pair": "EUR_USD", "equity": [10000.0, 9887.985574557999, 9781.025518664599, 10014.954916411192, 10256.194314139955, 10502.212335023229, 10382.664346490263, 10631.83906621509, 10508.34551548363, 10388.693924766045, 10266.150075356178, 10151.643176709766, 10038.012018880987, 9928.766857307615, 10160.885373814568, 10042.258663434013, 10282.184251550967, 10170.219641729818, 10050.252387691693, 10121.906574802682, 10362.969503512406, 10243.085009997836, 10484.480123848469, 10717.630223598399, 10598.23298279337, 10855.432385351705, 10730.18398622292, 10982.820330866161, 10856.903013443003, 10729.127974509856, 10980.9498733049, 11227.88908097955, 11092.765698992554, 11356.31127863913, 11220.783126602615, 11479.327436908616, 11350.383598258675, 11209.470841836284, 11473.130183668023, 11745.33938775548, 11608.533886407222, 11888.115455652367, 12172.558999852641, 12039.500147532042, 12330.87228812602, 12616.68226053825, 12904.707000611781, 13210.885714575235, 13053.950270988167, 12904.31815438844, 12749.996517461348, 12603.099330704008, 12464.690801332852, 12764.922660284265, 13076.351523381449, 12938.047259496141, 12796.51401537294, 12658.348742124195, 12957.973500373657, 12820.463962624231, 12682.350610217456, 12728.684608828684, 12590.684277185965, 12449.893320262969, 12306.978353241584, 12604.301030863988, 12468.91343647462, 12768.088139061001, 12617.564864949321, 12914.21389031278, 13222.626168535258, 13072.505828018293, 13376.11415780415, 13696.544225093598, 13547.567725390407, 13508.318009140427, 13342.998249630054, 13657.393496238315, 13499.416484936419, 13344.534367943226, 13648.98428426939, 13496.35022190313, 13343.605219020012, 13652.158963571037, 13493.69561114247, 13792.499657706778, 13630.342139162689, 13480.473248477903, 13331.312130981154, 13174.466933675416, 13021.134840592695, 12860.09895841235, 12708.773190680808, 13014.45986110923, 12857.985761111186, 12713.94615994283, 13014.269945776969]}, {"strategy_id": "volume_nodes", "n_runs": 2340, "n_pass": 7, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 1.1290031017202495, "best_oos": null, "best_run_id": 44592, "best_pair": "USD_JPY", "equity": [10000.0, 9895.407858472248, 9791.85463857116, 9983.2012194737, 9878.710534582147, 9775.439061939842, 9966.459263169765, 10161.634319249322, 10360.21687606677, 10251.890157756556, 10452.32005948755, 10656.279037581075, 10545.474722023811, 10435.76222614336, 10326.98651177487, 10219.151052635769, 10418.473277480176, 10621.488317964855, 10829.281445277242, 11041.777210780363, 10928.012265609474, 11142.594449695871, 11361.292999595773, 11244.679646116512, 11127.91280219639, 11346.627347830183, 11569.060413857413, 11795.674306207457, 11673.408762916613, 11902.455757651187, 11777.823412552898, 11654.358887783108, 11532.896410672127, 11411.838381763919, 11634.830618378452, 11862.63165317801, 11738.433215570556, 11966.812688772363, 11840.6891941309, 12070.613223955092, 12306.817468279933, 12176.83774376383, 12048.390653896755, 11920.832571010627, 11794.18935239468, 11669.517800472395, 11897.19899650719, 11770.952918648472, 11646.057805320283, 11522.50356677359, 11399.425720512123, 11620.025777330202, 11492.060802297572, 11364.954373780423, 11580.144390743208, 11454.718143552418, 11331.531590816918, 11208.93212189181, 11422.613026983612]}, {"strategy_id": "breakout", "n_runs": 2264, "n_pass": 3, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 0.7695669692148284, "best_oos": null, "best_run_id": 45194, "best_pair": "USD_CAD", "equity": [10000.0, 9886.897288475186, 10075.15508593871, 10266.039895001746, 10154.89588157957, 10345.53117177595, 10231.700487668759, 10426.676733499855, 10347.601006564237, 10442.645850533348, 10328.15592690159, 10523.375864211692, 10405.420799541158, 10602.871017553873, 10804.29249461464, 10687.178392217425, 10891.314965882753, 11097.888983064411, 10975.57394841813, 10851.333539750984, 10731.584768101999, 10934.11067980735, 10814.336219928417, 10697.242092337725, 10899.229209560315, 11106.49669706658, 10986.42455661173, 11197.053695157596, 11413.461314173761, 11293.229101116125, 11175.24188859582, 11055.650263704789, 10936.859182192986, 11147.052727097886, 11025.560588593467, 10905.631463673482, 10786.296895301753, 10666.588397985432, 10551.029888671568, 10438.40513205175, 10324.168415581735, 10209.44094939736, 10100.813893514649, 9994.032488767309, 9888.76691504454, 9785.09787247711, 9870.001003446618, 10059.090615293455, 9951.04449824364, 9842.164202064094, 9736.629910345258, 9921.272003584514, 10109.3885982127, 10301.693034770295, 10189.145452662944, 10271.608830032881, 10159.128915456004, 10048.755732723639, 10240.605346976943, 10125.13750309276, 10317.114004692272, 10508.790484104109, 10706.25858479294, 10587.614834836435, 10788.269802261359, 10995.84583485183, 10873.565618750396, 10754.443380047484, 10633.364792378514, 10830.92936114817, 10708.365705225855, 10586.773714811981, 10467.46667356696, 10581.375154953621, 10778.263655293957, 10657.831718000873, 10772.204681671905, 10974.289089259319, 10849.33173007367, 10952.712225522058, 11158.650383326822, 11034.760281965413]}]</script>
+<script id="strat-payload" type="application/json">[{"strategy_id": "confluence", "n_runs": 3745, "n_pass": 451, "n_fwd_pass": 75, "n_live": 17, "best_sharpe": 5.251548103733373, "best_oos": 3.2992637410246872, "best_run_id": 20396, "best_pair": "EUR_USD", "equity": [10000.0, 10091.646468649022, 10180.41671122934, 10262.924970360076, 10150.125138421821, 10038.699833250905, 10128.13310498463, 10217.311686065606, 10305.99008962393, 10399.566330017571, 10480.180498004976, 10575.696989237857, 10657.508900181354, 10746.884402604448, 10827.176396595678, 10922.032853562427, 11016.753302573536, 10894.813467940652, 10773.272153335747, 10860.42854401119, 10958.814881075992, 11048.309621121554, 11143.908217091554, 11237.969925631733, 11343.103729911662, 11218.52011287879, 11318.423359824192, 11422.610569303346, 11522.82303273358, 11627.601568253633, 11733.295831469924, 11837.752080549946, 11941.24394779706, 12029.27961144483, 12137.84607932271, 12245.47080279156, 12099.942200244117, 12201.006717793553, 12312.564510124408, 12407.349334524491, 12507.088842769246, 12619.651266422132]}, {"strategy_id": "divergence_at_sr", "n_runs": 3977, "n_pass": 692, "n_fwd_pass": 94, "n_live": 2, "best_sharpe": 4.22357128370216, "best_oos": 3.5593042643667303, "best_run_id": 11875, "best_pair": "EUR_USD", "equity": [10000.0, 9877.037800700087, 10058.845958531758, 10236.023767883415, 10428.815083273512, 10618.88477733169, 10811.347902336067, 10998.392954010695, 11190.818829467671, 11040.612582409078, 10891.993316362192, 11074.204934527095, 10941.597729188768, 11117.402856311117, 11305.58397477092, 11165.492103600222, 11351.637546285041, 11216.578080743719, 11412.02973890538, 11273.733860158942, 11479.846987526756, 11687.956967860604, 11891.026573599645, 12106.620994894289, 11971.297127623578, 12185.358769018569, 12273.721158207181, 12132.391277542423, 12352.696362097504, 12571.373090974645, 12785.178044259908, 13017.955316129894, 13262.101425404473, 13489.443659587709, 13719.726414468885, 13958.749785486234, 13926.074818775394, 13764.478418781038, 14007.247539911008]}, {"strategy_id": "mean_reversion", "n_runs": 5442, "n_pass": 205, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.3737218567229026, "best_oos": 2.399750780335408, "best_run_id": 44654, "best_pair": "USD_JPY", "equity": [10000.0, 9894.45866583019, 10010.953861815296, 10129.930106745458, 10250.616759488674, 10371.093734949938, 10262.490144782738, 10340.847231419606, 10231.701626493861, 10121.957229161713, 10242.314324855648, 10362.197457272314, 10251.270280929732, 10373.398183774176, 10262.331294301679, 10153.062353306128, 10048.24393472377, 10168.168771833947, 10289.595132452712, 10412.988491931188, 10535.609587997778, 10423.451167895237, 10312.14099152353, 10431.188250111143, 10557.537032245873, 10682.189824981479, 10806.716745337313, 10917.827516667154, 11006.086186752467, 10882.830162227427, 11004.988620366934, 11119.31856523337, 11225.098471905838, 11346.163059911434, 11481.829827469608]}, {"strategy_id": "squeeze_breakout", "n_runs": 5426, "n_pass": 127, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 2.0762799588498453, "best_oos": 0.8822592202861123, "best_run_id": 27929, "best_pair": "USD_JPY", "equity": [10000.0, 10240.324567136977, 10131.618921639285, 10377.20079767185, 10264.072809457257, 10150.363418093522, 10396.201758028568, 10279.772510295443, 10159.918410400634, 10402.466997380156, 10649.06819973351, 10904.273569158771, 10783.499099126135, 10666.038270795914, 10545.87161222325, 10425.059531134375, 10667.569050785438, 10552.512187440776, 10435.270545723675, 10322.28768988448, 10209.286105267394, 10098.962114542745, 10339.941741807657, 10229.213559304486, 10121.256304483866, 10362.74211746552, 10613.291568641698, 10870.890088585007, 11133.969987226978, 11009.696388109365, 11276.290930318237, 11146.532494363793, 11408.4195648794, 11282.998070819782, 11156.533150176034, 11020.742176757194, 11285.581748121476, 11560.55205433814, 11580.820306141804, 11848.89642649997, 11714.254414838206, 11969.565997631262, 12244.741449537201, 12523.352458339268]}, {"strategy_id": "value_area_breakout", "n_runs": 5685, "n_pass": 63, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 1.5218850362960412, "best_oos": null, "best_run_id": 15470, "best_pair": "EUR_USD", "equity": [10000.0, 9887.985574557999, 9781.025518664599, 10014.954916411192, 10256.194314139955, 10502.212335023229, 10382.664346490263, 10631.83906621509, 10508.34551548363, 10388.693924766045, 10266.150075356178, 10151.643176709766, 10038.012018880987, 9928.766857307615, 10160.885373814568, 10042.258663434013, 10282.184251550967, 10170.219641729818, 10050.252387691693, 10121.906574802682, 10362.969503512406, 10243.085009997836, 10484.480123848469, 10717.630223598399, 10598.23298279337, 10855.432385351705, 10730.18398622292, 10982.820330866161, 10856.903013443003, 10729.127974509856, 10980.9498733049, 11227.88908097955, 11092.765698992554, 11356.31127863913, 11220.783126602615, 11479.327436908616, 11350.383598258675, 11209.470841836284, 11473.130183668023, 11745.33938775548, 11608.533886407222, 11888.115455652367, 12172.558999852641, 12039.500147532042, 12330.87228812602, 12616.68226053825, 12904.707000611781, 13210.885714575235, 13053.950270988167, 12904.31815438844, 12749.996517461348, 12603.099330704008, 12464.690801332852, 12764.922660284265, 13076.351523381449, 12938.047259496141, 12796.51401537294, 12658.348742124195, 12957.973500373657, 12820.463962624231, 12682.350610217456, 12728.684608828684, 12590.684277185965, 12449.893320262969, 12306.978353241584, 12604.301030863988, 12468.91343647462, 12768.088139061001, 12617.564864949321, 12914.21389031278, 13222.626168535258, 13072.505828018293, 13376.11415780415, 13696.544225093598, 13547.567725390407, 13508.318009140427, 13342.998249630054, 13657.393496238315, 13499.416484936419, 13344.534367943226, 13648.98428426939, 13496.35022190313, 13343.605219020012, 13652.158963571037, 13493.69561114247, 13792.499657706778, 13630.342139162689, 13480.473248477903, 13331.312130981154, 13174.466933675416, 13021.134840592695, 12860.09895841235, 12708.773190680808, 13014.45986110923, 12857.985761111186, 12713.94615994283, 13014.269945776969]}, {"strategy_id": "volume_nodes", "n_runs": 2356, "n_pass": 7, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 1.1290031017202495, "best_oos": null, "best_run_id": 44592, "best_pair": "USD_JPY", "equity": [10000.0, 9895.407858472248, 9791.85463857116, 9983.2012194737, 9878.710534582147, 9775.439061939842, 9966.459263169765, 10161.634319249322, 10360.21687606677, 10251.890157756556, 10452.32005948755, 10656.279037581075, 10545.474722023811, 10435.76222614336, 10326.98651177487, 10219.151052635769, 10418.473277480176, 10621.488317964855, 10829.281445277242, 11041.777210780363, 10928.012265609474, 11142.594449695871, 11361.292999595773, 11244.679646116512, 11127.91280219639, 11346.627347830183, 11569.060413857413, 11795.674306207457, 11673.408762916613, 11902.455757651187, 11777.823412552898, 11654.358887783108, 11532.896410672127, 11411.838381763919, 11634.830618378452, 11862.63165317801, 11738.433215570556, 11966.812688772363, 11840.6891941309, 12070.613223955092, 12306.817468279933, 12176.83774376383, 12048.390653896755, 11920.832571010627, 11794.18935239468, 11669.517800472395, 11897.19899650719, 11770.952918648472, 11646.057805320283, 11522.50356677359, 11399.425720512123, 11620.025777330202, 11492.060802297572, 11364.954373780423, 11580.144390743208, 11454.718143552418, 11331.531590816918, 11208.93212189181, 11422.613026983612]}, {"strategy_id": "breakout", "n_runs": 2280, "n_pass": 3, "n_fwd_pass": 0, "n_live": 0, "best_sharpe": 0.7695669692148284, "best_oos": null, "best_run_id": 45194, "best_pair": "USD_CAD", "equity": [10000.0, 9886.897288475186, 10075.15508593871, 10266.039895001746, 10154.89588157957, 10345.53117177595, 10231.700487668759, 10426.676733499855, 10347.601006564237, 10442.645850533348, 10328.15592690159, 10523.375864211692, 10405.420799541158, 10602.871017553873, 10804.29249461464, 10687.178392217425, 10891.314965882753, 11097.888983064411, 10975.57394841813, 10851.333539750984, 10731.584768101999, 10934.11067980735, 10814.336219928417, 10697.242092337725, 10899.229209560315, 11106.49669706658, 10986.42455661173, 11197.053695157596, 11413.461314173761, 11293.229101116125, 11175.24188859582, 11055.650263704789, 10936.859182192986, 11147.052727097886, 11025.560588593467, 10905.631463673482, 10786.296895301753, 10666.588397985432, 10551.029888671568, 10438.40513205175, 10324.168415581735, 10209.44094939736, 10100.813893514649, 9994.032488767309, 9888.76691504454, 9785.09787247711, 9870.001003446618, 10059.090615293455, 9951.04449824364, 9842.164202064094, 9736.629910345258, 9921.272003584514, 10109.3885982127, 10301.693034770295, 10189.145452662944, 10271.608830032881, 10159.128915456004, 10048.755732723639, 10240.605346976943, 10125.13750309276, 10317.114004692272, 10508.790484104109, 10706.25858479294, 10587.614834836435, 10788.269802261359, 10995.84583485183, 10873.565618750396, 10754.443380047484, 10633.364792378514, 10830.92936114817, 10708.365705225855, 10586.773714811981, 10467.46667356696, 10581.375154953621, 10778.263655293957, 10657.831718000873, 10772.204681671905, 10974.289089259319, 10849.33173007367, 10952.712225522058, 11158.650383326822, 11034.760281965413]}]</script>
 <script>
 (function() {
   var DATA = JSON.parse(document.getElementById('strat-payload').textContent);
@@ -739,12 +739,12 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">6</span> Statistical Confidence</h2>
   <div class="grid-4">
-    <div class="stat"><div class="k">Variants tested</div><div class="v">43,283</div><div class="s">backtests in lab.db</div></div>
-    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">38,827</div><div class="s">with selection-bias correction</div></div>
+    <div class="stat"><div class="k">Variants tested</div><div class="v">45,450</div><div class="s">backtests in lab.db</div></div>
+    <div class="stat"><div class="k">Deflated Sharpe runs</div><div class="v">40,317</div><div class="s">with selection-bias correction</div></div>
     <div class="stat"><div class="k">Std Sharpe (forward)</div><div class="v">2.57</div><div class="s">avg across live-eligible</div></div>
     <div class="stat"><div class="k">Avg Deflated Sharpe</div><div class="v">1.00</div><div class="s">live-eligible</div></div>
   </div>
-  <p style="margin-top:14px"><b>Track record:</b> 816 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 38,827 of 43,283 variants.</p>
+  <p style="margin-top:14px"><b>Track record:</b> 816 trades on live-eligible runs. Selection-bias correction (deflated Sharpe) computed for 40,317 of 45,450 variants.</p>
   <p class="note"><b>Why this matters:</b> Because many variants may be tested during research, a high Sharpe alone is insufficient. The number of trials must be logged and selection-bias correction (deflated Sharpe) applied before promoting to live. The current system logs every variant and computes deflated Sharpe on all 10 live-eligible runs.</p>
 </div>
 
@@ -784,7 +784,7 @@ table .neg { color: var(--red); }
 
 <div class="sec">
   <h2><span class="num">8</span> OANDA Reconciliation</h2>
-  <table><tbody><tr><td><b>Open positions (local)</b></td><td>1</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>1</td></tr><tr><td><b>Fills without signal</b></td><td>1</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-24T15:57:01Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge warn">watch</span></td></tr></tbody></table>
+  <table><tbody><tr><td><b>Open positions (local)</b></td><td>1</td></tr><tr><td><b>Orphan trades (no matching signal)</b></td><td>1</td></tr><tr><td><b>Fills without signal</b></td><td>1</td></tr><tr><td><b>Last signal timestamp</b></td><td>2026-06-25T03:20:50Z</td></tr><tr><td><b>OANDA state compared?</b></td><td>No — paper_track never calls OANDA order endpoints</td></tr><tr><td><b>Local-state verdict</b></td><td><span class="badge warn">watch</span></td></tr></tbody></table>
   <p class="note"><b>Major blocker for live promotion.</b> True broker reconciliation requires comparing local open positions to OANDA's <code>/v3/accounts/{{accountId}}/openTrades</code> endpoint. Currently <b>not implemented</b> — the system only reads candle data, never order/account state.</p>
 </div>
 
@@ -912,19 +912,19 @@ table .neg { color: var(--red); }
 <div class="sec">
   <h2><span class="num">13</span> Report Metadata + Changelog</h2>
   <table>
-    <tr><td><b>Report generated</b></td><td>2026-06-24T16:04:09Z</td></tr>
+    <tr><td><b>Report generated</b></td><td>2026-06-25T03:41:56Z</td></tr>
     <tr><td><b>Data through</b></td><td>through 2026-06-24T13:49:46Z (parquet bar counts: D=200, H1=9000, H4=1000, M15=18000, M30=9000, M5=50000)</td></tr>
     <tr><td><b>Strategy version</b></td><td>v2-costs</td></tr>
-    <tr><td><b>Git commit</b></td><td><code>732a7b0</code> · cycle: 2026-06-24T15:45:55Z · 2026-06-24T15:45:55+00:00</td></tr>
+    <tr><td><b>Git commit</b></td><td><code>eda7f95</code> · cycle: 2026-06-25T03:41:24Z · 2026-06-25T03:41:24+00:00</td></tr>
     <tr><td><b>Branch</b></td><td>main · dirty = True</td></tr>
   </table>
   <p style="margin-top:14px"><b>Recent commits (last 10):</b></p>
-  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>732a7b0</code> cycle: 2026-06-24T15:45:55Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>78b73a5</code> cycle: 2026-06-24T15:18:53Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>18f95a4</code> cycle: 2026-06-24T15:16:16Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>6e0a496</code> cycle: 2026-06-24T15:15:17Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>2c5b3f3</code> cycle: 2026-06-24T14:54:50Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>8d21474</code> cycle: 2026-06-24T14:18:55Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>2afd049</code> cycle: 2026-06-24T14:14:47Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>246bf12</code> P4 + P6: live_runner candle dedup + SQL-native Pareto update</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>c31a8ab</code> cycle: 2026-06-24T13:46:09Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>4a54668</code> cycle: 2026-06-24T13:18:55Z</li></ol>
+  <ol style="padding-left:20px;font-size:12px;color:var(--dim);line-height:1.7;margin-top:6px"><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>eda7f95</code> cycle: 2026-06-25T03:41:24Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>559054e</code> cycle: 2026-06-25T03:33:01Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>1956e78</code> cycle: 2026-06-25T03:04:41Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>3f7f384</code> cycle: 2026-06-25T02:34:03Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>8ecb654</code> cycle: 2026-06-25T02:33:16Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>da2fcec</code> cycle: 2026-06-25T02:12:14Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>3bb9b43</code> lab-cycle-4247: regenerate timeframe_matrix (396 cells, +29 from yesterday)</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>2b7bb98</code> cycle: 2026-06-25T02:05:52Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>b7e6fcd</code> cycle: 2026-06-25T01:34:39Z</li><li><code style='background:rgba(106,166,255,0.08);padding:1px 5px;border-radius:3px'>da49729</code> cycle: 2026-06-25T01:33:46Z</li></ol>
 </div>
 
   
 <div class="foot">
-  FX Research Lab · deployment-readiness report v2 · 2026-06-24T16:04:09Z<br>
+  FX Research Lab · deployment-readiness report v2 · 2026-06-25T03:41:56Z<br>
   Read-only against OANDA candles · no live orders · this document is the operator's go/no-go reference<br>
   <a href="https://tyler109j.github.io/lab-report/" style="color:var(--accent);text-decoration:none">tyler109j.github.io/lab-report</a>
 </div>
