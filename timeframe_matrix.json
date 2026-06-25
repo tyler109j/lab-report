@@ -1,5 +1,5 @@
 {
-  "generated_ts": "2026-06-25T05:10:15Z",
+  "generated_ts": "2026-06-25T05:31:41Z",
   "tfs": [
     "M5",
     "M15",
@@ -38,7 +38,7 @@
     "breakout": {
       "AUD_USD": {
         "D": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -56,9 +56,9 @@
           "best_sharpe": 0.68
         },
         "M15": {
-          "n": 363,
+          "n": 366,
           "passes": 0,
-          "avg_sharpe": -4.48,
+          "avg_sharpe": -4.49,
           "best_sharpe": -0.68
         },
         "M30": {
@@ -100,9 +100,9 @@
           "best_sharpe": -3.8
         },
         "M30": {
-          "n": 5,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": -4.45,
+          "avg_sharpe": -4.34,
           "best_sharpe": -3.42
         },
         "M5": {
@@ -158,7 +158,7 @@
           "best_sharpe": 0.74
         },
         "M15": {
-          "n": 189,
+          "n": 190,
           "passes": 0,
           "avg_sharpe": -3.03,
           "best_sharpe": -0.78
@@ -190,9 +190,9 @@
           "best_sharpe": -1.32
         },
         "H4": {
-          "n": 2,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -0.28,
+          "avg_sharpe": -0.45,
           "best_sharpe": 0.4
         },
         "M15": {
@@ -202,9 +202,9 @@
           "best_sharpe": 0.47
         },
         "M30": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -1.8,
+          "avg_sharpe": -1.69,
           "best_sharpe": -0.7
         },
         "M5": {
@@ -222,9 +222,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -1.23,
+          "avg_sharpe": -1.19,
           "best_sharpe": -0.39
         },
         "H4": {
@@ -234,15 +234,15 @@
           "best_sharpe": -0.13
         },
         "M15": {
-          "n": 367,
+          "n": 371,
           "passes": 0,
-          "avg_sharpe": -4.76,
+          "avg_sharpe": -4.78,
           "best_sharpe": -0.77
         },
         "M30": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -2.16,
+          "avg_sharpe": -2.29,
           "best_sharpe": -1.01
         },
         "M5": {
@@ -266,9 +266,9 @@
           "best_sharpe": 0.77
         },
         "H4": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": 1.51,
+          "avg_sharpe": 1.53,
           "best_sharpe": 2.95
         },
         "M15": {
@@ -297,6 +297,12 @@
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
+        "H1": {
+          "n": 1,
+          "passes": 0,
+          "avg_sharpe": 0.1,
+          "best_sharpe": 0.1
+        },
         "M15": {
           "n": 106,
           "passes": 0,
@@ -318,9 +324,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -0.61,
+          "avg_sharpe": -0.67,
           "best_sharpe": 0.41
         },
         "H4": {
@@ -330,21 +336,21 @@
           "best_sharpe": 0.35
         },
         "M15": {
-          "n": 238,
+          "n": 239,
           "passes": 0,
-          "avg_sharpe": -2.01,
+          "avg_sharpe": -2.02,
           "best_sharpe": -0.17
         },
         "M30": {
-          "n": 13,
+          "n": 14,
           "passes": 0,
-          "avg_sharpe": -1.18,
+          "avg_sharpe": -1.19,
           "best_sharpe": -0.15
         },
         "M5": {
-          "n": 4,
+          "n": 5,
           "passes": 0,
-          "avg_sharpe": -6.08,
+          "avg_sharpe": -6.16,
           "best_sharpe": -4.71
         }
       }
@@ -390,7 +396,7 @@
       },
       "EUR_GBP": {
         "D": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -530,9 +536,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 4,
+          "n": 5,
           "passes": 1,
-          "avg_sharpe": -0.73,
+          "avg_sharpe": -1.12,
           "best_sharpe": 0.84
         },
         "H4": {
@@ -568,9 +574,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 4,
+          "n": 5,
           "passes": 0,
-          "avg_sharpe": -1.01,
+          "avg_sharpe": -1.13,
           "best_sharpe": 0.2
         },
         "M15": {
@@ -612,7 +618,7 @@
           "best_sharpe": 11.88
         },
         "M30": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.97,
           "best_sharpe": 0.97
@@ -644,8 +650,8 @@
           "best_sharpe": 144.29
         },
         "M15": {
-          "n": 383,
-          "passes": 95,
+          "n": 384,
+          "passes": 96,
           "avg_sharpe": 0.3,
           "best_sharpe": 2.56
         },
@@ -710,9 +716,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 6,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -27.81,
+          "avg_sharpe": -304.64,
           "best_sharpe": 1.37
         },
         "H4": {
@@ -722,8 +728,8 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 638,
-          "passes": 38,
+          "n": 639,
+          "passes": 39,
           "avg_sharpe": 0.63,
           "best_sharpe": 507.37
         },
@@ -734,9 +740,9 @@
           "best_sharpe": 3.89
         },
         "M5": {
-          "n": 9,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": -4.57,
+          "avg_sharpe": -4.75,
           "best_sharpe": 0.0
         }
       },
@@ -1226,9 +1232,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": 131.94,
+          "avg_sharpe": 151.76,
           "best_sharpe": 725.28
         },
         "H4": {
@@ -1276,16 +1282,16 @@
           "best_sharpe": 7.0
         },
         "M15": {
-          "n": 881,
+          "n": 883,
           "passes": 0,
           "avg_sharpe": -4.76,
           "best_sharpe": 0.72
         },
         "M30": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -2.54,
-          "best_sharpe": -1.18
+          "avg_sharpe": -2.24,
+          "best_sharpe": 0.13
         },
         "M5": {
           "n": 12,
@@ -1308,7 +1314,7 @@
           "best_sharpe": -0.9
         },
         "M15": {
-          "n": 345,
+          "n": 346,
           "passes": 17,
           "avg_sharpe": 0.45,
           "best_sharpe": 147.0
@@ -1378,9 +1384,9 @@
           "best_sharpe": 93.15
         },
         "H4": {
-          "n": 4,
+          "n": 5,
           "passes": 1,
-          "avg_sharpe": 0.17,
+          "avg_sharpe": 0.04,
           "best_sharpe": 0.82
         },
         "M15": {
@@ -1460,9 +1466,9 @@
           "best_sharpe": 0.4
         },
         "M15": {
-          "n": 551,
+          "n": 553,
           "passes": 5,
-          "avg_sharpe": -2.37,
+          "avg_sharpe": -2.39,
           "best_sharpe": 26.25
         },
         "M30": {
@@ -1758,7 +1764,7 @@
     "squeeze_breakout": {
       "AUD_USD": {
         "D": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -1776,9 +1782,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 784,
+          "n": 785,
           "passes": 0,
-          "avg_sharpe": -5.26,
+          "avg_sharpe": -5.25,
           "best_sharpe": 127.13
         },
         "M30": {
@@ -1802,16 +1808,16 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 11,
+          "n": 12,
           "passes": 0,
-          "avg_sharpe": -0.25,
+          "avg_sharpe": -0.35,
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 7,
+          "n": 8,
           "passes": 0,
-          "avg_sharpe": -29.07,
-          "best_sharpe": 0.0
+          "avg_sharpe": -25.39,
+          "best_sharpe": 0.36
         },
         "M15": {
           "n": 816,
@@ -1820,15 +1826,15 @@
           "best_sharpe": 35.06
         },
         "M30": {
-          "n": 11,
+          "n": 12,
           "passes": 0,
-          "avg_sharpe": -0.61,
+          "avg_sharpe": -0.56,
           "best_sharpe": 0.0
         },
         "M5": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -1.03,
+          "avg_sharpe": -1.01,
           "best_sharpe": 0.0
         }
       },
@@ -1840,9 +1846,9 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 279,
+          "n": 280,
           "passes": 18,
-          "avg_sharpe": -6.85,
+          "avg_sharpe": -6.92,
           "best_sharpe": 1.58
         },
         "M30": {
@@ -1866,9 +1872,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -13.97,
+          "avg_sharpe": -12.42,
           "best_sharpe": 2.43
         },
         "H4": {
@@ -1890,9 +1896,9 @@
           "best_sharpe": 0.28
         },
         "M5": {
-          "n": 2,
+          "n": 3,
           "passes": 0,
-          "avg_sharpe": -0.26,
+          "avg_sharpe": -1.15,
           "best_sharpe": 0.0
         }
       },
@@ -1904,9 +1910,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 10,
+          "n": 11,
           "passes": 0,
-          "avg_sharpe": -7.64,
+          "avg_sharpe": -6.95,
           "best_sharpe": 2.17
         },
         "H4": {
@@ -1916,7 +1922,7 @@
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 571,
+          "n": 572,
           "passes": 31,
           "avg_sharpe": -3.84,
           "best_sharpe": 43.77
@@ -1954,7 +1960,7 @@
           "best_sharpe": 0.21
         },
         "M15": {
-          "n": 1018,
+          "n": 1019,
           "passes": 0,
           "avg_sharpe": -2.64,
           "best_sharpe": 90.71
@@ -2062,9 +2068,9 @@
           "best_sharpe": 2.74
         },
         "H4": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": -52.04,
+          "avg_sharpe": -44.6,
           "best_sharpe": 0.0
         },
         "M15": {
@@ -2090,7 +2096,7 @@
     "value_area_breakout": {
       "AUD_USD": {
         "D": {
-          "n": 16,
+          "n": 18,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -2102,13 +2108,13 @@
           "best_sharpe": 1.0
         },
         "H4": {
-          "n": 11,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": -52.63,
+          "avg_sharpe": -52.54,
           "best_sharpe": 1.64
         },
         "M15": {
-          "n": 928,
+          "n": 929,
           "passes": 0,
           "avg_sharpe": -3.41,
           "best_sharpe": -0.46
@@ -2140,13 +2146,13 @@
           "best_sharpe": -1.28
         },
         "H4": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -17.26,
+          "avg_sharpe": -24.39,
           "best_sharpe": -0.4
         },
         "M15": {
-          "n": 886,
+          "n": 888,
           "passes": 0,
           "avg_sharpe": -5.57,
           "best_sharpe": -2.22
@@ -2204,7 +2210,7 @@
           "best_sharpe": 1.04
         },
         "M15": {
-          "n": 424,
+          "n": 425,
           "passes": 17,
           "avg_sharpe": -1.79,
           "best_sharpe": 1.52
@@ -2254,9 +2260,9 @@
           "best_sharpe": -0.43
         },
         "M5": {
-          "n": 3,
+          "n": 4,
           "passes": 0,
-          "avg_sharpe": -5.54,
+          "avg_sharpe": -5.61,
           "best_sharpe": -4.64
         }
       },
@@ -2274,21 +2280,21 @@
           "best_sharpe": 1.0
         },
         "H4": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -59.44,
+          "avg_sharpe": -68.45,
           "best_sharpe": 0.41
         },
         "M15": {
-          "n": 982,
+          "n": 984,
           "passes": 0,
           "avg_sharpe": -5.28,
           "best_sharpe": 0.0
         },
         "M30": {
-          "n": 11,
+          "n": 12,
           "passes": 0,
-          "avg_sharpe": -2.2,
+          "avg_sharpe": -2.25,
           "best_sharpe": -0.45
         },
         "M5": {
@@ -2306,9 +2312,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": -1.08,
+          "avg_sharpe": -0.99,
           "best_sharpe": 0.14
         },
         "H4": {
@@ -2318,21 +2324,21 @@
           "best_sharpe": 235.55
         },
         "M15": {
-          "n": 560,
+          "n": 562,
           "passes": 18,
           "avg_sharpe": -2.08,
           "best_sharpe": 1.07
         },
         "M30": {
-          "n": 5,
+          "n": 6,
           "passes": 0,
-          "avg_sharpe": -1.27,
+          "avg_sharpe": -1.16,
           "best_sharpe": 0.01
         },
         "M5": {
-          "n": 5,
+          "n": 6,
           "passes": 0,
-          "avg_sharpe": -6.57,
+          "avg_sharpe": -6.83,
           "best_sharpe": -5.31
         }
       },
@@ -2404,39 +2410,39 @@
     "volume_nodes": {
       "AUD_USD": {
         "D": {
-          "n": 24,
+          "n": 25,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 12,
+          "n": 13,
           "passes": 0,
-          "avg_sharpe": -2.83,
+          "avg_sharpe": -2.9,
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 9,
+          "n": 10,
           "passes": 0,
-          "avg_sharpe": -1.03,
+          "avg_sharpe": -1.13,
           "best_sharpe": 0.0
         },
         "M15": {
-          "n": 354,
+          "n": 355,
           "passes": 0,
           "avg_sharpe": -4.44,
           "best_sharpe": 0.0
         },
         "M30": {
-          "n": 6,
+          "n": 7,
           "passes": 0,
-          "avg_sharpe": -2.37,
+          "avg_sharpe": -2.46,
           "best_sharpe": 0.0
         },
         "M5": {
-          "n": 18,
+          "n": 19,
           "passes": 0,
-          "avg_sharpe": -6.36,
+          "avg_sharpe": -6.44,
           "best_sharpe": 0.0
         }
       },
@@ -2460,7 +2466,7 @@
           "best_sharpe": 1.42
         },
         "M15": {
-          "n": 301,
+          "n": 302,
           "passes": 0,
           "avg_sharpe": -6.38,
           "best_sharpe": 0.0
@@ -2480,7 +2486,7 @@
       },
       "EUR_JPY": {
         "D": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
           "avg_sharpe": 0.0,
           "best_sharpe": 0.0
@@ -2498,9 +2504,9 @@
           "best_sharpe": 0.32
         },
         "M15": {
-          "n": 111,
+          "n": 112,
           "passes": 0,
-          "avg_sharpe": -3.34,
+          "avg_sharpe": -3.31,
           "best_sharpe": 0.27
         },
         "M30": {
@@ -2562,15 +2568,15 @@
           "best_sharpe": 0.0
         },
         "H4": {
-          "n": 8,
+          "n": 9,
           "passes": 0,
-          "avg_sharpe": 0.23,
+          "avg_sharpe": 0.2,
           "best_sharpe": 1.63
         },
         "M15": {
-          "n": 225,
+          "n": 228,
           "passes": 0,
-          "avg_sharpe": -3.94,
+          "avg_sharpe": -3.93,
           "best_sharpe": 0.0
         },
         "M30": {
@@ -2638,9 +2644,9 @@
           "best_sharpe": 1.42
         },
         "H4": {
-          "n": 4,
+          "n": 5,
           "passes": 0,
-          "avg_sharpe": -1.0,
+          "avg_sharpe": -0.89,
           "best_sharpe": 0.35
         },
         "M15": {
@@ -2670,9 +2676,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 1,
+          "n": 2,
           "passes": 0,
-          "avg_sharpe": -1.24,
+          "avg_sharpe": -1.75,
           "best_sharpe": -1.24
         },
         "H4": {
@@ -2702,9 +2708,9 @@
           "best_sharpe": 0.0
         },
         "H1": {
-          "n": 13,
+          "n": 14,
           "passes": 1,
-          "avg_sharpe": -0.79,
+          "avg_sharpe": -0.91,
           "best_sharpe": 0.75
         },
         "H4": {
